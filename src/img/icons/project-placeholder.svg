@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 180 171" style="enable-background:new 0 0 180 171;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{mask:url(#path-1-inside-1_1_);fill:#F5F5F5;}
+	.st2{fill:none;stroke:#F5F5F5;stroke-width:10;}
+	.st3{fill:#F5F5F5;}
+</style>
+<defs>
+	<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="10" y="61" width="160" height="120">
+		<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+	</filter>
+</defs>
+<mask maskUnits="userSpaceOnUse" x="10" y="61" width="160" height="120" id="path-1-inside-1_1_">
+	<path class="st0" d="M160,71H20v100h140V71z M100,108H80v25h20V108z"/>
+</mask>
+<path class="st1" d="M20,71V61H10v10H20z M160,71h10V61h-10V71z M20,171H10v10h10V171z M160,171v10h10v-10H160z M80,108V98H70v10H80
+	z M100,108h10V98h-10V108z M80,133H70v10h10V133z M100,133v10h10v-10H100z M20,81h140V61H20V81z M30,171V71H10v100H30z M160,161H20
+	v20h140V161z M150,71v100h20V71H150z M80,118h20V98H80V118z M90,133v-25H70v25H90z M100,123H80v20h20V123z M90,108v25h20v-25H90z"/>
+<path class="st2" d="M4,74L91,6.5L176,74"/>
+<rect x="126" y="11" class="st3" width="10" height="26"/>
+</svg>

@@ -4,10 +4,11 @@ customScroll();
 $(document).ready(function(){
   hoverTouchEvents();
   navigation();
-  homeBanner();
+  //homeBanner();
   inputs();
   search();
   popup.init();
+  slider.init();
   //обработать изображения после инициализации слайдеров
   setTimeout(()=>{
     lazy();
@@ -16,10 +17,10 @@ $(document).ready(function(){
 
 
 const brakepoints = {
-  sm: 576,
-  md: 768,
-  lg: 992,
-  xl: 1280
+  xs: 576,
+  sm: 768,
+  md: 992,
+  lg: 1280
 }
 
 
@@ -388,5 +389,86 @@ function customScroll() {
     }
 
   })
+}
+
+let slider = {
+  el: $('.slider'),
+  init: function() {
+    slider.el.each(function () {
+      let slideCount = 1,
+          slideCountLg = 1,
+          slideCountMd = 1,
+          slideCountSm = 1,
+          slideCountXs = 1,
+          arrows = false,
+          dots = false,
+          centerMode = false,
+          adaptiveHeight = false,
+          autoplay = false,
+          nextArrow = '<button type="button" class="button button_style-1 slider__next"><svg class="icon" viewBox="0 0 12 20"><path d="M2.18 19.05L.77 17.64 8.4 10 .77 2.36 2.18.95 11.23 10l-9.05 9.05z"></path></svg></button>',
+          prevArrow = '<button type="button" class="button button_style-1 slider__prev"><svg class="icon" viewBox="0 0 12 20"><path d="M2.18 19.05L.77 17.64 8.4 10 .77 2.36 2.18.95 11.23 10l-9.05 9.05z"></path></svg></button>';
+
+      if($(this).is('.popular-projects-section__slider')) {
+        arrows = true;
+        slideCount = 2;
+        slideCountLg = 2;
+        slideCountMd = 2;
+        slideCountSm = 2;
+        slideCountXs = 1;
+      } else if($(this).is('.home-banner')) {
+        arrows = true;
+        dots = true;
+        autoplay = true;
+        nextArrow = '<button class="home-banner__arrow home-banner__next" aria-label="Next" type="button"><svg viewBox="0 0 15 26"><path d="M1.99869 0.292969L0.584473 1.70718L11.8774 13.0001L0.584472 24.293L1.99869 25.7072L14.7058 13.0001L1.99869 0.292969Z"/></svg></button>';
+        prevArrow = '<button class="home-banner__arrow home-banner__prev" aria-label="Previous" type="button"><svg viewBox="0 0 15 26"><path d="M13.286 0.292969L14.7002 1.70718L3.4073 13.0001L14.7002 24.293L13.286 25.7072L0.578877 13.0001L13.286 0.292969Z"/></svg></button>';
+      }
+
+      $(this).slick({
+        rows: 0,
+        infinite: true,
+        dots: dots,
+        arrows: arrows,
+        nextArrow: nextArrow,
+        prevArrow: prevArrow,
+        speed: 500,
+        centerMode: centerMode,
+        slidesToShow: slideCount,
+        slidesToScroll: slideCount,
+        autoplay: autoplay,
+        autoplaySpeed: 5000,
+        responsive: [{
+            breakpoint: brakepoints.lg,
+            settings: {
+              slidesToShow: slideCountLg,
+              slidesToScroll: slideCountLg
+            }
+          },
+          {
+            breakpoint: brakepoints.md,
+            settings: {
+              slidesToShow: slideCountMd,
+              slidesToScroll: slideCountMd
+            }
+          },
+          {
+            breakpoint: brakepoints.sm,
+            settings: {
+              slidesToShow: slideCountSm,
+              slidesToScroll: slideCountSm
+            }
+          },
+          {
+            breakpoint: brakepoints.xs,
+            settings: {
+              slidesToShow: slideCountXs,
+              slidesToScroll: slideCountXs
+            }
+          }
+        ]
+      });
+    
+    });
+
+  }
 }
 

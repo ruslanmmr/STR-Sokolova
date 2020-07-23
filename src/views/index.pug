@@ -44,6 +44,10 @@ block content
               svg.icon
                 use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
   
+
+
+
+
   section.section.about-us
     .background(data-src='img/about.png').lazyload.about-us__background
     .container
@@ -64,6 +68,27 @@ block content
             span.about-us-block__count-value 6
             span.about-us-block__count-label Свободных бригад
           a(href="#").button.button_style-1.about-us-block__button Успей забронировать бригаду
+  
+  section.section.popular-projects-section
+    .container
+      .row
+        h3.col-md.section__title.popular-projects-section__title Популярные проекты домов
+      .row
+        .col-md-auto.col-aside
+          include blocks/advertising
+        .col-md
+          .slider.slider_grid.popular-projects-section__slider
+            include blocks/cards
+            +card1(true, true)
+            +card1(false, false)
+            +card1(true, true)
+            +card1(false, false)
+      .popular-projects-section__more
+        a(href="#").button.button_style-1 Смотреть все проекты
+          
+
+      .popular-projects-section__container
+  
   section.section.services
     .container
       h3.section__title.services__title Основные услуги

@@ -5,6 +5,10 @@
   display: block;
   user-select: none;
   touch-action: pan-y;
+  outline: none;
+  * {
+    outline: none;
+  }
 }
 .slick-list {
   position: relative;
@@ -30,6 +34,7 @@
   margin-left: auto;
   margin-right: auto;
   display: flex;
+  flex-wrap: nowrap;
 }
 .slick-slide {
   height: 100%;
@@ -76,9 +81,12 @@
     }
   }
 }
+.slick-arrow {
 
+}
 .slider {
   display: flex;
+  flex-wrap: nowrap;
   opacity: 0;
   visibility: hidden;
   transition: opacity $trs1, visibility $trs1;
@@ -86,5 +94,46 @@
     display: block;
     opacity: 1;
     visibility: visible;
+    .slick-slide {
+      flex: 0 0 auto;
+    }
+  }
+  &__next,
+  &__prev {
+    position: absolute;
+    width: 40px;
+    min-width: 40px;
+    padding: 0;
+    display: flex;
+    border-radius: 40px;
+    z-index: 2;
+    .icon {
+      margin: auto;
+      width: 14px;
+      height: 14px;
+    }
+  }
+  &__prev {
+    .icon {
+      transform: rotate(180deg);
+    }
+  }
+  &_grid {
+    margin: 0 -10px;
+    .slick-slide {
+      padding: 0 10px;
+    }
+    .slider {
+      &__next,
+      &__prev {
+        top: -60px;
+      }
+      &__next {
+        right: 10px;
+      }
+      &__prev {
+        right: 60px;
+      }
+    }
   }
 }

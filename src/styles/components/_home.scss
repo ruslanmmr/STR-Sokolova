@@ -33,11 +33,14 @@
       height: 25px;
       fill: #fff;
       opacity: 0.75;
-      transition: opacity $trs1;
+      transition: opacity $trs1, fill $trs1;
     }
     &.touch,
     &.hover {
-      opacity: 1;
+      svg {
+        opacity: 1;
+        fill: var(--color-accent, #2363D1);
+      }
     }
   }
   &__prev {
@@ -59,6 +62,9 @@
   background-color: var(--color-sections-bg, #F5F5F5);
   padding: 60px 0;
   position: relative;
+  &:not(:last-child) {
+    margin-bottom: 125px;
+  }
   &__background {
     background-size: contain;
     background-position: bottom right;
@@ -155,5 +161,17 @@
       transition: fill $trs1;
       fill: var(--color-block-services, #1C52AC);
     }
+  }
+}
+
+.popular-projects-section {
+  &__title {
+    margin-left: 20%;
+    margin-top: 0;
+  }
+  &__more {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
   }
 }
