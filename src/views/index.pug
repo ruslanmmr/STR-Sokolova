@@ -84,7 +84,7 @@ block content
             +card1(true, true)
             +card1(false, false)
       .popular-projects-section__more
-        a(href="#").button.button_style-1 Смотреть все проекты
+        a(href="#").button.button_style-1.button_xl Смотреть все проекты
           
   section.section.additionalLinks-section
     .container
@@ -106,7 +106,7 @@ block content
               svg.icon
                 use(xlink:href="img/icons/icons-sprite.svg#document")
               span Посмотреть все объекты
-
+  
   section.section.services
     .container
       h3.section__title.services__title Основные услуги
@@ -122,6 +122,60 @@ block content
         +block('Расчет доставки')
         +block('Политика обработки персональных данных')
       .services__more
-        a(href="#").button.button_style-1 Смотреть все услуги
+        a(href="#").button.button_style-1.button_xl Смотреть все услуги
 
+  section.section.news-preview-section
+    .container
+      h3.section__title Новости и акции
+      .slider.slider_grid.news-preview-section__slider
+        .news-preview-block
+          a(href="#").news-preview-block__container.image.image_cover
+            img(src="img/image 2.png", alt="image").lazyload
+            .news-preview-block__content
+              span.news-preview-block__label.news-preview-block__label_style-1 Акция
+              span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс отправиться MaxRoyal
+        .news-preview-block
+          a(href="#").news-preview-block__container.image.image_cover
+            img(src="img/no_img_news.jpg", alt="image").lazyload
+            .news-preview-block__content
+              span.news-preview-block__label.news-preview-block__label_style-2 Новость
+              span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс
+        .news-preview-block
+          a(href="#").news-preview-block__container.image.image_cover
+            img(src="img/image 2.png", alt="image").lazyload
+            .news-preview-block__content
+              span.news-preview-block__label.news-preview-block__label_style-1 Акция
+              span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс отправиться MaxRoyal
+        .news-preview-block
+          a(href="#").news-preview-block__container.image.image_cover
+            img(src="img/no_img_news.jpg", alt="image").lazyload
+            .news-preview-block__content
+              span.news-preview-block__label.news-preview-block__label_style-2 Новость
+              span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс
+
+      .news-preview-section__more
+        a(href="#").button.button_style-1.button_xl Смотреть все новости и акции
+
+  section.section.section-articles
+    .container
+      h3.section__title Полезные статьи
+      .row
+        .article-preview.col-md-3
+          .article-preview__container
+            span.article-preview__label Статья
+            a(href="#").article-preview__text Продажа листовых строительных материалов — это сложно
+        .article-preview.col-md-3
+          .article-preview__container
+            span.article-preview__label Статья
+            a(href="#").article-preview__text Преимущественное использование плитки в качестве отделки для санузлов объясняется свойствами. 
+        .article-preview.col-md-3
+          .article-preview__container
+            span.article-preview__label Статья
+            a(href="#").article-preview__text Преимущественное использование плитки в качестве отделки для санузлов объясняется свойствами. 
+        .article-preview.col-md-3
+          .article-preview__container
+            span.article-preview__label Статья
+            a(href="#").article-preview__text Преимущественное использование плитки в качестве отделки для санузлов объясняется отличными санитарно-гигиеническими свойствами. 
+      .section-articles__more
+        a(href="#").button.button_style-1.button_xl Смотреть все статьи
   include blocks/form

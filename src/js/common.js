@@ -421,6 +421,13 @@ let slider = {
         autoplay = true;
         nextArrow = '<button class="home-banner__arrow home-banner__next" aria-label="Next" type="button"><svg viewBox="0 0 15 26"><path d="M1.99869 0.292969L0.584473 1.70718L11.8774 13.0001L0.584472 24.293L1.99869 25.7072L14.7058 13.0001L1.99869 0.292969Z"/></svg></button>';
         prevArrow = '<button class="home-banner__arrow home-banner__prev" aria-label="Previous" type="button"><svg viewBox="0 0 15 26"><path d="M13.286 0.292969L14.7002 1.70718L3.4073 13.0001L14.7002 24.293L13.286 25.7072L0.578877 13.0001L13.286 0.292969Z"/></svg></button>';
+      } else if($(this).is('.news-preview-section__slider')) {
+        arrows = true;
+        slideCount = 3;
+        slideCountLg = 3;
+        slideCountMd = 2;
+        slideCountSm = 2;
+        slideCountXs = 1;
       }
 
       $(this).slick({
