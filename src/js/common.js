@@ -428,6 +428,14 @@ let slider = {
         slideCountMd = 2;
         slideCountSm = 2;
         slideCountXs = 1;
+      } else if($(this).is('.section-partners__slider')) {
+        arrows = true;
+        autoplay = true;
+        slideCount = 6;
+        slideCountLg = 5;
+        slideCountMd = 4;
+        slideCountSm = 3;
+        slideCountXs = 1;
       }
 
       $(this).slick({

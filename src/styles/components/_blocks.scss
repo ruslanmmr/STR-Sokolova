@@ -355,6 +355,40 @@ img:not([class]) {
   }
 }
 
+.section-partners {
+  &__title {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  &__text {
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.125rem;
+  }
+  &__slider {
+    .slick-list {
+      margin: 0 -20px;
+    }
+    .slider__prev,
+    .slider__next {
+      top: 50%;
+      transform: translateY(-50%);
+    } 
+    .slider__prev {
+      left: -95px;
+    }
+    .slider__next {
+      right: -95px;
+    }
+  }
+  &__slide {
+    padding: 0 20px;
+  }
+  &__image {
+    height: 52px;
+  }
+}
+
 
 
 @include media-breakpoint-down(sm) {

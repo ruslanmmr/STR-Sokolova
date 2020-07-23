@@ -84,9 +84,11 @@
 }
 
 .form-section {
-  margin: 0;
   padding: 40px 0;
   background-color: var(--color-sections-bg, #F5F5F5);
+  &:last-child {
+    margin: 0;
+  }
   &__content {
     margin: 0 auto;
     max-width: 980px;
