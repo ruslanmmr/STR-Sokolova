@@ -1,0 +1,93 @@
+//normalize.css
+@import "../../node_modules/normalize.css/normalize.css";
+//bootsrtap (grid only)
+@import "./components/bootstrap-4.0.0/bootstrap-grid";
+//fonts
+@import "./components/fonts";
+
+//variables
+@import "./components/variables";
+
+/*========== Basic ==========*/
+html {
+  font-size: 16px;
+}
+body {
+  font-family: 'Golos', sans-serif;
+  text-rendering: geometricPrecision;
+  color: var(--color-text, #333333);
+  font-size: 0.875rem;
+  line-height: 1.43;
+  min-width: 320px;
+}
+* {
+  box-sizing: border-box;
+  min-height: 0;
+  min-width: 0;
+  &:before,&:after {
+    box-sizing: border-box;
+  }
+}
+a, button, label, input, textarea, .js-touch-hover {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+button, input, textarea {
+  outline: none;
+  display: block;
+  background-color: transparent;
+  box-shadow: none;
+  border: 0;
+  appearance: none;
+  padding: 0;
+  border-radius: 0;
+}
+a, button, label {
+  user-select: none;
+  -webkit-user-drag: none;
+  cursor: pointer;
+}
+
+
+/*========== JS HELPER ==========*/
+@import 'components/js-helper';
+
+
+
+/*========== Layout ==========*/
+@import "./components/layout";
+
+/*========== Typography ==========*/
+@import "./components/typography";
+
+/*========== Helpers ==========*/
+@import 'components/helpers';
+
+/*========== Buttons ==========*/
+@import 'components/buttons';
+
+/*========== Form ==========*/
+@import 'components/form';
+
+/*========== Blocks ==========*/
+@import 'components/blocks';
+
+/*========== Scrollbar ==========*/
+@import 'components/scrollbar';
+
+/*========== Slider ==========*/
+@import 'components/slider';
+
+/*========== Header ==========*/
+@import 'components/popups';
+
+/*========== Breadcrumbs ==========*/
+@import 'components/breadcrumbs';
+
+/*========== Header ==========*/
+@import 'components/header';
+
+/*========== Home ==========*/
+@import 'components/home';
+
+/*========== Footer ==========*/
+@import 'components/footer';

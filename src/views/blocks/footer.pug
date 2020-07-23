@@ -1,0 +1,73 @@
+footer.footer
+  .container
+    .footer__container
+      .footer__section.footer__section-contact
+        .logo.footer__logo
+          a(href="/").logo__link
+            include logo
+        ul.footer__contact-list
+          li
+            a(href="tel:+79874433777").footer__phone +7 987 443-37-77
+          li г. Самара, ул. Ново-Вокзальная,<br> д. 17, офис 134
+          li 
+            a(href="mailto:info@mail.ru") info@mail.ru
+      .footer__section
+        span.footer__section-title Каталог
+        ul.footer__nav-list
+          li.footer__nav-item
+            a(href="#").footer__link Каталог проектов
+          li.footer__nav-item
+            a(href="#").footer__link Услуги
+          li.footer__nav-item
+            a(href="#").footer__link Товары
+          li.footer__nav-item
+            a(href="#").footer__link Портфолио
+          li.footer__nav-item
+            a(href="#").footer__link Акции
+          li.footer__nav-item
+            a(href="#").footer__link Новости
+          li.footer__nav-item
+            a(href="#").footer__link Статьи
+      .footer__section
+        span.footer__section-title Покупателям
+        ul.footer__nav-list
+          li.footer__nav-item
+            a(href="#").footer__link О компании
+          li.footer__nav-item
+            a(href="#").footer__link Оплата
+          li.footer__nav-item
+            a(href="#").footer__link Личный кабинет
+          li.footer__nav-item
+            a(href="#").footer__link Контакты
+      .footer__section
+        span.footer__section-title Оставайтесь на связи!
+        .footer__subscription
+          span.footer__subscription-head Подписка: Новинки, скидки, предложения
+          form(action="#").subscription
+            .input.subscription__input
+              input(type="email" name='email' placeholder="E-mail").input__element.subscription__input-element
+            button(type="submit").button.button_style-2.subscription__button Ок
+          a(href="#").footer__link Отписаться
+        ul.footer-socials
+          li.footer-socials__item
+            a(href="#").footer-socials__link
+              svg.icon
+                use(xlink:href="img/icons/socials-sprite.svg#facebook")
+          li.footer-socials__item
+            a(href="#").footer-socials__link
+              svg.icon
+                use(xlink:href="img/icons/socials-sprite.svg#instagram")
+          li.footer-socials__item
+            a(href="#").footer-socials__link
+              svg.icon
+                use(xlink:href="img/icons/socials-sprite.svg#twitter")
+          li.footer-socials__item
+            a(href="#").footer-socials__link
+              svg.icon
+                use(xlink:href="img/icons/socials-sprite.svg#youtube")
+      .footer__bottom
+        span.copy &copy; 2019 Стройкер. Все права<br> защищены
+        a(href="#").footer__link Политика обработки данных
+        .logo.footer__bottom-logo
+          .logo__link
+            include logo

@@ -1,0 +1,20 @@
+.js-helper-module
+  a(href="javascript:void(0);").js-helper-module__trigger 
+    svg.icon
+      use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+  .js-helper-module__container
+    //section
+    .js-helper-module__section
+      span.js-helper-module__section-title Всплывающие окна:
+      .js-helper-module__section-content
+        a(href="#feedback" data-popup-open).js-helper-module__section-button Обратный звонок
+        a(href="#succes" data-popup-open).js-helper-module__section-button Успешно
+        a(href="#cities" data-popup-open).js-helper-module__section-button Выбор города
+        a(href="#error" data-popup-open).js-helper-module__section-button Ошибка
+        a(href="javascript:void(0);").js-helper-module__section-button.js-helper-module__city-toggle Уточнение местоположения
+    //section
+    .js-helper-module__section
+      span.js-helper-module__section-title Навигация по страницам:
+      .js-helper-module__section-content
+        a(href="index.html").js-helper-module__section-button Главная
+        a(href="text.html").js-helper-module__section-button Типография, списки и таблица

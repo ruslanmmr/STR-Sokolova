@@ -1,0 +1,87 @@
+.button {
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  &_style-1 {
+    line-height: 38px;
+    padding: 0 15px;
+    border: 1px solid var(--color-button1-border, #B7CBE5);
+    color: var(--color-button1, #1C52AC);
+    background-color: var(--color-button1-bg, transparent);;
+    border-radius: 2px;
+    transition: color $trs1, border-color $trs1, background-color $trs1;
+    min-width: 144px;
+    .icon {
+      fill: var(--color-button1-icon, #2363D1);
+      transition: fill $trs1;
+      width: 20px;
+      height: 20px;
+      &:not(:last-child) {
+        margin-right: 12px;
+      }
+    }
+    &.touch,
+    &.hover {
+      color: var(--color-button1-hover, #fff);
+      background-color: var(--color-button1-hover-bg, #2363D1);
+      border-color: var(--color-button1-hover-border, #2363D1);
+      .icon {
+        fill: var(--color-button1-hover-icon, #fff);
+        width: 20px;
+        height: 20px;
+        &:not(:last-child) {
+          margin-right: 12px;
+        }
+      }
+    }
+  }
+  &_style-2 {
+    text-align: center;
+    line-height: 38px;
+    padding: 0 15px;
+    border: 1px solid var(--color-button2-bg, #2363D1);
+    color: var(--color-button2, #fff);
+    background-color: var(--color-button2-bg, #2363D1);
+    border-radius: 2px;
+    transition: background-color $trs1, border-color $trs1;
+    min-width: 144px;
+    .icon {
+      fill: var(--color-button2-icon, #fff);
+    }
+    &.touch,
+    &.hover {
+      background-color: var(--color-button2-hover-bg, #2363D1);
+      border-color: var(--color-button2-hover-bg, #2363D1);
+    }
+  }
+  &_style-3 {
+    line-height: 40px;
+    padding: 0 15px;
+    color: var(--color-button3, #1C52AC);
+    border-radius: 2px;
+    transition: color $trs1;
+    min-width: 144px;
+    .icon {
+      fill: var(--color-button3, #1C52AC);
+      transition: fill $trs1;
+      width: 14px;
+      height: 22px;
+      &:not(:last-child) {
+        margin-right: 12px;
+      }
+    }
+    &.touch,
+    &.hover {
+      color: var(--color-button3-hover, #2363D1);
+      .icon {
+        fill: var(--color-button3-hover, #2363D1);
+      }
+    }
+  }
+}

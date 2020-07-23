@@ -1,0 +1,92 @@
+header.header
+  .header__top
+    .container
+      .header__nav-group
+        .logo 
+          a(href="/").logo__link
+            include logo
+        .header-nav
+          ul.header-nav__list
+            mixin item(title)
+              li.header-nav__item
+                a(href="#").header-nav__link=title
+            +item('Сотрудничество')
+            +item('Доставка')
+            +item('Акции')
+            +item('Партнеры')
+            +item('Контакты')
+      .header__contact-group
+        .header__city
+          a(href="#cities" data-popup-open).header__city-link Самара
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#arrow-down")
+          .city-question-popup
+            span.city-question-popup__text Ваш город Нижний Новгород?
+            .city-question-popup__buttons.row
+              .col-auto
+                a(href="javascript:void(0);" data-popup-close).button.button_style-2.city-question-popup__button Да
+              .col-auto
+                a(href="#cities" data-popup-open data-popup-close).button.button_style-1.city-question-popup__button Нет
+        a(href="tel:+79874433777").header__phone +7 987 443-37-77
+        a(href="#feedback" data-popup-open).button.button_style-1 Заказать звонок
+  .header__bottom
+    .container
+      .header-search
+        form(action="#").header-search__form
+          input(type="text" placeholder="Введите название, бренд...").header-search__input
+          button.header-search__button
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#search")
+        .header-search__content.scrollbar
+          ul.header-search__list.scrollbar__content
+            li.header-search__item
+              span.header-search__item-title
+                a(href="#") Фанера влагостойкая 
+                span.header-search__item-label.header-search__item-label_style-1 группа товаров
+              .header-search__item-value 63 товара
+            li.header-search__item
+              span.header-search__item-title
+                a(href="#") Фанера влагостойкая Плита OSB-3 12x2500х1250 мм длинное название на две строчки 
+                span.header-search__item-label.header-search__item-label_style-2 товар
+              .header-search__item-value 1234.50 ₽/шт. 
+            li.header-search__item
+              span.header-search__item-title
+                a(href="#") Фанера влагостойкая 
+                span.header-search__item-label.header-search__item-label_style-1 группа товаров
+              .header-search__item-value 63 товара
+            li.header-search__item
+              span.header-search__item-title
+                a(href="#") Фанера влагостойкая Плита OSB-3 12x2500х1250 мм длинное название на две строчки 
+                span.header-search__item-label.header-search__item-label_style-2 товар
+              .header-search__item-value 1234.50 ₽/шт. 
+            li.header-search__item
+              span.header-search__item-title
+                a(href="#") Фанера влагостойкая 
+                span.header-search__item-label.header-search__item-label_style-1 группа товаров
+              .header-search__item-value 63 товара
+            li.header-search__item
+              span.header-search__item-title
+                a(href="#") Фанера влагостойкая Плита OSB-3 12x2500х1250 мм длинное название на две строчки 
+                span.header-search__item-label.header-search__item-label_style-2 товар
+              .header-search__item-value 1234.50 ₽/шт. 
+
+      .header__buttons-group
+        //btn
+        a(href="#").header__small-button.header__small-button_auth
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#user")
+          span “Строймонтаж”
+        //btn
+        a(href="#").header__small-button.header__small-button_comparison
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#comparison")
+          span 0
+        //btn
+        a(href="#").header__small-button.header__small-button_cart 
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#subtract")
+          span 12
+        //nav toggle
+        a(href="javascript:void(0);").nav-toggle
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#burger")

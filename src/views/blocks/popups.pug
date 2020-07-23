@@ -1,0 +1,67 @@
+.popup#succes.popup-message(data-scroll-lock-scrollable)
+  .popup-block
+    .popup-block__container
+      a(href="javascript:void(0);" data-popup-close).popup-block__close-button
+        svg.icon
+          use(xlink:href="img/icons/icons-sprite.svg#close")
+      .popup-message__content
+        svg.icon.popup-message__icon
+          use(xlink:href="img/icons/icons-sprite.svg#smile-positive")
+        h3.popup-message__title Всё получилось! Сообщение отправлено
+        a(href="javascript:void(0);" data-popup-close).button.button_style-2.popup-message__button Закрыть
+
+.popup#error.popup-message(data-scroll-lock-scrollable)
+  .popup-block
+    .popup-block__container
+      a(href="javascript:void(0);" data-popup-close).popup-block__close-button
+        svg.icon
+          use(xlink:href="img/icons/icons-sprite.svg#close")
+      .popup-message__content
+        svg.icon.popup-message__icon
+          use(xlink:href="img/icons/icons-sprite.svg#smile-negative")
+        h3.popup-message__title Ошибка. Попробуйте позже
+        a(href="javascript:void(0);" data-popup-close).button.button_style-2.popup-message__button Закрыть
+
+.popup#feedback.popup-feedback(data-scroll-lock-scrollable)
+  .popup-block
+    .popup-block__container
+      a(href="javascript:void(0);" data-popup-close).popup-block__close-button
+        svg.icon
+          use(xlink:href="img/icons/icons-sprite.svg#close")
+      .popup-feedback__content
+        h3.popup-feedback__title Заказать обратный звонок
+        form(action="#").popup-feedback__form.js-validation
+          .input.popup-feedback__form-input
+            input(type="text" name='name' placeholder="Имя*").input__element.required
+            span.input__label Имя
+          .input.popup-feedback__form-input
+            input(type="text" name='phone' placeholder="Телефон").input__element.required
+            span.input__label Телефон
+          .popup-feedback__form-buttons
+            button(type='submit').button.button_style-2.popup-feedback__form-submit Отправить
+            a(href="javascript:void(0);" data-popup-close) Закрыть
+        span.form-post-text Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с политикой конфиденциальности
+
+.popup#cities.popup-cities(data-scroll-lock-scrollable)
+  .popup-block
+    .popup-block__container
+      a(href="javascript:void(0);" data-popup-close).popup-block__close-button
+        svg.icon
+          use(xlink:href="img/icons/icons-sprite.svg#close")
+      .popup-cities__content
+        h3.popup-cities__title Выберите свой город
+        ul.popup-cities__list.row
+          mixin block(title)
+            li.popup-cities__item.col-md-4
+              a(href="#").popup-cities__link=title
+          +block('Санкт-Петербург')
+          +block('Мурманск')
+          +block('Магнитогорск')
+          +block('Москва')
+          +block('Уфа')
+          +block('Самара')
+          +block('Новосибирск')
+          +block('Краснодар')
+          +block('Саратов')
+          +block('Екатиренбург')
+        
