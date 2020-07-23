@@ -109,10 +109,14 @@ img:not([class]) {
 
 .category-block {
   &__container {
-    height: 140px;
+    min-height: 130px;
     color: #fff;
     border-radius: 2px;
     overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    height: 100%;
     &:after {
       content: '';
       display: block;
@@ -132,20 +136,20 @@ img:not([class]) {
     }
   }
   &__title {
-    position: absolute;
-    padding: 0 60px 0 30px;
+    padding: 24px 60px 24px 30px;
     width: 100%;
-    bottom: 26px;
     z-index: 3;
     margin: 0;
-    color: #000;
     color: inherit;
+    line-height: 1.33;
+    position: relative;
     .icon {
       position: absolute;
       right: 22px;
       width: 18px;
       height: 18px;
-      bottom: 2px;
+      bottom: 25px;
+      transition: fill $trs1;
       fill: #fff;
     }
   }
