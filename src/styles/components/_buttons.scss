@@ -22,6 +22,7 @@
       fill: var(--color-button1-icon, #2363D1);
       transition: fill $trs1;
       height: 18px;
+      width: 18px;
       &:not(:last-child) {
         margin-right: 12px;
       }
@@ -50,6 +51,10 @@
     .icon {
       fill: var(--color-button2-icon, #fff);
       height: 18px;
+      width: 18px;
+      &:not(:last-child) {
+        margin-right: 12px;
+      }
     }
     &.touch,
     &.hover {
@@ -86,6 +91,16 @@
     min-width: 40px;
     .icon {
       height: 18px;
+    }
+  }
+  &_xl {
+    line-height: 46px;
+    padding: 0 20px;
+    font-size: 1.125rem;
+    height: 48px;
+    .icon {
+      height: 20px;
+      width: 20px;
     }
   }
 }

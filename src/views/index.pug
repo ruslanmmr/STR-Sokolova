@@ -86,9 +86,27 @@ block content
       .popular-projects-section__more
         a(href="#").button.button_style-1 Смотреть все проекты
           
+  section.section.additionalLinks-section
+    .container
+      .row
+        .additionalLinks-block.col-md-6
+          .additionalLinks-block__container
+            .background.background_left.additionalLinks-block__background.lazyload(data-src='img/dce9a60f2d0bb6ee08ce43af9bc71557 1.png')
+            h3.additionalLinks-block__title Калькулятор проектов
+            p.additionalLinks-block__text Рассчитайте орентировочную стоимость своего<br> проекта самостоятельно
+            a(href="#").button.button_style-2.button_xl.additionalLinks-block__button
+              svg.icon
+                use(xlink:href="img/icons/icons-sprite.svg#box")
+              span Рассчитать
+        .additionalLinks-block.col-md-6
+          .additionalLinks-block__container
+            .background.background_right.additionalLinks-block__background.lazyload(data-src='img/map.png')
+            h3.additionalLinks-block__title Наши реализованные<br> проекты
+            a(href="#").button.button_style-2.button_xl.additionalLinks-block__button
+              svg.icon
+                use(xlink:href="img/icons/icons-sprite.svg#document")
+              span Посмотреть все объекты
 
-      .popular-projects-section__container
-  
   section.section.services
     .container
       h3.section__title.services__title Основные услуги

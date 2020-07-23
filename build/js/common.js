@@ -59,7 +59,7 @@ function lazy() {
     if (el !== 'IMG') {
       var _bg = e.target.getAttribute('data-src');
 
-      e.target.style.backgroundImage = 'url(' + _bg + ')';
+      e.target.style.backgroundImage = "url('".concat(_bg, "')");
     }
   });
   lazySizes.init();

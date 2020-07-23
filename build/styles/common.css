@@ -1396,7 +1396,8 @@ a:not([class]) {
     .button_style-1 .icon {
       fill: var(--color-button1-icon, #2363D1);
       transition: fill 0.25s ease-out;
-      height: 18px; }
+      height: 18px;
+      width: 18px; }
       .button_style-1 .icon:not(:last-child) {
         margin-right: 12px; }
     .button_style-1.touch, .button_style-1.hover {
@@ -1418,7 +1419,10 @@ a:not([class]) {
     min-width: 144px; }
     .button_style-2 .icon {
       fill: var(--color-button2-icon, #fff);
-      height: 18px; }
+      height: 18px;
+      width: 18px; }
+      .button_style-2 .icon:not(:last-child) {
+        margin-right: 12px; }
     .button_style-2.touch, .button_style-2.hover {
       background-color: var(--color-button2-hover-bg, #2363D1);
       border-color: var(--color-button2-hover-bg, #2363D1); }
@@ -1445,6 +1449,14 @@ a:not([class]) {
     min-width: 40px; }
     .button_icon .icon {
       height: 18px; }
+  .button_xl {
+    line-height: 46px;
+    padding: 0 20px;
+    font-size: 1.125rem;
+    height: 48px; }
+    .button_xl .icon {
+      height: 20px;
+      width: 20px; }
 
 /*========== Form ==========*/
 .input {
@@ -2865,6 +2877,41 @@ img:not([class]) {
   display: flex;
   justify-content: flex-end;
   margin-top: 20px; }
+
+.additionalLinks-section {
+  padding: 40px 0;
+  background-color: var(--color-sections-bg, #f5f5f5); }
+
+.additionalLinks-block__container {
+  background-color: #fff;
+  position: relative;
+  padding: 30px 70px 30px 100px;
+  font-size: 1.185rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  color: #000;
+  border-radius: 2px; }
+
+.additionalLinks-block__background {
+  background-size: auto 100%; }
+
+.additionalLinks-block__title {
+  margin: 0 0 10px 0;
+  position: relative;
+  z-index: 2; }
+
+.additionalLinks-block__text {
+  margin: 0;
+  position: relative;
+  z-index: 2; }
+
+.additionalLinks-block__button {
+  margin-top: 20px;
+  position: relative;
+  z-index: 2; }
 
 /*========== Footer ==========*/
 .footer {

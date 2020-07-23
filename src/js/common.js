@@ -65,7 +65,7 @@ function lazy() {
 
     if(el!=='IMG') {
       let bg = e.target.getAttribute('data-src');
-      e.target.style.backgroundImage = 'url(' + bg + ')';
+      e.target.style.backgroundImage = `url('${bg}')`;
     }
   });
   lazySizes.init();
