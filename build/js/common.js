@@ -509,8 +509,7 @@ function nav() {
 
 function toggle() {
   var $section = $('.toggle-section'),
-      $toggle = $('.toggle-section__head'),
-      flag;
+      $toggle = $('.toggle-section__head');
   $toggle.on('click', function () {
     $(this).toggleClass('active');
     $(this).closest($section).toggleClass('active');
@@ -520,16 +519,11 @@ function toggle() {
   function check() {
     $section.each(function () {
       if ($(this).hasClass('active')) {
-        if (!flag) {
-          $(this).find('.toggle-section__content').show();
-        }
-
-        $(this).find('.toggle-section__content').stop().slideDown(250);
+        $(this).find('.toggle-section__content').show();
       } else {
-        $(this).find('.toggle-section__content').stop().slideUp(250);
+        $(this).find('.toggle-section__content').hide();
       }
     });
-    flag = true;
   }
 
   check();
