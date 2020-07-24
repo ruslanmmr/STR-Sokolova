@@ -37,11 +37,9 @@
       &::placeholder {
         opacity: 0;
       }
-      /* & ~ .input__label {
+      & ~ .input__label {
         color: var(--color-input-focus, #2363D1);
-        opacity: 1;
-        visibility: visible;
-      } */
+      }
     }
     &.filled {
       & ~ .input__label {

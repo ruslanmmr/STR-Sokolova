@@ -3,8 +3,7 @@
 lazySizes.cfg.init = false;
 customScroll();
 $(document).ready(function () {
-  hoverTouchEvents();
-  navigation(); //homeBanner();
+  hoverTouchEvents(); //homeBanner();
 
   inputs();
   search();
@@ -63,29 +62,6 @@ function lazy() {
     }
   });
   lazySizes.init();
-}
-
-function navigation() {
-  var flag;
-
-  function checkPosition() {
-    var $buttons = $('.header__buttons-group'),
-        $mobileContainer = $('.header__top .container'),
-        $desktopContainer = $('.header__bottom .container');
-
-    if ($(window).width() < brakepoints.md && !flag) {
-      $buttons.appendTo($mobileContainer);
-      flag = true;
-    } else if ($(window).width() >= brakepoints.md && flag) {
-      $buttons.appendTo($desktopContainer);
-      flag = false;
-    }
-  }
-
-  checkPosition();
-  $(window).on('resize', function () {
-    checkPosition();
-  });
 }
 
 window.popup = {

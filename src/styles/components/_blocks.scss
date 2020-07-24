@@ -353,9 +353,11 @@ img:not([class]) {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex: 0 0 auto;
   }
   &__content-top {
     position: relative;
+    flex: 1 1 100%;
   }
 }
 

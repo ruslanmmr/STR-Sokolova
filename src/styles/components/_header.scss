@@ -5,6 +5,7 @@
   .container {
     display: flex;
     justify-content: space-between;
+    position: relative;
   }
   &__top {
     background-color: var(--color-header-top, #fff);
@@ -196,8 +197,8 @@
   &__input {
     font-size: 0.875rem;
     flex: 1 1 100%;
-    padding: 0 20px;
-    line-height: 46px;
+    padding: 12px 20px;
+    line-height: 22px;
     color: var(--color-header-search, #fff);
     background-color: var(--color-header-search-bg, #222222);
     transition: background-color $trs1, color $trs1; 
@@ -245,6 +246,7 @@
     &-title {
       line-height: 1.25rem;
       max-width: 480px;
+      font-size: 0.875rem;
     }
     &-value {
       font-size: 1.125rem;
@@ -339,7 +341,8 @@
     background-color: var(--color-header-search-bg-mobile, #333333);
     &__input {
       background-color: transparent;
-      padding: 0 12px;
+      padding-right: 12px;
+      padding-left: 12px;
     }
   }
   .header {
@@ -347,7 +350,7 @@
       display: none;
     }
     &__top {
-      padding: 16px 5px;
+      padding: 0;
     }
     &__small-button {
       span {
@@ -392,6 +395,29 @@
   }
 } 
 
+@include media-breakpoint-down(md) {
+  .header {
+    &__top {
+      height: 50px;
+      display: flex;
+      align-items: center;
+    }
+    &__buttons-group {
+      position: absolute;
+      bottom: 79px;
+      right: 16px;
+    }
+  }
+} 
 @include media-breakpoint-down(xs) {
-  
-}
+  .header {
+    &__top {
+      .container {
+        padding: 0 21px;
+      }
+    }
+    &__buttons-group {
+      right: 19px;
+    }
+  }
+} 
