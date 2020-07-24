@@ -182,6 +182,12 @@
   }
 }
 
+.mobile-nav {
+  position: fixed;
+  top: 100%;
+  height: calc(100% - 50px);
+}
+
 .header-search {
   flex: 1 1 100%;
   position: relative;

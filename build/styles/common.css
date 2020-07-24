@@ -2768,6 +2768,11 @@ img:not([class]) {
     .header__small-button_cart.touch span, .header__small-button_cart.hover span {
       background-color: transparent; }
 
+.mobile-nav {
+  position: fixed;
+  top: 100%;
+  height: calc(100% - 50px); }
+
 .header-search {
   flex: 1 1 100%;
   position: relative;

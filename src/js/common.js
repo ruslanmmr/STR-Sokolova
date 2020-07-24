@@ -6,6 +6,7 @@ $(document).ready(function(){
   //homeBanner();
   inputs();
   search();
+  nav();
   popup.init();
   slider.init();
   header();
@@ -481,16 +482,52 @@ function header() {
 
 
   function check() {
-    scroll = $(window).scrollTop();
-    height = 130;
+    if($(window).width()<brakepoints.md) {
+      scroll = $(window).scrollTop();
+      height = 130;
 
-    if(scroll>height){
-      $header.addClass('fixed');
-    } else {
-      $header.removeClass('fixed');
+      if(scroll>height){
+        $header.addClass('fixed');
+      } else {
+        $header.removeClass('fixed');
+      }
     }
-
   }
   
 }
 
+function nav() {
+  let $toggle = $('.nav-toggle'),
+      $nav = $('.mobile-nav'),
+      $overlay = $('.mobile-nav__overlay'),
+      state;
+
+  $toggle.on('click', function(event){
+    event.preventDefault();
+    if(!state) {
+      open();
+    } else {
+      close();
+    }
+  })
+  $overlay.on('click touchstart', function(event){
+    event.preventDefault();
+    if(state) {
+      close();
+    } 
+  })
+
+  function open() {
+    state = true;
+    scrollLock.disablePageScroll();
+    $('header').addClass('header_nav-active')
+    $nav.addClass('active');
+  }
+
+  function close() {
+    state = false;
+    scrollLock.enablePageScroll();
+    $('header').removeClass('header_nav-active')
+    $nav.removeClass('active');
+  }
+}
