@@ -105,7 +105,7 @@
     &.touch,
     &.hover {
       .icon {
-        fill: var(--color-header-button-hover-icon, #1C52AC);
+        fill: var(--color-header-button-hover-icon, #2363D1);
       }
     }
     &_auth {
@@ -120,7 +120,7 @@
       }
       &.touch,
       &.hover {
-        color: var(--color-accent-darker, #1C52AC);
+        color: #fff;
       }
     }
     &_comparison,
@@ -141,10 +141,6 @@
       span {
         margin-left: 6px;
       }
-      &.touch,
-      &.hover {
-        color: var(--color-accent-darker, #1C52AC);
-      }
     }
     &_cart {
       .icon {
@@ -160,7 +156,7 @@
       &.touch,
       &.hover {
         span {
-          background-color: var(--color-accent-darker, #1C52AC);
+          background-color: transparent;
         }
       }
     }
@@ -228,6 +224,9 @@
     border-width: 0 1px 1px 1px;
     max-height: 400px;
     box-shadow: 0px 2px 25px rgba(118, 118, 118, 0.15);
+    .simplebar-scrollbar:before {
+      opacity: 1 !important;
+    }
   }
   &__list {
     margin: 0;
@@ -273,9 +272,7 @@
   }
   &.active {
     .header-search {
-      
       &__form {
-        border-radius: 2px 2px 0 0;
         border-color: var(--color-header-search-active-border, #2363D1);
       }
       &__input {
@@ -297,46 +294,65 @@
       opacity: 1;
       visibility: visible;
     }
+    .header-search__form {
+      border-radius: 2px 2px 0 0;
+    }
   }
 }
 
 .nav-toggle {
   display: none;
-  width: 25px;
-  height: 25px;
-  .icon {
-    margin: auto;
-    width: 20px;
-    height: 20px;
-    fill: var(--color-header-button-icon, #fff);
-    transition: fill $trs1;
+  width: 30px;
+  height: 30px;
+  padding: 7px 6px;
+  flex-direction: column;
+  justify-content: space-between;
+  span {
+    width: 100%;
+    height: 2px;
+    display: block;
+    background-color: var(--color-header-button-icon-mobile, #333333);
+    transition: background-color $trs1;
   }
   &.touch,
   &.hover {
-    .icon {
-      fill: var(--color-header-button-hover-icon, #1C52AC);
+    span {
+      background-color: var(--color-header-button-hover-icon, #2363D1);
+    }
+  }
+  &.active {
+    span {
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:first-child {
+        transform: translateY(7px) rotate(-45deg);
+      }
+      &:last-child {
+        transform: translateY(-7px) rotate(45deg);
+      }
     }
   }
 }
 
 @include media-breakpoint-down(lg) {
   .header {
-    &__small-button{
-      margin-right: 21px;
-      &_cart span {
-        margin-left: 8px;
-      }
+    &__phone {
+      display: none;
     }
   }
   .header-nav {
-    display: none;
-  }
-  .nav-toggle {
-    display: flex;
+    margin-left: 40px;
   }
 } 
 
 @include media-breakpoint-down(md) {
+  .nav-toggle {
+    display: flex;
+  }
+  .header-nav {
+    display: none;
+  }
   .header-search {
     background-color: var(--color-header-search-bg-mobile, #333333);
     &__input {
@@ -346,28 +362,44 @@
     }
   }
   .header {
-    &__contact-group {
+    &__top {
+      padding: 10px 0;
+      height: 50px;
+      display: flex;
+      align-items: center;
+    }
+    .logo__link {
+      height: 30px;
+      svg {
+        height: 100%;
+      }
+    }
+    &__buttons-group {
+      position: absolute;
+      bottom: 74px;
+      right: 62px;
+      margin: 0;
+    }
+    &__contact-items {
       display: none;
     }
-    &__top {
-      padding: 0;
+    &__city {
+      display: none;
     }
     &__small-button {
+      padding: 5px;
       span {
         font-size: 0.5rem;
       }
       &_auth {
         display: none;
       }
-      &_comparison {
-        color: var(--color-header-button-icon-mobile, #333333);
-      }
-      .icon {
-        fill: var(--color-header-button-icon-mobile, #333333);
-      }
       &_cart,
       &_comparison {
         align-items: flex-start;
+        .icon {
+          fill: var(--color-header-button-icon-mobile, #333333);
+        }
         span {
           width: 16px;
           height: 16px;
@@ -377,47 +409,33 @@
         }
       }
       &_comparison {
+        color: var(--color-header-button-icon-mobile, #333333);
+        margin-right: 16px;
         .icon {
           height: 20px;
           width: 18px;
         }
       }
-    }
-  }
-  .nav-toggle {
-    width: 20px;
-    height: 20px;
-    .icon {
-      width: 16px;
-      height: 14px;
-      fill: var(--color-header-button-icon-mobile, #333333);
+      &_cart {
+        &.touch,
+        &.hover {
+          color: var(--color-header-button-icon-mobile, #333333);
+        }
+      }
     }
   }
 } 
 
-@include media-breakpoint-down(md) {
-  .header {
-    &__top {
-      height: 50px;
-      display: flex;
-      align-items: center;
-    }
-    &__buttons-group {
-      position: absolute;
-      bottom: 79px;
-      right: 16px;
-    }
-  }
-} 
 @include media-breakpoint-down(xs) {
   .header {
-    &__top {
-      .container {
-        padding: 0 21px;
-      }
+    .logo {
+      margin-left: 5px;
     }
     &__buttons-group {
-      right: 19px;
+      right: 56px;
+    }
+    &__small-button_comparison {
+      margin-right: 12px;
     }
   }
 } 

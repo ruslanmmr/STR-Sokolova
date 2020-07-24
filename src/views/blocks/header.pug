@@ -27,8 +27,14 @@ header.header
                 a(href="javascript:void(0);" data-popup-close).button.button_style-2.city-question-popup__button Да
               .col-auto
                 a(href="#cities" data-popup-open data-popup-close).button.button_style-1.city-question-popup__button Нет
-        a(href="tel:+79874433777").header__phone +7 987 443-37-77
-        a(href="#feedback" data-popup-open).button.button_style-1 Заказать звонок
+        .header__contact-items
+          a(href="tel:+79874433777").header__phone +7 987 443-37-77
+          a(href="#feedback" data-popup-open).button.button_style-1 Заказать звонок
+        //nav toggle
+        a(href="javascript:void(0);").nav-toggle.active
+          span
+          span
+          span
   .header__bottom
     .container
       .header-search
@@ -86,7 +92,3 @@ header.header
           svg.icon
             use(xlink:href="img/icons/icons-sprite.svg#subtract")
           span 12
-        //nav toggle
-        a(href="javascript:void(0);").nav-toggle
-          svg.icon
-            use(xlink:href="img/icons/icons-sprite.svg#burger")
