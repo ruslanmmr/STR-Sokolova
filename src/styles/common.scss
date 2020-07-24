@@ -47,6 +47,11 @@ a, button, label {
   cursor: pointer;
 }
 
+@include media-breakpoint-down(xs) {
+  body {
+    font-size: 0.75rem;
+  }
+} 
 
 /*========== JS HELPER ==========*/
 @import 'components/js-helper';

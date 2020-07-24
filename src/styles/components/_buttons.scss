@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-size: 0.875rem;
   &_style-1 {
     height: 40px;
     line-height: 38px;
@@ -60,30 +61,6 @@
     &.hover {
       background-color: var(--color-button2-hover-bg, #2363D1);
       border-color: var(--color-button2-hover-bg, #2363D1);
-    }
-  }
-  &_style-3 {
-    line-height: 40px;
-    padding: 0 15px;
-    color: var(--color-button3, #1C52AC);
-    border-radius: 2px;
-    transition: color $trs1;
-    min-width: 144px;
-    .icon {
-      fill: var(--color-button3, #1C52AC);
-      transition: fill $trs1;
-      width: 14px;
-      height: 22px;
-      &:not(:last-child) {
-        margin-right: 12px;
-      }
-    }
-    &.touch,
-    &.hover {
-      color: var(--color-button3-hover, #2363D1);
-      .icon {
-        fill: var(--color-button3-hover, #2363D1);
-      }
     }
   }
   &_icon {

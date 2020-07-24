@@ -177,8 +177,10 @@ function inputs() {
 
       if (value == '') {
         $(this).removeClass('filled');
+        $(this).parent().removeClass('filled');
       } else {
         $(this).addClass('filled');
+        $(this).parent().addClass('filled');
       }
     });
   }

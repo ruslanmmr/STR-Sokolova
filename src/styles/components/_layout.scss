@@ -18,6 +18,11 @@
       color: var(--color-accent, #2363D1);
     }
   }
+  &__more {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .col-aside {
@@ -32,5 +37,19 @@
   }
   .section {
     margin: 0 0 72px 0;
+    &__more {
+      margin-top: 32px;
+    }
+    &__title {
+      margin-bottom: 32px;
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .section {
+    &__more-button {
+      width: 100%;
+    }
   }
 }

@@ -18,34 +18,33 @@ block content
 
   section.section.home-categories
     .container
-      .row.home-categories__container
+      .row.home-categories__container.mb--1
         //block
-        .category-block.home-categories__block.col-lg-3.col-sm-6.col-12
+        .category-block.home-categories__block.mb-1.col-lg-3.col-sm-6.col-12
           a(href="#").category-block__container.image.image_cover
             img(data-src="img/Rectangle 200.jpg", alt="image").lazyload
             h5.category-block__title Деревянные дома 
               svg.icon
                 use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-        .category-block.home-categories__block.col-lg-3.col-sm-6.col-12
+        .category-block.home-categories__block.mb-1.col-lg-3.col-sm-6.col-12
           a(href="#").category-block__container.image.image_cover
             img(data-src="img/Rectangle 199.jpg", alt="image").lazyload
             h5.category-block__title Кровельные работы
               svg.icon
                 use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-        .category-block.home-categories__block.col-lg-3.col-sm-6.col-12
+        .category-block.home-categories__block.mb-1.col-lg-3.col-sm-6.col-12
           a(href="#").category-block__container.image.image_cover
             img(data-src="img/Rectangle 198.jpg", alt="image").lazyload
             h5.category-block__title Пропитки для бревен
               svg.icon
                 use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-        .category-block.home-categories__block.col-lg-3.col-sm-6.col-12
+        .category-block.home-categories__block.mb-1.col-lg-3.col-sm-6.col-12
           a(href="#").category-block__container.image.image_cover
             img(data-src="img/Rectangle 197.jpg", alt="image").lazyload
             h5.category-block__title Проектирование
               svg.icon
                 use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
   
-
   section.section.about-us
     .background(data-src='img/about.png').lazyload.about-us__background
     .container
@@ -87,8 +86,8 @@ block content
             +card1(false, false)
             +card1(true, true)
             +card1(false, false)
-      .popular-projects-section__more
-        a(href="#").button.button_style-1.button_xl Смотреть все проекты
+      .popular-projects-section__more.section__more
+        a(href="#").button.button_style-1.button_xl.section__more-button Смотреть все проекты
           
   section.section.additionalLinks-section
     .container
@@ -106,6 +105,7 @@ block content
           .additionalLinks-block__container
             .background.background_right.additionalLinks-block__background.lazyload(data-src='img/map.png')
             h3.additionalLinks-block__title Наши реализованные<br> проекты
+            p.additionalLinks-block__text В сезон таких специалистов тяжело найти, предлагаем функцию запрос бригады. 
             a(href="#").button.button_style-2.button_xl.additionalLinks-block__button
               svg.icon
                 use(xlink:href="img/icons/icons-sprite.svg#document")
@@ -114,9 +114,9 @@ block content
   section.section.services
     .container
       h3.section__title.services__title Основные услуги
-      .services__container.row
+      .services__container.row.mb--2
         mixin block(title)
-          .services-item-block.col-md-3
+          .services-item-block.mb-2.col-lg-3.col-sm-6
             a(href="#").services-item-block__container
               h5.services-item-block__title=title
                 svg.icon
@@ -125,8 +125,8 @@ block content
         +block('Доставка')
         +block('Расчет доставки')
         +block('Политика обработки персональных данных')
-      .services__more
-        a(href="#").button.button_style-1.button_xl Смотреть все услуги
+      .services__more.section__more
+        a(href="#").button.button_style-1.button_xl.section__more-button Смотреть все услуги
 
   section.section.news-preview-section
     .container
@@ -157,31 +157,31 @@ block content
               span.news-preview-block__label.news-preview-block__label_style-2 Новость
               span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс
 
-      .news-preview-section__more
-        a(href="#").button.button_style-1.button_xl Смотреть все новости и акции
+      .news-preview-section__more.section__more
+        a(href="#").button.button_style-1.button_xl.section__more-button Смотреть все новости и акции
 
   section.section.section-articles
     .container
       h3.section__title Полезные статьи
-      .row
-        .article-preview.col-md-3
+      .row.mb--2
+        .article-preview.mb-2.col-lg-3.col-sm-6
           .article-preview__container
             span.article-preview__label Статья
             a(href="#").article-preview__text Продажа листовых строительных материалов — это сложно
-        .article-preview.col-md-3
+        .article-preview.mb-2.col-lg-3.col-sm-6
           .article-preview__container
             span.article-preview__label Статья
             a(href="#").article-preview__text Преимущественное использование плитки в качестве отделки для санузлов объясняется свойствами. 
-        .article-preview.col-md-3
+        .article-preview.mb-2.col-lg-3.col-sm-6
           .article-preview__container
             span.article-preview__label Статья
             a(href="#").article-preview__text Преимущественное использование плитки в качестве отделки для санузлов объясняется свойствами. 
-        .article-preview.col-md-3
+        .article-preview.mb-2.col-lg-3.col-sm-6
           .article-preview__container
             span.article-preview__label Статья
             a(href="#").article-preview__text Преимущественное использование плитки в качестве отделки для санузлов объясняется отличными санитарно-гигиеническими свойствами. 
-      .section-articles__more
-        a(href="#").button.button_style-1.button_xl Смотреть все статьи
+      .section-articles__more.section__more
+        a(href="#").button.button_style-1.button_xl.section__more-button Смотреть все статьи
   include blocks/form
 
   section.section.section-partners

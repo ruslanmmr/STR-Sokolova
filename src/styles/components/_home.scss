@@ -56,12 +56,6 @@
 
 .home-categories {
   margin-top: -47px;
-  &__container {
-    margin-bottom: -20px;
-  }
-  &__block {
-    margin-bottom: 20px;
-  }
 }
 
 .about-us {
@@ -120,16 +114,12 @@
 }
 
 .services {
-  &__container {
-
-  }
   &__more {
     display: flex;
     justify-content: center;
   }
 }
 .services-item-block {
-  margin-bottom: 20px;
   &__container {
     height: 100%;
     display: flex;
@@ -179,9 +169,7 @@
     margin-top: 0;
   }
   &__more {
-    display: flex;
     justify-content: flex-end;
-    margin-top: 20px;
   }
 }
 
@@ -203,12 +191,13 @@
     height: 100%;
     color: #000;
     border-radius: 2px;
+    min-height: 200px;
   }
   &__background {
     background-size: auto 100%;
   }
   &__title {
-    margin: 0 0 10px 0;
+    margin: 0;
     position: relative;
     z-index: 2;
   }
@@ -216,6 +205,7 @@
     margin: 0;
     position: relative;
     z-index: 2;
+    margin-top: 12px;
   }
   &__button {
     margin-top: 20px;
@@ -225,11 +215,7 @@
   }
 }
 .news-preview-section {
-  &__more {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
+  
 }
 
 .news-preview-block {
@@ -288,13 +274,8 @@
 }
 
 .section-articles {
-  &__more {
-    display: flex;
-    justify-content: center;
-  }
 }
 .article-preview {
-  margin-bottom: 20px;
   &__label {
     display: inline-block;
     margin-bottom: 10px;
@@ -320,10 +301,14 @@
   }
 }
 
-@include media-breakpoint-down(md) {
-  .advertising-preview {
-    height: 300px;
+@include media-breakpoint-down(lg) {
+  .additionalLinks-block {
+    &__container {
+      padding: 30px 40px;
+    }
   }
+}
+@include media-breakpoint-down(md) {
   .home-banner {
     margin-top: -30px;
     .slick-dots {
@@ -411,6 +396,14 @@
       margin-bottom: 32px;
     }
   }
+  .additionalLinks-block {
+    &__container {
+      padding: 30px 20px;
+    }
+    &__text {
+      font-size: 1rem;
+    }
+  }
 }
 
 @include media-breakpoint-down(sm) {
@@ -421,6 +414,19 @@
       max-height: 256px;
       left: 0;
       background-position: center bottom;
+    }
+  }
+  .additionalLinks-section {
+    padding: 32px 0;
+  }
+  .additionalLinks-block {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+  .news-preview-block {
+    &__content {
+      padding: 28px 15px;
     }
   }
 }
@@ -451,6 +457,28 @@
     &__button {
       max-width: 100%;
       width: 100%;
+    }
+  }
+  .additionalLinks-block {
+    &__container {
+      padding: 24px 8px;
+      margin: 0 -8px;
+    }
+    &__button {
+      margin-top: 24px;
+      width: 100%;
+    }
+    &__text {
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+  }
+  .news-preview-block {
+    &__text {
+      font-size: 0.75rem;
+    }
+    &__label {
+      margin-bottom: 12px;
     }
   }
 }

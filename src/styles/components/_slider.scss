@@ -158,6 +158,14 @@
       .slick-list {
         padding: 0 6px;
       }
+      .slider {
+        &__next {
+          right: 16px;
+        }
+        &__prev {
+          right: 66px;
+        }
+      }
     }
   }
 }

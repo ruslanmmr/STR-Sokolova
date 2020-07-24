@@ -4,7 +4,7 @@ section.section.form-section
       h3.section__title.form-section__title Напишите нам
       form(action="#").form.js-validation
         .row
-          .col-md-6
+          .col-md-6.form__group
             .input.form__input
               input(type="text" name='name' placeholder="Имя*").input__element.required
               span.input__label Имя
@@ -14,16 +14,16 @@ section.section.form-section
             .input.form__input
               input(type="text" name='email' placeholder="Email").input__element
               span.input__label Email
-          .col-md-6
+          .col-md-6.form__group
             .input.form__input
               textarea(name='message' placeholder="Комментарий").input__element.input__element_textarea
               span.input__label Комментарий
             .form__upload
-              label.button.button_style-3.form__upload-button
+              label.button.button_style-1.form__upload-button
                 svg.icon
                   use(xlink:href="img/icons/icons-sprite.svg#clip")
                 span Прикрепить
                 input(type="file")
           .col-md-12.form__bottom
-            button.button.button_style-2 Отправить
+            button.button.button_style-2.form__submit Отправить
             span.form-post-text Нажимая на кнопку «Отправить», вы подтверждаете согласие на обработку персональных данных
