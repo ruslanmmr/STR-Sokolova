@@ -3,6 +3,7 @@
   flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
+  padding-top: 158px;
 }
 .main {
   flex: 1 1 100%;
@@ -31,6 +32,9 @@
 }
 
 @include media-breakpoint-down(md) {
+  .wrapper {
+    padding-top: 130px;
+  }
   .col-aside {
     flex: 1 1 100%;
     max-width: 100%;

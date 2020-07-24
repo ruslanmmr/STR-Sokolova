@@ -1209,7 +1209,8 @@ a, button, label {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow: hidden; }
+  overflow: hidden;
+  padding-top: 158px; }
 
 .main {
   flex: 1 1 100%;
@@ -1233,6 +1234,8 @@ a, button, label {
   max-width: 240px; }
 
 @media (max-width: 991.98px) {
+  .wrapper {
+    padding-top: 130px; }
   .col-aside {
     flex: 1 1 100%;
     max-width: 100%; }
@@ -2637,15 +2640,30 @@ img:not([class]) {
 /*========== Header ==========*/
 .header {
   flex: 0 0 auto;
-  position: relative;
-  z-index: 100; }
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  width: 100%; }
+  .header.fixed {
+    transition: transform 0.25s ease-out;
+    position: fixed;
+    top: -50px;
+    transform: translateY(100%);
+    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.15); }
+    .header.fixed .header__buttons-group {
+      bottom: 10px; }
+    .header.fixed .header__bottom {
+      padding: 0; }
+    .header.fixed .header-search {
+      display: none; }
   .header .container {
     display: flex;
     justify-content: space-between;
     position: relative; }
   .header__top {
     background-color: var(--color-header-top, #fff);
-    padding: 19px 0; }
+    padding: 19px 0;
+    width: 100%; }
   .header__bottom {
     background-color: var(--color-header-bottom, #000);
     padding: 16px 0; }
@@ -2921,7 +2939,8 @@ img:not([class]) {
     display: flex;
     align-items: center; }
   .header .logo__link {
-    height: 30px; }
+    height: 30px;
+    width: 170px; }
     .header .logo__link svg {
       height: 100%; }
   .header__buttons-group {

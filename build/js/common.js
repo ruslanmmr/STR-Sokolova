@@ -8,7 +8,8 @@ $(document).ready(function () {
   inputs();
   search();
   popup.init();
-  slider.init(); //обработать изображения после инициализации слайдеров
+  slider.init();
+  header(); //обработать изображения после инициализации слайдеров
 
   setTimeout(function () {
     lazy();
@@ -454,3 +455,27 @@ var slider = {
     });
   }
 };
+
+function header() {
+  var $header = $('.header'),
+      height,
+      scroll;
+  check();
+  $(window).scroll(function () {
+    check();
+  });
+  $(window).resize(function () {
+    padding();
+  });
+
+  function check() {
+    scroll = $(window).scrollTop();
+    height = 130;
+
+    if (scroll > height) {
+      $header.addClass('fixed');
+    } else {
+      $header.removeClass('fixed');
+    }
+  }
+}

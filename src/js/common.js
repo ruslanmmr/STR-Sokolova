@@ -8,6 +8,7 @@ $(document).ready(function(){
   search();
   popup.init();
   slider.init();
+  header();
   //обработать изображения после инициализации слайдеров
   setTimeout(()=>{
     lazy();
@@ -462,5 +463,34 @@ let slider = {
     });
 
   }
+}
+
+function header() {
+  let $header = $('.header'), 
+      height,
+      scroll;
+
+  check();
+  $(window).scroll(function() {
+    check();
+  });
+
+  $(window).resize(function() {
+    padding();
+  });
+
+
+  function check() {
+    scroll = $(window).scrollTop();
+    height = 130;
+
+    if(scroll>height){
+      $header.addClass('fixed');
+    } else {
+      $header.removeClass('fixed');
+    }
+
+  }
+  
 }
 
