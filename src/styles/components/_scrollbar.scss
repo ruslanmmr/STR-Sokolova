@@ -39,7 +39,8 @@
     }
   }
   &_mobile {
-    overflow: auto;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
     &:before,
     &:after {
       display: none;

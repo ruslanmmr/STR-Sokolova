@@ -9,7 +9,8 @@
   width: 100%;
   z-index: 110;
   transition: opacity $trs1, visibility $trs1;
-  overflow: auto;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
   display: none;
   .search-content-window {
     max-height: 258px;
