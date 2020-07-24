@@ -1,6 +1,6 @@
 .footer {
   flex-shrink: 0;
-  padding: 30px 0;
+  padding: 32px 0;
   background-color: var(--color-footer-background, #333333);
   color: var(--color-footer-text, #fff);
   &__logo {
@@ -37,6 +37,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    font-size: 0.875rem;
     a {
       color: inherit;
       text-decoration: none;
@@ -107,6 +108,7 @@
   margin-bottom: 13px;
   &__input {
     flex: 1 1 100%;
+    padding: 0 !important;
     &-element {
       padding: 9px 16px;
       box-shadow: none !important;
@@ -169,6 +171,74 @@
     &.hover {
       &:before {
         opacity: 1;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .footer {
+    &__section-contact {
+      margin-top: 32px;
+    }
+    &-socials {
+      justify-content: flex-start;
+      margin-top: 32px;
+    }
+  }
+}
+@include media-breakpoint-down(xs) {
+  .footer {
+    padding: 47px 0 32px 0;
+    &__bottom {
+      display: none;
+    }
+    &__subscription {
+      width: 100%;
+    }
+    &__logo {
+      margin-bottom: 48px;
+      .logo__link {
+        width: 210px;
+        margin: 0 auto;
+        opacity: 0.5;
+      }
+    }
+    &-socials {
+      justify-content: space-between;
+      max-width: 270px;
+      width: 100%;
+      margin: 0 auto;
+      margin-top: 32px;
+      &__link {
+        width: 32px;
+        height: 32px;
+        .icon {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+    &__section {
+      width: 100%;
+    }
+    &__section-contact {
+      margin-top: 16px;
+    }
+    &__section-nav {
+      display: none;
+    }
+    &__bottom-logo {
+      display: none;
+    }
+    &__bottom {
+      flex-direction: column;
+    }
+    .copy {
+      display: block;
+      margin-bottom: 8px;
+      br {
+        display: none;
       }
     }
   }
