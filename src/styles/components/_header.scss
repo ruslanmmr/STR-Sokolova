@@ -333,7 +333,7 @@
   }
 } 
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(md) {
   .header-search {
     background-color: var(--color-header-search-bg-mobile, #333333);
     &__input {

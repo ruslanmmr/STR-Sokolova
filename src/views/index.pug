@@ -15,29 +15,30 @@ block content
       img(data-src="img/26134 1.jpg", alt="image").lazyload
     .home-banner__slide.image.image_cover
       img(data-src="img/26134 1.jpg", alt="image").lazyload
+
   section.section.home-categories
     .container
       .row.home-categories__container
         //block
-        .category-block.col-md-3
+        .category-block.home-categories__block.col-lg-3.col-sm-6.col-12
           a(href="#").category-block__container.image.image_cover
             img(data-src="img/Rectangle 200.jpg", alt="image").lazyload
             h5.category-block__title Деревянные дома 
               svg.icon
                 use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-        .category-block.col-md-3
+        .category-block.home-categories__block.col-lg-3.col-sm-6.col-12
           a(href="#").category-block__container.image.image_cover
             img(data-src="img/Rectangle 199.jpg", alt="image").lazyload
             h5.category-block__title Кровельные работы
               svg.icon
                 use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-        .category-block.col-md-3
+        .category-block.home-categories__block.col-lg-3.col-sm-6.col-12
           a(href="#").category-block__container.image.image_cover
             img(data-src="img/Rectangle 198.jpg", alt="image").lazyload
             h5.category-block__title Пропитки для бревен
               svg.icon
                 use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-        .category-block.col-md-3
+        .category-block.home-categories__block.col-lg-3.col-sm-6.col-12
           a(href="#").category-block__container.image.image_cover
             img(data-src="img/Rectangle 197.jpg", alt="image").lazyload
             h5.category-block__title Проектирование
@@ -45,14 +46,11 @@ block content
                 use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
   
 
-
-
-
   section.section.about-us
     .background(data-src='img/about.png').lazyload.about-us__background
     .container
-      .row
-        .about-us-block.col-md-6
+      .row.about-us__container
+        .about-us-block.col-lg-6.col-md-12
           h3.about-us-block__title О компании
           .about-us-block__container
             .about-us-block__count
@@ -61,13 +59,19 @@ block content
             .about-us-block__text
               p Инвестируем в заводы, производящие листовые строительные материалы (ДСП ЦСП ФАНЕРА, ОСБ и т.д.) заключаем договора, выкупаем партии продукции, везем вагонами или фурами на склад и после поставляют постоянным клиентам типа “Красной цены”, “Сатурна”, “Центр строя” и т.д. 
               p Если есть товар в наличии и их цена ниже, то мы продаем, если нет — то продают конкуренты.
-          a(href="#").button.button_style-1.about-us-block__button.about-us-block__left-button Подробнее
-        .about-us-block.col-md-6
+          .about-us-block__button-container
+            a(href="#").button.button_style-1.about-us-block__button.about-us-block__left-button Подробнее
+        .about-us-block.col-6
           h3.about-us-block__title Наши бригады
           .about-us-block__count
             span.about-us-block__count-value 6
             span.about-us-block__count-label Свободных бригад
-          a(href="#").button.button_style-1.about-us-block__button Успей забронировать бригаду
+          .about-us-block__button-container
+            a(href="#").button.button_style-1.about-us-block__button 
+              span 
+                span.d-none.d-lg-inline Успей 
+                span забронировать 
+                span.d-none.d-lg-inline бригаду
   
   section.section.popular-projects-section
     .container
