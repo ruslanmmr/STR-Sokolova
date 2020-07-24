@@ -175,7 +175,7 @@
 .popular-projects-section {
   margin-top: 128px;
   &__title {
-    margin-left: 20%;
+    margin-left: 240px;
     margin-top: 0;
   }
   &__more {
@@ -321,6 +321,9 @@
 }
 
 @include media-breakpoint-down(md) {
+  .advertising-preview {
+    height: 300px;
+  }
   .home-banner {
     margin-top: -30px;
     .slick-dots {
@@ -331,7 +334,6 @@
     margin-top: 24px;
   }
   .about-us {
-    padding-bottom: 150px;
     &__container {
       position: relative;
       margin: 0 -4px;
@@ -398,6 +400,15 @@
       .about-us-block__title {
         display: none;
       }
+    }
+  }
+  .popular-projects-section {
+    margin-top: 0;
+    &__title {
+      margin-left: 0;
+    }
+    .advertising-preview {
+      margin-bottom: 32px;
     }
   }
 }

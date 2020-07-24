@@ -21,11 +21,15 @@
 }
 
 .col-aside {
-  flex: 1 1 20%;
-  max-width: 20%;
+  flex: 1 1 240px;
+  max-width: 240px;
 }
 
 @include media-breakpoint-down(md) {
+  .col-aside {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
   .section {
     margin: 0 0 72px 0;
   }

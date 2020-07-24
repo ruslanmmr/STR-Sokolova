@@ -319,6 +319,7 @@ img:not([class]) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: var(--color-sections-bg, #F5F5F5);
   }
   &__title {
     display: block;
@@ -333,8 +334,8 @@ img:not([class]) {
   }
   &__rating {
     position: absolute;
-    right: 17px;
-    top: 13px;
+    top: 0;
+    right: 0;
     width: 85px;
     user-select: none;
     pointer-events: none;
@@ -352,6 +353,9 @@ img:not([class]) {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  &__content-top {
+    position: relative;
   }
 }
 
@@ -397,6 +401,39 @@ img:not([class]) {
       font-size: 1rem;
     }
   }
+  .project-preview-card {
+    &__content {
+      padding: 12px 12px 15px 12px;
+    }
+    &__content-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 12px;
+    }
+    &__buttons {
+      order: 2;
+    }
+    &__rating {
+      top: calc(100% + 14px);
+    }
+    &__title {
+      margin: 0;
+    }
+    &__buttons {
+      width: 100%;
+      .button {
+        &:not(:last-child) {
+          margin-right: 12px;
+          flex: 1 1 100%;
+          max-width: 100%;
+        }
+      }
+    }
+    .card-price {
+      order: 1;
+      margin-bottom: 15px;
+    }
+  }
 }
 @include media-breakpoint-down(sm) {
   .logo {
@@ -413,6 +450,12 @@ img:not([class]) {
   .category-block {
     &__title {
       font-size: 1.125rem;
+    }
+  }
+  .project-preview-card {
+    &__image {
+      flex: 0 0 200px;
+      max-height: 200px;
     }
   }
 } 

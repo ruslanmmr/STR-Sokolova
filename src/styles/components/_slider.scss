@@ -136,3 +136,28 @@
     }
   }
 }
+
+@include media-breakpoint-down(md) {
+  .slider {
+    &_grid {
+      padding-top: 56px;
+      .slider {
+        &__next,
+        &__prev {
+          top: 0;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .slider {
+    &_grid {
+      margin: 0 -16px;
+      .slick-list {
+        padding: 0 6px;
+      }
+    }
+  }
+}
