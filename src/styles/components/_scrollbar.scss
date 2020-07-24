@@ -38,6 +38,13 @@
       opacity: 0;
     }
   }
+  &_mobile {
+    overflow: auto;
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
 }
 
 .simplebar-wrapper {
@@ -172,13 +179,15 @@
 }
 
 .simplebar-scrollbar:before {
-  position: absolute;
   content: '';
   background: var(--color-accent, #2363D1);
   left: 0;
   opacity: 0;
   border-radius: 10px;
   transition: opacity $trs1;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .simplebar-scrollbar.simplebar-visible:before {
@@ -212,7 +221,6 @@
 .simplebar-track.simplebar-horizontal .simplebar-scrollbar {
   right: auto;
   left: 0;
-  top: 2px;
   height: 7px;
   min-height: 0;
   min-width: 10px;
@@ -245,3 +253,33 @@
   -ms-overflow-style: none;
 }
 
+.simplebar-scrollbar:before {
+  opacity: 1 !important;
+}
+
+@include media-breakpoint-up(lg) {
+  .simplebar-scrollbar:before {
+    opacity: 1 !important;
+  }
+}
+@include media-breakpoint-down(md) {
+  .simplebar-track.simplebar-vertical {
+    width: 7px;
+    background-color: transparent;
+    border: 0;
+  }
+  .simplebar-scrollbar {
+    padding: 2px;
+  }
+  .simplebar-track.simplebar-horizontal {
+    height: 7px;
+    background-color: transparent;
+    border: 0;
+  }
+  .scrollbar::after, .scrollbar::before {
+    width: calc(100% - 7px);
+  }
+  .simplebar-scrollbar:before {
+    background-color: var(--color-border-1, #D9D9DE);
+  }
+}

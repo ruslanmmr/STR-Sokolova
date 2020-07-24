@@ -16,13 +16,14 @@
     .header__bottom {
       padding: 0;
     }
-    .header-search {
+    .header__search {
       display: none;
     }
   }
   .container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: relative;
   }
   &__top {
@@ -137,10 +138,6 @@
       span {
         margin-left: 9px;
       }
-      &.touch,
-      &.hover {
-        color: #fff;
-      }
     }
     &_comparison,
     &_cart {
@@ -180,147 +177,41 @@
       }
     }
   }
-}
-
-.mobile-nav {
-  position: fixed;
-  top: 100%;
-  height: calc(100% - 50px);
-}
-
-.header-search {
-  flex: 1 1 100%;
-  position: relative;
-  max-width: 700px;
-  &__form {
-    display: block;
-    border: 1px solid var(--color-header-search-border, #333333);
-    display: flex;
-    border-radius: 2px;
-    overflow: hidden;
-    width: 100%;
-    transition: border-color $trs1, border-radius $trs1;
-  }
-  &__button {
-    background-color: var(--color-header-search-button-bg, #333333);
-    height: 46px;
-    flex: 0 0 80px;
-    display: flex;
-    transition: background-color $trs1;
-    pointer-events: none;
-    .icon {
-      margin: auto;
-      width: 20px;
-      height: 20px;
-      fill: #fff;
-    }
-  }
-  &__input {
-    font-size: 0.875rem;
+  &__search {
     flex: 1 1 100%;
-    padding: 12px 20px;
-    line-height: 22px;
-    color: var(--color-header-search, #fff);
-    background-color: var(--color-header-search-bg, #222222);
-    transition: background-color $trs1, color $trs1; 
-    &::placeholder {
-      color: inherit;
-      opacity: 0.5;
-      transition: opacity $trs1;
-    }
-    &:focus {
-      &::placeholder {
-        opacity: 0;
-      }
-    }
-  }
-  &__content {
-    width: 100%;
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    transition: opacity $trs1, visibility $trs1;
-    background-color: #fff;
-    border-radius: 0 0 2px 2px;
-    border-color: var(--color-border-1, #D9D9DE);
-    border-style: solid;
-    border-width: 0 1px 1px 1px;
-    max-height: 400px;
-    box-shadow: 0px 2px 25px rgba(118, 118, 118, 0.15);
-    .simplebar-scrollbar:before {
-      opacity: 1 !important;
-    }
-  }
-  &__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  &__item {
-    padding: 12px 20px;
-    min-height: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    &:not(:last-child) {
-      border-bottom: 1px solid var(--color-border-1, #D9D9DE);
-    }
-    &-title {
-      line-height: 1.25rem;
-      max-width: 480px;
-      font-size: 0.875rem;
-    }
-    &-value {
-      font-size: 1.125rem;
-      font-size: #000;
-      font-weight: 700;
-      display: block;
-      margin-top: 10px;
-    }
-    &-label {
-      display: inline-block;
-      border-radius: 2px;
-      padding: 0 7px;
-      font-size: 0.75rem;
-      margin-left: 3px;
-      &_style-1 {
-        background-color: var(--color-text-muted, #767676);
-        color: #fff;
-      }
-      &_style-2 {
-        background-color: var(--color-text-muted-2, #E5E5EA);
-        color: inherit;
-      }
-    }
-  }
-  &.active {
-    .header-search {
-      &__form {
-        border-color: var(--color-header-search-active-border, #2363D1);
+    max-width: 700px;
+    .search {
+      &__button {
+        background-color: var(--color-header-search-button-bg, #333333);
+        height: 48px;
+        flex: 0 0 80px;
       }
       &__input {
-        color: var(--color-header-search-active, #333333);
-        background-color: var(--color-header-search-active-bg, #fff);
-      }
-      &__button {
-        pointer-events: all;
-        background-color: var(--color-header-search-active-button-bg, #2363D1);
-        &.touch,
-        &.hover {
-          background-color: var(--color-header-search-active-button-hover-bg, #1C52AC);
+        border-color: var(--color-header-search-border, #333333);
+        padding: 12px 16px;
+        color: var(--color-header-search, #fff);
+        background-color: var(--color-header-search-bg, #222222);
+        &::placeholder {
+          color: #fff;
+          opacity: 0.5;
         }
       }
     }
-  }
-  &.active-content {
-    .header-search__content {
-      opacity: 1;
-      visibility: visible;
-    }
-    .header-search__form {
-      border-radius: 2px 2px 0 0;
+    &.active {
+      .search {
+        &__input {
+          color: var(--color-header-search-active, #333333);
+          background-color: var(--color-header-search-active-bg, #fff);
+          border-color: var(--color-header-search-active-border, #2363D1);
+        }
+        &__button {
+          background-color: var(--color-header-search-active-button-bg, #2363D1);
+          &.touch,
+          &.hover {
+            background-color: var(--color-header-search-active-button-hover-bg, #1C52AC);
+          }
+        }
+      }
     }
   }
 }
@@ -337,7 +228,7 @@
     height: 2px;
     display: block;
     background-color: var(--color-header-button-icon-mobile, #333333);
-    transition: background-color $trs1;
+    transition: background-color $trs1, transform $trs1, opacity $trs1;
   }
   &.touch,
   &.hover {
@@ -351,10 +242,10 @@
         opacity: 0;
       }
       &:first-child {
-        transform: translateY(7px) rotate(-45deg);
+        transform: translateY(7px) rotate(-45deg) scaleX(1.15) ;
       }
       &:last-child {
-        transform: translateY(-7px) rotate(45deg);
+        transform: translateY(-7px) rotate(45deg) scaleX(1.15);
       }
     }
   }
@@ -378,15 +269,12 @@
   .header-nav {
     display: none;
   }
-  .header-search {
-    background-color: var(--color-header-search-bg-mobile, #333333);
-    &__input {
-      background-color: transparent;
-      padding-right: 12px;
-      padding-left: 12px;
-    }
-  }
   .header {
+    &__search {
+      .search__input {
+        background-color: var(--color-header-search-bg-mobile, #333333);
+      } 
+    }
     &__top {
       padding: 10px 0;
       height: 50px;
@@ -454,6 +342,9 @@
 
 @include media-breakpoint-down(xs) {
   .header {
+    .logo__link {
+      width: 117px;
+    }
     .logo {
       margin-left: 5px;
     }

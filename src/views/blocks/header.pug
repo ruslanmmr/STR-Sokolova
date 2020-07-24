@@ -1,3 +1,4 @@
+//header
 header.header
   .header__top
     .container
@@ -37,44 +38,44 @@ header.header
           span
   .header__bottom
     .container
-      .header-search
-        form(action="#").header-search__form
-          input(type="text" placeholder="Введите название, бренд...").header-search__input
-          button.header-search__button
+      .search.header__search
+        form(action="#").search__form
+          input(type="text" placeholder="Введите название, бренд...").search__input
+          button.search__button
             svg.icon
               use(xlink:href="img/icons/icons-sprite.svg#search")
-        .header-search__content.scrollbar
-          ul.header-search__list.scrollbar__content
-            li.header-search__item
-              span.header-search__item-title
+        .search-content-window.scrollbar.search__content(data-scroll-lock-scrollable)
+          ul.search-content-window__list.scrollbar__content
+            li.search-content-window__item
+              span.search-content-window__item-title
                 a(href="#") Фанера влагостойкая 
-                span.header-search__item-label.header-search__item-label_style-1 группа товаров
-              .header-search__item-value 63 товара
-            li.header-search__item
-              span.header-search__item-title
+                span.search-content-window__item-label.search-content-window__item-label_style-1 группа товаров
+              .search-content-window__item-value 63 товара
+            li.search-content-window__item
+              span.search-content-window__item-title
                 a(href="#") Фанера влагостойкая Плита OSB-3 12x2500х1250 мм длинное название на две строчки 
-                span.header-search__item-label.header-search__item-label_style-2 товар
-              .header-search__item-value 1234.50 ₽/шт. 
-            li.header-search__item
-              span.header-search__item-title
+                span.search-content-window__item-label.search-content-window__item-label_style-2 товар
+              .search-content-window__item-value 1234.50 ₽/шт. 
+            li.search-content-window__item
+              span.search-content-window__item-title
                 a(href="#") Фанера влагостойкая 
-                span.header-search__item-label.header-search__item-label_style-1 группа товаров
-              .header-search__item-value 63 товара
-            li.header-search__item
-              span.header-search__item-title
+                span.search-content-window__item-label.search-content-window__item-label_style-1 группа товаров
+              .search-content-window__item-value 63 товара
+            li.search-content-window__item
+              span.search-content-window__item-title
                 a(href="#") Фанера влагостойкая Плита OSB-3 12x2500х1250 мм длинное название на две строчки 
-                span.header-search__item-label.header-search__item-label_style-2 товар
-              .header-search__item-value 1234.50 ₽/шт. 
-            li.header-search__item
-              span.header-search__item-title
+                span.search-content-window__item-label.search-content-window__item-label_style-2 товар
+              .search-content-window__item-value 1234.50 ₽/шт. 
+            li.search-content-window__item
+              span.search-content-window__item-title
                 a(href="#") Фанера влагостойкая 
-                span.header-search__item-label.header-search__item-label_style-1 группа товаров
-              .header-search__item-value 63 товара
-            li.header-search__item
-              span.header-search__item-title
+                span.search-content-window__item-label.search-content-window__item-label_style-1 группа товаров
+              .search-content-window__item-value 63 товара
+            li.search-content-window__item
+              span.search-content-window__item-title
                 a(href="#") Фанера влагостойкая Плита OSB-3 12x2500х1250 мм длинное название на две строчки 
-                span.header-search__item-label.header-search__item-label_style-2 товар
-              .header-search__item-value 1234.50 ₽/шт. 
+                span.search-content-window__item-label.search-content-window__item-label_style-2 товар
+              .search-content-window__item-value 1234.50 ₽/шт. 
 
       .header__buttons-group
         //btn
@@ -92,7 +93,3 @@ header.header
           svg.icon
             use(xlink:href="img/icons/icons-sprite.svg#subtract")
           span 12
-
-//mobile nav
-.mobile-nav
-  .mobile-nav__content

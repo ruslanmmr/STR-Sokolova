@@ -1,0 +1,164 @@
+//mobile nav
+.mobile-nav(data-scroll-lock-scrollable)
+  .mobile-nav__content.container
+    .mobile-nav__top-section
+      //
+      .mobile-nav__top-items
+        .toggle-section.mobile-nav__top-item
+          a(href="javascript:void(0);").toggle-section__head.mobile-nav__ico-link
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#user")
+            span Личный кабинет
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+          .toggle-section__content.mobile-nav__dropdown-content.mobile-nav__dropdown-content_style-1
+            .mobile-nav__sub-nav-container
+              ul.mobile-nav__sub-nav-list.container
+                li.mobile-nav__sub-nav-item
+                  a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-1 Не отрисовано
+                li.mobile-nav__sub-nav-item
+                  a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-1 Не отрисовано
+        .toggle-section.mobile-nav__top-item
+          a(href="javascript:void(0);").toggle-section__head.mobile-nav__ico-link
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#location")
+            span Нижний Новгород
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+          .toggle-section__content.mobile-nav__dropdown-content.mobile-nav__dropdown-content_style-1
+            .mobile-nav__sub-nav-container
+              ul.mobile-nav__sub-nav-list.container
+                li.mobile-nav__sub-nav-item
+                  a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-1 Санкt-петербург
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#check")
+                li.mobile-nav__sub-nav-item
+                  a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-1 Москва 
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#check")
+                li.mobile-nav__sub-nav-item
+                  a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-1 Самара
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#check")
+                li.mobile-nav__sub-nav-item 
+                  a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-1.active Нижний Новгород 
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#check")
+                li.mobile-nav__sub-nav-item
+                  a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-1 Казань
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#check")
+      //
+      .search.mobile-nav__search
+        form(action="#").search__form
+          input(type="text" placeholder="Введите название, бренд...").search__input
+          button.search__button
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#search")
+        .search-content-window.scrollbar.search__content(data-scroll-lock-scrollable)
+          ul.search-content-window__list.scrollbar__content
+            li.search-content-window__item
+              span.search-content-window__item-title
+                a(href="#") Фанера влагостойкая 
+                span.search-content-window__item-label.search-content-window__item-label_style-1 группа товаров
+              .search-content-window__item-value 63 товара
+            li.search-content-window__item
+              span.search-content-window__item-title
+                a(href="#") Фанера влагостойкая Плита OSB-3 12x2500х1250 мм длинное название на две строчки 
+                span.search-content-window__item-label.search-content-window__item-label_style-2 товар
+              .search-content-window__item-value 1234.50 ₽/шт. 
+            li.search-content-window__item
+              span.search-content-window__item-title
+                a(href="#") Фанера влагостойкая 
+                span.search-content-window__item-label.search-content-window__item-label_style-1 группа товаров
+              .search-content-window__item-value 63 товара
+            li.search-content-window__item
+              span.search-content-window__item-title
+                a(href="#") Фанера влагостойкая Плита OSB-3 12x2500х1250 мм длинное название на две строчки 
+                span.search-content-window__item-label.search-content-window__item-label_style-2 товар
+              .search-content-window__item-value 1234.50 ₽/шт. 
+            li.search-content-window__item
+              span.search-content-window__item-title
+                a(href="#") Фанера влагостойкая 
+                span.search-content-window__item-label.search-content-window__item-label_style-1 группа товаров
+              .search-content-window__item-value 63 товара
+            li.search-content-window__item
+              span.search-content-window__item-title
+                a(href="#") Фанера влагостойкая Плита OSB-3 12x2500х1250 мм длинное название на две строчки 
+                span.search-content-window__item-label.search-content-window__item-label_style-2 товар
+              .search-content-window__item-value 1234.50 ₽/шт. 
+      //
+      .mobile-nav__nav
+        ul.mobile-nav__nav-list
+          li.mobile-nav__nav-item.toggle-section
+            a(href="#").mobile-nav__nav-link.toggle-section__head 
+              span Каталог
+              svg.icon
+                use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+            .toggle-section__content.mobile-nav__dropdown-content.mobile-nav__dropdown-content_style-2
+              .mobile-nav__sub-nav-container
+                ul.mobile-nav__sub-nav-list.container
+                  li.mobile-nav__sub-nav-item
+                    a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-2 Дома из бруса
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+                  li.mobile-nav__sub-nav-item
+                    a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-2 Дома из газобетона
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+                  li.mobile-nav__sub-nav-item
+                    a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-2 Кирпичные дома Кирпичные дома Кирпичные дома Кирпичные дома
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+                  li.mobile-nav__sub-nav-item
+                    a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-2 Каркасные дома
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+                  li.mobile-nav__sub-nav-item
+                    a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-2 Дома из бруса
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+                  li.mobile-nav__sub-nav-item
+                    a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-2 Дома из бруса
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+                  li.mobile-nav__sub-nav-item
+                    a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-2 Дома из газобетона
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+                  li.mobile-nav__sub-nav-item
+                    a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-2 Кирпичные дома
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+                  li.mobile-nav__sub-nav-item
+                    a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-2 Каркасные дома
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+                  li.mobile-nav__sub-nav-item
+                    a(href="#").mobile-nav__sub-nav-link.mobile-nav__sub-nav-link_style-2 Дома из бруса
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+
+
+          li.mobile-nav__nav-item 
+            a(href="#").mobile-nav__nav-link
+              span Сотрудничество
+          li.mobile-nav__nav-item
+            a(href="#").mobile-nav__nav-link 
+              span Доставка
+          li.mobile-nav__nav-item
+            a(href="#").mobile-nav__nav-link 
+              span Акции
+          li.mobile-nav__nav-item 
+            a(href="#").mobile-nav__nav-link 
+              span Партнеры
+          li.mobile-nav__nav-item 
+            a(href="#").mobile-nav__nav-link 
+              span Контакты
+    .mobile-nav__contact-section
+      a(href="tel:79874433777").mobile-nav__contact-phone 
+        svg.icon
+          use(xlink:href="img/icons/icons-sprite.svg#smartphone")
+        span +7 987 443-37-77
+      .mobile-nav__contact-button
+        a(href="#feedback" data-popup-open).button.button_style-2.button_xl Заказать звонок

@@ -3,10 +3,10 @@ customScroll();
 
 $(document).ready(function(){
   hoverTouchEvents();
-  //homeBanner();
   inputs();
   search();
   nav();
+  toggle();
   popup.init();
   slider.init();
   header();
@@ -28,18 +28,23 @@ const brakepoints = {
 //hover/touch custom events
 function hoverTouchEvents() {
   $(document).on('mouseenter mouseleave touchstart touchend mousedown mouseup contextmenu', 'a[class],button,label,input,textarea,tr,.js-touch-hover', function(event) {
-    let $target = $(this);
+    let $target = $(this),  
+    touchTimer;
     //mobile events
     if(!device.desktop()) {
       if(event.type=='touchstart') {
+        if(touchTimer) clearTimeout(touchTimer);
         $target.addClass('touch');
       } 
-      else if(event.type=='touchend' || event.type=='contextmenu') {
-        $target.removeClass('touch');
+      else if(event.type=='touchend') {
+        touchTimer = setTimeout(function(){
+          $target.removeClass('touch');
+        }, 150)
       }
     } 
     //desktop events
     else {
+      
       if(event.type=='mouseenter') {
         $target.addClass('hover');
       } 
@@ -53,6 +58,7 @@ function hoverTouchEvents() {
         $target.removeClass('hover');
         $target.removeClass('mousedown');
       }
+
     }  
   })
 }
@@ -92,7 +98,6 @@ window.popup = {
         ($target.closest('.popup').length && $target.closest('.popup-block__container').length==0)
       ) 
       {
-        console.log('++')
         event.preventDefault();
         let $popup = $target.closest('.popup').length ? $target.closest('.popup') : $('.city-question-popup');
         popup.close($popup);
@@ -126,24 +131,6 @@ window.popup = {
   }
 }
 
-function homeBanner() {
-  let $slider = $('.home-banner');
-
-  $slider.slick({
-    rows: 0,
-    speed: 500,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    nextArrow: '<button class="home-banner__arrow home-banner__next" aria-label="Next" type="button"><svg viewBox="0 0 15 26"><path d="M1.99869 0.292969L0.584473 1.70718L11.8774 13.0001L0.584472 24.293L1.99869 25.7072L14.7058 13.0001L1.99869 0.292969Z"/></svg></button>',
-    prevArrow: '<button class="home-banner__arrow home-banner__prev" aria-label="Previous" type="button"><svg viewBox="0 0 15 26"><path d="M13.286 0.292969L14.7002 1.70718L3.4073 13.0001L14.7002 24.293L13.286 25.7072L0.578877 13.0001L13.286 0.292969Z"/></svg></button>',
-    dots: true,
-    autoplay: true,
-    autoplaySpeed: 5000
-  });
-}
-
 function inputs() {
   let $form = $('.js-validation'),
       $input = $('input, textarea');
@@ -159,7 +146,6 @@ function inputs() {
     check();
   })
   function check() {
-    console.log('check')
     $input.each(function() {
       let value = $(this).val();
       if(value=='') {
@@ -247,8 +233,6 @@ function inputs() {
 
       let resault = validate(values, constraints);
 
-      console.log(resault)
-
       if(resault!==undefined) {
         if($input!==undefined) {
           let flag=true;
@@ -294,80 +278,95 @@ function inputs() {
 }
 
 function search() {
-  let $parent = $('.header-search'),
-      $input = $parent.find('.header-search__input'),
-      $content = $parent.find('.header-search__content'),
-      focus = false,
-      mouseenter = false;
+  let $parent = $('.search');
 
-  $input.on('input', function() {
-    let val = $(this).val();
-    if(val!=='') {
-      $parent.addClass('active').addClass('active-content');
-    } else {
-      $parent.removeClass('active').removeClass('active-content');
-    }
-  })
+  $parent.each(function() {
+    let $this = $(this),
+        $input = $this.find('.search__input'),
+        $content = $this.find('.search__content'),
+        focus = false,
+        mouseenter = false;
 
-  $content.on('mouseenter mouseleave', function(event) {
-    if(event.type=='mouseenter') {
-      mouseenter=true;
-    } else {
-      mouseenter=false;
-      if(!focus) {
-        $parent.removeClass('active-content');
+    $content.on('mouseenter mouseleave', function(event) {
+      if(device.desktop()) {
+        if(event.type=='mouseenter') {
+          mouseenter=true;
+        } else {
+          mouseenter=false;
+          if(!focus) {
+            $this.removeClass('active-content');
+          }
+        }
       }
-    }
-  })
-
-  $input.on('blur focus input', function(event) {
-    if(event.type=='blur') {
-      focus = false;
-      if(!mouseenter) {
-        $parent.removeClass('active-content');
-      }
-    } else if(event.type=='focus' || event.type=='input') {
-      focus = true;
-      let val = $(this).val();
-      if(val!=='') {
-        $parent.addClass('active').addClass('active-content');
+    })
+    $input.on('blur focus input', function(event) {
+      console.log('++')
+      if(event.type=='blur') {
+        focus = false;
+        if(!mouseenter && device.desktop()) {
+          $this.removeClass('active-content');
+        }
+      } else if(event.type=='focus') {
+        focus = true;
       } else {
-        $parent.removeClass('active').removeClass('active-content');
+        let val = $(this).val();
+        if(val!=='') {
+          $this.addClass('active').addClass('active-content');
+        } else {
+          $this.removeClass('active').removeClass('active-content');
+        }
       }
-    }
+    })
+
+    $(document).on('touchstart', function(event) {
+      let $target = $(event.target);
+      if($target.closest($this).length==0) {
+        $this.removeClass('active-content');
+      }
+    }) 
+    
   })
 
 }
 
 function customScroll() {
   let $containers = document.querySelectorAll('.scrollbar');
-  $containers.forEach(($target)=>{
-    let $parent = $($target),
-        $content = $parent.find('.scrollbar__content'),
-        simpleBar = new SimpleBar($target);
-    
-    simpleBar.getScrollElement().addEventListener('scroll', function() {
+  if(device.desktop()) {
+    $containers.forEach(($target)=>{
+      let $parent = $($target),
+          $content = $parent.find('.scrollbar__content'),
+          simpleBar = new SimpleBar($target);
+      
+      simpleBar.getScrollElement().addEventListener('scroll', function() {
+        gradientCheck();
+      });
       gradientCheck();
-    });
-    gradientCheck();
     
-    function gradientCheck() {
-      let scrollHeight = $content.outerHeight() - $parent.outerHeight(),
-          scroll = $parent.offset().top - $content.offset().top;
+      function gradientCheck() {
+        let scrollHeight = $content.outerHeight() - $parent.outerHeight(),
+            scroll = $parent.offset().top - $content.offset().top;
 
-      if(scroll > 0) {
-        $parent.removeClass('scrollbar_start')
-      } else {
-        $parent.addClass('scrollbar_start')
+        if(scroll > 0) {
+          $parent.removeClass('scrollbar_start')
+        } else {
+          $parent.addClass('scrollbar_start')
+        }
+        if(scroll < scrollHeight) {
+          $parent.removeClass('scrollbar_end')
+        } else {
+          $parent.addClass('scrollbar_end')
+        }
       }
-      if(scroll < scrollHeight) {
-        $parent.removeClass('scrollbar_end')
-      } else {
-        $parent.addClass('scrollbar_end')
-      }
-    }
 
-  })
+    })
+    setTimeout(function() {
+      $('.simplebar-wrapper, .simplebar-height-auto-observer-wrapper, .simplebar-mask, .simplebar-offset, .simplebar-content-wrapper, .simplebar-content').attr('data-scroll-lock-scrollable', '')
+    }, 500)
+  } else {
+    $containers.forEach(($this)=>{
+      $this.classList.add('scrollbar_mobile');
+    })
+  }
 }
 
 let slider = {
@@ -476,11 +475,6 @@ function header() {
     check();
   });
 
-  $(window).resize(function() {
-    padding();
-  });
-
-
   function check() {
     if($(window).width()<brakepoints.md) {
       scroll = $(window).scrollTop();
@@ -492,6 +486,7 @@ function header() {
         $header.removeClass('fixed');
       }
     }
+
   }
   
 }
@@ -499,9 +494,7 @@ function header() {
 function nav() {
   let $toggle = $('.nav-toggle'),
       $nav = $('.mobile-nav'),
-      $overlay = $('.mobile-nav__overlay'),
       state;
-
   $toggle.on('click', function(event){
     event.preventDefault();
     if(!state) {
@@ -510,24 +503,42 @@ function nav() {
       close();
     }
   })
-  $overlay.on('click touchstart', function(event){
-    event.preventDefault();
-    if(state) {
-      close();
-    } 
-  })
 
   function open() {
     state = true;
     scrollLock.disablePageScroll();
-    $('header').addClass('header_nav-active')
-    $nav.addClass('active');
+    $nav.add($toggle).addClass('active');
   }
-
   function close() {
     state = false;
     scrollLock.enablePageScroll();
-    $('header').removeClass('header_nav-active')
-    $nav.removeClass('active');
+    $nav.add($toggle).removeClass('active');
   }
+}
+
+function toggle() {
+  let $section = $('.toggle-section'),
+      $toggle = $('.toggle-section__head'),
+      flag;
+  
+  $toggle.on('click', function() {
+    $(this).toggleClass('active');
+    $(this).closest($section).toggleClass('active');
+    check();
+  })   
+
+  function check() {
+    $section.each(function(){
+      if($(this).hasClass('active')) {
+        if(!flag) {
+          $(this).find('.toggle-section__content').show();
+        }
+        $(this).find('.toggle-section__content').stop().slideDown(250);
+      } else {
+        $(this).find('.toggle-section__content').stop().slideUp(250);
+      }
+    })
+    flag = true;
+  }
+  check();
 }
