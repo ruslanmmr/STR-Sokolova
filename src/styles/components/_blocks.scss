@@ -704,7 +704,7 @@ img:not([class]) {
     }
   }
   &__filter {
-    padding: 10px 16px;
+    padding: 10px 16px; 
   }
   @include media-breakpoint-down(md) {
     margin-bottom: 24px;

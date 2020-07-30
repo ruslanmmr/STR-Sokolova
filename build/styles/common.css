@@ -1252,8 +1252,7 @@ a, button, label {
 
 .section {
   margin-bottom: 60px;
-  position: relative;
-  overflow: hidden; }
+  position: relative; }
   .section__title {
     margin: 0 0 25px 0;
     display: block; }
