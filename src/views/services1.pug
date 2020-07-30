@@ -1,0 +1,29 @@
+extends layout/layout
+  
+block title
+  title Услуги (тип 1)
+block breadcrumbs 
+  -var title = 'Каталог'
+  include blocks/breadcrumbs
+
+block content
+  section.section.container
+    h1.page-title Услуги
+    .row.grid
+      include blocks/cards
+      -var grid = 'grid__block col-xl-5th col-lg-3 col-md-4 col-sm-6 col-12'
+      +card2('Строительные работы', 'img/56dcc810efa71925168c0d36d5c3fbf7.png', grid)
+      +card2('Земельные работы', false, grid)
+      +card2('Отделочные работы', 'img/767773b7699f15e02052b250d92c0c7f.png', grid)
+      +card2('Проектные работы', 'img/e79cec4f0a120d2e96a1701cf4ef8db3.png', grid)
+      +card2('Отделочные работы', 'img/56dcc810efa71925168c0d36d5c3fbf7.png', grid)
+  
+  section.section
+    .container
+      .row.justify-content-center
+        .col-xl-10
+          h2 Почему мы лучше продаем стройматериалы
+          p Инвестируем в заводы, производящие листовые строительные материалы (ДСП ЦСП ФАНЕРА, ОСБ и т.д.) заключаем договора, выкупаем партии продукции, везем вагонами или фурами на склад и после поставляют постоянным клиентам типа “Красной цены”, “Сатурна”, “Центр строя” и т.д. Если есть товар в наличии и их цена ниже, то мы продаем, если нет — то продают конкуренты.
+
+  -var formTitle = 'Станьте нашим партнёром'
+  include blocks/form

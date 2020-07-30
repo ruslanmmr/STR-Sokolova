@@ -85,7 +85,6 @@
 }
 .slider {
   display: flex;
-  flex-wrap: nowrap;
   opacity: 0;
   visibility: hidden;
   transition: opacity $trs1, visibility $trs1;
@@ -118,10 +117,6 @@
     }
   }
   &_grid {
-    margin: 0 -10px;
-    .slick-slide {
-      padding: 0 10px;
-    }
     .slider {
       &__next,
       &__prev {
@@ -137,28 +132,21 @@
   }
 }
 
-@include media-breakpoint-down(md) {
+
+@include media-breakpoint-down(xs) {
   .slider {
     &_grid {
       padding-top: 56px;
+      margin-right: -16px;
+      margin-left: -16px;
+      .slick-list {
+        padding: 0 6px;
+      }
       .slider {
         &__next,
         &__prev {
           top: 0;
         }
-      }
-    }
-  }
-}
-
-@include media-breakpoint-down(xs) {
-  .slider {
-    &_grid {
-      margin: 0 -16px;
-      .slick-list {
-        padding: 0 6px;
-      }
-      .slider {
         &__next {
           right: 16px;
         }

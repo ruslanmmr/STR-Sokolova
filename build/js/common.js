@@ -3,6 +3,7 @@
 lazySizes.cfg.init = false;
 customScroll();
 $(document).ready(function () {
+  select.init();
   hoverTouchEvents();
   inputs();
   search();
@@ -24,7 +25,8 @@ var brakepoints = {
 }; //hover/touch custom events
 
 function hoverTouchEvents() {
-  $(document).on('mouseenter mouseleave touchstart touchend mousedown mouseup contextmenu', 'a[class],button,label,input,textarea,tr,.js-touch-hover', function (event) {
+  var $targets = 'a[class],button,label,input,textarea,tr,.js-touch-hover, .selectric-items li, .selectric .label';
+  $(document).on('mouseenter mouseleave touchstart touchend mousedown mouseup contextmenu', $targets, function (event) {
     var $target = $(this),
         touchTimer; //mobile events
 
@@ -371,6 +373,8 @@ var slider = {
   el: $('.slider'),
   init: function init() {
     slider.el.each(function () {
+      var _this4 = this;
+
       var slideCount = 1,
           slideCountLg = 1,
           slideCountMd = 1,
@@ -379,24 +383,47 @@ var slider = {
           arrows = false,
           dots = false,
           centerMode = false,
-          adaptiveHeight = false,
           autoplay = false,
           nextArrow = '<button type="button" class="button button_style-1 slider__next"><svg class="icon" viewBox="0 0 12 20"><path d="M2.18 19.05L.77 17.64 8.4 10 .77 2.36 2.18.95 11.23 10l-9.05 9.05z"></path></svg></button>',
           prevArrow = '<button type="button" class="button button_style-1 slider__prev"><svg class="icon" viewBox="0 0 12 20"><path d="M2.18 19.05L.77 17.64 8.4 10 .77 2.36 2.18.95 11.23 10l-9.05 9.05z"></path></svg></button>';
 
-      if ($(this).is('.popular-projects-section__slider')) {
+      if ($(this).is('.popular-projects__slider')) {
         arrows = true;
         slideCount = 2;
         slideCountLg = 2;
         slideCountMd = 2;
         slideCountSm = 2;
         slideCountXs = 1;
+
+        if ($(this).is('.popular-projects__slider_mobile-only')) {
+          var initialized = false;
+
+          var check = function check() {
+            if ($(window).width() < brakepoints.md && !initialized) {
+              initialized = true;
+              initSlider($(_this4));
+            } else if ($(window).width() >= brakepoints.md && initialized) {
+              initialized = false;
+              setTimeout(function () {
+                $(_this4).slick('unslick');
+              }, 500);
+            }
+          };
+
+          check();
+          $(window).on('resize', function () {
+            check();
+          });
+        } else {
+          initSlider($(this));
+        }
       } else if ($(this).is('.home-banner')) {
         arrows = true;
         dots = true;
         autoplay = true;
         nextArrow = '<button class="home-banner__arrow home-banner__next" aria-label="Next" type="button"><svg viewBox="0 0 15 26"><path d="M1.99869 0.292969L0.584473 1.70718L11.8774 13.0001L0.584472 24.293L1.99869 25.7072L14.7058 13.0001L1.99869 0.292969Z"/></svg></button>';
         prevArrow = '<button class="home-banner__arrow home-banner__prev" aria-label="Previous" type="button"><svg viewBox="0 0 15 26"><path d="M13.286 0.292969L14.7002 1.70718L3.4073 13.0001L14.7002 24.293L13.286 25.7072L0.578877 13.0001L13.286 0.292969Z"/></svg></button>';
+        initSlider($(this));
       } else if ($(this).is('.news-preview-section__slider')) {
         arrows = true;
         slideCount = 3;
@@ -404,6 +431,7 @@ var slider = {
         slideCountMd = 2;
         slideCountSm = 2;
         slideCountXs = 1;
+        initSlider($(this));
       } else if ($(this).is('.section-partners__slider')) {
         arrows = true;
         autoplay = true;
@@ -412,48 +440,65 @@ var slider = {
         slideCountMd = 4;
         slideCountSm = 3;
         slideCountXs = 1;
+        initSlider($(this));
       }
 
-      $(this).slick({
-        rows: 0,
-        infinite: true,
-        dots: dots,
-        arrows: arrows,
-        nextArrow: nextArrow,
-        prevArrow: prevArrow,
-        speed: 500,
-        centerMode: centerMode,
-        slidesToShow: slideCount,
-        slidesToScroll: slideCount,
-        autoplay: autoplay,
-        autoplaySpeed: 5000,
-        responsive: [{
-          breakpoint: brakepoints.lg,
-          settings: {
-            slidesToShow: slideCountLg,
-            slidesToScroll: slideCountLg
-          }
-        }, {
-          breakpoint: brakepoints.md,
-          settings: {
-            slidesToShow: slideCountMd,
-            slidesToScroll: slideCountMd
-          }
-        }, {
-          breakpoint: brakepoints.sm,
-          settings: {
-            slidesToShow: slideCountSm,
-            slidesToScroll: slideCountSm
-          }
-        }, {
-          breakpoint: brakepoints.xs,
-          settings: {
-            slidesToShow: slideCountXs,
-            slidesToScroll: slideCountXs
-          }
-        }]
-      });
+      function initSlider($target) {
+        $target.slick({
+          rows: 0,
+          infinite: true,
+          dots: dots,
+          arrows: arrows,
+          nextArrow: nextArrow,
+          prevArrow: prevArrow,
+          speed: 500,
+          centerMode: centerMode,
+          slidesToShow: slideCount,
+          slidesToScroll: slideCount,
+          autoplay: autoplay,
+          autoplaySpeed: 5000,
+          responsive: [{
+            breakpoint: brakepoints.lg,
+            settings: {
+              slidesToShow: slideCountLg,
+              slidesToScroll: slideCountLg
+            }
+          }, {
+            breakpoint: brakepoints.md,
+            settings: {
+              slidesToShow: slideCountMd,
+              slidesToScroll: slideCountMd
+            }
+          }, {
+            breakpoint: brakepoints.sm,
+            settings: {
+              slidesToShow: slideCountSm,
+              slidesToScroll: slideCountSm
+            }
+          }, {
+            breakpoint: brakepoints.xs,
+            settings: {
+              slidesToShow: slideCountXs,
+              slidesToScroll: slideCountXs
+            }
+          }]
+        });
+      }
     });
+  }
+}; //select
+
+var select = {
+  init: function init() {
+    this.items = $('select');
+
+    if (this.items.length) {
+      this.items.selectric({
+        disableOnMobile: false,
+        nativeOnMobile: false,
+        arrowButtonMarkup: '<svg class="icon" viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg"><path d="M9.72606 -1.19209e-07L11.1403 1.41421L5.57036 6.98453L4.15614 5.57031L9.72606 -1.19209e-07Z"/><path d="M0 1.41421L1.41421 1.19209e-07L6.98434 5.57047L5.57036 6.98453L0 1.41421Z"/></svg>'
+      });
+    }
   }
 };
 
@@ -510,18 +555,43 @@ function nav() {
 function toggle() {
   var $section = $('.toggle-section'),
       $toggle = $('.toggle-section__head');
-  $toggle.on('click', function () {
-    $(this).toggleClass('active');
-    $(this).closest($section).toggleClass('active');
-    check();
+  $section.each(function () {
+    var $this = $(this),
+        $toggle = $this.find('.toggle-section__head'),
+        $content = $this.find('.toggle-section__content'),
+        state;
+
+    if ($this.is('[data-out-hide]')) {
+      $(document).on('click touchstart', function (event) {
+        var $target = $(event.target);
+
+        if (!$target.closest($content).length && !$target.closest($toggle).length && state) {
+          state = false;
+          check();
+        }
+      });
+    }
+
+    $toggle.on('click', function () {
+      state = !state ? true : false;
+      check();
+    });
+
+    function check() {
+      if (state) {
+        $content.add($toggle).addClass('active');
+      } else {
+        $content.add($toggle).removeClass('active');
+      }
+    }
   });
 
   function check() {
     $section.each(function () {
       if ($(this).hasClass('active')) {
-        $(this).find('.toggle-section__content').show();
+        $(this).find('.toggle-section__content').addClass('active');
       } else {
-        $(this).find('.toggle-section__content').hide();
+        $(this).find('.toggle-section__content').removeClass('active');
       }
     });
   }

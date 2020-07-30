@@ -7,7 +7,7 @@
       .popup-message__content
         svg.icon.popup-message__icon
           use(xlink:href="img/icons/icons-sprite.svg#smile-positive")
-        h3.popup-message__title Всё получилось! Сообщение отправлено
+        h2.popup-message__title Всё получилось! Сообщение отправлено
         a(href="javascript:void(0);" data-popup-close).button.button_style-2.popup-message__button Закрыть
 
 .popup#error.popup-message(data-scroll-lock-scrollable)
@@ -19,7 +19,7 @@
       .popup-message__content
         svg.icon.popup-message__icon
           use(xlink:href="img/icons/icons-sprite.svg#smile-negative")
-        h3.popup-message__title Ошибка. Попробуйте позже
+        h2.popup-message__title Ошибка. Попробуйте позже
         a(href="javascript:void(0);" data-popup-close).button.button_style-2.popup-message__button Закрыть
 
 .popup#feedback.popup-feedback(data-scroll-lock-scrollable)
@@ -29,7 +29,7 @@
         svg.icon
           use(xlink:href="img/icons/icons-sprite.svg#close")
       .popup-feedback__content
-        h3.popup-feedback__title Заказать обратный звонок
+        h2.popup-feedback__title Заказать обратный звонок
         form(action="#").popup-feedback__form.js-validation
           .input.popup-feedback__form-input
             input(type="text" name='name' placeholder="Имя*").input__element.required
@@ -49,7 +49,7 @@
         svg.icon
           use(xlink:href="img/icons/icons-sprite.svg#close")
       .popup-cities__content
-        h3.popup-cities__title Выберите свой город
+        h2.popup-cities__title Выберите свой город
         ul.popup-cities__list.row
           mixin block(title)
             li.popup-cities__item.col-md-4.col-6

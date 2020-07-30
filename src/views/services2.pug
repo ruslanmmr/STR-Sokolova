@@ -1,0 +1,85 @@
+extends layout/layout
+  
+block title
+  title Услуги (тип 2)
+block breadcrumbs 
+  -var title = 'Каталог'
+  include blocks/breadcrumbs
+
+block content
+  section.section.container
+    h1.page-title Услуги
+    .row
+      aside.aside.col-xl-5th.col-lg-3
+        .aside-filtration.toggle-section(data-out-hide)
+          a(href="javascript:void(0);").button.aside-filtration__button.toggle-section__head
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#services")
+            span Услуги
+          .aside-filtration__content.toggle-section__content
+            ul.aside-filtration__list
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Строительные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Отделочные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Земельные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Проектные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Строительные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Отделочные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Земельные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Проектные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Строительные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Отделочные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+        .d-none.d-lg-block
+          include blocks/advertising
+      .col-xl.col-lg-9
+        section.section
+          .row.grid
+            include blocks/cards
+            -var grid = 'grid__block col-xl-3 col-md-4 col-sm-6 col-12'
+            +card2('Земельные работы', 'img/56dcc810efa71925168c0d36d5c3fbf7.png', grid)
+            +card2('Отделочные работы', 'img/7eaf93e9c47993e5b22277de3a30b89e.png', grid)
+            +card2('Проектные работы', 'img/767773b7699f15e02052b250d92c0c7f.png', grid)
+            +card2('Отделочные работы', 'img/e79cec4f0a120d2e96a1701cf4ef8db3.png', grid)
+            +card2('Земельные работы', 'img/56dcc810efa71925168c0d36d5c3fbf7.png', grid)
+            +card2('Отделочные работы', 'img/7eaf93e9c47993e5b22277de3a30b89e.png', grid)
+            +card2('Проектные работы', 'img/767773b7699f15e02052b250d92c0c7f.png', grid)
+            +card2('Отделочные работы', 'img/e79cec4f0a120d2e96a1701cf4ef8db3.png', grid)
+            +card2('Земельные работы', 'img/56dcc810efa71925168c0d36d5c3fbf7.png', grid)
+            +card2('Отделочные работы', 'img/7eaf93e9c47993e5b22277de3a30b89e.png', grid)
+            +card2('Проектные работы', 'img/767773b7699f15e02052b250d92c0c7f.png', grid)
+            +card2('Отделочные работы', 'img/e79cec4f0a120d2e96a1701cf4ef8db3.png', grid)
+        section.section
+          h2 Почему мы лучше продаем стройматериалы
+          p Инвестируем в заводы, производящие листовые строительные материалы (ДСП ЦСП ФАНЕРА, ОСБ и т.д.) заключаем договора, выкупаем партии продукции, везем вагонами или фурами на склад и после поставляют постоянным клиентам типа “Красной цены”, “Сатурна”, “Центр строя” и т.д. Если есть товар в наличии и их цена ниже, то мы продаем, если нет — то продают конкуренты.
+
+  -var formTitle = 'Станьте нашим партнёром'
+  include blocks/form

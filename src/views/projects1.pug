@@ -1,0 +1,103 @@
+extends layout/layout
+  
+block title
+  title Проекты (тип 1)
+block breadcrumbs 
+  -var title = 'Каталог'
+  include blocks/breadcrumbs
+
+block content
+  section.section.container
+    h1.page-title Проекты домов
+    .row
+      aside.aside.col-xl-5th.col-lg-3
+        .aside-filtration.toggle-section(data-out-hide)
+          a(href="javascript:void(0);").button.aside-filtration__button.toggle-section__head
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#burger")
+            span Каталог проектов
+          .aside-filtration__content.toggle-section__content
+            ul.aside-filtration__list
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Дома из бруса
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Дома из газобетона
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Кирпичные дома 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Каркасные дома
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Dома из бруса  
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Дома из газобетона
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Кирпичные дома
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Каркасные дома
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Дома из бруса
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Дома из газобетона
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+
+          
+        .d-none.d-lg-block
+          include blocks/advertising
+      .col-xl.col-lg-9
+        section.section
+          .row.grid
+            include blocks/cards
+            -var grid = 'grid__block col-xl-3 col-md-4 col-sm-6 col-12'
+            +card2('Дома из бруса', 'img/56dcc810efa71925168c0d36d5c3fbf7.png', grid)
+            +card2('Дома из газобетона', 'img/7eaf93e9c47993e5b22277de3a30b89e.png', grid)
+            +card2('Кирпичные дома', 'img/767773b7699f15e02052b250d92c0c7f.png', grid)
+            +card2('Каркасные дома', 'img/e79cec4f0a120d2e96a1701cf4ef8db3.png', grid)
+            +card2('Дома из бруса', 'img/56dcc810efa71925168c0d36d5c3fbf7.png', grid)
+            +card2('Дома из газобетона', 'img/7eaf93e9c47993e5b22277de3a30b89e.png', grid)
+            +card2('Кирпичные дома', 'img/767773b7699f15e02052b250d92c0c7f.png', grid)
+            +card2('Каркасные дома', 'img/e79cec4f0a120d2e96a1701cf4ef8db3.png', grid)
+        section.section
+          h2 Почему мы лучше продаем стройматериалы
+          .row.mb--1
+            .col-md-6.mb-1
+              p Инвестируем в заводы, производящие листовые строительные материалы (ДСП ЦСП ФАНЕРА, ОСБ и т.д.) заключаем договора, выкупаем партии продукции, везем вагонами или фурами на склад и после поставляют постоянным клиентам типа “Красной цены”, “Сатурна”, “Центр строя” и т.д. Если есть товар в наличии и их цена ниже, то мы продаем, если нет — то продают конкуренты.
+            .col-md-6.mb-1
+              p Инвестируем в заводы, производящие листовые строительные материалы (ДСП ЦСП ФАНЕРА, ОСБ и т.д.) заключаем договора, выкупаем партии продукции, везем вагонами или фурами на склад и после поставляют постоянным клиентам типа “Красной цены”, “Сатурна”, “Центр строя” и т.д. Если есть товар в наличии и их цена ниже, то мы продаем, если нет — то продают конкуренты.
+        
+        section.section.d-sm-none
+          include blocks/advertising
+
+        section.section.popular-projects
+          h2.section__title Популярные проекты домов
+          .slider.slider_grid.popular-projects__slider.popular-projects__slider_mobile-only.row.grid
+            include blocks/cards
+            -var grid = 'grid__block col-md-6 col-12'
+            +card1(true, true, grid)
+            +card1(true, true, grid)
+            +card1(true, true, grid)
+            +card1(true, true, grid)
+            +card1(true, true, grid)
+            +card1(false, false, grid)
+
+
+  -var formTitle = 'Станьте нашим партнёром'
+  include blocks/form

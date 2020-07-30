@@ -18,39 +18,20 @@ block content
 
   section.section.home-categories
     .container
-      .row.home-categories__container.mb--1
-        //block
-        .category-block.home-categories__block.mb-1.col-lg-3.col-sm-6.col-12
-          a(href="#").category-block__container.image.image_cover
-            img(data-src="img/Rectangle 200.jpg", alt="image").lazyload
-            h5.category-block__title Деревянные дома 
-              svg.icon
-                use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-        .category-block.home-categories__block.mb-1.col-lg-3.col-sm-6.col-12
-          a(href="#").category-block__container.image.image_cover
-            img(data-src="img/Rectangle 199.jpg", alt="image").lazyload
-            h5.category-block__title Кровельные работы
-              svg.icon
-                use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-        .category-block.home-categories__block.mb-1.col-lg-3.col-sm-6.col-12
-          a(href="#").category-block__container.image.image_cover
-            img(data-src="img/Rectangle 198.jpg", alt="image").lazyload
-            h5.category-block__title Пропитки для бревен
-              svg.icon
-                use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-        .category-block.home-categories__block.mb-1.col-lg-3.col-sm-6.col-12
-          a(href="#").category-block__container.image.image_cover
-            img(data-src="img/Rectangle 197.jpg", alt="image").lazyload
-            h5.category-block__title Проектирование
-              svg.icon
-                use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+      .row.grid
+        include blocks/cards
+        -var grid = 'grid__block home-categories__block col-lg-3 col-md-6 col-12'
+        +card2('Деревянные дома', 'img/56dcc810efa71925168c0d36d5c3fbf7.png', grid)
+        +card2('Кровельные работы', 'img/7eaf93e9c47993e5b22277de3a30b89e.png', grid)
+        +card2('Пропитки для бревен', 'img/767773b7699f15e02052b250d92c0c7f.png', grid)
+        +card2('Проектирование', 'img/e79cec4f0a120d2e96a1701cf4ef8db3.png', grid)
   
   section.section.about-us
     .background(data-src='img/about.png').lazyload.about-us__background
     .container
       .row.about-us__container
         .about-us-block.col-lg-6.col-md-12
-          h3.about-us-block__title О компании
+          h2.about-us-block__title О компании
           .about-us-block__container
             .about-us-block__count
               span.about-us-block__count-value 12
@@ -61,7 +42,7 @@ block content
           .about-us-block__button-container
             a(href="#").button.button_style-1.about-us-block__button.about-us-block__left-button Подробнее
         .about-us-block.col-6
-          h3.about-us-block__title Наши бригады
+          h2.about-us-block__title Наши бригады
           .about-us-block__count
             span.about-us-block__count-value 6
             span.about-us-block__count-label Свободных бригад
@@ -72,22 +53,29 @@ block content
                 span забронировать 
                 span.d-none.d-lg-inline бригаду
   
-  section.section.popular-projects-section
+  section.section.d-sm-none
+    .container
+      include blocks/advertising
+
+  section.section.popular-projects
     .container
       .row
-        h3.col-md.section__title.popular-projects-section__title Популярные проекты домов
-      .row
-        .col-md-auto.col-aside
+        .col-xl-5th.col-lg-3.popular-projects__advertising
           include blocks/advertising
-        .col-md
-          .slider.slider_grid.popular-projects-section__slider
+        .col-xl.col-lg-9
+          h2.section__title Популярные проекты домов
+          .slider.slider_grid.popular-projects__slider.row.grid
             include blocks/cards
-            +card1(true, true)
-            +card1(false, false)
-            +card1(true, true)
-            +card1(false, false)
-      .popular-projects-section__more.section__more
+            -var grid = 'grid__block col-md-6 col-12'
+            +card1(true, true, grid)
+            +card1(true, true, grid)
+            +card1(true, true, grid)
+            +card1(true, true, grid)
+            +card1(true, true, grid)
+            +card1(false, false, grid)
+      .section__more.popular-projects__more
         a(href="#").button.button_style-1.button_xl.section__more-button Смотреть все проекты
+
           
   section.section.additionalLinks-section
     .container
@@ -95,7 +83,7 @@ block content
         .additionalLinks-block.col-md-6
           .additionalLinks-block__container
             .background.background_left.additionalLinks-block__background.lazyload(data-src='img/dce9a60f2d0bb6ee08ce43af9bc71557 1.png')
-            h3.additionalLinks-block__title Калькулятор проектов
+            h2.additionalLinks-block__title Калькулятор проектов
             p.additionalLinks-block__text Рассчитайте орентировочную стоимость своего<br> проекта самостоятельно
             a(href="#").button.button_style-2.button_xl.additionalLinks-block__button
               svg.icon
@@ -104,7 +92,7 @@ block content
         .additionalLinks-block.col-md-6
           .additionalLinks-block__container
             .background.background_right.additionalLinks-block__background.lazyload(data-src='img/map.png')
-            h3.additionalLinks-block__title Наши реализованные<br> проекты
+            h2.additionalLinks-block__title Наши реализованные<br> проекты
             p.additionalLinks-block__text В сезон таких специалистов тяжело найти, предлагаем функцию запрос бригады. 
             a(href="#").button.button_style-2.button_xl.additionalLinks-block__button
               svg.icon
@@ -113,10 +101,10 @@ block content
   
   section.section.services
     .container
-      h3.section__title.services__title Основные услуги
-      .services__container.row.mb--2
+      h2.section__title.services__title Основные услуги
+      .services__container.row.grid
         mixin block(title)
-          .services-item-block.mb-2.col-lg-3.col-sm-6
+          .services-item-block.grid__block.col-lg-3.col-sm-6
             a(href="#").services-item-block__container
               h5.services-item-block__title=title
                 svg.icon
@@ -130,27 +118,27 @@ block content
 
   section.section.news-preview-section
     .container
-      h3.section__title Новости и акции
-      .slider.slider_grid.news-preview-section__slider
-        .news-preview-block
+      h2.section__title Новости и акции
+      .slider.slider_grid.row.news-preview-section__slider
+        .news-preview-block.col
           a(href="#").news-preview-block__container.image.image_cover
             img(src="img/image 2.png", alt="image").lazyload
             .news-preview-block__content
               span.news-preview-block__label.news-preview-block__label_style-1 Акция
               span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс отправиться MaxRoyal
-        .news-preview-block
+        .news-preview-block.col
           a(href="#").news-preview-block__container.image.image_cover
             img(src="img/no_img_news.jpg", alt="image").lazyload
             .news-preview-block__content
               span.news-preview-block__label.news-preview-block__label_style-2 Новость
               span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс
-        .news-preview-block
+        .news-preview-block.col
           a(href="#").news-preview-block__container.image.image_cover
             img(src="img/image 2.png", alt="image").lazyload
             .news-preview-block__content
               span.news-preview-block__label.news-preview-block__label_style-1 Акция
               span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс отправиться MaxRoyal
-        .news-preview-block
+        .news-preview-block.col
           a(href="#").news-preview-block__container.image.image_cover
             img(src="img/no_img_news.jpg", alt="image").lazyload
             .news-preview-block__content
@@ -162,31 +150,33 @@ block content
 
   section.section.section-articles
     .container
-      h3.section__title Полезные статьи
-      .row.mb--2
-        .article-preview.mb-2.col-lg-3.col-sm-6
+      h2.section__title Полезные статьи
+      .row.grid
+        .article-preview.grid__block.col-lg-3.col-sm-6
           .article-preview__container
             span.article-preview__label Статья
             a(href="#").article-preview__text Продажа листовых строительных материалов — это сложно
-        .article-preview.mb-2.col-lg-3.col-sm-6
+        .article-preview.grid__block.col-lg-3.col-sm-6
           .article-preview__container
             span.article-preview__label Статья
             a(href="#").article-preview__text Преимущественное использование плитки в качестве отделки для санузлов объясняется свойствами. 
-        .article-preview.mb-2.col-lg-3.col-sm-6
+        .article-preview.grid__block.col-lg-3.col-sm-6
           .article-preview__container
             span.article-preview__label Статья
             a(href="#").article-preview__text Преимущественное использование плитки в качестве отделки для санузлов объясняется свойствами. 
-        .article-preview.mb-2.col-lg-3.col-sm-6
+        .article-preview.grid__block.col-lg-3.col-sm-6
           .article-preview__container
             span.article-preview__label Статья
             a(href="#").article-preview__text Преимущественное использование плитки в качестве отделки для санузлов объясняется отличными санитарно-гигиеническими свойствами. 
       .section-articles__more.section__more
         a(href="#").button.button_style-1.button_xl.section__more-button Смотреть все статьи
+  
+  -var formTitle = 'Напишите нам'
   include blocks/form
 
   section.section.section-partners
     .container
-      h3.section__title.section-partners__title Наши 
+      h2.section__title.section-partners__title Наши 
         span партнёры
       p.section-partners__text Мы продаем продаем листовые строительные материалы только у проверенных постащиков 
       .slider.section-partners__slider

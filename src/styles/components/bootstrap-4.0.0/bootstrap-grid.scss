@@ -19,3 +19,44 @@
 @import "grid";
 @import "utilities/display";
 @import "utilities/flex";
+
+//поддержка 5 колонок
+.col-5th,
+.col-sm-5th,
+.col-md-5th,
+.col-lg-5th,
+.col-xl-5th {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: ($grid-gutter-width/2);
+    padding-left: ($grid-gutter-width/2);
+}
+.col-5th {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+@media (min-width: map_get($grid-breakpoints, sm)) {
+  .col-sm-5th {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media (min-width: map_get($grid-breakpoints, md)) {
+  .col-md-5th {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media (min-width: map_get($grid-breakpoints, lg)) {
+  .col-lg-5th {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media (min-width: map_get($grid-breakpoints, xl)) {
+  .col-xl-5th {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}

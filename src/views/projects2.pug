@@ -1,0 +1,58 @@
+extends layout/layout
+  
+block title
+  title Проекты (тип 2)
+block breadcrumbs 
+  -var title = 'Каталог'
+  include blocks/breadcrumbs
+
+block content
+  section.section.container
+    h1.page-title Проекты домов
+    .sorting-heading
+      .sorting-heading__container.row
+        .col-xl-5th.col-lg-3
+          select.select.select_style-1
+            option(value="1") Сначала дорогие
+            option(value="2") Сначала дешевые
+            option(value="3" selected) Арбуз
+            option(value="4") Бекон
+        .col-xl-5th.col-lg-3
+          select.select.select_style-1
+            option(value="1") Сначала популярные
+            option(value="2") Сначала дешевые
+            option(value="3") Арбуз
+            option(value="4") Бекон
+    .row
+      aside.aside.col-xl-5th.col-lg-3
+        .aside-filtration.toggle-section(data-out-hide)
+          a(href="javascript:void(0);").button.aside-filtration__button.toggle-section__head
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#burger")
+            span Каталог проектов
+          .aside-filtration__content.toggle-section__content.aside-filtration__filter
+            strong filter
+
+        .d-none.d-lg-block
+          include blocks/advertising
+      .col-xl.col-lg-9
+        .row.grid
+          include blocks/cards
+          -var grid = 'grid__block col-md-6 col-12'
+          +card1(true, true, grid)
+          +card1(true, true, grid)
+          +card1(true, true, grid)
+          +card1(true, true, grid)
+          +card1(true, true, grid)
+          +card1(false, false, grid)
+
+  section.section
+    .container
+      .row.justify-content-center
+        .col-xl-10
+          h2 Почему мы лучше продаем стройматериалы
+          p Инвестируем в заводы, производящие листовые строительные материалы (ДСП ЦСП ФАНЕРА, ОСБ и т.д.) заключаем договора, выкупаем партии продукции, везем вагонами или фурами на склад и после поставляют постоянным клиентам типа “Красной цены”, “Сатурна”, “Центр строя” и т.д. Если есть товар в наличии и их цена ниже, то мы продаем, если нет — то продают конкуренты.
+      
+
+  -var formTitle = 'Станьте нашим партнёром'
+  include blocks/form

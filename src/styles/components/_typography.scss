@@ -1,9 +1,9 @@
 h1,h2,h3,h4,h5,h6 {
-  line-height: 1.33;
   color: #000;
 }
 h2,h3,h4,h5,h6 {
   margin: 2.25rem 0 1rem 0;
+  line-height: 1.33;
   &:not([class]) {
     &:first-child {
       margin-top: 0;
@@ -16,6 +16,7 @@ h2,h3,h4,h5,h6 {
 h1 {
   font-size: 1.875rem;
   margin: 0 0 1em 0;
+  line-height: 1.2;
 }
 h2 {
   font-size: 1.5rem;
@@ -46,7 +47,7 @@ ul:not([class]) {
   &:not(:last-child) {
     margin-bottom: 1.875rem;
   }
-  li {
+  li:not([class]) {
     position: relative;
     padding-left: 23px;
     margin: 0 0 1rem 0;
@@ -74,7 +75,7 @@ ol:not([class]) {
   &:not(:last-child) {
     margin-bottom: 1.875rem;
   }
-  li {
+  li:not([class]) {
     padding-left: 49px;
     min-height: 36px;
     position: relative;
@@ -154,7 +155,7 @@ a:not([class]) {
 }
 
 @include media-breakpoint-down(xs) {
-  h1,h2,h3,h4,h5,h6 {
+  h2,h3,h4,h5,h6 {
     margin: 1.5rem 0 1rem 0;
     &:not([class]) {
       &:first-child {

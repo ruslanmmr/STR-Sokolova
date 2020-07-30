@@ -35,4 +35,17 @@ mixin card1(image, discount, grid)
                 span  ₽/шт 
               if image==true
                 span.card-price__old 99 999,99
+
+mixin card2(title, image, grid)
+  .category-card(class=grid)
+    a(href="#").category-card__container
+      if image==false
+        .image.image_contain
+          img(data-src='img/icons/services.svg', alt="image").lazyload
+      else
+        .image.image_cover
+          img(data-src=image, alt="image").lazyload
+      h5.category-card__title=title
+        svg.icon
+          use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
               
