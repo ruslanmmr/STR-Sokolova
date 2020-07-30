@@ -9,6 +9,7 @@
   flex: 1 1 100%;
   padding: 30px 0 0 0;
 }
+
 .section {
   margin-bottom: 60px;
   position: relative;
@@ -25,6 +26,7 @@
     justify-content: center;
   }
 }
+
 .section .section {
   &:last-child {
     margin-bottom: 0;
