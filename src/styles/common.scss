@@ -50,6 +50,7 @@ a, button, label {
 @include media-breakpoint-down(xs) {
   body {
     font-size: 0.75rem;
+    line-height: 1.5;
   }
 } 
 

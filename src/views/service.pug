@@ -1,0 +1,137 @@
+extends layout/layout
+  
+block title
+  title Услуга
+block breadcrumbs 
+  -var title = 'Каталог'
+  include blocks/breadcrumbs
+
+block content
+  section.section.container
+    .row
+      aside.aside.d-none.d-lg-block.col-xl-5th.col-lg-3
+        .aside-filtration
+          a(href="javascript:void(0);").button.aside-filtration__button
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#services")
+            span Услуги
+          .aside-filtration__content
+            ul.aside-filtration__list
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Строительные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Отделочные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Земельные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Проектные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Строительные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Отделочные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Земельные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Проектные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Строительные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-filtration__item
+                a(href="#").aside-filtration__link Отделочные работы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+          
+        include blocks/advertising
+      .col-xl.col-lg-9
+        h1.page-title 
+          span Укладка плитки
+          span 141224
+        .service-item-head
+          .service-item-head__price 1143 
+            span ₽/м2
+          .service-item-head__old-price 700 ₽
+          a(href="#").button.button_style-2.service-item-head__button 
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#subtract")
+            span Добавить в заказ
+        .section__container
+          p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
+          p В зависимости от внешнего вида <a href="service.html">наружных слоев</a> на сорта: Е (элита), I, II, III, IV
+          h3 Заголовок группы
+          p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве. 
+          figure
+            img(src="img/image 35.jpg", alt="image")
+            figcaption Подпись фотографии
+          p В зависимости от внешнего вида наружных слоев на сорта: 
+          ul  
+            li Сорт Е (элита)
+            li Сорт I
+            li Сорт II
+            li Сорт III
+            li Сорт IV
+          blockquote Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве. 
+          p В зависимости от внешнего вида наружных слоев на сорта: 
+          ol
+            li Сорт Е (элита)
+            li Сорт I, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
+            li Сорт III
+            li Сорт IV
+          h3 Таблица №1. Технические характеристики
+          .table
+            table
+              tr
+                th Номер заказа
+                th Получение
+                th Сумма
+                th Оплачено
+              tr
+                td 28.03.2019
+                td Самовывоз
+                td 3&nbsp;256,00&nbsp;₽
+                td Да
+              tr
+                td 28.03.2019
+                td Самовывоз
+                td 50 136,00&nbsp;₽
+                td Нет
+              tr
+                td 28.03.2019
+                td Доставка
+                td 36,00&nbsp;₽
+                td Да
+              tr
+                td 28.03.2019
+                td Самовывоз
+                td 50&nbsp;136,00&nbsp;₽
+                td Нет
+              tr
+                td 28.03.2019
+                td Доставка
+                td 36,00&nbsp;₽
+                td Да
+      .d-none.d-xl-block.col-xl-5th
+  section.section
+    .container
+      .row.justify-content-center
+        .col-xl-10
+          h2 Почему мы лучше продаем стройматериалы
+          p Инвестируем в заводы, производящие листовые строительные материалы (ДСП ЦСП ФАНЕРА, ОСБ и т.д.) заключаем договора, выкупаем партии продукции, везем вагонами или фурами на склад и после поставляют постоянным клиентам типа “Красной цены”, “Сатурна”, “Центр строя” и т.д. Если есть товар в наличии и их цена ниже, то мы продаем, если нет — то продают конкуренты.
+  -var formTitle = 'Заказать услугу'
+  include blocks/form

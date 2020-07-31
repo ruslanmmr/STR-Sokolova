@@ -27,6 +27,27 @@
   }
 }
 
+.page-title {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  span {
+    &:first-child {
+      margin-right: 16px;
+    }
+    &:last-child {
+      &:not(:first-child) {
+        display: inline-block;
+        font-weight: normal;
+        font-size: 0.75rem;
+        color: var(--color-text-muted, #767676);
+        transform: translateY(4px);
+      }
+    }
+  }
+}
+
 .section .section {
   &:last-child {
     margin-bottom: 0;
