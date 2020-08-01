@@ -25,7 +25,7 @@ var brakepoints = {
 }; //hover/touch custom events
 
 function hoverTouchEvents() {
-  var $targets = 'a[class],button,label,input,textarea,tr,.js-touch-hover, .selectric-items li, .selectric .label';
+  var $targets = 'a[class], button, label, input, textarea, tr, .js-touch-hover, .selectric-items li, .selectric .label, .button';
   $(document).on('mouseenter mouseleave touchstart touchend mousedown mouseup contextmenu', $targets, function (event) {
     var $target = $(this),
         touchTimer; //mobile events
@@ -554,12 +554,15 @@ function nav() {
 
 function toggle() {
   var $section = $('.toggle-section'),
-      $toggle = $('.toggle-section__head');
+      speed = 250;
   $section.each(function () {
     var $this = $(this),
-        $toggle = $this.find('.toggle-section__head'),
-        $content = $this.find('.toggle-section__content'),
-        state;
+        $toggle = $this.children('.toggle-section__head'),
+        $content = $this.children('.toggle-section__content'),
+        state = $this.hasClass('active') ? true : false,
+        initialized,
+        timeout,
+        height = $content.height();
 
     if ($this.is('[data-out-hide]')) {
       $(document).on('click touchstart', function (event) {
@@ -579,22 +582,36 @@ function toggle() {
 
     function check() {
       if (state) {
-        $content.add($toggle).addClass('active');
+        $this.add($content).add($toggle).addClass('active');
+
+        if (!$this.is('[data-class-only]')) {
+          $content.height(height);
+          $content.stop().slideDown(speed);
+        }
       } else {
-        $content.add($toggle).removeClass('active');
+        $this.add($toggle).add($content).removeClass('active');
+
+        if (!$this.is('[data-class-only]')) {
+          if (initialized) {
+            $content.stop().slideUp(speed);
+          } else {
+            $content.hide(0);
+          }
+        }
       }
     }
-  });
 
-  function check() {
-    $section.each(function () {
-      if ($(this).hasClass('active')) {
+    check();
+    initialized = true;
+  });
+  /* function check() {
+    $section.each(function(){
+      if($(this).hasClass('active')) {
         $(this).find('.toggle-section__content').addClass('active');
       } else {
         $(this).find('.toggle-section__content').removeClass('active');
       }
-    });
+    })
   }
-
-  check();
+  check(); */
 }

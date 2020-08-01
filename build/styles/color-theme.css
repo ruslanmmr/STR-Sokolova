@@ -4,6 +4,7 @@
   --color-text: #333333;
   --color-text-muted: #767676;
   --color-text-muted-2: #E5E5EA;
+  --color-text-light: #BDBDBD;
   --color-border-1: #D9D9DE;
   --color-border-2: #BDBDBD;
   --color-border-3: #A7A7AB;
@@ -24,6 +25,7 @@
   --color-card-accent-1: #C43228;
   --color-old-price: #C43228;
   --color-link-visited: #B46CB8;
+  --color-pagination-accent: #2363D1;
   --color-label-hit: #3EC28F;
   --color-label-sale: #FF9500;
   --color-label-new: #30C2FF;
@@ -44,11 +46,14 @@
   --color-button2-hover-bg: #1C52AC;
   --color-button3: #1C52AC;
   --color-button3-hover: #2363D1;
+  --color-filter-arrow-bg: #F3F6FB;
   --color-input-border: #A7A7AB;
   --color-input-focus: #1B50A8;
   --color-input-focus-shadow: #E7EEF6;
   --color-input-error: #C43228;
   --color-input-error-shadow: #F6E7E7;
+  --color-checkbox-border: #000;
+  --color-checkbox-hover-color: #2363D1;
   --color-header-phone: #333333;
   --color-header-phone-hover: #1C52AC;
   --color-header-search: #fff;

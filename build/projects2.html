@@ -291,32 +291,192 @@
         <section class="section container">
           <h1 class="page-title">Проекты домов</h1>
           <div class="sorting-heading">
-            <div class="sorting-heading__container row">
-              <div class="col-xl-5th col-lg-3">
-                <select class="select select_style-1">
-                  <option value="1">Сначала дорогие</option>
-                  <option value="2">Сначала дешевые</option>
-                  <option value="3" selected>Арбуз</option>
-                  <option value="4">Бекон</option>
-                </select>
+            <div class="sorting-heading__container"><span class="sorting-heading__title">Сортировка:</span>
+              <div class="line-sorting d-none d-md-block">
+                <ul class="line-sorting__list">
+                  <li class="line-sorting__item"><a class="line-sorting__link active" href="#">
+                      <svg class="icon">
+                        <use xlink:href="img/icons/icons-sprite.svg#sorting-up"></use>
+                      </svg>Цена (по возрастанию)</a></li>
+                  <li class="line-sorting__item"><a class="line-sorting__link" href="#">
+                      <svg class="icon">
+                        <use xlink:href="img/icons/icons-sprite.svg#sorting-down"></use>
+                      </svg>Цена (по убыванию)</a></li>
+                  <li class="line-sorting__item"><a class="line-sorting__link" href="#">Наличие</a></li>
+                  <li class="line-sorting__item"><a class="line-sorting__link" href="#">Популярность</a></li>
+                </ul>
               </div>
-              <div class="col-xl-5th col-lg-3">
-                <select class="select select_style-1">
-                  <option value="1">Сначала популярные</option>
-                  <option value="2">Сначала дешевые</option>
-                  <option value="3">Арбуз</option>
-                  <option value="4">Бекон</option>
-                </select>
+              <div class="row d-flex d-md-none">
+                <div class="col-xl-5th col-sm-6">
+                  <select class="select select_style-1">
+                    <option value="1">Цена (по возрастанию)</option>
+                    <option value="2">Цена (по убыванию)</option>
+                    <option value="3" selected>Наличие</option>
+                    <option value="4">Популярность</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
           <div class="row">
             <aside class="aside col-xl-5th col-lg-3">
-              <div class="aside-filtration toggle-section" data-out-hide><a class="button aside-filtration__button toggle-section__head" href="javascript:void(0);">
+              <div class="aside-filtration toggle-section" data-out-hide data-class-only><a class="button aside-filtration__button toggle-section__head" href="javascript:void(0);">
                   <svg class="icon">
                     <use xlink:href="img/icons/icons-sprite.svg#burger"></use>
                   </svg><span>Каталог проектов</span></a>
-                <div class="aside-filtration__content toggle-section__content aside-filtration__filter"><strong>filter</strong></div>
+                <div class="aside-filtration__content toggle-section__content aside-filtration__filter">
+                  <div class="filter">
+                    <div class="filter__container">
+                      <!--section-->
+                      <div class="filter-section toggle-section active">
+                        <div class="filter-section__head toggle-section__head">
+                          <h3 class="filter-section__title">Площадь</h3>
+                          <div class="filter-section__icon button button_style-1"> 
+                            <svg class="icon">
+                              <use xlink:href="img/icons/icons-sprite.svg#arrow-down-bold"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="filter-section__content toggle-section__content scrollbar scrollbar_style-2" data-scroll-lock-scrollable>
+                          <div class="filter-section__content-inner scrollbar__content">
+                            <div class="filter-section__items">
+                                                <div class="checkbox filter-section__item">
+                                                  <input class="checkbox__input" type="checkbox" id="0">
+                                                  <label class="checkbox__label" for="0">до 100 квм</label><span class="checkbox__count">12</span>
+                                                </div>
+                                                <div class="checkbox filter-section__item">
+                                                  <input class="checkbox__input" type="checkbox" id="1">
+                                                  <label class="checkbox__label" for="1">от 100 до 150 квм</label><span class="checkbox__count">3</span>
+                                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--section-->
+                      <div class="filter-section toggle-section active">
+                        <div class="filter-section__head toggle-section__head">
+                          <h3 class="filter-section__title">Этажность</h3>
+                          <div class="filter-section__icon button button_style-1"> 
+                            <svg class="icon">
+                              <use xlink:href="img/icons/icons-sprite.svg#arrow-down-bold"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="filter-section__content toggle-section__content scrollbar scrollbar_style-2" data-scroll-lock-scrollable>
+                          <div class="filter-section__content-inner scrollbar__content">
+                            <div class="filter-section__items">
+                                                <div class="checkbox filter-section__item">
+                                                  <input class="checkbox__input" type="checkbox" id="2">
+                                                  <label class="checkbox__label" for="2">1</label><span class="checkbox__count">12</span>
+                                                </div>
+                                                <div class="checkbox filter-section__item">
+                                                  <input class="checkbox__input" type="checkbox" id="3">
+                                                  <label class="checkbox__label" for="3">2</label><span class="checkbox__count">3</span>
+                                                </div>
+                                                <div class="checkbox filter-section__item">
+                                                  <input class="checkbox__input" type="checkbox" id="4">
+                                                  <label class="checkbox__label" for="4">3</label><span class="checkbox__count">12</span>
+                                                </div>
+                                                <div class="checkbox filter-section__item">
+                                                  <input class="checkbox__input" type="checkbox" id="5">
+                                                  <label class="checkbox__label" for="5">4</label><span class="checkbox__count">3</span>
+                                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--section-->
+                      <div class="filter-section toggle-section active">
+                        <div class="filter-section__head toggle-section__head">
+                          <h3 class="filter-section__title">Материал</h3>
+                          <div class="filter-section__icon button button_style-1"> 
+                            <svg class="icon">
+                              <use xlink:href="img/icons/icons-sprite.svg#arrow-down-bold"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="filter-section__content toggle-section__content scrollbar scrollbar_style-2" data-scroll-lock-scrollable>
+                          <div class="filter-section__content-inner scrollbar__content">
+                            <div class="filter-section__items">
+                              <div class="radio filter-section__item">
+                                <input class="radio__input" type="radio" id="ddfgdgd" name="dddd">
+                                <label class="radio__label" for="ddfgdgd">Значение</label><span class="checkbox__count">3</span>
+                              </div>
+                              <div class="radio filter-section__item">
+                                <input class="radio__input" type="radio" id="dsdsds" name="dddd">
+                                <label class="radio__label" for="dsdsds">Кирпич</label><span class="checkbox__count">12</span>
+                              </div>
+                              <div class="radio filter-section__item">
+                                <input class="radio__input" type="radio" id="dfgq1b" name="dddd">
+                                <label class="radio__label" for="dfgq1b">Дерево</label><span class="checkbox__count">3</span>
+                              </div>
+                              <div class="radio filter-section__item">
+                                <input class="radio__input" type="radio" id="gggww" name="dddd">
+                                <label class="radio__label" for="gggww">Кирпич</label><span class="checkbox__count">12</span>
+                              </div>
+                              <div class="radio filter-section__item">
+                                <input class="radio__input" type="radio" id="dgwqev" name="dddd">
+                                <label class="radio__label" for="dgwqev">Дерево</label><span class="checkbox__count">3</span>
+                              </div>
+                              <div class="radio filter-section__item">
+                                <input class="radio__input" type="radio" id="hhhfd" name="dddd">
+                                <label class="radio__label" for="hhhfd">Кирпич</label><span class="checkbox__count">12</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--section-->
+                      <div class="filter-section toggle-section active">
+                        <div class="filter-section__head toggle-section__head">
+                          <h3 class="filter-section__title">Услуги</h3>
+                          <div class="filter-section__icon button button_style-1"> 
+                            <svg class="icon">
+                              <use xlink:href="img/icons/icons-sprite.svg#arrow-down-bold"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="filter-section__content toggle-section__content">
+                          <div class="filter-section__content-inner">
+                            <div class="filter-section__items row">
+                              <div class="filter-section__item col-lg-12 col-md-4 col-sm-6">
+                                <select class="select select_style-2">
+                                  <option value="1">Кирпич</option>
+                                  <option value="2">Кирпич</option>
+                                  <option value="3" selected>Кирпич</option>
+                                </select>
+                              </div>
+                              <div class="filter-section__item col-lg-12 col-md-4 col-sm-6">
+                                <select class="select select_style-2">
+                                  <option value="1">Кирпич</option>
+                                  <option value="2">Кирпич</option>
+                                  <option value="3" selected>Кирпич</option>
+                                </select>
+                              </div>
+                              <div class="filter-section__item col-lg-12 col-md-4 col-sm-6">
+                                <select class="select select_style-2">
+                                  <option value="1">Кирпич</option>
+                                  <option value="2">Кирпич</option>
+                                  <option value="3" selected>Кирпич</option>
+                                </select>
+                              </div>
+                              <div class="filter-section__item col-lg-12 col-md-4 col-sm-6">
+                                <select class="select select_style-2">
+                                  <option value="1">Кирпич</option>
+                                  <option value="2">Кирпич</option>
+                                  <option value="3" selected>Кирпич</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="filter__buttons">
+                      <button class="button button_style-2 filter__button">Применить</button><a class="filter__reset" href="javascript:void(0);">Очистить</a>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="d-none d-lg-block"><a class="advertising-preview" href="javascript:void(0);"><span class="advertising-preview__label">реклама</span></a></div>
             </aside>
@@ -436,6 +596,15 @@
                                     </div>
                                   </div>
                                 </div>
+              </div>
+              <div class="pagination">
+                <ul class="pagination__list">
+                  <li class="pagination__item"><a class="pagination__link active" href="#">1</a></li>
+                  <li class="pagination__item"><a class="pagination__link" href="#">2</a></li>
+                  <li class="pagination__item"><a class="pagination__link" href="#">3</a></li>
+                  <li class="pagination__item"><a class="pagination__link" href="#">4</a></li>
+                  <li class="pagination__item"><a class="pagination__link" href="#">>></a></li>
+                </ul>
               </div>
             </div>
           </div>

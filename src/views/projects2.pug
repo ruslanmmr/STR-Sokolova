@@ -10,29 +10,141 @@ block content
   section.section.container
     h1.page-title Проекты домов
     .sorting-heading
-      .sorting-heading__container.row
-        .col-xl-5th.col-lg-3
-          select.select.select_style-1
-            option(value="1") Сначала дорогие
-            option(value="2") Сначала дешевые
-            option(value="3" selected) Арбуз
-            option(value="4") Бекон
-        .col-xl-5th.col-lg-3
-          select.select.select_style-1
-            option(value="1") Сначала популярные
-            option(value="2") Сначала дешевые
-            option(value="3") Арбуз
-            option(value="4") Бекон
+      .sorting-heading__container
+        span.sorting-heading__title Сортировка:
+        .line-sorting.d-none.d-md-block
+          ul.line-sorting__list
+            li.line-sorting__item
+              a(href="#").line-sorting__link.active
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#sorting-up")
+                | Цена (по возрастанию)
+            li.line-sorting__item
+              a(href="#").line-sorting__link
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#sorting-down")
+                | Цена (по убыванию)
+            li.line-sorting__item
+              a(href="#").line-sorting__link Наличие
+            li.line-sorting__item
+              a(href="#").line-sorting__link Популярность
+        .row.d-flex.d-md-none
+          .col-xl-5th.col-sm-6
+            select.select.select_style-1
+              option(value="1") Цена (по возрастанию)
+              option(value="2") Цена (по убыванию)
+              option(value="3" selected) Наличие
+              option(value="4") Популярность
     .row
       aside.aside.col-xl-5th.col-lg-3
-        .aside-filtration.toggle-section(data-out-hide)
+        .aside-filtration.toggle-section(data-out-hide data-class-only)
           a(href="javascript:void(0);").button.aside-filtration__button.toggle-section__head
             svg.icon
               use(xlink:href="img/icons/icons-sprite.svg#burger")
             span Каталог проектов
           .aside-filtration__content.toggle-section__content.aside-filtration__filter
-            strong filter
-
+            -var index = 0
+            mixin checkbox(title, count)
+              .checkbox.filter-section__item
+                input(type="checkbox" id=index).checkbox__input
+                label(for=index).checkbox__label=title
+                span.checkbox__count=count
+              -index++
+            .filter
+              .filter__container
+                //section
+                .filter-section.toggle-section.active
+                  .filter-section__head.toggle-section__head
+                    h3.filter-section__title Площадь
+                    .filter-section__icon.button.button_style-1 
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+                  .filter-section__content.toggle-section__content.scrollbar.scrollbar_style-2(data-scroll-lock-scrollable)
+                    .filter-section__content-inner.scrollbar__content
+                      .filter-section__items
+                        +checkbox('до 100 квм', '12')
+                        +checkbox('от 100 до 150 квм', '3')
+                //section
+                .filter-section.toggle-section.active
+                  .filter-section__head.toggle-section__head
+                    h3.filter-section__title Этажность
+                    .filter-section__icon.button.button_style-1 
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+                  .filter-section__content.toggle-section__content.scrollbar.scrollbar_style-2(data-scroll-lock-scrollable)
+                    .filter-section__content-inner.scrollbar__content
+                      .filter-section__items
+                        +checkbox('1', '12')
+                        +checkbox('2', '3')
+                        +checkbox('3', '12')
+                        +checkbox('4', '3')
+                //section
+                .filter-section.toggle-section.active
+                  .filter-section__head.toggle-section__head
+                    h3.filter-section__title Материал
+                    .filter-section__icon.button.button_style-1 
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+                  .filter-section__content.toggle-section__content.scrollbar.scrollbar_style-2(data-scroll-lock-scrollable)
+                    .filter-section__content-inner.scrollbar__content
+                      .filter-section__items
+                        .radio.filter-section__item
+                          input(type="radio" id='ddfgdgd' name='dddd').radio__input
+                          label(for='ddfgdgd').radio__label Значение
+                          span.checkbox__count 3
+                        .radio.filter-section__item
+                          input(type="radio" id='dsdsds' name='dddd').radio__input
+                          label(for='dsdsds').radio__label Кирпич
+                          span.checkbox__count 12
+                        .radio.filter-section__item
+                          input(type="radio" id='dfgq1b' name='dddd').radio__input
+                          label(for='dfgq1b').radio__label Дерево
+                          span.checkbox__count 3
+                        .radio.filter-section__item
+                          input(type="radio" id='gggww' name='dddd').radio__input
+                          label(for='gggww').radio__label Кирпич
+                          span.checkbox__count 12
+                        .radio.filter-section__item
+                          input(type="radio" id='dgwqev' name='dddd').radio__input
+                          label(for='dgwqev').radio__label Дерево
+                          span.checkbox__count 3
+                        .radio.filter-section__item
+                          input(type="radio" id='hhhfd' name='dddd').radio__input
+                          label(for='hhhfd').radio__label Кирпич
+                          span.checkbox__count 12
+                //section
+                .filter-section.toggle-section.active
+                  .filter-section__head.toggle-section__head
+                    h3.filter-section__title Услуги
+                    .filter-section__icon.button.button_style-1 
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+                  .filter-section__content.toggle-section__content
+                    .filter-section__content-inner
+                      .filter-section__items.row
+                        .filter-section__item.col-lg-12.col-md-4.col-sm-6
+                          select.select.select_style-2
+                            option(value="1") Кирпич
+                            option(value="2") Кирпич
+                            option(value="3" selected) Кирпич
+                        .filter-section__item.col-lg-12.col-md-4.col-sm-6
+                          select.select.select_style-2
+                            option(value="1") Кирпич
+                            option(value="2") Кирпич
+                            option(value="3" selected) Кирпич
+                        .filter-section__item.col-lg-12.col-md-4.col-sm-6
+                          select.select.select_style-2
+                            option(value="1") Кирпич
+                            option(value="2") Кирпич
+                            option(value="3" selected) Кирпич
+                        .filter-section__item.col-lg-12.col-md-4.col-sm-6
+                          select.select.select_style-2
+                            option(value="1") Кирпич
+                            option(value="2") Кирпич
+                            option(value="3" selected) Кирпич
+              .filter__buttons
+                button.button.button_style-2.filter__button Применить
+                a(href="javascript:void(0);").filter__reset Очистить
         .d-none.d-lg-block
           include blocks/advertising
       .col-xl.col-lg-9
@@ -45,6 +157,19 @@ block content
           +card1(true, true, grid)
           +card1(true, true, grid)
           +card1(false, false, grid)
+        .pagination
+          ul.pagination__list
+            li.pagination__item
+              a(href="#").pagination__link.active 1
+            li.pagination__item
+              a(href="#").pagination__link 2
+            li.pagination__item
+              a(href="#").pagination__link 3
+            li.pagination__item
+              a(href="#").pagination__link 4
+            li.pagination__item
+              a(href="#").pagination__link >>
+
 
   section.section
     .container
