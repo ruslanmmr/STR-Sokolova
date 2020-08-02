@@ -2880,11 +2880,12 @@ a:not([class]) {
     opacity: 0; }
   .scrollbar_end:after {
     opacity: 0; }
-  .scrollbar_mobile {
+  .scrollbar_mobile .scrollbar__content {
+    position: relative;
+    z-index: 1;
     overflow: scroll;
-    -webkit-overflow-scrolling: touch; }
-    .scrollbar_mobile:before, .scrollbar_mobile:after {
-      display: none; }
+    -webkit-overflow-scrolling: touch;
+    max-height: inherit; }
   .scrollbar_style-2 .simplebar-track {
     background-color: var(--color-sections-bg, #F5F5F5);
     border: none;
@@ -3647,13 +3648,10 @@ a:not([class]) {
     cursor: pointer; }
     .filter-section__head.active .filter-section__icon {
       transform: rotate(180deg); }
-  .filter-section__item {
+  .filter-section__item:not(:last-child) {
     margin-bottom: 20px; }
   .filter-section__content-inner {
-    overflow: hidden;
     padding: 9px 0; }
-  .filter-section__items {
-    margin-bottom: -20px; }
   .filter-section__content {
     padding: 0 16px; }
     .filter-section__content.scrollbar {

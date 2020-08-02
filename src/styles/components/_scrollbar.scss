@@ -40,11 +40,12 @@
     }
   }
   &_mobile {
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-    &:before,
-    &:after {
-      display: none;
+    .scrollbar__content {
+      position: relative;
+      z-index: 1;
+      overflow: scroll;
+      -webkit-overflow-scrolling: touch;
+      max-height: inherit;
     }
   }
 

@@ -331,42 +331,49 @@ function search() {
 
 function customScroll() {
   var $containers = document.querySelectorAll('.scrollbar');
+  $containers.forEach(function ($element) {
+    var $this = $($element),
+        $container,
+        $content;
 
-  if (device.desktop()) {
-    $containers.forEach(function ($target) {
-      var $parent = $($target),
-          $content = $parent.find('.scrollbar__content'),
-          simpleBar = new SimpleBar($target);
+    if (device.desktop()) {
+      var simpleBar = new SimpleBar($element);
+      $container = $this;
+      $content = $this.find('.scrollbar__content'); //event
+
       simpleBar.getScrollElement().addEventListener('scroll', function () {
         gradientCheck();
       });
-      gradientCheck();
+    } else {
+      $this.addClass('scrollbar_mobile');
+      $container = $this.find('.scrollbar__content');
+      $content = $this.find('.scrollbar__inner'); //event
 
-      function gradientCheck() {
-        var scrollHeight = $content.outerHeight() - $parent.outerHeight(),
-            scroll = $parent.offset().top - $content.offset().top;
+      $container.on('scroll', function () {
+        gradientCheck();
+      });
+    }
 
-        if (scroll > 0) {
-          $parent.removeClass('scrollbar_start');
-        } else {
-          $parent.addClass('scrollbar_start');
-        }
+    $container.add($content).attr('data-scroll-lock-scrollable', '');
+    gradientCheck();
 
-        if (scroll < scrollHeight) {
-          $parent.removeClass('scrollbar_end');
-        } else {
-          $parent.addClass('scrollbar_end');
-        }
+    function gradientCheck() {
+      var scrollHeight = $content.outerHeight() - $container.outerHeight(),
+          scroll = $container.offset().top - $content.offset().top;
+
+      if (scroll > 0) {
+        $this.removeClass('scrollbar_start');
+      } else {
+        $this.addClass('scrollbar_start');
       }
-    });
-    setTimeout(function () {
-      $('.simplebar-wrapper, .simplebar-height-auto-observer-wrapper, .simplebar-mask, .simplebar-offset, .simplebar-content-wrapper, .simplebar-content').attr('data-scroll-lock-scrollable', '');
-    }, 500);
-  } else {
-    $containers.forEach(function ($this) {
-      $this.classList.add('scrollbar_mobile');
-    });
-  }
+
+      if (scroll < scrollHeight) {
+        $this.removeClass('scrollbar_end');
+      } else {
+        $this.addClass('scrollbar_end');
+      }
+    }
+  });
 }
 
 var slider = {

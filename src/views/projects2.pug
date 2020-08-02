@@ -59,9 +59,9 @@ block content
                     .filter-section__icon.button.button_style-1 
                       svg.icon
                         use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
-                  .filter-section__content.toggle-section__content.scrollbar.scrollbar_style-2(data-scroll-lock-scrollable)
+                  .filter-section__content.toggle-section__content.scrollbar.scrollbar_style-2
                     .filter-section__content-inner.scrollbar__content
-                      .filter-section__items
+                      .filter-section__items.scrollbar__inner
                         +checkbox('до 100 квм', '12')
                         +checkbox('от 100 до 150 квм', '3')
                 //section
@@ -71,9 +71,9 @@ block content
                     .filter-section__icon.button.button_style-1 
                       svg.icon
                         use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
-                  .filter-section__content.toggle-section__content.scrollbar.scrollbar_style-2(data-scroll-lock-scrollable)
+                  .filter-section__content.toggle-section__content.scrollbar.scrollbar_style-2
                     .filter-section__content-inner.scrollbar__content
-                      .filter-section__items
+                      .filter-section__items.scrollbar__inner
                         +checkbox('1', '12')
                         +checkbox('2', '3')
                         +checkbox('3', '12')
@@ -85,9 +85,9 @@ block content
                     .filter-section__icon.button.button_style-1 
                       svg.icon
                         use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
-                  .filter-section__content.toggle-section__content.scrollbar.scrollbar_style-2(data-scroll-lock-scrollable)
+                  .filter-section__content.toggle-section__content.scrollbar.scrollbar_style-2
                     .filter-section__content-inner.scrollbar__content
-                      .filter-section__items
+                      .filter-section__items.scrollbar__inner
                         .radio.filter-section__item
                           input(type="radio" id='ddfgdgd' name='dddd').radio__input
                           label(for='ddfgdgd').radio__label Значение
@@ -121,7 +121,7 @@ block content
                         use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
                   .filter-section__content.toggle-section__content
                     .filter-section__content-inner
-                      .filter-section__items.row
+                      .filter-section__items.scrollbar__inner.row
                         .filter-section__item.col-lg-12.col-md-4.col-sm-6
                           select.select.select_style-2
                             option(value="1") Кирпич

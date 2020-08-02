@@ -20,14 +20,14 @@
       }
     }
     &__item {
-      margin-bottom: 20px;
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
     }
     &__content-inner {
-      overflow: hidden;
       padding: 9px 0;
     }
     &__items {
-      margin-bottom: -20px;
     }
     &__content {
       padding: 0 16px;
