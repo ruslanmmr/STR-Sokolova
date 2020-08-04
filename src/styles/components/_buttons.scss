@@ -29,6 +29,7 @@
     background-color: var(--color-button1-bg, transparent);;
     .icon {
       fill: var(--color-button1-icon, #2363D1);
+      stroke: var(--color-button1-icon, #2363D1);
     }
     &.touch,
     &.hover {
@@ -36,7 +37,8 @@
       background-color: var(--color-button1-hover-bg, #E7EEF6);
       border-color: var(--color-button1-hover-border, #2363D1);
       .icon {
-        fill: var(--color-button1-hover-icon, #fff);
+        fill: var(--color-button1-hover-icon, #1C52AC);
+        stroke: var(--color-button1-hover-icon, #1C52AC);
       }
     }
   }
@@ -46,6 +48,7 @@
     background-color: var(--color-button2-bg, #2363D1);
     .icon {
       fill: var(--color-button2-icon, #fff);
+      stroke: var(--color-button2-icon, #fff);
     }
     &.touch,
     &.hover {
@@ -61,6 +64,7 @@
     height: 24px;
     .icon {
       fill: var(--color-button3, #2363D1);
+      stroke: var(--color-button3, #2363D1);;
       &:not(:last-child) {
         margin-right: 10px;
       }
@@ -90,9 +94,6 @@
     padding: 0;
     min-width: 0px;
     pointer-events: none;
-    position: absolute;
-    right: 16px;
-    top: 0;
     background-color: var(--color-filter-arrow-bg, #F3F6FB);
     transition: transform $trs1;
     .icon {

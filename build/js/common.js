@@ -12,6 +12,7 @@ $(document).ready(function () {
   scrollTo();
   popup.init();
   slider.init();
+  fixedBlocks();
   tabs();
   scrollToReviews();
   header(); //обработать изображения после инициализации слайдеров
@@ -339,7 +340,7 @@ function customScroll() {
         $container,
         $content;
 
-    if (device.desktop()) {
+    if (device.desktop() && !$this.is('.scrollbar_mobile-only')) {
       var simpleBar = new SimpleBar($element);
       $container = $this;
       $content = $this.find('.scrollbar__content'); //event
@@ -363,6 +364,7 @@ function customScroll() {
     function gradientCheck() {
       var scrollHeight = $content.outerHeight() - $container.outerHeight(),
           scroll = $container.offset().top - $content.offset().top;
+      console.log($content.outerHeight());
 
       if (scroll > 0) {
         $this.removeClass('scrollbar_start');
@@ -594,7 +596,7 @@ function toggle() {
         $this.add($content).add($toggle).addClass('active');
 
         if (!$this.is('[data-class-only]')) {
-          if ($content.is('scrollbar')) {
+          if ($content.is('.scrollbar')) {
             $content.height(height);
           }
 
@@ -605,7 +607,7 @@ function toggle() {
 
         if (!$this.is('[data-class-only]')) {
           if (initialized) {
-            if ($content.is('scrollbar')) {
+            if ($content.is('.scrollbar')) {
               height = $content.height();
             }
 
@@ -681,6 +683,26 @@ function scrollToReviews() {
       $('html, body').animate({
         scrollTop: $target.offset().top
       }, speed);
+    }
+  });
+}
+
+function fixedBlocks() {
+  var $open = $('[data-fixed-toggle]');
+  $open.on('click', function (event) {
+    event.preventDefault();
+    var href = $(this).attr('href'),
+        $block = $(href);
+
+    if ($block.length) {
+      $block.addClass('active');
+      scrollLock.disablePageScroll();
+      var $close = $block.find('[data-fixed-close]');
+      $close.on('click', function (event) {
+        event.preventDefault();
+        $block.removeClass('active');
+        scrollLock.enablePageScroll();
+      });
     }
   });
 }

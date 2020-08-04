@@ -41,6 +41,11 @@
       overflow: scroll;
       -webkit-overflow-scrolling: touch;
       max-height: inherit;
+      height: 100%;
+    }
+    &::after, &::before {
+      width: 100% !important;
+      height: 30px;
     }
   }
 
