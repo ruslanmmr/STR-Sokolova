@@ -53,6 +53,23 @@
       border-color: var(--color-button2-hover-bg, #2363D1);
     }
   }
+  &_style-3 {
+    padding: 0;
+    min-width: 0px;
+    color: inherit;
+    line-height: 24px;
+    height: 24px;
+    .icon {
+      fill: var(--color-button3, #2363D1);
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+    &.touch,
+    &.hover {
+      color: var(--color-button3, #2363D1);
+    }
+  }
   &_icon {
     width: 52px;
     min-width: 40px;
@@ -64,6 +81,23 @@
     .icon {
       height: 20px;
       width: 20px;
+    }
+  }
+  &_rounded-arrow {
+    width: 24px;
+    height: 24px;
+    border-radius: 24px;
+    padding: 0;
+    min-width: 0px;
+    pointer-events: none;
+    position: absolute;
+    right: 16px;
+    top: 0;
+    background-color: var(--color-filter-arrow-bg, #F3F6FB);
+    transition: transform $trs1;
+    .icon {
+      width: 10px;
+      height: 10px;
     }
   }
 }

@@ -8,9 +8,11 @@ $(document).ready(function(){
   search();
   nav();
   toggle();
+  scrollTo();
   popup.init();
   slider.init();
-
+  tabs();
+  scrollToReviews();
   header();
   //обработать изображения после инициализации слайдеров
   setTimeout(()=>{
@@ -583,10 +585,7 @@ function toggle() {
         $content = $this.children('.toggle-section__content'),
         state = $this.hasClass('active') ? true : false,
         initialized,
-        timeout,
         height = $content.height();
-
-  
 
     if($this.is('[data-out-hide]')) {
       $(document).on('click touchstart', function(event) {
@@ -607,14 +606,19 @@ function toggle() {
       if(state) {
         $this.add($content).add($toggle).addClass('active');
         if(!$this.is('[data-class-only]')) {
-          $content.height(height);
-          $content.stop().slideDown(speed);
+          if($content.is('scrollbar')) {
+            $content.height(height);
+          }
+          $content.slideDown(speed);
         }
       } 
       else {
         $this.add($toggle).add($content).removeClass('active');
         if(!$this.is('[data-class-only]')) {
           if(initialized) {
+            if($content.is('scrollbar')) {
+              height = $content.height();
+            }
             $content.stop().slideUp(speed);
           } else {
             $content.hide(0);
@@ -627,15 +631,71 @@ function toggle() {
 
     initialized=true;
   })
-
-  /* function check() {
-    $section.each(function(){
-      if($(this).hasClass('active')) {
-        $(this).find('.toggle-section__content').addClass('active');
-      } else {
-        $(this).find('.toggle-section__content').removeClass('active');
-      }
-    })
-  }
-  check(); */
 }
+
+//tabs
+function tabs() {
+  let $tabs = $('.tabs');
+
+  $tabs.each(function() {
+    let $trigger = $(this).find('.tabs__toggle'),
+        $tab = $(this).find('.tabs__block'),
+        index = $(this).find('.tabs__block.active').length>0 ? $(this).find('.tabs__block.active').index() : 0;
+
+    changeTab();
+
+    $trigger.on('click', function() {
+      index = $(this).index();
+      changeTab();
+    })
+
+    function changeTab() {
+      $tab.hide().eq(index).fadeIn(250);
+      $trigger.removeClass('active').eq(index).addClass('active');
+    }
+
+  })
+}
+
+//scroll
+function scrollTo() {
+  let $scrollbtn = $('[data-scroll]'),  
+      speed = 500; //ms
+  $scrollbtn.on('click', function(event) {
+    event.preventDefault();
+    let href = $(this).attr('href'),
+        $target = $(href);
+
+    if($target.length) {
+      $('html, body').animate({
+        scrollTop: $target.offset().top
+      }, speed);
+    }
+
+  })
+}
+//scroll to reviews
+function scrollToReviews() {
+  let $link = $('[data-reviews]'),  
+      speed = 500; //ms
+  $link.on('click', function(event) {
+    event.preventDefault();
+    let $target;
+    if($(window).width()<brakepoints.md) {
+      $target = $('.item-info__reviews');
+    } else {
+      $target = $('.item-info__content');
+    }
+
+    $('.item-info__reviews-toggle:visible').not('.active').trigger('click');
+
+    if($target.length) {
+      $('html, body').animate({
+        scrollTop: $target.offset().top
+      }, speed);
+    }
+
+  })
+}
+
+

@@ -17,7 +17,7 @@ body {
   text-rendering: geometricPrecision;
   color: var(--color-text, #333333);
   font-size: 0.875rem;
-  line-height: 1.43;
+  line-height: 1.25rem;
   min-width: 320px;
 }
 * {
@@ -30,7 +30,6 @@ body {
     box-sizing: border-box;
   }
 }
-
 button, input, textarea {
   outline: none;
   display: block;
@@ -46,13 +45,88 @@ a, button, label {
   -webkit-user-drag: none;
   cursor: pointer;
 }
-
-@include media-breakpoint-down(xs) {
-  body {
-    font-size: 0.75rem;
-    line-height: 1.5;
+table {
+  border-collapse: collapse;
+}
+//bg
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  user-select: none;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $trs3, visibility $trs3;
+  &.lazyloaded {
+    opacity: 1;
+    visibility: visible;
   }
-} 
+  &_left {
+    background-position-x: left;
+  }
+  &_right {
+    background-position-x: right;
+  }
+  &_top {
+    background-position-y: top;
+  }
+  &_bottom {
+    background-position-y: bottom;
+  }
+  &_contain {
+    background-size: contain;
+  }
+}
+//images
+.image {
+  display: block;
+  position: relative;
+  img {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: $trs3;
+    &.lazyloaded {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &_cover,
+  &_contain {
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &_cover {
+    background-color: var(--color-border-1, #D9D9DE);
+    overflow: hidden;
+    img {
+      object-fit: cover;
+    }
+  }
+  &_contain {
+    img {
+      object-fit: contain;
+    }
+  }
+}
+.icon {
+  width: 15px;
+  height: 15px;
+  fill: #000;
+  stroke: #000;
+}
+
 
 /*========== JS HELPER ==========*/
 @import 'components/js-helper';
@@ -77,17 +151,17 @@ a, button, label {
 /*========== Slider ==========*/
 @import 'components/slider';
 
-/*========== Blocks ==========*/
-@import 'components/blocks';
-
 /*========== Scrollbar ==========*/
 @import 'components/scrollbar';
 
-/*========== Header ==========*/
+/*========== popups ==========*/
 @import 'components/popups';
 
 /*========== Breadcrumbs ==========*/
 @import 'components/breadcrumbs';
+
+/*========== Blocks ==========*/
+@import 'components/blocks';
 
 /*========== Header ==========*/
 @import 'components/header';

@@ -83,11 +83,6 @@
 }
 
 .form-section {
-  padding: 40px 0;
-  background-color: var(--color-sections-bg, #F5F5F5);
-  &:last-child {
-    margin: 0;
-  }
   &__content {
     background-color: #fff;
     padding: 24px 100px 46px 100px;
@@ -150,6 +145,7 @@
     top: 17px;
     right: 16px;
     display: block;
+    stroke: none;
     fill: var(--color-accent, #2363D1);
     pointer-events: none;
   }
@@ -431,17 +427,16 @@
 @include media-breakpoint-down(md) {
   .form-section {
     &__content {
-      padding: 32px;
+      padding: 30px;
     }
   }
 }
 
 @include media-breakpoint-down(sm) {
   .form-section {
-    padding: 32px 0;
     &__content {
       border-width: 2px;
-      padding: 32px 16px;
+      padding: 30px 16px;
     }
   }
   .form {

@@ -27,12 +27,17 @@ html(lang='ru')
     block style
 
   body
+    block variables
     .wrapper
       include ../blocks/header
       include ../blocks/mobile-nav
-      block breadcrumbs
-      main.main
-        block content
+      //main
+      main.main(class=content!==undefined?content:'')
+        //breadcrumbs
+        block breadcrumbs
+        //page content
+        .content
+          block content
       include ../blocks/footer
     
     include ../blocks/popups

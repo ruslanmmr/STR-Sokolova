@@ -1,0 +1,305 @@
+extends layout/layout
+block title
+  title Проект
+block breadcrumbs 
+  -var title = 'Проект'
+  include blocks/breadcrumbs
+block variables
+  -var content = 'main_muted'
+block content
+  section.section.project-head
+    .container
+      .project-head__container
+        h1.project-head__title Модель дома кд 25 180 м2 с террасой<br> три спальни гардероб и санузел
+        .project-head__top-line
+          img(src="img/icons/rating_3.5.svg", alt="image").project-head__rating
+          a(href="javascript:void(0);" data-reviews).link Отзывы (6)
+        .project-head__content.row
+          .col-xl-6.col-lg-8.col-md-7.project-head__image
+            .image.image_cover
+              img(src="img/image 28.jpg", alt="image").lazyload
+              .card-labels
+                span.card-label.card-label_sale Sale
+                span.card-label.card-label_new New
+                span.card-label.card-label_hit Hit
+          .col-lg-auto.col-md-5.project-head__center
+            .card-price.project-head__card-price
+              span.card-price__label.card-price__label_style-1 Реализован 12 раз
+              .card-price__content
+                span.card-price__current
+                  | 89 537,50 
+                  span  ₽/шт 
+                span.card-price__old 99 999 ₽
+            a(href="#").button.button_style-2.project-head__button
+              svg.icon
+                use(xlink:href="img/icons/icons-sprite.svg#subtract")
+              span Добавить в заказ
+            .project-head__actions
+              a(href="#").button.button_style-3.project-head__actions-item
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#comparison")
+                span Сравнить
+              .project-head__actions-item.project-head__share.toggle-section(data-out-hide data-class-only)
+                a(href="javascript:void(0);").button.button_style-3.toggle-section__head 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#share")
+                  span Поделиться
+                .small-popup.share-popup.toggle-section__content.project-head__share-popup
+                  .share-popup__text Чтобы поделиться ссылкой, нажмите на иконку вашей соцсети
+                  .socials
+                    ul.socials__list
+                      li.socials__item
+                        a(href="#").socials__link
+                          svg.icon
+                            use(xlink:href="img/icons/socials-sprite.svg#vk")
+                      li.socials__item
+                        a(href="#").socials__link
+                          svg.icon
+                            use(xlink:href="img/icons/socials-sprite.svg#twitter")
+                      li.socials__item
+                        a(href="#").socials__link
+                          svg.icon
+                            use(xlink:href="img/icons/socials-sprite.svg#telegram")
+                      li.socials__item
+                        a(href="#").socials__link
+                          svg.icon
+                            use(xlink:href="img/icons/socials-sprite.svg#facebook")
+                      li.socials__item
+                        a(href="#").socials__link
+                          svg.icon
+                            use(xlink:href="img/icons/socials-sprite.svg#whatsapp")
+                      li.socials__item
+                        a(href="#").socials__link
+                          svg.icon
+                            use(xlink:href="img/icons/socials-sprite.svg#skype")
+                      li.socials__item
+                        a(href="#").socials__link
+                          svg.icon
+                            use(xlink:href="img/icons/socials-sprite.svg#viber")
+          .col-xl.col-lg-12.project-head__info
+            .project-head-info
+              p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве. 
+              ul.project-head-info__list
+                //
+                li.project-head-info__item
+                  .project-head-info__item-head
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#material")
+                    | Тип материала
+                  .project-head-info__item-text Кирпич
+                //
+                li.project-head-info__item
+                  .project-head-info__item-head
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#size")
+                    | Общая площадь
+                  .project-head-info__item-text 239 м2
+                //
+                li.project-head-info__item
+                  .project-head-info__item-head
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#house")
+                    | Этажность
+                  .project-head-info__item-text 3
+  section.section.item-info
+    .container
+      .row
+        .col-xl.col-lg-9
+          .item-info__container.tabs
+            .item-info__tab-head
+              a(href="javascript:void(0);").item-info__tab-link.tabs__toggle Описание
+              a(href="javascript:void(0);").item-info__tab-link.tabs__toggle.item-info__reviews-toggle Отзывы
+              a(href="javascript:void(0);").item-info__tab-link.tabs__toggle Планировки
+              a(href="javascript:void(0);").item-info__tab-link.tabs__toggle.active Техническая документация
+            .item-info__content
+              //tab
+              .item-info__block.tabs__block.toggle-section
+                a(href="javascript:void(0);").toggle-section__head.item-info__block-head 
+                  span Описание 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+                .item-info__block-content.toggle-section__content
+                  .item-info__block-container
+                    section.section
+                      h2 Основные характеристики
+                      p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
+                      p В зависимости от внешнего вида <a href="service.html">наружных слоев</a> на сорта: Е (элита), I, II, III, IV
+                      h3 Заголовок группы
+                      p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве. 
+                      p В зависимости от внешнего вида наружных слоев на сорта: 
+                      ul  
+                        li Сорт Е (элита)
+                        li Сорт I
+                        li Сорт II
+                        li Сорт III
+                        li Сорт IV
+                      p В зависимости от внешнего вида наружных слоев на сорта: 
+                      ol
+                        li Сорт Е (элита)
+                        li Сорт I, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
+                        li Сорт III
+                        li Сорт IV
+                      h3 Таблица №1. Технические характеристики
+                      .table
+                        table
+                          tr
+                            th Номер заказа
+                            th Получение
+                            th Сумма
+                            th Оплачено
+                          tr
+                            td 28.03.2019
+                            td Самовывоз
+                            td 3&nbsp;256,00&nbsp;₽
+                            td Да
+                          tr
+                            td 28.03.2019
+                            td Самовывоз
+                            td 50 136,00&nbsp;₽
+                            td Нет
+                          tr
+                            td 28.03.2019
+                            td Доставка
+                            td 36,00&nbsp;₽
+                            td Да
+                          tr
+                            td 28.03.2019
+                            td Самовывоз
+                            td 50&nbsp;136,00&nbsp;₽
+                            td Нет
+                          tr
+                            td 28.03.2019
+                            td Доставка
+                            td 36,00&nbsp;₽
+                            td Да
+                    include blocks/calculator
+              //tab
+              .item-info__block.item-info__reviews.tabs__block.toggle-section
+                a(href="javascript:void(0);").toggle-section__head.item-info__block-head.item-info__reviews-toggle  
+                  span Отзывы 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+                .item-info__block-content.toggle-section__content
+                  .item-info__block-container
+                    include blocks/calculator
+              //tab
+              .item-info__block.tabs__block.toggle-section
+                a(href="javascript:void(0);").toggle-section__head.item-info__block-head  
+                  span Планировки 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+                .item-info__block-content.toggle-section__content
+                  .item-info__block-container
+                    include blocks/calculator
+              //tab
+              .item-info__block.tabs__block.toggle-section.active
+                a(href="javascript:void(0);").item-info__block-head.toggle-section__head 
+                  span Техническая документация 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+                .item-info__block-content.toggle-section__content
+                  .item-info__block-container
+                    section.section
+                      .documents
+                        h2.documents__title Сертификаты
+                        table.documents__table
+                          tr.documents__item
+                            td.documents__item-title 
+                              a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                            td.documents__item-icon
+                              .documents__item-icon-item
+                                svg.icon
+                                  use(xlink:href="img/icons/icons-sprite.svg#doc")
+                                span doc
+                            td.documents__item-size 7.30 mb
+                            td.documents__item-button
+                              a(href="#" download).button.button_style-1.documents__button 
+                                svg.icon
+                                  use(xlink:href="img/icons/icons-sprite.svg#download")
+                                span Скачать
+                          tr.documents__item
+                              td.documents__item-title 
+                                a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                              td.documents__item-icon
+                                .documents__item-icon-item
+                                  svg.icon
+                                    use(xlink:href="img/icons/icons-sprite.svg#doc")
+                                  span txt
+                              td.documents__item-size 7.30 mb
+                              td.documents__item-button
+                                a(href="#" download).button.button_style-1.documents__button 
+                                  svg.icon
+                                    use(xlink:href="img/icons/icons-sprite.svg#download")
+                                  span Скачать
+                          tr.documents__item
+                              td.documents__item-title 
+                                a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                              td.documents__item-icon
+                                .documents__item-icon-item
+                                  svg.icon
+                                    use(xlink:href="img/icons/icons-sprite.svg#doc")
+                                  span pdf
+                              td.documents__item-size 7.30 mb
+                              td.documents__item-button
+                                a(href="#" download).button.button_style-1.documents__button 
+                                  svg.icon
+                                    use(xlink:href="img/icons/icons-sprite.svg#download")
+                                  span Скачать
+                          tr.documents__item
+                              td.documents__item-title 
+                                a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                              td.documents__item-icon
+                                .documents__item-icon-item
+                                  svg.icon
+                                    use(xlink:href="img/icons/icons-sprite.svg#doc")
+                                  span doc
+                              td.documents__item-size 7.30 mb
+                              td.documents__item-button
+                                a(href="#" download).button.button_style-1.documents__button 
+                                  svg.icon
+                                    use(xlink:href="img/icons/icons-sprite.svg#download")
+                                  span Скачать
+                      .documents
+                        h2.documents__title Инструкции
+                        table.documents__table
+                          tr.documents__item
+                            td.documents__item-title 
+                              a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                            td.documents__item-icon
+                              .documents__item-icon-item
+                                svg.icon
+                                  use(xlink:href="img/icons/icons-sprite.svg#doc")
+                                span doc
+                            td.documents__item-size 7.30 mb
+                            td.documents__item-button
+                              a(href="#" download).button.button_style-1.documents__button 
+                                svg.icon
+                                  use(xlink:href="img/icons/icons-sprite.svg#download")
+                                span Скачать
+                          tr.documents__item
+                              td.documents__item-title 
+                                a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                              td.documents__item-icon
+                                .documents__item-icon-item
+                                  svg.icon
+                                    use(xlink:href="img/icons/icons-sprite.svg#doc")
+                                  span txt
+                              td.documents__item-size 7.30 mb
+                              td.documents__item-button
+                                a(href="#" download).button.button_style-1.documents__button 
+                                  svg.icon
+                                    use(xlink:href="img/icons/icons-sprite.svg#download")
+                                  span Скачать
+                    include blocks/calculator
+        .col-xl-5th.col-lg-3.d-none.d-lg-block.item-info__advertising
+          include blocks/advertising
+          include blocks/advertising
+  section.section.section_padding.section_no-margin.section_background-white
+    .container
+      .row.justify-content-center
+        .col-xl-10
+          h2 Почему мы лучше продаем стройматериалы
+          p Инвестируем в заводы, производящие листовые строительные материалы (ДСП ЦСП ФАНЕРА, ОСБ и т.д.) заключаем договора, выкупаем партии продукции, везем вагонами или фурами на склад и после поставляют постоянным клиентам типа “Красной цены”, “Сатурна”, “Центр строя” и т.д. Если есть товар в наличии и их цена ниже, то мы продаем, если нет — то продают конкуренты.
+  -var formTitle = 'Понравился проект? Оставьте заявку и мы построим его для вас'
+  -var formClass = 'section_small-padding section_no-margin'
+  include blocks/form

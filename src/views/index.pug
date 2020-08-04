@@ -106,7 +106,7 @@ block content
         mixin block(title)
           .services-item-block.grid__block.col-lg-3.col-sm-6
             a(href="#").services-item-block__container
-              h5.services-item-block__title=title
+              h3.services-item-block__title=title
                 svg.icon
                   use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
         +block('Доставка и оплата и далее на две строчки')
@@ -174,7 +174,7 @@ block content
   -var formTitle = 'Напишите нам'
   include blocks/form
 
-  section.section.section-partners
+  section.section.section_padding.section_no-margin.section-partners
     .container
       h2.section__title.section-partners__title Наши 
         span партнёры

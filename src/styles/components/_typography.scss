@@ -3,7 +3,6 @@ h1,h2,h3,h4,h5,h6 {
 }
 h2,h3,h4,h5,h6 {
   margin: 2.25rem 0 1rem 0;
-  line-height: 1.33;
   &:not([class]) {
     &:first-child {
       margin-top: 0;
@@ -15,23 +14,28 @@ h2,h3,h4,h5,h6 {
 }
 h1 {
   font-size: 1.875rem;
+  line-height: 2.25rem;
   margin: 0 0 1em 0;
-  line-height: 1.2;
 }
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.375rem;
+  line-height: 1.75rem;
 }
 h3 {
-  font-size: 1.375rem;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
 }
 h4 {
-  font-size: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
 }
 h5 {
-  font-size: 1.125rem;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
 }
 h6 {
-  font-size: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
 }
 p {
   margin: 0 0 1rem 0;
@@ -136,6 +140,7 @@ ol:not([class]) {
 table:not([class]) {
   border-collapse: collapse;
   min-width: 100%;
+  font-size: 0.875rem;
   th {
     font-weight: 700;
     padding: 10px 16px 10px 0;
@@ -175,7 +180,8 @@ table:not([class]) {
   }
 }
 
-a:not([class]) {
+a:not([class]),
+.link {
   color: var(--color-accent-darker, #1C52AC);
   text-decoration: none;
   transition: color $trs1;
@@ -192,6 +198,21 @@ a:not([class]) {
     transition: opacity $trs1;
     background-color: var(--color-accent-darker, #1C52AC);
   }
+}
+.link {
+  &.touch, &.hover {
+    color: var(--color-accent-darker, #1C52AC);
+    &:after {
+      opacity: 1;
+    }
+  }
+  &_without-border {
+    &:after {
+      display: none;
+    }
+  }
+}
+a:not([class]) {
   &:visited {
     color: var(--color-link-visited, #B46CB8);
   }
@@ -255,5 +276,10 @@ a:not([class]) {
         line-height: 20px;
       }
     }
+  }
+
+  ul:not([class]), ol:not([class]), p, blockquote {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
   }
 }

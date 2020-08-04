@@ -1,5 +1,12 @@
 .filter {
   font-size: 0.875rem;
+  box-shadow: 0px 2px 25px rgba(118, 118, 118, 0.15);
+  border: 1px solid var(--color-border-1, #D9D9DE);
+  border-radius: 2px;
+  background-color: #fff;
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
   &__container {
     padding: 24px 0 12px 0;
   }
@@ -14,7 +21,7 @@
       user-select: none;
       cursor: pointer;
       &.active {
-        .filter-section__icon {
+        .button_rounded-arrow {
           transform: rotate(180deg);
         }
       }
@@ -42,23 +49,6 @@
       margin: 0;
       line-height: 24px;
       padding-right: 30px;
-    }
-    &__icon {
-      width: 24px;
-      height: 24px;
-      border-radius: 24px;
-      padding: 0;
-      min-width: 0px;
-      pointer-events: none;
-      position: absolute;
-      right: 16px;
-      top: 0;
-      background-color: var(--color-filter-arrow-bg, #F3F6FB);
-      transition: transform $trs1;
-      .icon {
-        width: 10px;
-        height: 10px;
-      }
     }
   }
   &__buttons {

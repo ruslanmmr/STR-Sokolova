@@ -36,10 +36,6 @@
     padding-left: 20px;
   }
   &__dropdown-content {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
     &_style-1 {
       .mobile-nav__sub-nav-container {
         padding: 20px 0 25px 0;
@@ -253,5 +249,9 @@
 @include media-breakpoint-down(xs) {
   .mobile-nav__contact-button .button {
     width: 100%;
+  }
+  .mobile-nav__dropdown-content {
+    width: calc(100% + 40px);
+    margin-left: -20px;
   }
 } 
