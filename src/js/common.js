@@ -3,7 +3,7 @@ customScroll();
 
 $(document).ready(function(){
   select.init();
-  hoverTouchEvents();
+  touchHoverEvents();
   inputs();
   search();
   nav();
@@ -15,6 +15,7 @@ $(document).ready(function(){
   tabs();
   scrollToReviews();
   header();
+  rating();
   //обработать изображения после инициализации слайдеров
   setTimeout(()=>{
     lazy();
@@ -31,42 +32,67 @@ const brakepoints = {
 
 
 //hover/touch custom events
-function hoverTouchEvents() {
-  let $targets = 'a[class], button, label, input, textarea, tr, .js-touch-hover, .selectric-items li, .selectric .label, .button';
-  $(document).on('mouseenter mouseleave touchstart touchend mousedown mouseup contextmenu', $targets, function(event) {
-    let $target = $(this),  
-    touchTimer;
-    //mobile events
-    if(!device.desktop()) {
-      if(event.type=='touchstart') {
-        if(touchTimer) clearTimeout(touchTimer);
-        $target.addClass('touch');
-      } 
-      else if(event.type=='touchend') {
-        touchTimer = setTimeout(function(){
-          $target.removeClass('touch');
-        }, 150)
-      }
-    } 
-    //desktop events
-    else {
-      
-      if(event.type=='mouseenter') {
-        $target.addClass('hover');
-      } 
-      else if(event.type=='mousedown') {
-        $target.addClass('mousedown');
-      } 
-      else if(event.type=='mouseup') {
-        $target.removeClass('mousedown');
-      } 
-      else {
-        $target.removeClass('hover');
-        $target.removeClass('mousedown');
-      }
+function touchHoverEvents() {
+  document.addEventListener('touchstart',event);
+  document.addEventListener('touchend',event);
 
-    }  
-  })
+  document.addEventListener('mouseover',event);
+  document.addEventListener('mouseout',event);
+
+  document.addEventListener('mousedown',event);
+  document.addEventListener('mouseup',event);
+  
+  document.addEventListener('contextmenu', event)
+
+  let $elements = 'a[class], button, label, input, textarea, tr, .js-touch-hover, .selectric-items li, .selectric .label, .button',
+      touch,
+      timeout;
+
+  function event(event) {
+    if(event.target!==document) {
+      let $target = event.target.closest($elements);
+      if($target!==null) {
+
+        if(event.type=='touchstart') {
+          for(let $this of document.querySelectorAll($elements)) {
+            $this.classList.remove('touch');
+          }
+          touch = true;
+          clearTimeout(timeout)
+          $target.classList.add('touch');
+        } else if(event.type=='touchend') {
+          $target.classList.remove('touch');
+          timeout = setTimeout(()=>{
+            touch = false;
+          }, 1000)
+        } else if(event.type=='contextmenu') {
+          $target.classList.remove('touch');
+          timeout = setTimeout(()=>{
+            touch = false;
+          }, 1000)
+        }
+
+        if(event.type=='mouseover' && !touch) {
+          $target.classList.add('hover');
+        } else if(event.type=='mouseout' && !touch) {
+          $target.classList.remove('hover');
+          $target.classList.remove('focus');
+        }
+        
+        if(event.type=='mousedown') {
+          $target.classList.add('focus');
+        } else if(event.type=='mouseup') {
+          $target.classList.remove('focus');
+        }
+
+      } else {
+        for(let $this of document.querySelectorAll($elements)) {
+          $this.classList.remove('touch');
+        }
+      }
+    }
+  }
+
 }
 //lazyload
 function lazy() {
@@ -169,7 +195,8 @@ function inputs() {
     phone: '[name="phone"]',
     email: '[name="email"]',
     name: '[name="name"]',
-    message: '[name="message"]'
+    message: '[name="message"]',
+    review: '[name="review"]'
   },
   conditions = {
     phone: {
@@ -200,9 +227,27 @@ function inputs() {
       }
     },
     message: {
+      presence: {
+        allowEmpty: false,
+        message: '^Введите ваше сообщение'
+      },
       length: {
+        minimum: 10,
+        tooShort: "^Сообщение слишком короткое (минимум %{count} символов)",
         maximum: 200,
         tooLong: "^Сообщение слишком длинное (максимум %{count} символов)"
+      }
+    },
+    review: {
+      presence: {
+        allowEmpty: false,
+        message: '^Напишите ваш отзыв'
+      },
+      length: {
+        minimum: 10,
+        tooShort: "^Отзыв слишком короткий (минимум %{count} символов)",
+        maximum: 200,
+        tooLong: "^Отзыв слишком длинный (максимум %{count} символов)"
       }
     }
   },
@@ -683,15 +728,9 @@ function scrollToReviews() {
       speed = 500; //ms
   $link.on('click', function(event) {
     event.preventDefault();
-    let $target;
-    if($(window).width()<brakepoints.md) {
-      $target = $('.item-info__reviews');
-    } else {
-      $target = $('.item-info__content');
-    }
-
     $('.item-info__reviews-toggle:visible').not('.active').trigger('click');
 
+    let $target = $('.reviews__content');
     if($target.length) {
       $('html, body').animate({
         scrollTop: $target.offset().top
@@ -724,4 +763,75 @@ function fixedBlocks() {
   })
 }
 
+//rate
+function rating() {
+  
+  $(document).on('click', '.js-rating__star', function(event) {
+    let $parent = $(event.target).closest('.js-rating'),
+        $star = $(event.target).closest('.js-rating__star'),
+        $stars = $star.parents('.js-rating').find('.js-rating__star'),
+        $input = $star.parents('.js-rating').find('input'),
+        count = +$star.attr('data-index'),
+        $textItems = $parent.find('.js-rating__description-item');
 
+    $input.val(count);
+    $textItems.removeClass('active');
+    $textItems.eq(count-1).addClass('active');
+    $stars.each(function(index){
+      if(index<count) {
+        $(this).addClass('active');
+      } else {
+        $(this).removeClass('active');
+      }
+    })
+  })
+  
+  $(document).on('mousemove mouseleave', '.js-rating__list', function(event) {
+    let $parent = $(event.target).closest('.js-rating'),
+        $rating = $(event.target).closest('.js-rating__list'),
+        $stars = $rating.find('.js-rating__star'),
+        $input = $rating.parents('.js-rating').find('input'),
+        $textItems = $parent.find('.js-rating__description-item');
+
+      if(event.type=='mousemove' && device.desktop() && $rating.length>0) {
+        let x = event.clientX-$rating.offset().left,
+            w = $rating.width(),
+            value = x/w*5;
+
+        $stars.each(function(index){
+          if(value>index) {
+            $(this).addClass('active');
+          } else {
+            $(this).removeClass('active');
+          }
+        })
+
+        $textItems.each(function(index){
+          if(value>index) {
+            $textItems.removeClass('active');
+            $(this).addClass('active');
+          } else {
+            return false;
+          }
+        })
+        
+      }
+      
+      if(event.type=='mouseleave' && device.desktop() && $rating.length>0) {
+        let count = $input.val();
+        $textItems.removeClass('active');
+        if(count>0) {
+          $textItems.eq(count-1).addClass('active');
+          $stars.each(function(index){
+            if(index<count) {
+              $(this).addClass('active');
+            } else {
+              $(this).removeClass('active');
+            }
+          })
+        } else {
+          $stars.removeClass('active');
+        }
+      }
+  })
+}

@@ -6,7 +6,7 @@
   --color-text-muted-2: #E5E5EA;
   --color-text-light: #BDBDBD;
   --color-border-1: #D9D9DE;
-  --color-border-2: #BDBDBD;
+  --color-border-2: #1a0f0f;
   --color-border-3: #A7A7AB;
   --color-header-top: #fff;
   --color-header-bottom: #000;
@@ -47,6 +47,7 @@
   --color-button2-hover-bg: #1C52AC;
   --color-button3: #2363D1;
   --color-filter-arrow-bg: #F3F6FB;
+  --color-comment-button: #2363D1;
   --color-input-border: #A7A7AB;
   --color-input-focus: #1B50A8;
   --color-input-focus-shadow: #E7EEF6;
@@ -58,6 +59,8 @@
   --color-socials-hover-bg: #1C52AC;
   --color-header-phone: #333333;
   --color-header-phone-hover: #1C52AC;
+  --color-user-icon-bg: #B7CBE5;
+  --color-admin-icon-bg: #767676;
   --color-header-search: #fff;
   --color-header-search-bg: #222222;
   --color-header-search-bg-mobile: #333333;
@@ -68,6 +71,8 @@
   --color-header-search-active-border: #2363D1;
   --color-header-search-active-button-bg: #2363D1;
   --color-header-search-active-button-hover-bg: #1C52AC;
+  --color-stars: #D9D9DE;
+  --color-stars-active: #FF9500;
   --color-header-button-icon: #fff;
   --color-header-button-icon-mobile: #333333;
   --color-header-button-hover-icon: #2363D1;

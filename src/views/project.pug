@@ -110,10 +110,10 @@ block content
               a(href="javascript:void(0);").item-info__tab-link.tabs__toggle Описание
               a(href="javascript:void(0);").item-info__tab-link.tabs__toggle.item-info__reviews-toggle Отзывы
               a(href="javascript:void(0);").item-info__tab-link.tabs__toggle Планировки
-              a(href="javascript:void(0);").item-info__tab-link.tabs__toggle.active Техническая документация
+              a(href="javascript:void(0);").item-info__tab-link.tabs__toggle Техническая документация
             .item-info__content
               //tab
-              .item-info__block.tabs__block.toggle-section
+              .item-info__block.tabs__block.toggle-section.active
                 a(href="javascript:void(0);").toggle-section__head.item-info__block-head 
                   span Описание 
                   svg.icon
@@ -181,6 +181,7 @@ block content
                     use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
                 .item-info__block-content.toggle-section__content
                   .item-info__block-container
+                    include blocks/reviews
                     include blocks/calculator
               //tab
               .item-info__block.tabs__block.toggle-section
@@ -190,9 +191,21 @@ block content
                     use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
                 .item-info__block-content.toggle-section__content
                   .item-info__block-container
+                    .project-layouts.row  
+                      mixin block(title)
+                        .project-layouts-block.col-sm-6
+                          .project-layouts-block__container
+                            .image
+                              img(data-src="img/9ee29e830635250cb2c413ee8049fe7f 1.png", alt="image").lazyload
+                            h2.project-layouts-block__title=title
+                            p.project-layouts-block__text Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве. 
+                      +block('Планировка 1')
+                      +block('Планировка 2')
+                      +block('Планировка 3')
+                      +block('Планировка 4')
                     include blocks/calculator
               //tab
-              .item-info__block.tabs__block.toggle-section.active
+              .item-info__block.tabs__block.toggle-section
                 a(href="javascript:void(0);").item-info__block-head.toggle-section__head 
                   span Техническая документация 
                   svg.icon

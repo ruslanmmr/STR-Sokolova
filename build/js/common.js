@@ -1,10 +1,16 @@
 "use strict";
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 lazySizes.cfg.init = false;
 customScroll();
 $(document).ready(function () {
   select.init();
-  hoverTouchEvents();
+  touchHoverEvents();
   inputs();
   search();
   nav();
@@ -15,7 +21,8 @@ $(document).ready(function () {
   fixedBlocks();
   tabs();
   scrollToReviews();
-  header(); //обработать изображения после инициализации слайдеров
+  header();
+  rating(); //обработать изображения после инициализации слайдеров
 
   setTimeout(function () {
     lazy();
@@ -28,35 +35,83 @@ var brakepoints = {
   lg: 1280
 }; //hover/touch custom events
 
-function hoverTouchEvents() {
-  var $targets = 'a[class], button, label, input, textarea, tr, .js-touch-hover, .selectric-items li, .selectric .label, .button';
-  $(document).on('mouseenter mouseleave touchstart touchend mousedown mouseup contextmenu', $targets, function (event) {
-    var $target = $(this),
-        touchTimer; //mobile events
+function touchHoverEvents() {
+  document.addEventListener('touchstart', event);
+  document.addEventListener('touchend', event);
+  document.addEventListener('mouseover', event);
+  document.addEventListener('mouseout', event);
+  document.addEventListener('mousedown', event);
+  document.addEventListener('mouseup', event);
+  document.addEventListener('contextmenu', event);
+  var $elements = 'a[class], button, label, input, textarea, tr, .js-touch-hover, .selectric-items li, .selectric .label, .button',
+      touch,
+      timeout;
 
-    if (!device.desktop()) {
-      if (event.type == 'touchstart') {
-        if (touchTimer) clearTimeout(touchTimer);
-        $target.addClass('touch');
-      } else if (event.type == 'touchend') {
-        touchTimer = setTimeout(function () {
-          $target.removeClass('touch');
-        }, 150);
-      }
-    } //desktop events
-    else {
-        if (event.type == 'mouseenter') {
-          $target.addClass('hover');
-        } else if (event.type == 'mousedown') {
-          $target.addClass('mousedown');
+  function event(event) {
+    if (event.target !== document) {
+      var $target = event.target.closest($elements);
+
+      if ($target !== null) {
+        if (event.type == 'touchstart') {
+          var _iterator = _createForOfIteratorHelper(document.querySelectorAll($elements)),
+              _step;
+
+          try {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              var $this = _step.value;
+              $this.classList.remove('touch');
+            }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
+          }
+
+          touch = true;
+          clearTimeout(timeout);
+          $target.classList.add('touch');
+        } else if (event.type == 'touchend') {
+          $target.classList.remove('touch');
+          timeout = setTimeout(function () {
+            touch = false;
+          }, 1000);
+        } else if (event.type == 'contextmenu') {
+          $target.classList.remove('touch');
+          timeout = setTimeout(function () {
+            touch = false;
+          }, 1000);
+        }
+
+        if (event.type == 'mouseover' && !touch) {
+          $target.classList.add('hover');
+        } else if (event.type == 'mouseout' && !touch) {
+          $target.classList.remove('hover');
+          $target.classList.remove('focus');
+        }
+
+        if (event.type == 'mousedown') {
+          $target.classList.add('focus');
         } else if (event.type == 'mouseup') {
-          $target.removeClass('mousedown');
-        } else {
-          $target.removeClass('hover');
-          $target.removeClass('mousedown');
+          $target.classList.remove('focus');
+        }
+      } else {
+        var _iterator2 = _createForOfIteratorHelper(document.querySelectorAll($elements)),
+            _step2;
+
+        try {
+          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+            var _$this = _step2.value;
+
+            _$this.classList.remove('touch');
+          }
+        } catch (err) {
+          _iterator2.e(err);
+        } finally {
+          _iterator2.f();
         }
       }
-  });
+    }
+  }
 } //lazyload
 
 
@@ -159,7 +214,8 @@ function inputs() {
     phone: '[name="phone"]',
     email: '[name="email"]',
     name: '[name="name"]',
-    message: '[name="message"]'
+    message: '[name="message"]',
+    review: '[name="review"]'
   },
       conditions = {
     phone: {
@@ -190,9 +246,27 @@ function inputs() {
       }
     },
     message: {
+      presence: {
+        allowEmpty: false,
+        message: '^Введите ваше сообщение'
+      },
       length: {
+        minimum: 10,
+        tooShort: "^Сообщение слишком короткое (минимум %{count} символов)",
         maximum: 200,
         tooLong: "^Сообщение слишком длинное (максимум %{count} символов)"
+      }
+    },
+    review: {
+      presence: {
+        allowEmpty: false,
+        message: '^Напишите ваш отзыв'
+      },
+      length: {
+        minimum: 10,
+        tooShort: "^Отзыв слишком короткий (минимум %{count} символов)",
+        maximum: 200,
+        tooLong: "^Отзыв слишком длинный (максимум %{count} символов)"
       }
     }
   },
@@ -669,15 +743,8 @@ function scrollToReviews() {
 
   $link.on('click', function (event) {
     event.preventDefault();
-    var $target;
-
-    if ($(window).width() < brakepoints.md) {
-      $target = $('.item-info__reviews');
-    } else {
-      $target = $('.item-info__content');
-    }
-
     $('.item-info__reviews-toggle:visible').not('.active').trigger('click');
+    var $target = $('.reviews__content');
 
     if ($target.length) {
       $('html, body').animate({
@@ -703,6 +770,74 @@ function fixedBlocks() {
         $block.removeClass('active');
         scrollLock.enablePageScroll();
       });
+    }
+  });
+} //rate
+
+
+function rating() {
+  $(document).on('click', '.js-rating__star', function (event) {
+    var $parent = $(event.target).closest('.js-rating'),
+        $star = $(event.target).closest('.js-rating__star'),
+        $stars = $star.parents('.js-rating').find('.js-rating__star'),
+        $input = $star.parents('.js-rating').find('input'),
+        count = +$star.attr('data-index'),
+        $textItems = $parent.find('.js-rating__description-item');
+    $input.val(count);
+    $textItems.removeClass('active');
+    $textItems.eq(count - 1).addClass('active');
+    $stars.each(function (index) {
+      if (index < count) {
+        $(this).addClass('active');
+      } else {
+        $(this).removeClass('active');
+      }
+    });
+  });
+  $(document).on('mousemove mouseleave', '.js-rating__list', function (event) {
+    var $parent = $(event.target).closest('.js-rating'),
+        $rating = $(event.target).closest('.js-rating__list'),
+        $stars = $rating.find('.js-rating__star'),
+        $input = $rating.parents('.js-rating').find('input'),
+        $textItems = $parent.find('.js-rating__description-item');
+
+    if (event.type == 'mousemove' && device.desktop() && $rating.length > 0) {
+      var x = event.clientX - $rating.offset().left,
+          w = $rating.width(),
+          value = x / w * 5;
+      $stars.each(function (index) {
+        if (value > index) {
+          $(this).addClass('active');
+        } else {
+          $(this).removeClass('active');
+        }
+      });
+      $textItems.each(function (index) {
+        if (value > index) {
+          $textItems.removeClass('active');
+          $(this).addClass('active');
+        } else {
+          return false;
+        }
+      });
+    }
+
+    if (event.type == 'mouseleave' && device.desktop() && $rating.length > 0) {
+      var count = $input.val();
+      $textItems.removeClass('active');
+
+      if (count > 0) {
+        $textItems.eq(count - 1).addClass('active');
+        $stars.each(function (index) {
+          if (index < count) {
+            $(this).addClass('active');
+          } else {
+            $(this).removeClass('active');
+          }
+        });
+      } else {
+        $stars.removeClass('active');
+      }
     }
   });
 }
