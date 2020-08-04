@@ -549,7 +549,6 @@
     width: 100%;
     line-height: 46px;
     border: 1px solid var(--color-border-1, #D9D9DE);
-    border-radius: 2px 2px 0 0;
     background-color: #fff;
     height: auto;
     color: inherit;
@@ -557,11 +556,15 @@
     z-index: 2;
     justify-content: flex-start;
     padding: 0 25px;
+    border-radius: 2px;
     .icon {
       width: 16px;
       height: 16px;
       margin-right: 13px;
       fill: var(--color-accent, #2363D1)
+    }
+    &.active {
+      border-radius: 2px 2px 0 0;
     }
   }
   &__content {
@@ -616,6 +619,7 @@
     &_desktop-visible {
       .aside-filtration__button {
         pointer-events: none;
+        border-radius: 2px 2px 0 0;
       }
       .aside-filtration__content {
         opacity: 1;

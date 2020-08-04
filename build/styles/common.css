@@ -3229,19 +3229,21 @@ a:not([class]):hover {
     width: 100%;
     line-height: 46px;
     border: 1px solid var(--color-border-1, #D9D9DE);
-    border-radius: 2px 2px 0 0;
     background-color: #fff;
     height: auto;
     color: inherit;
     position: relative;
     z-index: 2;
     justify-content: flex-start;
-    padding: 0 25px; }
+    padding: 0 25px;
+    border-radius: 2px; }
     .aside-filtration__button .icon {
       width: 16px;
       height: 16px;
       margin-right: 13px;
       fill: var(--color-accent, #2363D1); }
+    .aside-filtration__button.active {
+      border-radius: 2px 2px 0 0; }
   .aside-filtration__content {
     box-shadow: 0px 2px 25px rgba(118, 118, 118, 0.15);
     border-radius: 0 0 2px 2px;
@@ -3285,7 +3287,8 @@ a:not([class]):hover {
       background-color: var(--color-sections-bg, #F5F5F5); }
   @media (min-width: 992px) {
     .aside-filtration_desktop-visible .aside-filtration__button {
-      pointer-events: none; }
+      pointer-events: none;
+      border-radius: 2px 2px 0 0; }
     .aside-filtration_desktop-visible .aside-filtration__content {
       opacity: 1;
       visibility: visible;
