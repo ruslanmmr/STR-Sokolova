@@ -4043,10 +4043,8 @@ a:not([class]):hover {
 .reviews__content {
   padding-top: 40px; }
 
-.reviews__form {
-  overflow: hidden; }
-  .reviews__form-group {
-    margin-bottom: 20px; }
+.reviews__form-group {
+  margin-bottom: 20px; }
 
 .reviews__more {
   margin-top: 32px; }

@@ -729,11 +729,17 @@ function scrollToReviews() {
   $link.on('click', function(event) {
     event.preventDefault();
     $('.item-info__reviews-toggle:visible').not('.active').trigger('click');
+    let $target = $('.reviews__content'),
+        y;
+    if($(window).width()<brakepoints.md) {
+      y = $target.offset().top - 50;
+    } else {
+      y = $target.offset().top;
+    }
 
-    let $target = $('.reviews__content');
     if($target.length) {
       $('html, body').animate({
-        scrollTop: $target.offset().top
+        scrollTop: y
       }, speed);
     }
 
