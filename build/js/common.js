@@ -22,7 +22,8 @@ $(document).ready(function () {
   tabs();
   scrollToReviews();
   header();
-  rating(); //обработать изображения после инициализации слайдеров
+  rating();
+  calculator(); //обработать изображения после инициализации слайдеров
 
   setTimeout(function () {
     lazy();
@@ -702,18 +703,18 @@ function toggle() {
 function tabs() {
   var $tabs = $('.tabs');
   $tabs.each(function () {
-    var $trigger = $(this).find('.tabs__toggle'),
-        $tab = $(this).find('.tabs__block'),
-        index = $(this).find('.tabs__block.active').length > 0 ? $(this).find('.tabs__block.active').index() : 0;
+    var $triggers = $(this).find('.tabs__toggle'),
+        $tabs = $(this).find('.tabs__block'),
+        index = $(this).find('.tabs__block.active').length > 0 ? $triggers.index($(this).find('.tabs__block.active')) : 0;
     changeTab();
-    $trigger.on('click', function () {
-      index = $(this).index();
+    $triggers.on('click', function () {
+      index = $triggers.index($(this));
       changeTab();
     });
 
     function changeTab() {
-      $tab.hide().eq(index).fadeIn(250);
-      $trigger.removeClass('active').eq(index).addClass('active');
+      $tabs.hide().eq(index).fadeIn(250);
+      $triggers.removeClass('active').eq(index).addClass('active');
     }
   });
 } //scroll
@@ -845,6 +846,43 @@ function rating() {
       } else {
         $stars.removeClass('active');
       }
+    }
+  });
+}
+
+function calculator() {
+  var $element = $('.calc-count-block');
+  $element.each(function () {
+    var $this = $(this),
+        $plus = $this.find('.js-plus'),
+        $minus = $this.find('.js-minus'),
+        $input = $this.find('input'),
+        val = +$input.val();
+    check();
+    $plus.on('click', function () {
+      val++;
+      check();
+    });
+    $minus.on('click', function () {
+      val--;
+      check();
+    });
+    $input.on('change input', function () {
+      setTimeout(function () {
+        val = +$input.val();
+        check();
+      }, 100);
+    });
+
+    function check() {
+      if (val < 1 || val == 1) {
+        val = 1;
+        $minus.addClass('disabled');
+      } else {
+        $minus.removeClass('disabled');
+      }
+
+      $input.val(val);
     }
   });
 }

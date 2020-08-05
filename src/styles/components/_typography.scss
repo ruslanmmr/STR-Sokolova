@@ -137,6 +137,9 @@ ol:not([class]) {
 .table {
   overflow: auto;
 }
+table {
+  border-collapse: collapse;
+}
 table:not([class]) {
   border-collapse: collapse;
   min-width: 100%;

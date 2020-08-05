@@ -5,9 +5,148 @@ block breadcrumbs
   -var title = 'Заказ'
   include blocks/breadcrumbs
 block content
-  section.section
-    .container
-      h1 Оформление заказа
-        
+  section.section.order.container
+    .row
+      .section__container.col-xl-80pc
+        h1 Оформление заказа
+        .order__container
+          //item
+          .order-section
+            h4.order-section__title
+              svg.icon
+                use(xlink:href="img/icons/icons-sprite.svg#items")
+              span Товары
+            table.order-table
+              tr.order-table__item
+                td.order-table__item-section.order-table__close
+                  a(href="javascript:void(0);").order-table__close-button
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#close-light")
+                td.order-table__item-section.order-table__text
+                  span.order-table__index 141224
+                  span.order-table__title Фанера ФК 18х1525х1525 мм сорт 4/4 1й сорт нешлифованная
+                td.order-table__item-section.order-table__price 1143 ₽
+                td.order-table__item-section.order-table__calc 
+                  .calc-count-block
+                    a(href="javascript:void(0);").button.button_style-1.calc-count-block__button.js-minus 
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#minus")
+                    .input.calc-count-block__input
+                      input(type="number" name='ddd' value='1').input__element
+                    a(href="javascript:void(0);").button.button_style-1.calc-count-block__button.js-plus 
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#plus")
+                td.order-table__item-section.order-table__total-price 1143 ₽
+              tr.order-table__item
+                td.order-table__item-section.order-table__close
+                  a(href="javascript:void(0);").order-table__close-button
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#close-light")
+                td.order-table__item-section.order-table__text
+                  span.order-table__index 141224
+                  span.order-table__title Фанера ФК 18х1525х1525 мм сорт 4/4 1й сорт нешлифованная 4/4 1й сорт нешлифованная
+                td.order-table__item-section.order-table__price 1143 ₽
+                td.order-table__item-section.order-table__calc 
+                  .calc-count-block
+                    a(href="javascript:void(0);").button.button_style-1.calc-count-block__button.js-minus 
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#minus")
+                    .input.calc-count-block__input
+                      input(type="number" name='ddd' value='1').input__element
+                    a(href="javascript:void(0);").button.button_style-1.calc-count-block__button.js-plus 
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#plus")
+                td.order-table__item-section.order-table__total-price 1143 ₽
+          //item
+          .order-section
+            h4.order-section__title
+              svg.icon
+                use(xlink:href="img/icons/icons-sprite.svg#small-house")
+              span Проекты
+            table.order-table
+              tr.order-table__item
+                td.order-table__item-section.order-table__close
+                  a(href="javascript:void(0);").order-table__close-button
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#close-light")
+                td.order-table__item-section.order-table__text
+                  span.order-table__index 141224
+                  span.order-table__title Модель дома кд25 180 м2 с террасой три спальни гардероб и санузел
+                td.order-table__item-section.order-table__total-price 3 400 000 ₽
+          //item
+          .order-section
+            h4.order-section__title
+              svg.icon
+                use(xlink:href="img/icons/icons-sprite.svg#services-stroke")
+              span Услуги
+            table.order-table
+              tr.order-table__item
+                td.order-table__item-section.order-table__close
+                  a(href="javascript:void(0);").order-table__close-button
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#close-light")
+                td.order-table__item-section.order-table__text
+                  span.order-table__index 141224
+                  span.order-table__title Укладка плитки
+                td.order-table__item-section.order-table__price 500 ₽/кв.м.
+                td.order-table__item-section.order-table__calc 
+                  .calc-count-block
+                    a(href="javascript:void(0);").button.button_style-1.calc-count-block__button.js-minus 
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#minus")
+                    .input.calc-count-block__input
+                      input(type="number" name='ddd' value='1').input__element
+                    a(href="javascript:void(0);").button.button_style-1.calc-count-block__button.js-plus 
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#plus")
+                td.order-table__item-section.order-table__total-price 5000 ₽  
+        .order__total
+          table.order-total
+            tr
+              td Общий вес, кг:
+              td 2500
+            tr 
+              td Общий объём, м3:
+              td 6,5
+            tr
+              td Итого:
+              td 4572 ₽
+    
+    .order-form-section.tabs
+      .order-form-section__head.row
+        .col-xl-3.col-lg-4.col-md-6.order-form-section__head-item
+          a(href="javascript:void(0);").button.button_style-4.tabs__toggle У меня нет аккаунта
+            span
+        .col-xl-3.col-lg-4.col-md-6.order-form-section__head-item
+          a(href="javascript:void(0);").button.button_style-4.tabs__toggle У меня есть аккаунт
+            span
+      .order-form-section__content.row
 
-  
+        .tabs__block.col-xl-4.col-lg-6.col-md-8
+          form(action="#").js-validation.order-form
+            .input.order-form__item
+              input(type="text" name='name' placeholder="Имя*").input__element.required
+              span.input__label Имя
+            .input.order-form__item
+              input(type="text" name='phone' placeholder="Телефон*").input__element.required
+              span.input__label Телефон
+            .input.order-form__item
+              input(type="text" name='email' placeholder="Email").input__element.required
+              span.input__label Email
+            .input.order-form__item
+              textarea(name='message' placeholder="Комментарий").input__element.input__element_textarea
+              span.input__label Комментарий
+            .input.order-form__item
+              button(type='submit').button.button_xl.button_style-2.order-form__submit Оформить заказ
+
+        .tabs__block.col-xl-3.col-lg-4.col-md-6
+          h2 Вход
+          form(action="#").order-form
+            .input.order-form__item
+              input(type="text" name='login' placeholder="Логин*").input__element
+              span.input__label Логин
+            .input.order-form__item
+              input(type="password" name='pass' placeholder="Пароль*").input__element
+              span.input__label Пароль
+            .input.order-form__item
+              button(type='submit').button.button_xl.button_style-2.order-form__submit Продолжить

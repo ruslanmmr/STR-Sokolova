@@ -16,6 +16,7 @@ $(document).ready(function(){
   scrollToReviews();
   header();
   rating();
+  calculator();
   //обработать изображения после инициализации слайдеров
   setTimeout(()=>{
     lazy();
@@ -686,20 +687,20 @@ function tabs() {
   let $tabs = $('.tabs');
 
   $tabs.each(function() {
-    let $trigger = $(this).find('.tabs__toggle'),
-        $tab = $(this).find('.tabs__block'),
-        index = $(this).find('.tabs__block.active').length>0 ? $(this).find('.tabs__block.active').index() : 0;
+    let $triggers = $(this).find('.tabs__toggle'),
+        $tabs = $(this).find('.tabs__block'),
+        index = $(this).find('.tabs__block.active').length>0 ? $triggers.index($(this).find('.tabs__block.active')) : 0;
 
     changeTab();
 
-    $trigger.on('click', function() {
-      index = $(this).index();
+    $triggers.on('click', function() {
+      index = $triggers.index($(this));
       changeTab();
     })
 
     function changeTab() {
-      $tab.hide().eq(index).fadeIn(250);
-      $trigger.removeClass('active').eq(index).addClass('active');
+      $tabs.hide().eq(index).fadeIn(250);
+      $triggers.removeClass('active').eq(index).addClass('active');
     }
 
   })
@@ -839,5 +840,43 @@ function rating() {
           $stars.removeClass('active');
         }
       }
+  })
+}
+
+function calculator() {
+  let $element = $('.calc-count-block');
+
+  $element.each(function() {
+    let $this = $(this),
+        $plus = $this.find('.js-plus'),
+        $minus = $this.find('.js-minus'),
+        $input = $this.find('input'),
+        val = +$input.val();
+    
+    check();
+    $plus.on('click', function() {
+      val++;
+      check();
+    })
+    $minus.on('click', function() {
+      val--;
+      check();
+    })
+    $input.on('change input', function() {
+      setTimeout(function() {
+        val = +$input.val();
+        check();
+      },100)
+    })
+
+    function check() {
+      if(val<1 || val==1) {
+        val=1;
+        $minus.addClass('disabled');
+      } else {
+        $minus.removeClass('disabled');
+      }
+      $input.val(val);
+    }
   })
 }

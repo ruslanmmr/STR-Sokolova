@@ -447,6 +447,35 @@
     text-align: center;
   }
 }
+
+.calc-count-block {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  &__input {
+    flex: 1 1 100%;
+    margin: 0 5px;
+    padding: 0 !important;
+    .input__element {
+      text-align: center;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  }
+  &__button {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    margin: 0;
+    padding: 0;
+    min-width: 20px;
+    .icon {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
   
 
 

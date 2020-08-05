@@ -21,42 +21,67 @@
 @import "utilities/flex";
 
 //поддержка 5 колонок
-.col-5th,
-.col-sm-5th,
-.col-md-5th,
-.col-lg-5th,
-.col-xl-5th {
+.col-20pc,
+.col-sm-20pc,
+.col-md-20pc,
+.col-lg-20pc,
+.col-xl-20pc,
+.col-80pc,
+.col-sm-80pc,
+.col-md-80pc,
+.col-lg-80pc,
+.col-xl-80pc {
     position: relative;
     width: 100%;
     min-height: 1px;
     padding-right: ($grid-gutter-width/2);
     padding-left: ($grid-gutter-width/2);
 }
-.col-5th {
+.col-20pc {
   flex: 0 0 20%;
   max-width: 20%;
 }
+.col-80pc {
+  flex: 0 0 80%;
+  max-width: 80%;
+}
 @media (min-width: map_get($grid-breakpoints, sm)) {
-  .col-sm-5th {
+  .col-sm-20pc {
     flex: 0 0 20%;
     max-width: 20%;
+  }
+  .col-sm-80pc {
+    flex: 0 0 80%;
+    max-width: 80%;
   }
 }
 @media (min-width: map_get($grid-breakpoints, md)) {
-  .col-md-5th {
+  .col-md-20pc {
     flex: 0 0 20%;
     max-width: 20%;
+  }
+  .col-md-80pc {
+    flex: 0 0 80%;
+    max-width: 80%;
   }
 }
 @media (min-width: map_get($grid-breakpoints, lg)) {
-  .col-lg-5th {
+  .col-lg-20pc {
     flex: 0 0 20%;
     max-width: 20%;
   }
+  .col-lg-80pc {
+    flex: 0 0 80%;
+    max-width: 80%;
+  }
 }
 @media (min-width: map_get($grid-breakpoints, xl)) {
-  .col-xl-5th {
+  .col-xl-20pc {
     flex: 0 0 20%;
     max-width: 20%;
+  }
+  .col-xl-80pc {
+    flex: 0 0 80%;
+    max-width: 80%;
   }
 }

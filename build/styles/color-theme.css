@@ -5,6 +5,7 @@
   --color-text-muted: #767676;
   --color-text-muted-2: #E5E5EA;
   --color-text-light: #BDBDBD;
+  --color-text-code: #7C8994;
   --color-border-1: #D9D9DE;
   --color-border-2: #1a0f0f;
   --color-border-3: #A7A7AB;
@@ -46,6 +47,8 @@
   --color-button2-bg: #2363D1;
   --color-button2-hover-bg: #1C52AC;
   --color-button3: #2363D1;
+  --color-button4-accent: #2363D1;
+  --color-button4-bg: #F3F6FB;
   --color-filter-arrow-bg: #F3F6FB;
   --color-comment-button: #2363D1;
   --color-input-border: #A7A7AB;
