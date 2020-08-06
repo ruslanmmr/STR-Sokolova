@@ -4298,7 +4298,8 @@ a:not([class]):hover {
       text-align: right; }
 
 .order-final__button {
-  margin-top: 30px; }
+  margin-top: 30px;
+  min-width: 200px; }
 
 .order-final__total {
   margin-top: 20px;
