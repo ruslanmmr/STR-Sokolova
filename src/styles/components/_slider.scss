@@ -132,6 +132,25 @@
   }
 }
 
+.photo-slider {
+  &__slide {
+    height: 400px;
+  }
+  .slider {
+    &__next,
+    &__prev {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &__next {
+      right: 16px;
+    }
+    &__prev {
+      left: 16px;
+    }
+  }
+}
+
 
 @include media-breakpoint-down(xs) {
   .slider {

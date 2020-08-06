@@ -15,9 +15,19 @@ block content
           img(src="img/icons/rating_3.5.svg", alt="image").project-head__rating
           a(href="javascript:void(0);" data-reviews).link Отзывы (6)
         .project-head__content.row
-          .col-xl-6.col-lg-8.col-md-7.project-head__image
-            .image.image_cover
-              img(src="img/image 28.jpg", alt="image").lazyload
+          .col-xl-6.col-lg-8.col-md-7
+            .project-head__image
+              .photo-slider.slider.project-head__photo-slider
+                .photo-slider__slide.image.image_cover
+                  img(data-src="img/image 28.jpg", alt="image").lazyload
+                .photo-slider__slide.image.image_cover
+                  img(data-src="img/image 28.jpg", alt="image").lazyload
+                .photo-slider__slide.image.image_cover
+                  img(data-src="img/image 28.jpg", alt="image").lazyload
+                .photo-slider__slide.image.image_cover
+                  img(data-src="img/image 28.jpg", alt="image").lazyload
+                .photo-slider__slide.image.image_cover
+                  img(data-src="img/image 28.jpg", alt="image").lazyload
               .card-labels
                 span.card-label.card-label_sale Sale
                 span.card-label.card-label_new New
@@ -172,7 +182,6 @@ block content
                             td Доставка
                             td 36,00&nbsp;₽
                             td Да
-                    include blocks/calculator
               //tab
               .item-info__block.item-info__reviews.tabs__block.toggle-section
                 a(href="javascript:void(0);").toggle-section__head.item-info__block-head.item-info__reviews-toggle  
@@ -182,7 +191,6 @@ block content
                 .item-info__block-content.toggle-section__content
                   .item-info__block-container
                     include blocks/reviews
-                    include blocks/calculator
               //tab
               .item-info__block.tabs__block.toggle-section
                 a(href="javascript:void(0);").toggle-section__head.item-info__block-head  
@@ -203,7 +211,6 @@ block content
                       +block('Планировка 2')
                       +block('Планировка 3')
                       +block('Планировка 4')
-                    include blocks/calculator
               //tab
               .item-info__block.tabs__block.toggle-section
                 a(href="javascript:void(0);").item-info__block-head.toggle-section__head 
@@ -303,7 +310,7 @@ block content
                                   svg.icon
                                     use(xlink:href="img/icons/icons-sprite.svg#download")
                                   span Скачать
-                    include blocks/calculator
+          include blocks/calculator
         .col-xl-20pc.col-lg-3.d-none.d-lg-block.item-info__advertising
           include blocks/advertising
           include blocks/advertising
@@ -315,4 +322,5 @@ block content
           p Инвестируем в заводы, производящие листовые строительные материалы (ДСП ЦСП ФАНЕРА, ОСБ и т.д.) заключаем договора, выкупаем партии продукции, везем вагонами или фурами на склад и после поставляют постоянным клиентам типа “Красной цены”, “Сатурна”, “Центр строя” и т.д. Если есть товар в наличии и их цена ниже, то мы продаем, если нет — то продают конкуренты.
   -var formTitle = 'Понравился проект? Оставьте заявку и мы построим его для вас'
   -var formClass = 'section_small-padding section_no-margin'
+  -var formLabel = true;
   include blocks/form

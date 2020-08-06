@@ -4,6 +4,10 @@ section.section.form-section(class=formClass!==undefined?formClass:'section_smal
       .col-xl-10
         .form-section__content
           h2.section__title.form-section__title #{formTitle}
+          if formLabel == true
+            .form-section__label 
+              span Проект:
+              span Модель дома кд25 180 м2 с террасой три спальни гардероб и санузел
           form(action="#").form.js-validation
             .row
               .col-md-6.form__group
