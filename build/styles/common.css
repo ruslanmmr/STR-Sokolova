@@ -1805,6 +1805,11 @@ a:not([class]):hover {
     .input__element:-webkit-autofill, .input__element:-webkit-autofill:hover, .input__element:-webkit-autofill:focus, .input__element:-webkit-autofill, .input__element:-webkit-autofill:hover, .input__element:-webkit-autofill:focus, .input__element:-webkit-autofill, .input__element:-webkit-autofill:hover, .input__element:-webkit-autofill:focus {
       -webkit-text-fill-color: inherit;
       box-shadow: 0 0 0px 1000px #fff inset; }
+    .input__element::-webkit-outer-spin-button, .input__element::-webkit-inner-spin-button {
+      /* display: none; <- Crashes Chrome on hover */
+      -webkit-appearance: none;
+      margin: 0;
+      /* <-- Apparently some margin are still there even though it's hidden */ }
     .input__element::-moz-placeholder {
       color: var(--color-text-muted, #767676);
       -moz-transition: opacity 0.25s ease-out, color 0.25s ease-out;
@@ -4261,6 +4266,137 @@ a:not([class]):hover {
 @media (max-width: 575.98px) {
   .order-form__submit {
     width: 100%; } }
+
+.order-final__table {
+  width: 100%; }
+  .order-final__table td {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-table-border, #E5E5EA);
+    vertical-align: top; }
+    .order-final__table td:not(:last-child) {
+      padding-right: 30px; }
+    .order-final__table td:not(:first-child) {
+      white-space: nowrap; }
+    .order-final__table td:last-child {
+      font-weight: 700; }
+    .order-final__table td:first-child {
+      width: 100%;
+      position: relative; }
+      .order-final__table td:first-child span {
+        position: absolute;
+        right: 100%;
+        top: 12px;
+        transform: translateX(-20px); }
+    .order-final__table td:nth-child(2) {
+      min-width: 120px;
+      text-align: center; }
+    .order-final__table td:nth-child(3) {
+      min-width: 80px;
+      text-align: center; }
+    .order-final__table td:last-child {
+      min-width: 80px;
+      text-align: right; }
+
+.order-final__button {
+  margin-top: 30px; }
+
+.order-final__total {
+  margin-top: 20px;
+  display: flex;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  color: #000; }
+  .order-final__total span:not(:last-child) {
+    margin-right: 12px; }
+
+.order-final__container {
+  padding: 40px 100px;
+  background-color: #fff; }
+
+.order-final p {
+  max-width: 340px; }
+
+.order-final__section {
+  margin-bottom: 30px; }
+
+.order-final__title {
+  margin: 0 0 20px 0;
+  position: relative; }
+  .order-final__title .icon {
+    fill: var(--color-accent, #2363D1);
+    width: 32px;
+    height: 28px;
+    position: absolute;
+    display: block;
+    left: -20px;
+    transform: translateX(-100%);
+    top: 0; }
+
+@media (max-width: 1279.98px) {
+  .order-final__container {
+    padding: 40px; }
+  .order-final__section:not(:last-child) {
+    margin-bottom: 20px; }
+  .order-final__title {
+    padding-left: 50px; }
+    .order-final__title .icon {
+      transform: translate(0);
+      left: 0; }
+  .order-final__table td:first-child {
+    padding-left: 25px; }
+    .order-final__table td:first-child span {
+      left: 0;
+      right: auto;
+      transform: translate(0); } }
+
+@media (max-width: 991.98px) {
+  .order-final__container {
+    padding: 30px; }
+  .order-final__table td {
+    min-width: auto !important; }
+    .order-final__table td:not(:last-child) {
+      padding-right: 20px; } }
+
+@media (max-width: 767.98px) {
+  .order-final__container {
+    padding: 30px 16px; } }
+
+@media (max-width: 575.98px) {
+  .order-final__container {
+    padding: 30px 8px;
+    margin: 0 -8px; }
+  .order-final__button {
+    width: 100%; }
+  .order-final__total {
+    justify-content: space-between; }
+  .order-final__table {
+    margin: 0 -8px;
+    width: calc(100% + 16px); }
+    .order-final__table tr {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--color-table-border, #E5E5EA);
+      padding: 24px 8px; }
+      .order-final__table tr:first-child {
+        padding-top: 0; }
+    .order-final__table td {
+      border-bottom: 0;
+      padding: 0; }
+      .order-final__table td:first-child {
+        font-size: 0.75rem;
+        line-height: 1.125rem;
+        flex: 1 1 100%;
+        padding-right: 0;
+        margin-bottom: 8px; }
+        .order-final__table td:first-child span {
+          font-size: 0.875rem;
+          top: 0; }
+      .order-final__table td:not(:first-child) {
+        flex: 1 1 33%; }
+      .order-final__table td:nth-child(2) {
+        text-align: left;
+        padding-left: 25px; } }
 
 @media (max-width: 991.98px) {
   .project-preview-card__image {

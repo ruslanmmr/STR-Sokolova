@@ -4,10 +4,52 @@ block title
 block breadcrumbs 
   -var title = 'Заказ'
   include blocks/breadcrumbs
+block variables
+  -var content = 'main_muted'
 block content
   section.section
     .container
       h1 Ваш заказ успешно оформлен
-        
-
-  
+      .row
+        .order-final.col-xl-80pc.col-lg-9
+          .order-final__container
+            h2.order-final__title 
+              svg.icon
+                use(xlink:href="img/icons/icons-sprite.svg#label")
+              | Ваш заказ № 55242
+            p.order-final__section <strong>Контактные данные:</strong><br> 
+              | ООО “Самарские Кровельные Системы”<br> 
+              | Константин Иванович Константинопольский<br> 
+              | +7 903 312 13 34<br>
+              | manager@samara_krovlya63.ru
+            p.order-final__section <strong>Комметарий:</strong><br> 
+              | Позвонить заранее — у нас пропускная система, а лучше позвоните заранее и мы выпишем вам пропуск
+            h4 Товары
+            table.order-final__table
+              tr
+                td 
+                  span 1.
+                  | Фанера ФК 18х1525х1525 мм сорт 4/4 1й сорт нешлифованная (Арт. 13413)
+                td 114 ₽
+                td 10
+                td 1143 ₽
+              tr
+                td 
+                  span 2.
+                  | Фанера ФК 18х1525х1525 мм сорт 4/4 1й сорт нешлифованная (Арт. 13413)
+                td 11433 ₽
+                td 233
+                td 1143 ₽
+            h4 Услуги
+            table.order-final__table
+              tr
+                td 
+                  span 1.
+                  | Фанера ФК 18х1525х1525 мм сорт 4/4 1й
+                td 1143 ₽
+                td 1
+                td 114300 ₽
+            .order-final__total 
+              span Итого:
+              span 4572 ₽
+          a(href="index.html").button.button_xl.button_style-2.order-final__button Назад в магазин
