@@ -446,8 +446,15 @@ let slider = {
           autoplay = false,
           nextArrow = '<button type="button" class="button button_style-1 slider__next"><svg class="icon" viewBox="0 0 12 20"><path d="M2.18 19.05L.77 17.64 8.4 10 .77 2.36 2.18.95 11.23 10l-9.05 9.05z"></path></svg></button>',
           prevArrow = '<button type="button" class="button button_style-1 slider__prev"><svg class="icon" viewBox="0 0 12 20"><path d="M2.18 19.05L.77 17.64 8.4 10 .77 2.36 2.18.95 11.23 10l-9.05 9.05z"></path></svg></button>';
-
-
+      
+      if($(this).is('.slider_dots')) {
+        dots=true;
+      } 
+      
+      if($(this).is('.slider_arrows')) {
+        arrows=true;
+      }
+      
       if($(this).is('.popular-projects__slider')) {
         arrows = true;
         slideCount = 2;
@@ -488,10 +495,6 @@ let slider = {
       }  
       
       else if($(this).is('.photo-slider')) {
-        arrows = true;
-        if($(this).hasClass('photo-slider_has-dots')) {
-          dots = true;
-        }
         initSlider($(this));
       }
       
@@ -512,6 +515,15 @@ let slider = {
         slideCountLg = 5;
         slideCountMd = 4;
         slideCountSm = 3;
+        slideCountXs = 1;
+        initSlider($(this));
+      }
+
+      else if($(this).is('.projects-slider')) {
+        slideCount = 4;
+        slideCountLg = 3;
+        slideCountMd = 2;
+        slideCountSm = 2;
         slideCountXs = 1;
         initSlider($(this));
       }

@@ -1,0 +1,69 @@
+extends layout/layout
+block title
+  title Портфолио - проект
+block breadcrumbs 
+  -var title = 'Портфолио - проект'
+  include blocks/breadcrumbs
+block variables
+  -var content = 'main_muted'
+block content
+  section.section.portfolio-project
+    .container
+      .portfolio-project__container.display-container
+        h1 Модель дома кд 25 180 м2 с террасой три спальни гардероб и санузел
+        .photo-slider.slider.slider_arrows.slider_dots.portfolio-project__slider
+          .photo-slider__slide.image.image_cover
+            img(data-src="img/image 28.jpg", alt="image").lazyload
+          .photo-slider__slide.image.image_cover
+            img(data-src="img/image 28.jpg", alt="image").lazyload
+          .photo-slider__slide.image.image_cover
+            img(data-src="img/image 28.jpg", alt="image").lazyload
+          .photo-slider__slide.image.image_cover
+            img(data-src="img/image 28.jpg", alt="image").lazyload
+          .photo-slider__slide.image.image_cover
+            img(data-src="img/image 28.jpg", alt="image").lazyload
+        .row
+          .portfolio-project__info.col-xl-4.col-lg-5
+            .portfolio-project__info-container
+              .portfolio-project__info-item
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#cost")
+                strong 79 980 678 ₽<br> 
+                | стоимость проекта
+              .portfolio-project__info-item
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#time")
+                strong 12 <br>
+                | месяцев срок
+              .portfolio-project__info-item
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#size")
+                strong 25 180 м2 <br>
+                | площадь проекта
+              .portfolio-project__info-item
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#location-2")
+                | г. Москва,<br> ул.Ленина 54
+          .col-xl-8.col-lg-7.portfolio-project__text
+            h2 Описание проекта
+            p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве. 
+            p В зависимости от внешнего вида наружных слоев на сорта: Е (элита), I, II, III, IV
+            h3 Заголовок группы
+            p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве. 
+            p В зависимости от внешнего вида наружных слоев на сорта: 
+            ul
+              li Сорт Е (элита)
+              li Сорт I, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
+              li Сорт III
+              li Сорт IV
+  section.section
+    .container
+      h2.section__title Другие проекты
+      .slider.slider_arrows.slider_grid.row.projects-slider
+        include blocks/cards
+        +card3('img/767773b7699f15e02052b250d92c0c7f.png', 'col') 
+        +card3('img/image 28.jpg', 'col') 
+        +card3('img/767773b7699f15e02052b250d92c0c7f.png', 'col')
+        +card3('img/767773b7699f15e02052b250d92c0c7f.png', 'col') 
+        +card3('img/image 28.jpg', 'col') 
+        +card3('img/767773b7699f15e02052b250d92c0c7f.png', 'col')

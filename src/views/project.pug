@@ -9,7 +9,7 @@ block variables
 block content
   section.section.project-head
     .container
-      .project-head__container
+      .project-head__container.display-container
         h1.project-head__title Модель дома кд 25 180 м2 с террасой<br> три спальни гардероб и санузел
         .project-head__top-line
           img(src="img/icons/rating_3.5.svg", alt="image").project-head__rating
@@ -17,7 +17,7 @@ block content
         .project-head__content.row
           .col-xl-6.col-lg-8.col-md-7
             .project-head__image
-              .photo-slider.slider.project-head__photo-slider
+              .photo-slider.slider.slider_arrows.project-head__photo-slider
                 .photo-slider__slide.image.image_cover
                   img(data-src="img/image 28.jpg", alt="image").lazyload
                 .photo-slider__slide.image.image_cover
@@ -29,9 +29,9 @@ block content
                 .photo-slider__slide.image.image_cover
                   img(data-src="img/image 28.jpg", alt="image").lazyload
               .card-labels
-                span.card-label.card-label_sale Sale
-                span.card-label.card-label_new New
-                span.card-label.card-label_hit Hit
+                span.card-label.card-label_style-1 Sale
+                span.card-label.card-label_style-2 New
+                span.card-label.card-label_style-3 Hit
           .col-lg-auto.col-md-5.project-head__center
             .card-price.project-head__card-price
               span.card-price__label.card-price__label_style-1 Реализован 12 раз

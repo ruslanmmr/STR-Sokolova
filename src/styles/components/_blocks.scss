@@ -1014,10 +1014,6 @@
       padding-left: 1px;
     }
   }
-  &__container {
-    background-color: #fff;
-    padding: 40px;
-  }
   &__share-popup {
     right: 59px;
     margin-top: 15px;
@@ -1130,9 +1126,6 @@
     margin-bottom: 40px;
   }
   @include media-breakpoint-down(md) {
-    &__container {
-      padding: 30px;
-    }
     &__center {
       padding-top: 0;
     }
@@ -1167,10 +1160,6 @@
     }
   }
   @include media-breakpoint-down(xs) {
-    &__container {
-      padding: 32px 8px 18px 8px;
-      margin: 0 -8px;
-    }
     &__center {
       padding: 0 8px;
     }
@@ -2059,6 +2048,102 @@
         }
       }
     }
+  }
+}
+
+.portfolio-project {
+  &__text {
+    padding-left: 25px;
+  }
+  &__slider {
+    margin-bottom: 70px;
+    .slick-dots {
+      bottom: -30px;
+    }
+  }
+  &__info {
+    &-container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 30px 15px;
+      border: 3px solid var(--color-accent, #2363D1);
+    }
+    &-item {
+      flex: 1 1 60%;
+      padding: 0 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &:nth-child(1), &:nth-child(2) {
+        margin-bottom: 48px;
+      }
+      &:nth-child(2n) {
+        flex: 1 1 40%;
+      }
+      strong {
+        font-size: 1.375rem;
+        white-space: nowrap;
+        line-height: 36px;
+      }
+      .icon {
+        fill: var(--color-accent, #2363D1);
+        stroke: var(--color-accent, #2363D1);
+        width: 30px;
+        height: 30px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  @include media-breakpoint-down(md) {
+    &__text {
+      padding-left: 10px;
+    }
+    &__slider {
+      .slick-slide {
+        height: 350px;
+      }
+    }
+    &__info {
+      margin-bottom: 40px;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    &__slider {
+      .slick-slide {
+        height: 300px;
+      }
+    }
+    &__info {
+      &-container {
+        padding: 20px 15px;
+      }
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    &__slider {
+      .slick-slide {
+        height: 200px;
+      }
+    }
+  }
+}
+
+.display-container {
+  background-color: #fff;
+  padding: 40px 50px;
+  @include media-breakpoint-down(lg) {
+    padding: 40px;
+  }
+  @include media-breakpoint-down(md) {
+    padding: 40px 30px;
+  }
+  @include media-breakpoint-down(sm) {
+    padding: 30px 20px;
+  }
+  @include media-breakpoint-down(xs) {
+    padding: 20px 8px;
+    margin-right: -8px;
+    margin-left: -8px;
   }
 }
 

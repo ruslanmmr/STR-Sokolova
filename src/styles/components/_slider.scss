@@ -66,7 +66,7 @@
   button {
     width: 11px;
     height: 11px;
-    background-color: #fff;
+    background-color: #F3F6FB;
     border-radius: 11px;
     border-width: 1px;
     border-style: solid;
@@ -79,9 +79,6 @@
       background-color: var(--color-dots-slider, #2363D1);
     }
   }
-}
-.slick-arrow {
-
 }
 .slider {
   display: flex;
@@ -130,11 +127,14 @@
       }
     }
   }
+  &_dots-bottom {
+    padding-bottom: 30px;
+  }
 }
 
 .photo-slider {
   &__slide {
-    height: 400px;
+    height: 430px;
   }
   .slider {
     &__next,
