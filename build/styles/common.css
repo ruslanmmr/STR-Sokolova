@@ -2327,7 +2327,7 @@ a:not([class]):hover {
     top: 0;
     left: 0; }
     .selectric-select_style-1 .selectric-items li {
-      padding: 10px 15px; }
+      padding: 9px 15px; }
       .selectric-select_style-1 .selectric-items li.selected {
         background-color: var(--color-accent, #2363D1);
         color: #fff; }
