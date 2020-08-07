@@ -4291,10 +4291,15 @@ a:not([class]):hover {
     padding: 30px 16px; } }
 
 @media (max-width: 575.98px) {
-  .item-info__content {
-    background-color: transparent; }
-  .item-info__container {
-    margin: 0 -16px; } }
+  .item-info {
+    margin-bottom: 0 !important; }
+    .item-info .project-calculator {
+      margin-top: 0 !important;
+      padding-bottom: 0 !important; }
+    .item-info__content {
+      background-color: transparent; }
+    .item-info__container {
+      margin: 0 -16px; } }
 
 .project-calculator {
   background-color: #fff;

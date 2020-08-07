@@ -1348,6 +1348,11 @@
     }
   }
   @include media-breakpoint-down(xs) {
+    margin-bottom: 0 !important;
+    .project-calculator {
+      margin-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
     &__content {
       background-color: transparent;
     }
