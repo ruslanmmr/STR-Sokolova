@@ -1,0 +1,21 @@
+extends layout/layout
+block title
+  title Портфолио
+block breadcrumbs 
+  -var title = 'Портфолио'
+  include blocks/breadcrumbs
+block content
+  section.section
+    .container
+      h1 Портфолио
+      .sorting-heading
+        .sorting-heading__container
+          span.sorting-heading__title Сортировка:
+          .col-xl-20pc.col-xl-3
+            select.select.select_style-1
+              option(value="1") Цена (по возрастанию)
+              option(value="2") Цена (по убыванию)
+              option(value="3" selected) Наличие
+              option(value="4") Популярность
+            
+      
