@@ -1,0 +1,13 @@
+extends layout/layout
+block title
+  title Ошибка 404
+block content 
+  section.section.section-404 
+    .container
+      .section-404__container
+        .section-404__text
+          h1.section-404__title Произошла ошибка
+          p К сожалению, такой страницы нет. Возможно, вы перешли по старой ссылке или ввели неправильный адрес.
+          p Код ошибки: 404
+          a(href="index.html").button.button_style-2.section-404__button На главную
+        img(src="img/icons/404.svg", alt="image").section-404__icon
