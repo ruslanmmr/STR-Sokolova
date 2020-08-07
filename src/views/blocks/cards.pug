@@ -5,15 +5,15 @@ mixin card1(image, discount, grid)
         span.project-preview-card__index 20464111
         if image==true
           .card-labels
-            span.card-label.card-label_sale Sale
-            span.card-label.card-label_new New
-            span.card-label.card-label_hit Hit
+            span.card-label.card-label_style-1 Sale
+            span.card-label.card-label_style-2 New
+            span.card-label.card-label_style-3 Hit
           .image.image_cover
             img(src="img/image 28.jpg", alt="image").lazyload
           span.project-preview-card__status Премиум
         else 
           .card-labels
-            span.card-label.card-label_hit Hit
+            span.card-label.card-label_style-3 Hit
           .image.image_contain
             img(src="img/icons/project-placeholder.svg", alt="placeholder").lazyload
           span.project-preview-card__status Эконом
@@ -48,4 +48,16 @@ mixin card2(title, image, grid)
       h3.category-card__title=title
         svg.icon
           use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-              
+
+mixin card3(image, classes)     
+  .model-block(class=classes)
+    a(href="#").model-block__container.image.image_cover
+      img(src=image, alt="image").lazyload
+      .model-block__content
+        span.card-label.card-label_style-3.model-block__label Дом
+        h6.model-block__title Модель дома кд25 180 м2 с террасой три спальни гардероб и санузел
+        span.model-block__button Подробнее 
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+          
+        

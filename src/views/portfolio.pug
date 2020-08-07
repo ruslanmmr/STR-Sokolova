@@ -9,13 +9,47 @@ block content
     .container
       h1 Портфолио
       .sorting-heading
-        .sorting-heading__container
-          span.sorting-heading__title Сортировка:
-          .col-xl-20pc.col-xl-3
-            select.select.select_style-1
-              option(value="1") Цена (по возрастанию)
-              option(value="2") Цена (по убыванию)
-              option(value="3" selected) Наличие
-              option(value="4") Популярность
-            
-      
+        .select-sorting
+          .select-sorting__container
+            span.sorting-heading__title.select-sorting__title Сортировка:
+            .row
+              .col-xl-20pc.col-lg-3.col-sm-6.col
+                select.select.select_style-1
+                  option(value="1") Дома из бруса
+                  option(value="2") Дома из бруса
+                  option(value="3" selected) Дома из бруса
+                  option(value="4") Дома из бруса
+      .section__container.row.grid
+        include blocks/cards
+        +card3('img/image 28.jpg', 'model-block_xl col-lg-6 grid__block') 
+        .col-lg-6.grid__block
+          .row.grid
+            +card3('img/767773b7699f15e02052b250d92c0c7f.png', 'col-lg-6 col-md-6 grid__block') 
+            +card3('img/image 28.jpg',                         'col-lg-6 col-md-6 grid__block') 
+            +card3('img/767773b7699f15e02052b250d92c0c7f.png', 'col-12 col-md-12 grid__block ')
+        +card3('img/image 28.jpg', 'model-block_xl col-lg-6 order-lg-4 grid__block') 
+        .col-lg-6.grid__block.order-lg-3
+          .row.grid
+            +card3('img/767773b7699f15e02052b250d92c0c7f.png', 'col-lg-6 col-md-6 grid__block') 
+            +card3('img/image 28.jpg', 'col-lg-6 col-md-6 grid__block') 
+            +card3('img/767773b7699f15e02052b250d92c0c7f.png', 'col-12 grid__block ')
+
+      .pagination
+        ul.pagination__list
+          li.pagination__item
+            a(href="#").pagination__link.active 1
+          li.pagination__item
+            a(href="#").pagination__link 2
+          li.pagination__item
+            a(href="#").pagination__link 3
+          li.pagination__item
+            a(href="#").pagination__link 4
+          li.pagination__item
+            a(href="#").pagination__link >>
+  section.section.map-section
+    .container
+      h2.section__title Наши объекты на карте
+      .row.justify-content-around
+        .col-xl-10
+          include blocks/map
+          

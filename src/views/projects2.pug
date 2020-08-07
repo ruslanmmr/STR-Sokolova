@@ -11,35 +11,41 @@ block content
     h1.page-title Проекты домов
     .sorting-heading
       .sorting-heading__container
-        span.sorting-heading__title Сортировка:
-        .line-sorting
-          ul.line-sorting__list
-            li.line-sorting__item
-              a(href="#").line-sorting__link.active
-                svg.icon
-                  use(xlink:href="img/icons/icons-sprite.svg#sorting-up")
-                | Цена (по возрастанию)
-            li.line-sorting__item
-              a(href="#").line-sorting__link
-                svg.icon
-                  use(xlink:href="img/icons/icons-sprite.svg#sorting-down")
-                | Цена (по убыванию)
-            li.line-sorting__item
-              a(href="#").line-sorting__link Наличие
-            li.line-sorting__item
-              a(href="#").line-sorting__link Популярность
-        .mobile-sorting.row
-          .col-sm-6.col
-            select.select.select_style-1
-              option(value="1") Цена (по возрастанию)
-              option(value="2") Цена (по убыванию)
-              option(value="3" selected) Наличие
-              option(value="4") Популярность
-          .col-sm-6.col-auto
-            a(href="#filter" data-fixed-toggle).button.button_style-2.mobile-sorting__button
-              svg.icon
-                use(xlink:href="img/icons/icons-sprite.svg#filter")
-              span Фильтр
+        //
+        .line-sorting.d-none.d-lg-block
+          .line-sorting__container
+            span.sorting-heading__title.line-sorting__title Сортировка:
+            ul.line-sorting__list
+              li.line-sorting__item
+                a(href="#").line-sorting__link.active
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#sorting-up")
+                  | Цена (по возрастанию)
+              li.line-sorting__item
+                a(href="#").line-sorting__link
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#sorting-down")
+                  | Цена (по убыванию)
+              li.line-sorting__item
+                a(href="#").line-sorting__link Наличие
+              li.line-sorting__item
+                a(href="#").line-sorting__link Популярность
+        //
+        .select-sorting.d-block.d-lg-none
+          .select-sorting__container
+            span.sorting-heading__title.select-sorting__title Сортировка:
+            .row
+              .col-sm-6.col
+                select.select.select_style-1
+                  option(value="1") Цена (по возрастанию)
+                  option(value="2") Цена (по убыванию)
+                  option(value="3" selected) Наличие
+                  option(value="4") Популярность
+              .col-sm-6.col-auto
+                a(href="#filter" data-fixed-toggle).button.button_style-2.select-sorting__button
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#filter")
+                  span Фильтр
     .row
       aside.aside.col-xl-20pc.col-lg-3
         .aside-filtration.toggle-section(data-out-hide data-class-only)
@@ -108,7 +114,7 @@ block content
               a(href="javascript:void(0);" data-fixed-close).filter__close
                 svg.icon
                   use(xlink:href="img/icons/icons-sprite.svg#close-light")
-          .filter__container.scrollbar.scrollbar_mobile-only
+          .filter__container.scrollbar.scrollbar_select-only
             .scrollbar__content
               .scrollbar__inner.filter__inner
                 .filter__sections
