@@ -4,7 +4,7 @@ block title
   title Главная
 
 block content
-  .home-banner.slider
+  .home-banner.slider.slider_arrows.slider_dots
     .home-banner__slide.image.image_cover
       img(data-src="img/26128 1.jpg", alt="image").lazyload
     .home-banner__slide.image.image_cover
@@ -64,9 +64,9 @@ block content
           include blocks/advertising
         .col-xl.col-lg-9
           h2.section__title Популярные проекты домов
-          .slider.slider_grid.popular-projects__slider.row.grid
+          .slider.slider_grid.slider_arrows.popular-projects__slider.row
             include blocks/cards
-            -var grid = 'grid__block col-md-6 col-12'
+            -var grid = 'col-md-6 col-12'
             +card1(true, true, grid)
             +card1(true, true, grid)
             +card1(true, true, grid)

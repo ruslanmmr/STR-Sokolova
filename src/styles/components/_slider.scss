@@ -31,8 +31,6 @@
   left: 0;
   top: 0;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   flex-wrap: nowrap;
 }
@@ -92,6 +90,10 @@
     .slick-slide {
       flex: 0 0 auto;
     }
+    &.grid,
+    .slick-slide {
+      margin-bottom: 0 !important;
+    }
   }
   &__next,
   &__prev {
@@ -114,6 +116,9 @@
     }
   }
   &_grid {
+    .slick-dots {
+      display: none !important;
+    }
     .slider {
       &__next,
       &__prev {
@@ -155,22 +160,20 @@
 @include media-breakpoint-down(xs) {
   .slider {
     &_grid {
-      padding-top: 56px;
       margin-right: -16px;
       margin-left: -16px;
+      padding-bottom: 35px;
       .slick-list {
         padding: 0 8px;
+      }
+      .slick-dots {
+        display: flex !important;
+        bottom: 0;
       }
       .slider {
         &__next,
         &__prev {
-          top: 0;
-        }
-        &__next {
-          right: 16px;
-        }
-        &__prev {
-          right: 66px;
+          display: none !important;
         }
       }
     }

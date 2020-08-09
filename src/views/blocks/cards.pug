@@ -59,5 +59,81 @@ mixin card3(image, classes)
         span.model-block__button Подробнее 
           svg.icon
             use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-          
-        
+
+mixin card4(image, classes, label, title)     
+  .product-card(class=classes)
+    .product-card__container
+      if image==true
+        a(href="#").product-card__image.image.image.image_contain
+          .card-labels
+            span.card-label.card-label_style-1 New
+          img(src="img/soppka.png", alt="image").lazyload
+          span.product-card__status Премиум
+      else 
+        a(href="#").product-card__image.image.image.image_contain.image_no-image
+          .card-labels
+            span.card-label.card-label_style-3 Hit
+            span.card-label.card-label_style-2 Sale
+          img(src="img/icons/product-placeholder.svg", alt="placeholder").lazyload
+          span.product-card__status Эконом
+      .product-card__content
+        .product-card__content-top
+          .product-card__index 20464111
+          img(src="img/icons/rating_3.5.svg", alt="image").product-card__rating
+          a(href="#").product-card__title=title
+
+        .product-card__content-bottom
+          .card-price.product-card__card-price
+            if label==1 
+              span.card-price__label.card-price__label_style-1 Товар едет
+            else if label==2
+              span.card-price__label.card-price__label_style-2 Много
+            else if label==3
+              span.card-price__label.card-price__label_style-3 Мало
+            else if label==4
+              span.card-price__label.card-price__label_style-4 Кол-во ограничено
+            .card-price__content
+              if label==1
+                span.card-price__current
+              else
+                span.card-price__current
+                  | 89 537,50 
+                  span  ₽/шт 
+                if image==true
+                  span.card-price__old 99 999,99
+          .product-card__buttons  
+            if label==1
+              a(href="#").button.button_style-1.product-card__get-price.product-card__bottom-item Узнать цену
+              if image==true
+                a(href="#").button.button_style-1.button_icon.product-card__bottom-item
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#comparison")
+
+            else
+              .calc-count-block.calc-count-block_style-2.product-card__bottom-item
+                a(href="javascript:void(0);").button.button_style-1.calc-count-block__button.js-minus 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#minus")
+                .input.calc-count-block__input
+                  input(type="number" name='ddd' value='1').input__element
+                a(href="javascript:void(0);").button.button_style-1.calc-count-block__button.js-plus 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#plus")
+              a(href="#").button.button_style-2.button_icon.product-card__bottom-item
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#cart")
+              if label==2
+              else
+                a(href="#").button.button_style-1.button_icon.product-card__bottom-item
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#comparison")
+
+mixin card5(title, classes)
+  .small-wiki-card(class=classes)
+    a(href="#").small-wiki-card__container
+      span.small-wiki-card__label Статья
+      .small-wiki-card__image.image.image_cover
+        img(data-src="img/image 6.jpg", alt="image").lazyload
+        span.small-wiki-card__date АПРЕЛЬ, 2019
+      .small-wiki-card__content
+        .small-wiki-card__title=title

@@ -1,67 +1,212 @@
 extends layout/layout
 block title
-  title Типография
+  title Текстовая
 block breadcrumbs 
-  -var title = 'Типография'
+  -var title = 'Текстовая'
   include blocks/breadcrumbs
+block variables
+  -var content = 'main_muted'
 block content
+  .container
+    .row
+      section.section.col-xl-80pc.col-lg-9
+        .page-container
+          h1 Фанера ФК 18х1525х1525 мм сорт 4/4 или другой заголовок H1
+          h2 Основные характеристики на данных товар могут меняться в зависимости от партии товара
+          h3 Заголовок длинный h3 группы товаров или название таблицы, списка или тому подобное 
+          p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
+          p В зависимости от внешнего вида <a href="service.html">наружных слоев</a> на сорта: Е (элита), I, II, III, IV
+          h3 Заголовок группы
+          p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
+          figure
+            img(src="img/image 35.jpg", alt="image")
+            figcaption Подпись фотографии
+          p В зависимости от внешнего вида наружных слоев на сорта: 
+          ul  
+            li Сорт Е (элита)
+            li Сорт I, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
+            li Сорт III
+          blockquote Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве. 
+          p В зависимости от внешнего вида наружных слоев на сорта: 
+          ol
+            li Сорт Е (элита)
+            li Сорт I, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
+            li Сорт III
+            li Сорт IV
+          h3 Таблица №1. Технические характеристики
+          .table
+            table
+              tr
+                th Номер заказа
+                th Получение
+                th Сумма
+                th Оплачено
+              tr
+                td 28.03.2019
+                td Самовывоз
+                td 3&nbsp;256,00&nbsp;₽
+                td Да
+              tr
+                td 28.03.2019
+                td Самовывоз
+                td 50 136,00&nbsp;₽
+                td Нет
+              tr
+                td 28.03.2019
+                td Доставка
+                td 36,00&nbsp;₽
+                td Да
+              tr
+                td 28.03.2019
+                td Самовывоз
+                td 50&nbsp;136,00&nbsp;₽
+                td Нет
+              tr
+                td 28.03.2019
+                td Доставка
+                td 36,00&nbsp;₽
+                td Да
+          h3 Приложенные файлы
+          .documents
+            table.documents__table
+              tr.documents__item
+                td.documents__item-title 
+                  a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                td.documents__item-icon
+                  .documents__item-icon-item
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#doc")
+                    span doc
+                td.documents__item-size 7.30 mb
+                td.documents__item-button
+                  a(href="#" download).button.button_style-1.documents__button 
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#download")
+                    span Скачать
+              tr.documents__item
+                  td.documents__item-title 
+                    a(href="#").documents__item-link.link.link_without-border Файл с коротким названием
+                  td.documents__item-icon
+                    .documents__item-icon-item
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#doc")
+                      span pdf
+                  td.documents__item-size 57.30 mb
+                  td.documents__item-button
+                    a(href="#" download).button.button_style-1.documents__button 
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#download")
+                      span Скачать
+              tr.documents__item
+                  td.documents__item-title 
+                    a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                  td.documents__item-icon
+                    .documents__item-icon-item
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#doc")
+                      span pdf
+                  td.documents__item-size 7.30 mb
+                  td.documents__item-button
+                    a(href="#" download).button.button_style-1.documents__button 
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#download")
+                      span Скачать
+              tr.documents__item
+                  td.documents__item-title 
+                    a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                  td.documents__item-icon
+                    .documents__item-icon-item
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#doc")
+                      span doc
+                  td.documents__item-size 7.30 mb
+                  td.documents__item-button
+                    a(href="#" download).button.button_style-1.documents__button 
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#download")
+                      span Скачать
+          a(href="javascript:void(0);").button.button_style-1
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#share")
+            span Поделиться        
+      aside.aside.col-xl-20pc.col-lg-3.d-none.d-lg-block
+        .aside-categories
+          .aside-categories__content 
+            ul.aside-categories__list
+              li.aside-categories__item
+                a(href="#").aside-categories__link.aside-categories__link_style-2 Новости
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link.aside-categories__link_style-2 Блог
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link.aside-categories__link_style-2 Реклама на сайте
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link.aside-categories__link_style-2 Доставка
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link.aside-categories__link_style-2 Оплата 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link.aside-categories__link_style-2 Частые вопросы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link.aside-categories__link_style-2 Партнерам
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link.aside-categories__link_style-2 Документы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+        include blocks/advertising
+        include blocks/advertising
+  section.section.section_no-margin.section_padding.section_background-white
+    section.section
+      .container
+        h2.section__title Вики — база знаний
+        .slider.slider_grid.row.wiki-slider
+          include blocks/cards
+          +card5('Какая пропитка сейчас в ТОПе, а какая в ЖОПе', 'col')
+          +card5('Какая пропитка сейчас в ТОПе, а какая в ЖОПе Какая пропитка сейчас в ТОПе, а какая в', 'col')
+          +card5('Какая пропитка сейчас в ТОПе, а какая в ЖОПе', 'col')
+          +card5('Какая пропитка сейчас в ТОПе, а какая в ЖОПе Какая пропитка сейчас в ТОПе, а какая в', 'col')
+          +card5('Какая пропитка сейчас в ТОПе, а какая в ЖОПе', 'col')
+          +card5('Какая пропитка сейчас в ТОПе, а какая в ЖОПе Какая пропитка сейчас в ТОПе, а какая в', 'col')
+    section.section.news-preview-section
+      .container
+        h2.section__title Новости и акции
+        .slider.slider_grid.row.news-preview-section__slider
+          .news-preview-block.col
+            a(href="#").news-preview-block__container.image.image_cover
+              img(src="img/image 2.png", alt="image").lazyload
+              .news-preview-block__content
+                span.news-preview-block__label.news-preview-block__label_style-1 Акция
+                span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс отправиться MaxRoyal
+          .news-preview-block.col
+            a(href="#").news-preview-block__container.image.image_cover
+              img(src="img/no_img_news.jpg", alt="image").lazyload
+              .news-preview-block__content
+                span.news-preview-block__label.news-preview-block__label_style-2 Новость
+                span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс
+          .news-preview-block.col
+            a(href="#").news-preview-block__container.image.image_cover
+              img(src="img/image 2.png", alt="image").lazyload
+              .news-preview-block__content
+                span.news-preview-block__label.news-preview-block__label_style-1 Акция
+                span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс отправиться MaxRoyal
+          .news-preview-block.col
+            a(href="#").news-preview-block__container.image.image_cover
+              img(src="img/no_img_news.jpg", alt="image").lazyload
+              .news-preview-block__content
+                span.news-preview-block__label.news-preview-block__label_style-2 Новость
+                span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс
 
-  section.section
-    .container
-      h1 Типография, списки, таблица и изображения
-      p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
-      h2 Заголовок группы
-      p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
-      h3 Заголовок группы
-      p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
-      figure
-        img(src="img/image 35.jpg", alt="image")
-        figcaption Подпись фотографии
-      p В зависимости от внешнего вида наружных слоев на сорта: 
-      ul  
-        li Сорт Е (элита)
-        li Сорт I, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
-        li Сорт III
-      p В зависимости от внешнего вида наружных слоев на сорта: 
-      ol
-        li Сорт Е (элита)
-        li Сорт I, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
-        li Сорт III
-        li Сорт IV
-      h3 Таблица №1. Технические характеристики
-      .table
-        table
-          tr
-            th Номер заказа
-            th Получение
-            th Сумма
-            th Оплачено
-          tr
-            td 28.03.2019
-            td Самовывоз
-            td 3&nbsp;256,00&nbsp;₽
-            td Да
-          tr
-            td 28.03.2019
-            td Самовывоз
-            td 50 136,00&nbsp;₽
-            td Нет
-          tr
-            td 28.03.2019
-            td Доставка
-            td 36,00&nbsp;₽
-            td Да
-          tr
-            td 28.03.2019
-            td Самовывоз
-            td 50&nbsp;136,00&nbsp;₽
-            td Нет
-          tr
-            td 28.03.2019
-            td Доставка
-            td 36,00&nbsp;₽
-            td Да
-      h5 Заголовок группы
-      p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве. 
-      h6 Заголовок группы
-      p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия.
+  -var formTitle = 'Станьте нашим партнером'
+  include blocks/form   

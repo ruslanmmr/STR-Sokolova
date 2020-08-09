@@ -9,56 +9,56 @@ block breadcrumbs
 block content
   section.section.container
     .row
-      aside.aside.d-none.d-lg-block.col-xl-20pc.col-lg-3
-        .aside-filtration.aside-filtration_desktop-visible
-          a(href="javascript:void(0);").button.aside-filtration__button
+      aside.aside.col-xl-20pc.col-lg-3
+        .aside-categories.aside-categories_desktop-visible.toggle-section(data-out-hide data-class-only)
+          a(href="javascript:void(0);").button.aside-categories__button.toggle-section__head
             svg.icon
               use(xlink:href="img/icons/icons-sprite.svg#services")
             span Услуги
-          .aside-filtration__content
-            ul.aside-filtration__list
-              li.aside-filtration__item
-                a(href="#").aside-filtration__link Строительные работы
+          .aside-categories__content.toggle-section__content
+            ul.aside-categories__list
+              li.aside-categories__item
+                a(href="#").aside-categories__link Строительные работы
                   svg.icon
                     use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-              li.aside-filtration__item
-                a(href="#").aside-filtration__link Отделочные работы
+              li.aside-categories__item
+                a(href="#").aside-categories__link Отделочные работы
                   svg.icon
                     use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-              li.aside-filtration__item
-                a(href="#").aside-filtration__link Земельные работы
+              li.aside-categories__item
+                a(href="#").aside-categories__link Земельные работы
                   svg.icon
                     use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-              li.aside-filtration__item
-                a(href="#").aside-filtration__link Проектные работы
+              li.aside-categories__item
+                a(href="#").aside-categories__link Проектные работы
                   svg.icon
                     use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-              li.aside-filtration__item
-                a(href="#").aside-filtration__link Строительные работы
+              li.aside-categories__item
+                a(href="#").aside-categories__link Строительные работы
                   svg.icon
                     use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-              li.aside-filtration__item
-                a(href="#").aside-filtration__link Отделочные работы
+              li.aside-categories__item
+                a(href="#").aside-categories__link Отделочные работы
                   svg.icon
                     use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-              li.aside-filtration__item
-                a(href="#").aside-filtration__link Земельные работы
+              li.aside-categories__item
+                a(href="#").aside-categories__link Земельные работы
                   svg.icon
                     use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-              li.aside-filtration__item
-                a(href="#").aside-filtration__link Проектные работы
+              li.aside-categories__item
+                a(href="#").aside-categories__link Проектные работы
                   svg.icon
                     use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-              li.aside-filtration__item
-                a(href="#").aside-filtration__link Строительные работы
+              li.aside-categories__item
+                a(href="#").aside-categories__link Строительные работы
                   svg.icon
                     use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-              li.aside-filtration__item
-                a(href="#").aside-filtration__link Отделочные работы
+              li.aside-categories__item
+                a(href="#").aside-categories__link Отделочные работы
                   svg.icon
                     use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-          
-        include blocks/advertising
+        .d-none.d-lg-block
+          include blocks/advertising
       .col-xl.col-lg-9
         h1.page-title 
           span Укладка плитки

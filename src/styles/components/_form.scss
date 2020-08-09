@@ -97,6 +97,11 @@
 }
 
 .form-section {
+  padding: 40px 0;
+  background-color: var(--color-sections-bg, #F5F5F5);
+  &:last-child {
+    margin: 0;
+  }
   &__content {
     background-color: #fff;
     padding: 24px 100px 46px 100px;
@@ -469,6 +474,18 @@
   width: 100px;
   display: flex;
   align-items: center;
+  &_style-2 {
+    .calc-count-block {
+      &__input {
+        .input__element {
+          box-shadow: none;
+          border: none;
+          padding-right: 0;
+          padding-left: 0;
+        }
+      }
+    }
+  }
   &__input {
     flex: 1 1 100%;
     margin: 0 5px;

@@ -25,6 +25,9 @@
   --color-sections-bg: #F5F5F5;
   --color-tabs-head: #E5E5EA;
   --color-card-accent-1: #C43228;
+  --color-card-accent-2: #4FA22E;
+  --color-card-accent-3: #FF9500;
+  --color-card-accent-4: #30C2FF;
   --color-old-price: #C43228;
   --color-link-visited: #B46CB8;
   --color-pagination-accent: #2363D1;
@@ -93,6 +96,7 @@
   --color-popup-close-icon-hover: #fff;
   --color-dots-slider: #2363D1;
   --color-category-block-hover: rgba(28, 82, 172, 0.75);
+  --color-product-card-hover: rgba(28, 82, 172, 0.1);
   --color-block-services: #1C52AC;
   --color-block-services-bg: #F3F6FB;
   --color-block-services-border: #B7CBE5;

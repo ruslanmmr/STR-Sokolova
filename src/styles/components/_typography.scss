@@ -1,5 +1,14 @@
 h1,h2,h3,h4,h5,h6 {
   color: #000;
+  &:not([class]) {
+    & + h2,
+    & + h3,
+    & + h4,
+    & + h5,
+    & + h6 {
+      margin-top: 1.5rem;
+    }
+  }
 }
 h2,h3,h4,h5,h6 {
   margin: 2.25rem 0 1rem 0;
@@ -59,7 +68,7 @@ img:not([class]) {
 }
 
 blockquote {
-  padding: 20px 20px 20px 50px;
+  padding: 20px 50px;
   background-color: #E5E5E5;
   margin: 0;
   &:not(:last-child) {

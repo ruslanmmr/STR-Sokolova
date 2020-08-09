@@ -1,0 +1,26 @@
+extends layout/layout
+block title
+  title Клиентам
+block breadcrumbs 
+  -var title = 'Клиентам'
+  include blocks/breadcrumbs
+block content
+  section.section
+    .container
+      h1 Клиентам
+  section.section
+    .container
+      h2.section__title С этим товаром обычно покупают
+      .slider.slider_grid.slider_arrows.row.product-slider
+        include blocks/cards
+        +card4(true, 'col', 4, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+        +card4(false, 'col', 2, 'Фанера ФК')
+        +card4(true, 'col', 3, 'Фанера ФК')
+        +card4(false, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+        +card4(true, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+        +card4(true, 'col', 3, 'Фанера ФК')
+        +card4(false, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+        +card4(true, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+
+  -var formTitle = 'Станьте нашим партнером'
+  include blocks/form   
