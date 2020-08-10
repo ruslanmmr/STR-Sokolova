@@ -5111,6 +5111,8 @@ a:not([class]):hover {
     width: 66px; } }
 
 @media (max-width: 575.98px) {
+  .product-card .image_no-image img {
+    padding: 10px; }
   .product-card .calc-count-block {
     position: absolute;
     right: 100%;

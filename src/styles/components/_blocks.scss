@@ -2332,6 +2332,9 @@
     }
   }
   @include media-breakpoint-down(xs) {
+    .image_no-image img {
+      padding: 10px;
+    }
     .calc-count-block {
       position: absolute;
       right: 100%;
