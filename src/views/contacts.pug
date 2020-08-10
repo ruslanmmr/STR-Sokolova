@@ -1,0 +1,95 @@
+extends layout/layout
+block title
+  title Контакты
+block breadcrumbs 
+  -var title = 'Контакты'
+  include blocks/breadcrumbs
+block content
+  section.section
+    .container
+      h1.section__title.services__title Контакты
+      .sorting-heading
+        .select-sorting
+          .select-sorting__container
+            span.sorting-heading__title.select-sorting__title Выбрать регион:
+            .row
+              .col-lg-3.col-sm-6.col
+                select.select.select_style-1
+                  option(value="1") Самарская область
+                  option(value="2") Московская область
+      .section__container
+        section.contact-section
+          h2.contact-section__title Самара (2):
+          .contact-block
+            .contact-block__content
+              h3.contact-block__title Центральный офис
+              ul.contact-block__list
+                li.contact-block__item  
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#location")
+                  | г. Самара, ул. Ново-Вокзальная, д. 17, офис 134
+                li.contact-block__item  
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#smartphone")
+                  | +7 987 443-37-77, +7 987 443-37-77
+                li.contact-block__item  
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#mail")
+                  a(href="#dsfdsfsdf") website@gmail.com
+                li.contact-block__item  
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#planet")
+                  a(href="#dsfggg") website.ru
+            .contact-block__map
+              .image.image_cover
+                img(src="img/map.png", alt="map").lazyload
+          .contact-block
+            .contact-block__content
+              h3.contact-block__title Центральный офис
+              ul.contact-block__list
+                li.contact-block__item  
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#location")
+                  | г. Самара, ул. Ново-Вокзальная, д. 17, офис 134
+                li.contact-block__item  
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#smartphone")
+                  | +7 987 443-37-77, +7 987 443-37-77
+                li.contact-block__item  
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#mail")
+                  a(href="#dsfdsfsdf") website@gmail.com
+                li.contact-block__item  
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#planet")
+                  a(href="#dsfggg") website.ru
+            .contact-block__map
+              .image.image_cover
+                img(src="img/map.png", alt="map").lazyload
+        section.contact-section
+          h2.contact-section__title Тольятти (1):
+          .contact-block
+            .contact-block__content
+              h3.contact-block__title Центральный офис
+              ul.contact-block__list
+                li.contact-block__item  
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#location")
+                  | г. Самара, ул. Ново-Вокзальная, д. 17, офис 134
+                li.contact-block__item  
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#smartphone")
+                  | +7 987 443-37-77, +7 987 443-37-77
+            .contact-block__map
+              .image.image_cover
+                img(src="img/map.png", alt="map").lazyload
+  
+  
+  -var formTitle = 'Станьте нашим партнером'
+  include blocks/form   
+  section.section
+    .container
+      .row.justify-content-center
+        .col-xl-10
+          h2 Почему мы лучше продаем стройматериалы
+          p Инвестируем в заводы, производящие листовые строительные материалы (ДСП ЦСП ФАНЕРА, ОСБ и т.д.) заключаем договора, выкупаем партии продукции, везем вагонами или фурами на склад и после поставляют постоянным клиентам типа “Красной цены”, “Сатурна”, “Центр строя” и т.д. Если есть товар в наличии и их цена ниже, то мы продаем, если нет — то продают конкуренты.
