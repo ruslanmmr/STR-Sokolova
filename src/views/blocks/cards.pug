@@ -92,13 +92,15 @@ mixin card4(image, classes, label, title)
               span.card-price__label.card-price__label_style-3 Мало
             else if label==4
               span.card-price__label.card-price__label_style-4 Кол-во ограничено
-            .card-price__content
-              if label==1
-                span.card-price__current
-              else
+            if label==1
+              .card-price__content.card-price__no-price
+            else
+              .card-price__content
+                span.card-price__title Цена, шт: 
                 span.card-price__current
                   | 89 537,50 
-                  span  ₽/шт 
+                  span ₽/шт
+                  span.card-price__smaller-price-unit ₽
                 if image==true
                   span.card-price__old 99 999,99
           .product-card__buttons  
@@ -119,7 +121,7 @@ mixin card4(image, classes, label, title)
                 a(href="javascript:void(0);").button.button_style-1.calc-count-block__button.js-plus 
                   svg.icon
                     use(xlink:href="img/icons/icons-sprite.svg#plus")
-              a(href="#").button.button_style-2.button_icon.product-card__bottom-item
+              a(href="#").button.button_style-2.button_icon.product-card__bottom-item.product-card__add-to-cart
                 svg.icon
                   use(xlink:href="img/icons/icons-sprite.svg#cart")
               if label==2
@@ -137,3 +139,9 @@ mixin card5(title, classes)
         span.small-wiki-card__date АПРЕЛЬ, 2019
       .small-wiki-card__content
         .small-wiki-card__title=title
+mixin card6(title)
+  .services-item-block.grid__block.col-lg-3.col-sm-6
+    a(href="#").services-item-block__container
+      h3.services-item-block__title=title
+        svg.icon
+          use(xlink:href="img/icons/icons-sprite.svg#arrow-right")

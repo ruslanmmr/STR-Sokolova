@@ -5,12 +5,59 @@ block breadcrumbs
   -var title = 'Клиентам'
   include blocks/breadcrumbs
 block content
+  section.section.services
+    .container
+      h1.section__title.services__title Клиентам
+      .services__container.row.grid
+        include blocks/cards
+        +card6('Доставка и оплата и далее на две строчки')
+        +card6('Доставка')
+        +card6('Расчет доставки')
+        +card6('Политика обработки персональных данных')
+        +card6('Доставка и оплата и далее на две строчки')
+        +card6('Доставка')
+        +card6('Расчет доставки')
+        +card6('Политика обработки персональных данных')
+        +card6('Доставка и оплата и далее на две строчки')
+        +card6('Доставка')
+        +card6('Расчет доставки')
+  section.section.additionalLinks-section
+    .container
+      .row
+        .additionalLinks-block.col-md-6
+          .additionalLinks-block__container
+            h2.additionalLinks-block__title Калькулятор доставки
+            p.additionalLinks-block__text Откройте для себя наш удобный инструмент для рассчета стоимости доставки
+            a(href="#").button.button_style-1.button_xl.additionalLinks-block__button
+              svg.icon
+                use(xlink:href="img/icons/icons-sprite.svg#box")
+              span Рассчитать
+        .additionalLinks-block.col-md-6
+          .additionalLinks-block__container
+            h2.additionalLinks-block__title Экономьте свое время
+            p.additionalLinks-block__text Выставите счет в корзине или отправьте запрос менеджеру в свободной форме
+            a(href="#").button.button_style-1.button_xl.additionalLinks-block__button
+              svg.icon
+                use(xlink:href="img/icons/icons-sprite.svg#document")
+              span Посмотреть все объекты
+  
+  //section.section
+    .container
+      h2.section__title Сетка
+      .row.grid
+        include blocks/cards
+        +card4(true, 'col-xl-20pc col-lg-3 col-md-4 col-sm-6 grid__block', 4, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+        +card4(false, 'col-xl-20pc col-lg-3 col-md-4 col-sm-6 grid__block', 2, 'Фанера ФК')
+        +card4(true, 'col-xl-20pc col-lg-3 col-md-4 col-sm-6 grid__block', 3, 'Фанера ФК')
+        +card4(false, 'col-xl-20pc col-lg-3 col-md-4 col-sm-6 grid__block', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+        +card4(true, 'col-xl-20pc col-lg-3 col-md-4 col-sm-6 grid__block', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+        +card4(true, 'col-xl-20pc col-lg-3 col-md-4 col-sm-6 grid__block', 3, 'Фанера ФК')
+        +card4(false, 'col-xl-20pc col-lg-3 col-md-4 col-sm-6 grid__block', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+        +card4(true, 'col-xl-20pc col-lg-3 col-md-4 col-sm-6 grid__block', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+  
   section.section
     .container
-      h1 Клиентам
-  section.section
-    .container
-      h2.section__title С этим товаром обычно покупают
+      h2.section__title Распродажа
       .slider.slider_grid.slider_arrows.row.product-slider
         include blocks/cards
         +card4(true, 'col', 4, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
@@ -24,3 +71,9 @@ block content
 
   -var formTitle = 'Станьте нашим партнером'
   include blocks/form   
+  section.section
+    .container
+      .row.justify-content-center
+        .col-xl-10
+          h2 Почему мы лучше продаем стройматериалы
+          p Инвестируем в заводы, производящие листовые строительные материалы (ДСП ЦСП ФАНЕРА, ОСБ и т.д.) заключаем договора, выкупаем партии продукции, везем вагонами или фурами на склад и после поставляют постоянным клиентам типа “Красной цены”, “Сатурна”, “Центр строя” и т.д. Если есть товар в наличии и их цена ниже, то мы продаем, если нет — то продают конкуренты.

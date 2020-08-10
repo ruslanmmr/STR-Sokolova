@@ -103,16 +103,11 @@ block content
     .container
       h2.section__title.services__title Основные услуги
       .services__container.row.grid
-        mixin block(title)
-          .services-item-block.grid__block.col-lg-3.col-sm-6
-            a(href="#").services-item-block__container
-              h3.services-item-block__title=title
-                svg.icon
-                  use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
-        +block('Доставка и оплата и далее на две строчки')
-        +block('Доставка')
-        +block('Расчет доставки')
-        +block('Политика обработки персональных данных')
+        include blocks/cards
+        +card6('Доставка и оплата и далее на две строчки')
+        +card6('Доставка')
+        +card6('Расчет доставки')
+        +card6('Политика обработки персональных данных')
       .services__more.section__more
         a(href="#").button.button_style-1.button_xl.section__more-button Смотреть все услуги
 
