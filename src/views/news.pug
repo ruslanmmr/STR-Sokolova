@@ -8,6 +8,17 @@ block content
   section.section.services
     .container
       h1.section__title.services__title Новости и акции
+      .row.grid
+        include blocks/cards
+        +news-card-large(1, 'grid__head col-12')
+        +news-card(1, 'grid__block col-lg-4 col-sm-6')
+        +news-card(2, 'grid__block col-lg-4 col-sm-6')
+        +news-card(1, 'grid__block col-lg-4 col-sm-6')
+        +news-card(2, 'grid__block col-lg-4 col-sm-6')
+        +news-card(1, 'grid__block col-lg-4 col-sm-6')
+        +news-card(2, 'grid__block col-lg-4 col-sm-6')
+      -var paginationAlignLeft = true
+      include blocks/pagination
   section.section.additionalLinks-section
     .container
       h2.section__title Добро пожаловать в клуб современной дистрибуции

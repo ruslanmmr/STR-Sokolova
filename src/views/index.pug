@@ -91,7 +91,7 @@ block content
               span Рассчитать
         .additionalLinks-block.col-md-6
           .additionalLinks-block__container
-            .background.background_right.additionalLinks-block__background.lazyload(data-src='img/map.png')
+            .background.background_right.additionalLinks-block__background.lazyload(data-src='img/dsddddd.png')
             h2.additionalLinks-block__title Наши реализованные<br> проекты
             p.additionalLinks-block__text В сезон таких специалистов тяжело найти, предлагаем функцию запрос бригады. 
             a(href="#").button.button_style-2.button_xl.additionalLinks-block__button
@@ -115,30 +115,17 @@ block content
     .container
       h2.section__title Новости и акции
       .slider.slider_grid.row.news-preview-section__slider
-        .news-preview-block.col
-          a(href="#").news-preview-block__container.image.image_cover
-            img(src="img/image 2.png", alt="image").lazyload
-            .news-preview-block__content
-              span.news-preview-block__label.news-preview-block__label_style-1 Акция
-              span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс отправиться MaxRoyal
-        .news-preview-block.col
-          a(href="#").news-preview-block__container.image.image_cover
-            img(src="img/no_img_news.jpg", alt="image").lazyload
-            .news-preview-block__content
-              span.news-preview-block__label.news-preview-block__label_style-2 Новость
-              span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс
-        .news-preview-block.col
-          a(href="#").news-preview-block__container.image.image_cover
-            img(src="img/image 2.png", alt="image").lazyload
-            .news-preview-block__content
-              span.news-preview-block__label.news-preview-block__label_style-1 Акция
-              span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс отправиться MaxRoyal
-        .news-preview-block.col
-          a(href="#").news-preview-block__container.image.image_cover
-            img(src="img/no_img_news.jpg", alt="image").lazyload
-            .news-preview-block__content
-              span.news-preview-block__label.news-preview-block__label_style-2 Новость
-              span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс
+        include blocks/cards
+        +news-card(1, 'col')
+        +news-card(2, 'col')
+        +news-card(1, 'col')
+        +news-card(2, 'col')
+        +news-card(1, 'col')
+        +news-card(2, 'col')
+        +news-card(1, 'col')
+        +news-card(2, 'col')
+        +news-card(1, 'col')
+        +news-card(2, 'col')
 
       .news-preview-section__more.section__more
         a(href="#").button.button_style-1.button_xl.section__more-button Смотреть все новости и акции

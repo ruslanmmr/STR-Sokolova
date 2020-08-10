@@ -114,7 +114,7 @@ block content
               a(href="javascript:void(0);" data-fixed-close).filter__close
                 svg.icon
                   use(xlink:href="img/icons/icons-sprite.svg#close-light")
-          .filter__container.scrollbar.scrollbar_select-only
+          .filter__container.scrollbar.scrollbar_mobile-only
             .scrollbar__content
               .scrollbar__inner.filter__inner
                 .filter__sections
@@ -228,18 +228,7 @@ block content
           +card1(true, true, grid)
           +card1(true, true, grid)
           +card1(false, false, grid)
-        .pagination
-          ul.pagination__list
-            li.pagination__item
-              a(href="#").pagination__link.active 1
-            li.pagination__item
-              a(href="#").pagination__link 2
-            li.pagination__item
-              a(href="#").pagination__link 3
-            li.pagination__item
-              a(href="#").pagination__link 4
-            li.pagination__item
-              a(href="#").pagination__link >>
+        include blocks/pagination
 
 
   section.section

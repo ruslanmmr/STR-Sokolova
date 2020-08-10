@@ -33,19 +33,8 @@ block content
             +card3('img/767773b7699f15e02052b250d92c0c7f.png', 'col-lg-6 col-md-6 grid__block') 
             +card3('img/image 28.jpg', 'col-lg-6 col-md-6 grid__block') 
             +card3('img/767773b7699f15e02052b250d92c0c7f.png', 'col-12 grid__block ')
-
-      .pagination
-        ul.pagination__list
-          li.pagination__item
-            a(href="#").pagination__link.active 1
-          li.pagination__item
-            a(href="#").pagination__link 2
-          li.pagination__item
-            a(href="#").pagination__link 3
-          li.pagination__item
-            a(href="#").pagination__link 4
-          li.pagination__item
-            a(href="#").pagination__link >>
+      
+      include blocks/pagination
   section.section.map-section
     .container
       h2.section__title Наши объекты на карте

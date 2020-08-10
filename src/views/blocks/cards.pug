@@ -145,3 +145,47 @@ mixin card6(title)
       h3.services-item-block__title=title
         svg.icon
           use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+
+mixin news-card(type, classes) 
+  .news-preview-block(class=classes)
+    a(href="#").news-preview-block__container.image.image_cover
+      if type==1
+        img(src="img/Rectangle 197.jpg", alt="image").lazyload
+      else
+        img(src="img/no_img_news.jpg", alt="image").lazyload
+      .news-preview-block__content
+        if type==1
+          span.news-preview-block__label.news-preview-block__label_style-1 Акция
+          span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс отправиться MaxRoyal
+        else
+          span.news-preview-block__label.news-preview-block__label_style-2 Новость
+          span.news-preview-block__text С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс
+
+mixin news-card-large(type, classes)
+  .news-large-block(class=classes)
+    .news-large-block__container
+      a(href="#").image.image_cover.news-large-block__image
+        if type==1
+          img(src="img/Rectangle 197.jpg", alt="image").lazyload
+        else
+          img(src="img/no_img_news.jpg", alt="image").lazyload
+      .news-large-block__content
+        if type==1
+          span.news-large-block__label.news-large-block__label_style-1 Акция
+          h2.news-large-block__title С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс отправиться MaxRoyal
+        else
+          span.news-large-block__label.news-large-block__label_style-2 Новость
+          h2.news-large-block__title С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс
+        a(href="#").button.button_xl.button_style-1.news-large-block__button Подробнее
+
+mixin wiki-large(title, classes)
+  .large-wiki-card(class=classes)
+    .large-wiki-card__container
+      a(href="#").large-wiki-card__link
+      span.large-wiki-card__label Статья
+      a(href="#").large-wiki-card__image.image.image_cover
+        img(src="img/Rectangle 197.jpg", alt="image").lazyload
+      .large-wiki-card__content
+        span.large-wiki-card__date АПРЕЛЬ, 2019
+        h3.large-wiki-card__title=title
+        a(href="#").button.button_xl.button_style-1.large-wiki-card__button Подробнее
