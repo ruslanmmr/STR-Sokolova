@@ -17,6 +17,7 @@ $(document).ready(function(){
   header();
   rating();
   calculator();
+  stagesToggle();
   //обработать изображения после инициализации слайдеров
   setTimeout(()=>{
     lazy();
@@ -34,67 +35,64 @@ const brakepoints = {
 
 //hover/touch custom events
 function touchHoverEvents() {
-  document.addEventListener('touchstart',event);
-  document.addEventListener('touchend',event);
-
-  document.addEventListener('mouseover',event);
-  document.addEventListener('mouseout',event);
-
-  document.addEventListener('mousedown',event);
-  document.addEventListener('mouseup',event);
-  
+  document.addEventListener('touchstart', event);
+  document.addEventListener('touchend', event);
+  document.addEventListener('mouseenter', event, true);
+  document.addEventListener('mouseleave', event, true);
+  document.addEventListener('mousedown', event);
+  document.addEventListener('mouseup', event);
   document.addEventListener('contextmenu', event)
 
-  let $elements = 'a[class], button, label, input, textarea, tr, .js-touch-hover, .selectric-items li, .selectric .label, .button',
-      touch,
+  let targets = 'a[class], button, label, input, textarea, tr, .js-touch-hover, .selectric-items li, .selectric .label, .button',
+      touchEndDelay = 250, //ms    
+      touch, 
       timeout;
 
+  //$target = event.target.closest(targets)==event.target?event.target:false;
+
   function event(event) {
-    if(event.target!==document) {
-      let $target = event.target.closest($elements);
-      if($target!==null) {
+    let $target = event.target!==document?event.target.closest(targets):false;
+    if($target) {
 
-        if(event.type=='touchstart') {
-          for(let $this of document.querySelectorAll($elements)) {
-            $this.classList.remove('touch');
-          }
-          touch = true;
-          clearTimeout(timeout)
-          $target.classList.add('touch');
-        } else if(event.type=='touchend') {
-          $target.classList.remove('touch');
-          timeout = setTimeout(()=>{
-            touch = false;
-          }, 1000)
-        } else if(event.type=='contextmenu') {
-          $target.classList.remove('touch');
-          timeout = setTimeout(()=>{
-            touch = false;
-          }, 1000)
-        }
-
-        if(event.type=='mouseover' && !touch) {
-          $target.classList.add('hover');
-        } else if(event.type=='mouseout' && !touch) {
-          $target.classList.remove('hover');
-          $target.classList.remove('focus');
-        }
-        
-        if(event.type=='mousedown') {
-          $target.classList.add('focus');
-        } else if(event.type=='mouseup') {
-          $target.classList.remove('focus');
-        }
-
-      } else {
-        for(let $this of document.querySelectorAll($elements)) {
+      if(event.type=='touchstart') {
+        touch = true;
+        for(let $this of document.querySelectorAll(targets)) {
           $this.classList.remove('touch');
         }
+        clearTimeout(timeout)
+        $target.classList.add('touch');
+      } else if(event.type=='touchend') {
+        setTimeout(()=>{
+          $target.classList.remove('touch');
+        }, touchEndDelay)
+        timeout = setTimeout(()=>{
+          touch = false;
+        }, 1000)
+      } else if(event.type=='contextmenu') {
+        $target.classList.remove('touch');
+        timeout = setTimeout(()=>{
+          touch = false;
+        }, 1000)
       }
+
+      if(event.type=='mouseenter' && !touch && $target==event.target) {
+        $target.classList.add('hover');
+      } else if(event.type=='mouseleave' && !touch && $target==event.target) {
+        $target.classList.remove('hover');
+        $target.classList.remove('focus');
+      }
+      
+      if(event.type=='mousedown') {
+        $target.classList.add('focus');
+      } else if(event.type=='mouseup') {
+        $target.classList.remove('focus');
+      }
+
     }
   }
 
 }
+
 //lazyload
 function lazy() {
   //add lazy backgrounds
@@ -320,9 +318,9 @@ function inputs() {
     $form.on('submit', function(event) {
       event.preventDefault();
       if(validateForm()) {
-        console.log('submit!');
+        /* console.log('submit!');
         $inputs.val('').trigger('change');
-        popup.open($('#succes'));
+        popup.open($('#succes')); */
       }
     })
 
@@ -726,7 +724,7 @@ function tabs() {
   $tabs.each(function() {
     let $triggers = $(this).find('.tabs__toggle'),
         $tabs = $(this).find('.tabs__block'),
-        index = $(this).find('.tabs__block.active').length>0 ? $triggers.index($(this).find('.tabs__block.active')) : 0;
+        index = $(this).find('.tabs__block.active').length>0 ? $tabs.index($(this).find('.tabs__block.active')) : 0;
 
     changeTab();
 
@@ -916,4 +914,35 @@ function calculator() {
       $input.val(val);
     }
   })
+}
+
+function stagesToggle() {
+  let $toggle = $('[data-stage-toggle]'), 
+      $stages = $('[data-stage]'),
+      stage = $('.active[data-stage-toggle]').length>0?$('.active[data-stage-toggle]').attr('data-stage-toggle'):'all';
+
+
+  $toggle.on('click', function(event) {
+    event.preventDefault();
+    stage = $(this).attr('data-stage-toggle');
+    check()
+  })
+
+  check();
+
+  function check() {
+    $toggle.removeClass('active').closest(`[data-stage-toggle='${stage}']`).addClass('active');
+    if(stage=='all') {
+      $stages.addClass('active');
+    } else {
+      $stages.each(function() {
+        let attr = $(this).attr('data-stage');
+        if(attr==stage) {
+          $(this).addClass('active');
+        } else {
+          $(this).removeClass('active');
+        }
+      })
+    }
+  }
 }

@@ -1,0 +1,55 @@
+extends layout/layout
+block title
+  title ЛК - Видео
+block breadcrumbs 
+  -var title = 'Личный кабинет'
+  include blocks/breadcrumbs
+block variables
+  -var content = 'main_muted'
+block content
+  section.section.kabinet
+    .container
+      h1.kabinet__title 
+        | Личный кабинет
+        a(href="index.html").button.button_style-1.kabinet__exit-button
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#exit")
+          span Выход
+      .kabinet-block
+        -var index = 2
+        include blocks/kabinet-aside
+
+        a(href="kabinet-stages.html").kabinet-block__mobile-toggle
+          span Этапы работы 
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+
+        a(href="kabinet-video.html").kabinet-block__mobile-toggle.active
+          span Видео
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+
+        .kabinet-block__content
+          //если пусто
+          h2.kabinet-block__title Онлайн с объекта (Если пусто)
+          svg.icon.kabinet-block__icon
+            use(xlink:href="img/icons/icons-sprite.svg#watch")
+          p.kabinet-block__text Мы можем установить на объект строительства онлайн камеру и вы будете видеть ход работ онлайн в любое время.
+          p.kabinet-block__text Осуществляется при наличии технической возможности.
+          //если не пусто
+          h2.kabinet-block__title Онлайн с объекта (Если ne пусто)
+          h3 Объект 1
+          p Комментарий к видео, который<br> может идти в две строки
+          .video-frame
+            span фрейм с видео
+          h3 Объект 2
+          p Комментарий к видео
+          .video-frame
+            span фрейм с видео
+            
+        a(href="kabinet-personal.html").kabinet-block__mobile-toggle
+          span Персональные данные
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+          
+            

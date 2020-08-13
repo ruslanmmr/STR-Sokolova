@@ -1,0 +1,58 @@
+extends layout/layout
+block title
+  title ЛК - Старт
+block breadcrumbs 
+  -var title = 'Личный кабинет'
+  include blocks/breadcrumbs
+block content
+  section.section.kabinet
+    .container
+      h1.kabinet__title 
+        | Личный кабинет
+        a(href="index.html").button.button_style-1.kabinet__exit-button.d-inline-flex.d-sm-none
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#exit")
+          span Выход
+
+      .kabinet-head
+        .kabinet-icon.kabinet-head__kabinet-icon
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#user")
+        .kabinet-head__content  
+          h3.kabinet-head__title ООО “Самарские кровельные материалы”
+          //span.profile-label Золотой партнёр
+          a(href="index.html").button.button_style-1.kabinet__exit-button.d-none.d-sm-inline-flex
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#exit")
+            span Выход
+
+      .row.grid
+        .kabinet-category-block.grid__block.col-lg-4.col-md-6
+          a(href="kabinet-stages.html").kabinet-category-block__container
+            svg.icon.kabinet-category-block__top-icon
+              use(xlink:href="img/icons/icons-sprite.svg#step")
+            h3.kabinet-category-block__title Этапы работ
+            p.kabinet-category-block__text Счета, акты и сметы. У нас ничего не теряется
+            svg.icon.kabinet-category-block__arrow
+              use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+        .kabinet-category-block.grid__block.col-lg-4.col-md-6
+          a(href="kabinet-video.html").kabinet-category-block__container
+            svg.icon.kabinet-category-block__top-icon
+              use(xlink:href="img/icons/icons-sprite.svg#video")
+            h3.kabinet-category-block__title Видео
+            p.kabinet-category-block__text Пароль, логин и реквизиты
+            svg.icon.kabinet-category-block__arrow
+              use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+        .kabinet-category-block.grid__block.col-lg-4.col-md-6
+          a(href="kabinet-personal.html").kabinet-category-block__container
+            svg.icon.kabinet-category-block__top-icon
+              use(xlink:href="img/icons/icons-sprite.svg#pencil")
+            h3.kabinet-category-block__title Персональные данные
+            p.kabinet-category-block__text Просмотр, повтор, сохранение истории ваших покупок
+            svg.icon.kabinet-category-block__arrow
+              use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+
+
+  -var formTitle = 'Станьте нашим партнёром'
+  include blocks/form
+  

@@ -1,0 +1,66 @@
+extends layout/layout
+block title
+  title ЛК - Персональные данные
+block breadcrumbs 
+  -var title = 'Личный кабинет'
+  include blocks/breadcrumbs
+block variables
+  -var content = 'main_muted'
+block content
+  section.section.kabinet
+    .container
+      h1.kabinet__title 
+        | Личный кабинет
+        a(href="index.html").button.button_style-1.kabinet__exit-button
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#exit")
+          span Выход
+      .kabinet-block
+        -var index = 3
+        include blocks/kabinet-aside
+
+        a(href="kabinet-stages.html").kabinet-block__mobile-toggle
+          span Этапы работы 
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+
+        a(href="kabinet-video.html").kabinet-block__mobile-toggle
+          span Видео
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+
+        a(href="kabinet-personal.html").kabinet-block__mobile-toggle.active
+          span Персональные данные
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+
+        .kabinet-block__content
+          h2.kabinet-block__title Личные данные
+          h3 Аккаунт
+          form(action="#").form.kabinet-block__form.js-validation
+            .input.form__input
+              input(type="text" name='name' placeholder="Имя*" value='Руслан').input__element.required
+              span.input__label Имя
+            .input.form__input
+              input(type="text" name='phone' placeholder="Телефон*" value='+7 999 999-9999').input__element.required
+              span.input__label Телефон
+            .input.form__input
+              input(type="text" name='email' placeholder="Email" value='belozerzevruslan@gmail.com').input__element
+              span.input__label Email
+            .form__bottom
+              button.button.button_style-2.form__submit Сохранить
+          h3 Пароль
+          form(action="#").form.kabinet-block__form.js-validation
+            .input.order-form__item
+              input(type="password" name='pass1' placeholder="Cтарый пароль").input__element
+              span.input__label Cтарый пароль
+            .input.order-form__item
+              input(type="password" name='pass2' placeholder="Новый пароль").input__element
+              span.input__label Новый пароль
+            .input.order-form__item
+              input(type="password" name='pass3' placeholder="Подтвердите новый пароль").input__element
+              span.input__label Подтвердите новый пароль
+            .form__bottom
+              button.button.button_style-2.form__submit Сохранить
+          
+            

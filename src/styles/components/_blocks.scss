@@ -121,6 +121,22 @@
   }
 }
 
+.video-frame {
+  width: 100%;
+  max-width: 565px;
+  background-color: #C4C4C4;
+  position: relative;
+  display: flex;
+  span {
+    margin: auto;
+  }
+  &::before {
+    content: '';
+    display: block;
+    padding-top: 43%;
+  }
+}
+
 .news-preview-block {
   &__container {
     border-radius: 2px;
@@ -296,6 +312,12 @@
     }
   }
 
+}
+
+.tabs {
+  &__block {
+    display: none;
+  }
 }
 
 .card-price {
@@ -1523,6 +1545,9 @@
       &:not(:last-child) {
         margin-bottom: 1px;
       }
+      &.active {
+        margin-bottom: 0 !important;
+      }
       &-head {
         display: block;
         width: 100%;
@@ -1534,17 +1559,25 @@
         background-color: var(--color-tabs-head, #E5E5EA);
         color: inherit;
         position: relative;
+        transition: color $trs1;
         .icon {
           position: absolute;
           right: 20px;
           width: 12px;
           height: 12px;
           top: 18px;
-          transition: transform $trs1;
+          transition: transform $trs1, fill $trs1;
         }
         &.active {
           .icon {
             transform: rotate(180deg);
+          }
+        }
+        &.touch,
+        &.hover {
+          color: var(--color-accent, #2363D1);
+          .icon {
+            fill: var(--color-accent, #2363D1);
           }
         }
       }

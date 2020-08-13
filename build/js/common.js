@@ -23,7 +23,8 @@ $(document).ready(function () {
   scrollToReviews();
   header();
   rating();
-  calculator(); //обработать изображения после инициализации слайдеров
+  calculator();
+  stagesToggle(); //обработать изображения после инициализации слайдеров
 
   setTimeout(function () {
     lazy();
@@ -39,77 +40,65 @@ var brakepoints = {
 function touchHoverEvents() {
   document.addEventListener('touchstart', event);
   document.addEventListener('touchend', event);
-  document.addEventListener('mouseover', event);
-  document.addEventListener('mouseout', event);
+  document.addEventListener('mouseenter', event, true);
+  document.addEventListener('mouseleave', event, true);
   document.addEventListener('mousedown', event);
   document.addEventListener('mouseup', event);
   document.addEventListener('contextmenu', event);
-  var $elements = 'a[class], button, label, input, textarea, tr, .js-touch-hover, .selectric-items li, .selectric .label, .button',
-      touch,
-      timeout;
+  var targets = 'a[class], button, label, input, textarea, tr, .js-touch-hover, .selectric-items li, .selectric .label, .button',
+      touchEndDelay = 250,
+      //ms    
+  touch,
+      timeout; //$target = event.target.closest(targets)==event.target?event.target:false;
 
   function event(event) {
-    if (event.target !== document) {
-      var $target = event.target.closest($elements);
+    var $target = event.target !== document ? event.target.closest(targets) : false;
 
-      if ($target !== null) {
-        if (event.type == 'touchstart') {
-          var _iterator = _createForOfIteratorHelper(document.querySelectorAll($elements)),
-              _step;
+    if ($target) {
+      if (event.type == 'touchstart') {
+        touch = true;
 
-          try {
-            for (_iterator.s(); !(_step = _iterator.n()).done;) {
-              var $this = _step.value;
-              $this.classList.remove('touch');
-            }
-          } catch (err) {
-            _iterator.e(err);
-          } finally {
-            _iterator.f();
-          }
-
-          touch = true;
-          clearTimeout(timeout);
-          $target.classList.add('touch');
-        } else if (event.type == 'touchend') {
-          $target.classList.remove('touch');
-          timeout = setTimeout(function () {
-            touch = false;
-          }, 1000);
-        } else if (event.type == 'contextmenu') {
-          $target.classList.remove('touch');
-          timeout = setTimeout(function () {
-            touch = false;
-          }, 1000);
-        }
-
-        if (event.type == 'mouseover' && !touch) {
-          $target.classList.add('hover');
-        } else if (event.type == 'mouseout' && !touch) {
-          $target.classList.remove('hover');
-          $target.classList.remove('focus');
-        }
-
-        if (event.type == 'mousedown') {
-          $target.classList.add('focus');
-        } else if (event.type == 'mouseup') {
-          $target.classList.remove('focus');
-        }
-      } else {
-        var _iterator2 = _createForOfIteratorHelper(document.querySelectorAll($elements)),
-            _step2;
+        var _iterator = _createForOfIteratorHelper(document.querySelectorAll(targets)),
+            _step;
 
         try {
-          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-            var _$this = _step2.value;
-
-            _$this.classList.remove('touch');
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var $this = _step.value;
+            $this.classList.remove('touch');
           }
         } catch (err) {
-          _iterator2.e(err);
+          _iterator.e(err);
         } finally {
-          _iterator2.f();
+          _iterator.f();
         }
+
+        clearTimeout(timeout);
+        $target.classList.add('touch');
+      } else if (event.type == 'touchend') {
+        setTimeout(function () {
+          $target.classList.remove('touch');
+        }, touchEndDelay);
+        timeout = setTimeout(function () {
+          touch = false;
+        }, 1000);
+      } else if (event.type == 'contextmenu') {
+        $target.classList.remove('touch');
+        timeout = setTimeout(function () {
+          touch = false;
+        }, 1000);
+      }
+
+      if (event.type == 'mouseenter' && !touch && $target == event.target) {
+        $target.classList.add('hover');
+      } else if (event.type == 'mouseleave' && !touch && $target == event.target) {
+        $target.classList.remove('hover');
+        $target.classList.remove('focus');
+      }
+
+      if (event.type == 'mousedown') {
+        $target.classList.add('focus');
+      } else if (event.type == 'mouseup') {
+        $target.classList.remove('focus');
       }
     }
   }
@@ -348,9 +337,9 @@ function inputs() {
       event.preventDefault();
 
       if (validateForm()) {
-        console.log('submit!');
+        /* console.log('submit!');
         $inputs.val('').trigger('change');
-        popup.open($('#succes'));
+        popup.open($('#succes')); */
       }
     });
   });
@@ -736,7 +725,7 @@ function tabs() {
   $tabs.each(function () {
     var $triggers = $(this).find('.tabs__toggle'),
         $tabs = $(this).find('.tabs__block'),
-        index = $(this).find('.tabs__block.active').length > 0 ? $triggers.index($(this).find('.tabs__block.active')) : 0;
+        index = $(this).find('.tabs__block.active').length > 0 ? $tabs.index($(this).find('.tabs__block.active')) : 0;
     changeTab();
     $triggers.on('click', function () {
       index = $triggers.index($(this));
@@ -916,4 +905,34 @@ function calculator() {
       $input.val(val);
     }
   });
+}
+
+function stagesToggle() {
+  var $toggle = $('[data-stage-toggle]'),
+      $stages = $('[data-stage]'),
+      stage = $('.active[data-stage-toggle]').length > 0 ? $('.active[data-stage-toggle]').attr('data-stage-toggle') : 'all';
+  $toggle.on('click', function (event) {
+    event.preventDefault();
+    stage = $(this).attr('data-stage-toggle');
+    check();
+  });
+  check();
+
+  function check() {
+    $toggle.removeClass('active').closest("[data-stage-toggle='".concat(stage, "']")).addClass('active');
+
+    if (stage == 'all') {
+      $stages.addClass('active');
+    } else {
+      $stages.each(function () {
+        var attr = $(this).attr('data-stage');
+
+        if (attr == stage) {
+          $(this).addClass('active');
+        } else {
+          $(this).removeClass('active');
+        }
+      });
+    }
+  }
 }

@@ -1,0 +1,130 @@
+extends layout/layout
+block title
+  title ЛК - Этап
+block breadcrumbs 
+  -var title = 'Личный кабинет'
+  include blocks/breadcrumbs
+block variables
+  -var content = 'main_muted'
+block content
+  section.section.kabinet
+    .container
+      h1.kabinet__title 
+        | Личный кабинет
+        a(href="index.html").button.button_style-1.kabinet__exit-button
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#exit")
+          span Выход
+      .kabinet-block
+        -var index = 1
+        include blocks/kabinet-aside
+
+        a(href="kabinet-stages.html").kabinet-block__mobile-toggle.active
+          span Этапы работы 
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+
+        .kabinet-block__content
+          a(href="kabinet-stages.html").button.button_style-1
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#arrow-left")
+            span Вернуться в этапам
+          h2.kabinet-block__title Карточка этапа - “Подшивка кровли”
+          table.kabinet-status-table
+            tr
+              th Текущий статус
+              // kabinet-status-table__status_stage-2, kabinet-status-table__status_stage-3
+              td.kabinet-status-table__status.kabinet-status-table__status_stage-1 Завозим материалы
+            tr
+              th Дата изменения
+              td 02.03.2020
+          .table.kabinet-stage-table
+            table
+              tr
+                th Что сделано
+                th Дата 
+              tr
+                td Подшивка кровли
+                td 02.03.2020
+              tr
+                td Укладка плитки
+                td 02.03.2020
+              tr
+                td Постройка гаража
+                td 02.03.2020
+              tr
+                td Укладка плитки
+                td 02.03.2020
+              tr
+                td Постройка гаража
+                td 02.03.2020
+          .documents
+            h3.documents__title Приложенные файлы
+            table.documents__table
+              tr.documents__item
+                td.documents__item-title 
+                  a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                td.documents__item-icon
+                  .documents__item-icon-item
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#doc")
+                    span doc
+                td.documents__item-size 7.30 mb
+                td.documents__item-button
+                  a(href="#" download).button.button_style-1.documents__button 
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#download")
+                    span Скачать
+              tr.documents__item
+                  td.documents__item-title 
+                    a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                  td.documents__item-icon
+                    .documents__item-icon-item
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#doc")
+                      span txt
+                  td.documents__item-size 7.30 mb
+                  td.documents__item-button
+                    a(href="#" download).button.button_style-1.documents__button 
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#download")
+                      span Скачать
+              tr.documents__item
+                td.documents__item-title 
+                  a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                td.documents__item-icon
+                  .documents__item-icon-item
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#doc")
+                    span doc
+                td.documents__item-size 7.30 mb
+                td.documents__item-button
+                  a(href="#" download).button.button_style-1.documents__button 
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#download")
+                    span Скачать
+              tr.documents__item
+                  td.documents__item-title 
+                    a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                  td.documents__item-icon
+                    .documents__item-icon-item
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#doc")
+                      span txt
+                  td.documents__item-size 7.30 mb
+                  td.documents__item-button
+                    a(href="#" download).button.button_style-1.documents__button 
+                      svg.icon
+                        use(xlink:href="img/icons/icons-sprite.svg#download")
+                      span Скачать
+          
+            
+        a(href="kabinet-video.html").kabinet-block__mobile-toggle
+          span Видео
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+        a(href="kabinet-personal.html").kabinet-block__mobile-toggle
+          span Персональные данные
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+          

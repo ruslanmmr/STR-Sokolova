@@ -1,0 +1,105 @@
+extends layout/layout
+block title
+  title ЛК - Этапы работ
+block breadcrumbs 
+  -var title = 'Личный кабинет'
+  include blocks/breadcrumbs
+block variables
+  -var content = 'main_muted'
+block content
+  section.section.kabinet
+    .container
+      h1.kabinet__title 
+        | Личный кабинет
+        a(href="index.html").button.button_style-1.kabinet__exit-button
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#exit")
+          span Выход
+      .kabinet-block
+        -var index = 1
+        include blocks/kabinet-aside
+
+        a(href="kabinet-stages.html").kabinet-block__mobile-toggle.active
+          span Этапы работы 
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+
+        .kabinet-block__content
+          //если пусто
+          h2.kabinet-block__title Этапы работ (Если пусто)
+          svg.icon.kabinet-block__icon
+            use(xlink:href="img/icons/icons-sprite.svg#smile")
+          p.kabinet-block__text Заказывая у нас услуги, вы получите инструмент для отслеживания всех этапов онлайн.
+          p.kabinet-block__text Документы, фото, все в одном месте и под контролем.
+          //если есть контент
+          h2.kabinet-block__title Этапы работ (Если не пусто)
+          ul.kabinet-stages-nav
+            li.kabinet-stages-nav__item
+              a(href="javascript:void(0);" data-stage-toggle='all').kabinet-stages-nav__link Все
+            li.kabinet-stages-nav__item
+              a(href="javascript:void(0);" data-stage-toggle='1').kabinet-stages-nav__link.kabinet-stages-nav__link_stage-1 Текущие
+            li.kabinet-stages-nav__item
+              a(hhref="javascript:void(0);" data-stage-toggle='2').kabinet-stages-nav__link.kabinet-stages-nav__link_stage-2 Завершенные
+            li.kabinet-stages-nav__item
+              a(href="javascript:void(0);" data-stage-toggle='3').kabinet-stages-nav__link.kabinet-stages-nav__link_stage-3 Предстоящие
+          .table.kabinet-stages-table
+            table
+              tr.kabinet-stages-table__head
+                th Название этапа
+                th Текущий статус
+                th Дата изменения
+              tr(data-stage='1')
+                td 
+                  a(href="kabinet-stage.html").kabinet-stages-table__link.kabinet-stages-table__link_stage-1 Подшивка кровли
+                td 
+                  span Текущий статус
+                  span Завозим материалы
+                td 
+                  span Дата изменения
+                  span 02.03.2020
+              tr(data-stage='2')
+                td 
+                  a(href="kabinet-stage.html").kabinet-stages-table__link.kabinet-stages-table__link_stage-2 Укладка плитки
+                td 
+                  span Текущий статус
+                  span Завершено
+                td 
+                  span Дата изменения
+                  span 02.03.2020
+              tr(data-stage='3')
+                td 
+                  a(href="kabinet-stage.html").kabinet-stages-table__link.kabinet-stages-table__link_stage-3 Постройка гаража
+                td 
+                  span Текущий статус
+                  span Согласуем договор
+                td 
+                  span Дата изменения
+                  span 02.03.2020
+              tr(data-stage='2')
+                td 
+                  a(href="kabinet-stage.html").kabinet-stages-table__link.kabinet-stages-table__link_stage-2 Укладка плитки
+                td 
+                  span Текущий статус
+                  span Завершено
+                td 
+                  span Дата изменения
+                  span 02.03.2020
+              tr(data-stage='3')
+                td 
+                  a(href="kabinet-stage.html").kabinet-stages-table__link.kabinet-stages-table__link_stage-3 Постройка гаража
+                td 
+                  span Текущий статус
+                  span Согласуем договор
+                td 
+                  span Дата изменения
+                  span 02.03.2020
+            
+        a(href="kabinet-video.html").kabinet-block__mobile-toggle
+          span Видео
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+        a(href="kabinet-personal.html").kabinet-block__mobile-toggle
+          span Персональные данные
+          svg.icon
+            use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+          

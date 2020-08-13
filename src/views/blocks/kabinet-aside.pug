@@ -1,0 +1,27 @@
+aside.kabinet-block__aside
+  //head
+  .kabinet-block__head
+    .kabinet-icon.kabinet-block__head-icon
+      svg.icon
+        use(xlink:href="img/icons/icons-sprite.svg#user")
+    .kabinet-block__head-text
+      h3.kabinet-block__head-title ООО “Самарские кровельные материалы”
+      if index==1
+        span.profile-label Золотой партнёр
+  //block
+  ul.kabinet-block__nav
+    li.kabinet-block__nav-item
+      a(href="kabinet-stages.html").kabinet-block__nav-link(class=index==1?'active':'')
+        svg.icon
+          use(xlink:href="img/icons/icons-sprite.svg#step")
+        span Этапы работ
+    li.kabinet-block__nav-item
+      a(href="kabinet-video.html").kabinet-block__nav-link(class=index==2?'active':'')
+        svg.icon
+          use(xlink:href="img/icons/icons-sprite.svg#video")
+        span Видео
+    li.kabinet-block__nav-item
+      a(href="kabinet-personal.html").kabinet-block__nav-link(class=index==3?'active':'')
+        svg.icon
+          use(xlink:href="img/icons/icons-sprite.svg#pencil")
+        span Личные данные

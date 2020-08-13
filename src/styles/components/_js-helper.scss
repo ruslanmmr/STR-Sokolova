@@ -39,7 +39,8 @@
     padding: 20px 15px;
     background-color: #fff;
     box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.05);
-    width: 320px;
+    width: calc(100vw - 40px);
+    max-width: 500px;
     border-radius: 0 0 2px 0;
     border-width: 1px 1px 1px 0;
     border-style: solid;
@@ -47,7 +48,7 @@
   }
   &__section {
     &:not(:last-child) {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
     &-title {
       font-size: 0.875rem;
@@ -67,7 +68,7 @@
       background-color: var(--color-accent);
       color: #fff;
       transition: background-color $trs1;
-      line-height: 25px;
+      line-height: 20px;
       padding: 0 10px;
       border-radius: 2px;
       text-decoration: none;
