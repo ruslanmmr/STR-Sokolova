@@ -1824,13 +1824,9 @@ h3, h4 {
   font-size: 1.125rem;
   line-height: 1.5rem; }
 
-h5 {
-  font-size: 1rem;
-  line-height: 1.125rem; }
-
-h6 {
+h5, h6 {
   font-size: 0.875rem;
-  line-height: 1.125rem; }
+  line-height: 1.25rem; }
 
 p {
   margin: 0 0 1rem 0; }
@@ -2255,6 +2251,21 @@ a:not([class]):hover {
 .form-section {
   padding: 40px 0;
   background-color: var(--color-sections-bg, #F5F5F5); }
+  @media (min-width: 992px) {
+    .form-section_style-2 .form-section__content {
+      border-radius: 0;
+      padding: 40px; } }
+  @media (min-width: 576px) {
+    .form-section_style-2 {
+      padding: 0; } }
+  @media (max-width: 575.98px) {
+    .form-section_style-2 {
+      margin-right: -16px !important;
+      margin-left: -16px !important;
+      padding-right: 8px;
+      padding-left: 8px; }
+      .form-section_style-2 .form-section__content {
+        margin: 0; } }
   .form-section:last-child {
     margin: 0; }
   .form-section__content {
@@ -2281,11 +2292,16 @@ a:not([class]):hover {
   color: var(--color-text-muted, #767676);
   line-height: 1.5; }
 
-.form__input:not(:last-child) {
+.form__input {
   margin-bottom: 20px; }
 
+.form__group {
+  margin-bottom: 20px; }
+  .form__group-content {
+    margin-bottom: -20px; }
+
 .form__bottom {
-  margin-top: 20px; }
+  margin-top: 8px; }
 
 .form__upload-button input {
   display: none; }
@@ -2584,9 +2600,7 @@ a:not([class]):hover {
 @media (max-width: 767.98px) {
   .form-section__content {
     border-width: 2px;
-    padding: 30px 16px; }
-  .form__group:not(:last-child) {
-    margin-bottom: 20px; } }
+    padding: 30px 16px; } }
 
 @media (min-width: 576px) {
   .form__upload-button {
@@ -2594,14 +2608,16 @@ a:not([class]):hover {
     border-color: transparent !important; } }
 
 @media (max-width: 575.98px) {
-  .form__input:not(:last-child) {
+  .form__input {
     margin-bottom: 16px; }
-  .form__group:not(:last-child) {
+  .form__group {
     margin-bottom: 16px; }
+    .form__group-content {
+      margin-bottom: -16px; }
   .form__submit {
     width: 100%; }
   .form__bottom {
-    margin-top: 16px; }
+    margin-top: 20px; }
   .form__upload {
     display: flex;
     flex-direction: column;
@@ -5172,12 +5188,90 @@ a:not([class]):hover {
   .portfolio-project__slider .slick-slide {
     height: 200px; } }
 
+.project-progress-block__container {
+  background-color: #fff;
+  border-radius: 2px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+
+.project-progress-block__image {
+  height: 220px;
+  flex: 0 0 auto; }
+  .project-progress-block__image:after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease-out;
+    background: linear-gradient(0deg, rgba(35, 99, 209, 0.5), rgba(35, 99, 209, 0.5)); }
+  .project-progress-block__image.image_contain {
+    background-color: var(--color-border-1, #D9D9DE); }
+    .project-progress-block__image.image_contain img {
+      padding: 45px; }
+  .project-progress-block__image.touch:after, .project-progress-block__image.hover:after {
+    opacity: 1; }
+
+.project-progress-block__content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 100%;
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  border-color: var(--color-border-1, #D9D9DE);
+  border-radius: 0 0 2px 2px; }
+
+.project-progress-block__title {
+  margin: 0 0 10px 0; }
+
+.project-progress-block__adress {
+  position: relative;
+  padding-left: 20px;
+  margin: 0 0 13px 0; }
+  .project-progress-block__adress .icon {
+    width: 12px;
+    height: 16px;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    fill: var(--color-accent, #2363D1); }
+
+.project-progress-block__progress {
+  width: 150px; }
+  .project-progress-block__progress-text {
+    display: flex;
+    justify-content: space-between; }
+    .project-progress-block__progress-text strong {
+      color: #000; }
+  .project-progress-block__progress-line {
+    display: block;
+    width: 100%;
+    height: 8px;
+    border-radius: 8px;
+    background-color: var(--color-sections-bg, #F5F5F5); }
+    .project-progress-block__progress-line span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background-color: var(--color-accent, #2363D1);
+      margin-top: 5px; }
+
 .product-card__container {
   height: 100%;
   display: flex;
   flex-direction: column;
   border: 1px solid var(--color-border-1, #D9D9DE);
-  border-radius: 2px; }
+  border-radius: 2px;
+  background-color: #fff; }
 
 .product-card__card-price {
   margin-bottom: 12px; }
@@ -5597,6 +5691,125 @@ a:not([class]):hover {
   @media (max-width: 575.98px) {
     .contact-block__content {
       padding: 20px 16px; } }
+
+.brigade {
+  min-height: 100%; }
+  @media (min-width: 992px) {
+    .brigade {
+      margin-bottom: 0; } }
+
+.brigade-diagram {
+  height: 200px;
+  margin-top: 130px;
+  position: relative; }
+  .brigade-diagram__info {
+    position: absolute;
+    z-index: 3;
+    bottom: 50%; }
+    .brigade-diagram__info::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 8px;
+      background-color: #fff;
+      bottom: -4px;
+      z-index: 2; }
+    .brigade-diagram__info-content {
+      position: relative;
+      padding-bottom: 75px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      font-size: 1.125rem;
+      line-height: 1.75rem; }
+    .brigade-diagram__info span {
+      color: var(--color-accent, #2363D1);
+      font-size: 70px;
+      line-height: 0.9;
+      font-weight: 700;
+      margin-right: 16px; }
+    .brigade-diagram__info-line {
+      display: block;
+      width: auto;
+      height: 60px;
+      position: absolute;
+      bottom: 0;
+      z-index: 1; }
+    .brigade-diagram__info_style-1 {
+      right: 50%; }
+      .brigade-diagram__info_style-1 .brigade-diagram__info-content {
+        padding-right: 40px; }
+      .brigade-diagram__info_style-1:before {
+        right: -4px; }
+      .brigade-diagram__info_style-1 .brigade-diagram__info-line {
+        right: 0; }
+    .brigade-diagram__info_style-2 {
+      left: 50%; }
+      .brigade-diagram__info_style-2 .brigade-diagram__info-content {
+        padding-left: 40px; }
+      .brigade-diagram__info_style-2:before {
+        left: -4px; }
+      .brigade-diagram__info_style-2 .brigade-diagram__info-line {
+        left: 0; }
+  .brigade-diagram__circle {
+    width: 200px;
+    height: 200px;
+    fill: transparent;
+    position: relative;
+    margin: 0 auto; }
+    .brigade-diagram__circle-item {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%; }
+      .brigade-diagram__circle-item_style-1 {
+        stroke: var(--color-diagram-1, #FF9500); }
+      .brigade-diagram__circle-item_style-2 {
+        stroke: var(--color-diagram-2, #2363D1);
+        transform: rotate(-90deg); }
+  @media (max-width: 1279.98px) {
+    .brigade-diagram {
+      margin-top: 110px; }
+      .brigade-diagram__info_style-2 .brigade-diagram__info-content {
+        transform: translate(-15%, 15%) scale(0.7); }
+      .brigade-diagram__info_style-1 .brigade-diagram__info-content {
+        transform: translate(15%, 15%) scale(0.7); } }
+  @media (max-width: 575.98px) {
+    .brigade-diagram {
+      margin-top: 30px;
+      margin-bottom: 65px; }
+      .brigade-diagram__circle {
+        width: 100%; }
+      .brigade-diagram__info {
+        bottom: 0 !important;
+        position: absolute;
+        top: calc(100% + 20px);
+        transform: translate(0) !important; }
+        .brigade-diagram__info::before {
+          display: none; }
+        .brigade-diagram__info-line {
+          display: none; }
+        .brigade-diagram__info-content {
+          transform: translate(0) !important;
+          padding: 0 !important;
+          justify-content: center;
+          align-items: center;
+          font-size: 0.875rem;
+          line-height: 1.25rem; }
+        .brigade-diagram__info_style-1 {
+          left: 0; }
+          .brigade-diagram__info_style-1 span {
+            color: var(--color-diagram-1, #FF9500); }
+        .brigade-diagram__info_style-2 {
+          right: 0; }
+          .brigade-diagram__info_style-2 span {
+            color: var(--color-diagram-2, #2363D1); }
+        .brigade-diagram__info span {
+          font-size: 48px;
+          margin-right: 10px; } }
 
 @media (max-width: 991.98px) {
   .project-preview-card__image {

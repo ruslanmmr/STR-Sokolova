@@ -189,3 +189,26 @@ mixin wiki-large(title, classes)
         span.large-wiki-card__date АПРЕЛЬ, 2019
         h3.large-wiki-card__title=title
         a(href="#").button.button_xl.button_style-1.large-wiki-card__button Подробнее
+
+mixin progress-block(title, progress, image, classes)
+  .project-progress-block(class=classes)
+    .project-progress-block__container
+      if image==true
+        a(href="#").image.image_cover.project-progress-block__image
+          img(src="img/image 28.jpg", alt="image").lazyload
+      else
+        a(href="#").image.image_contain.project-progress-block__image
+          img(src="img/icons/project-placeholder.svg", alt="placeholder").lazyload
+      .project-progress-block__content
+        .project-progress-block__text
+          h5.project-progress-block__title=title
+          .project-progress-block__adress
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#location")
+            span г. Москва, ул.Ленина 54
+        .project-progress-block__progress
+          .project-progress-block__progress-text
+            span Готовность
+            strong #{progress} %
+          .project-progress-block__progress-line
+            span(style='width:'+progress+'%;')

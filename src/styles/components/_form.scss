@@ -99,6 +99,31 @@
 .form-section {
   padding: 40px 0;
   background-color: var(--color-sections-bg, #F5F5F5);
+  &_style-2 {
+    @include media-breakpoint-up(lg) {
+      
+      .form-section {
+        &__content {
+          border-radius: 0;
+          padding: 40px;
+        }
+      }
+    }
+    @include media-breakpoint-up(sm) {
+      padding: 0;
+    }
+    @include media-breakpoint-down(xs) {
+      margin-right: -16px !important;
+      margin-left: -16px !important;
+      padding-right: 8px;
+      padding-left: 8px;
+      .form-section {
+        &__content {
+          margin: 0;
+        }
+      }
+    }
+  }
   &:last-child {
     margin: 0;
   }
@@ -135,12 +160,16 @@
 
 .form {
   &__input {
-    &:not(:last-child) {
-      margin-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  &__group {
+    margin-bottom: 20px;
+    &-content {
+      margin-bottom: -20px;
     }
   }
   &__bottom {
-    margin-top: 20px;
+    margin-top: 8px;
   }
   &__upload-button {
     input {
@@ -533,13 +562,6 @@
       padding: 30px 16px;
     }
   }
-  .form {
-    &__group {
-      &:not(:last-child) {
-        margin-bottom: 20px;
-      }
-    }
-  }
 }
 @include media-breakpoint-up(sm) {
   .form {
@@ -552,20 +574,19 @@
 @include media-breakpoint-down(xs) {
   .form {
     &__input {
-      &:not(:last-child) {
-        margin-bottom: 16px;
-      }
+      margin-bottom: 16px;
     }
     &__group {
-      &:not(:last-child) {
-        margin-bottom: 16px;
+      margin-bottom: 16px;
+      &-content {
+        margin-bottom: -16px;
       }
     }
     &__submit {
       width: 100%;
     }
     &__bottom {
-      margin-top: 16px;
+      margin-top: 20px;
     }
     &__upload {
       display: flex;

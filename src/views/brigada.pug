@@ -4,7 +4,48 @@ block title
 block breadcrumbs 
   -var title = 'Занятость бригад'
   include blocks/breadcrumbs
+block variables
+  -var content = 'main_muted'
 block content
-  
- 
+  section.section 
+    .container
+      .row
+        section.section.col-lg-7.brigade
+          .display-container
+            h1 Занятость бригад / текущие проекты
+            p Инвестируем в заводы, производящие листовые строительные материалы (ДСП ЦСП ФАНЕРА, ОСБ и т.д.) заключаем договора, выкупаем партии продукции, везем вагонами или фурами на склад и после поставляют постоянным клиентам типа “Красной цены”, “Сатурна”, “Центр строя” и т.д. Если есть товар в наличии и их цена ниже, то мы продаем, если нет — то продают конкуренты.
+            p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве. 
+            .brigade-diagram
+              .brigade-diagram__circle(data-percent='30')
+                .brigade-diagram__info.brigade-diagram__info_style-1
+                  .brigade-diagram__info-content
+                    img(src="img/icons/line-left.svg", alt="line").brigade-diagram__info-line
+                    span 25 
+                    | Бригад<br> свободно
+                .brigade-diagram__info.brigade-diagram__info_style-2
+                  .brigade-diagram__info-content
+                    img(src="img/icons/line-right.svg", alt="line").brigade-diagram__info-line
+                    span 8 
+                    | Бригад<br> занято
+                svg(viewBox="0 0 200 200").brigade-diagram__circle-item.brigade-diagram__circle-item_style-1
+                  circle(stroke-width="30" cx="100" cy="100" r="85")
+                svg(viewBox="0 0 200 200").brigade-diagram__circle-item.brigade-diagram__circle-item_style-2
+                  circle(stroke-width="30" cx="100" cy="100" r="85")
+        .col-lg-5
+          -var formTitle = 'Забронировать бригаду'
+          include blocks/form2
+  section.section
+    .container
+      h2.section__title Проекты в работе
+      .slider.slider_grid.slider_arrows.row.progress-projects-slider
+        include blocks/cards
+        +progress-block('Модель дома кд25 180 м2 с террасой три спальни гардероб и санузел', 20, true, 'col')
+        +progress-block('Модель дома кд25 180 м2', 80, true, 'col')
+        +progress-block('Модель дома кд25 180 м2 с террасой три спальни гардероб и санузел', 20, true, 'col')
+        +progress-block('Модель дома кд25 180 м2', 80, false, 'col')
+        +progress-block('Модель дома кд25 180 м2 с террасой три спальни гардероб и санузел', 20, true, 'col')
+        +progress-block('Модель дома кд25 180 м2', 80, true, 'col')
+        +progress-block('Модель дома кд25 180 м2 с террасой три спальни гардероб и санузел', 20, true, 'col')
+        +progress-block('Модель дома кд25 180 м2', 80, true, 'col')
+
   

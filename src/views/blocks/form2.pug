@@ -1,0 +1,31 @@
+section.section.form-section.form-section_style-2
+  .form-section__content
+    h2.section__title.form-section__title #{formTitle}
+    form(action="#").form.js-validation
+      .form__group
+        .row.form__group-content
+          .col-lg-12.col-md-6.form__input
+            .input
+              input(type="text" name='name' placeholder="Имя*").input__element.required
+              span.input__label Имя
+          .col-lg-12.col-md-6.form__input
+            .input
+              input(type="text" name='phone' placeholder="Телефон*").input__element.required
+              span.input__label Телефон
+          .col-lg-12.col-md-6.form__input
+            .input
+              input(type="text" name='email' placeholder="Email").input__element
+              span.input__label Email
+      .form__group
+        .row.form__group-content
+          .col-lg-12.col-md-6.form__input
+            .input
+              textarea(name='message' placeholder="Когда нужна бригада?").input__element.input__element_textarea
+              span.input__label Когда нужна бригада?
+          .col-lg-12.col-md-6.form__input
+            .input
+              textarea(name='message' placeholder="Комментарий").input__element.input__element_textarea
+              span.input__label Комментарий
+      .form__bottom
+        button.button.button_style-2.form__submit Отправить
+        span.form-post-text Нажимая на кнопку «Отправить», вы подтверждаете согласие на обработку персональных данных

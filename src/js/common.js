@@ -15,6 +15,7 @@ $(document).ready(function(){
   tabs();
   scrollToReviews();
   header();
+  diagram();
   rating();
   calculator();
   stagesToggle();
@@ -517,7 +518,7 @@ let slider = {
         initSlider($(this));
       }
 
-      else if($(this).is('.projects-slider')) {
+      else if($(this).is('.projects-slider') || $(this).is('.progress-projects-slider')) {
         slideCount = 4;
         slideCountLg = 3;
         slideCountMd = 2;
@@ -944,5 +945,43 @@ function stagesToggle() {
         }
       })
     }
+  }
+}
+
+function diagram() {
+  let $parent = $('.brigade-diagram__circle');
+
+  function toRadians(value) {
+    return value * (Math.PI / 180);
+  }
+
+  if($parent.length) {
+    let $circle = $parent.find('.brigade-diagram__circle-item_style-2 circle'),
+        percent = parseInt($parent.attr('data-percent')),
+        $info1 = $('.brigade-diagram__info_style-1'),
+        $info2 = $('.brigade-diagram__info_style-2'),
+        radius = ($parent.height() - 30)/2,
+        deg2 = 90-((360/100*percent)/2),
+        deg1 = (360-deg2),
+        rad2 = toRadians(deg2),
+        rad1 = toRadians(deg1),
+        w = $circle[0].getTotalLength();
+
+    
+
+    $circle.css('stroke-dasharray', w);
+    $circle.css('stroke-dashoffset', w - (w/100*percent));
+
+    let x1 = radius*Math.cos(rad1),
+        y1 = radius*Math.sin(rad1),
+        x2 = radius*Math.cos(rad2),
+        y2 = radius*Math.sin(rad2);
+
+    $info1.css({
+      'transform': `translate(${-x1}px, ${-y1}px)`,
+    })
+    $info2.css({
+      'transform': `translate(${x2}px, ${-y2}px)`,
+    })
   }
 }
