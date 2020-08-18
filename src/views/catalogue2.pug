@@ -1,0 +1,59 @@
+extends layout/layout
+  
+block title
+  title Каталог (тип 2)
+block breadcrumbs 
+  -var title = 'Каталог'
+  include blocks/breadcrumbs
+
+block content
+  h1.container Каталог
+  section.section.container
+    h2.section__title Утепление
+    .row.grid
+      include blocks/cards
+      -var grid = 'grid__block col-xl-20pc col-lg-3 col-md-4 col-sm-6'
+      +card2('Утепление', 'img/image 26.png', grid)
+      +card2('Листовые строительные материалы', 'img/image 26.png', grid)
+      +card2('Древесина', 'img/no_img_categories.png', grid)
+      +card2('Кровря', 'img/image 26.png', grid)
+      +card2('ABC', 'img/image 26.png', grid)
+      +card2('Водосток', 'img/image 26.png', grid)
+      +card2('Пропитки', 'img/image 26.png', grid)
+      +card2('Кровря', 'img/image 26.png', grid)
+  section.section.container
+    h2.section__title Изоляция
+    .row.grid
+      include blocks/cards
+      +card2('Утепление', 'img/image 26.png', grid)
+      +card2('Листовые строительные материалы', 'img/image 26.png', grid)
+      +card2('Древесина', 'img/no_img_categories.png', grid)
+      +card2('Кровря', 'img/image 26.png', grid)
+      +card2('ABC', 'img/image 26.png', grid)
+      +card2('Водосток', 'img/image 26.png', grid)
+      +card2('Пропитки', 'img/image 26.png', grid)
+      +card2('Кровря', 'img/image 26.png', grid)
+      +card2('Пропитки', 'img/image 26.png', grid)
+
+  section.section.container
+    .row.justify-content-center
+      .col-xl-10
+        h3 Почему мы лучше продаем стройматериалы
+        p Инвестируем в заводы, производящие листовые строительные материалы (ДСП ЦСП ФАНЕРА, ОСБ и т.д.) заключаем договора, выкупаем партии продукции, везем вагонами или фурами на склад и после поставляют постоянным клиентам типа “Красной цены”, “Сатурна”, “Центр строя” и т.д. Если есть товар в наличии и их цена ниже, то мы продаем, если нет — то продают конкуренты.
+
+  section.section.container
+    h2.section__title Распродажа
+    .slider.slider_grid.slider_arrows.row.product-slider
+      include blocks/cards
+      +card4(true, 'col', 4, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+      +card4(false, 'col', 2, 'Фанера ФК')
+      +card4(true, 'col', 3, 'Фанера ФК')
+      +card4(false, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+      +card4(true, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+      +card4(true, 'col', 3, 'Фанера ФК')
+      +card4(false, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+        +card4(true, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+
+
+  -var formTitle = 'Станьте нашим партнёром'
+  include blocks/form

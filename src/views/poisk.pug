@@ -1,0 +1,129 @@
+extends layout/layout
+  
+block title
+  title Поиск - выдача
+block breadcrumbs 
+  -var title = 'Результаты поиска'
+  include blocks/breadcrumbs
+
+block content
+  section.section.container
+    h1.section__title Поиск. По запросу 
+      span фанера 
+      | найдено товаров: 12
+    .sorting-heading
+      .sorting-heading__container
+        .sorting-heading__items
+          a(href="#").button.button_style-1.sorting-heading__download-button
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#document")
+            span Скачать прайс-лист
+          .line-sorting.d-none.d-md-block
+            .line-sorting__container
+              span.sorting-heading__title.line-sorting__title Вид:
+              .line-sorting__buttons
+                a(href="javascript:void(0);").button.button_style-1.line-sorting__view-toggle.line-sorting__view-toggle_grid
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#ico-grid")
+                a(href="javascript:void(0);").button.button_style-1.line-sorting__view-toggle.line-sorting__view-toggle_row
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#ico-row")
+
+        .line-sorting.d-none.d-lg-block
+          .line-sorting__container
+            span.sorting-heading__title.line-sorting__title Сортировка:
+            ul.line-sorting__list
+              li.line-sorting__item
+                a(href="#").line-sorting__link.active
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#sorting-up")
+                  | Цена (по возрастанию)
+              li.line-sorting__item
+                a(href="#").line-sorting__link
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#sorting-down")
+                  | Цена (по убыванию)
+              li.line-sorting__item
+                a(href="#").line-sorting__link Наличие
+              li.line-sorting__item
+                a(href="#").line-sorting__link Популярность
+
+        
+        .select-sorting.d-block.d-lg-none
+          .select-sorting__container
+            span.sorting-heading__title.select-sorting__title Сортировка:
+            .row
+              .col-sm-6.col
+                select.select.select_style-1
+                  option(value="1") Цена (по возрастанию)
+                  option(value="2") Цена (по убыванию)
+                  option(value="3" selected) Наличие
+                  option(value="4") Популярность
+              .col-sm-6.col-auto
+                a(href="#filter" data-fixed-toggle).button.button_style-2.select-sorting__button
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#filter")
+                  span Фильтр
+    .row.grid.catalogue-blocks
+      include blocks/cards
+      -var grid = 'grid__block col-xl-20pc col-lg-3 col-md-4 col-sm-6'
+      +card4(true, grid, 4, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+      +card4(false, grid, 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+      +card4(false, grid, 2, 'Фанера ФК')
+      +card4(true, grid, 3, 'Фанера ФК')
+      +card4(true, grid, 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+      +card4(true, grid, 3, 'Фанера ФК')
+      +card4(false, grid, 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+      +card4(true, grid, 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+      +card4(true, grid, 4, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+      +card4(false, grid, 2, 'Фанера ФК')
+    .section__load.row
+      .col-xl-20pc.col-lg-3.col-md-4.col-sm-6
+        a(href="#").button.button_style-2.section__load-button Загрузить еще
+
+  section.section.container
+    h1.section__title Поиск. По запросу 
+      span проект 
+      | найдено проектов: 14
+    .row
+      .col-xl-80pc.col-lg-9
+        .row.grid
+          include blocks/cards
+          -var grid2 = 'grid__block col-md-6 col-12'
+          +card1(true, true, grid2)
+          +card1(false, false, grid2)
+          +card1(true, true, grid2)
+          +card1(true, false, grid2)
+    .section__load.row
+      .col-xl-20pc.col-lg-3.col-md-4.col-sm-6
+        a(href="#").button.button_style-2.section__load-button Загрузить еще
+
+  section.section.container
+    h1.section__title Поиск. По запросу 
+      span Услуга 
+      | найдено услуг: 100
+    .row.grid
+      +card2('Земельные работы', 'img/56dcc810efa71925168c0d36d5c3fbf7.png', grid)
+      +card2('Отделочные работы', 'img/7eaf93e9c47993e5b22277de3a30b89e.png', grid)
+      +card2('Проектные работы', 'img/767773b7699f15e02052b250d92c0c7f.png', grid)
+      +card2('Отделочные работы', 'img/e79cec4f0a120d2e96a1701cf4ef8db3.png', grid)
+      +card2('Земельные работы', 'img/56dcc810efa71925168c0d36d5c3fbf7.png', grid)
+      +card2('Отделочные работы', 'img/7eaf93e9c47993e5b22277de3a30b89e.png', grid)
+      +card2('Проектные работы', 'img/767773b7699f15e02052b250d92c0c7f.png', grid)
+      +card2('Отделочные работы', 'img/e79cec4f0a120d2e96a1701cf4ef8db3.png', grid)
+      +card2('Земельные работы', 'img/56dcc810efa71925168c0d36d5c3fbf7.png', grid)
+      +card2('Отделочные работы', 'img/7eaf93e9c47993e5b22277de3a30b89e.png', grid)
+    .section__load.row
+      .col-xl-20pc.col-lg-3.col-md-4.col-sm-6
+        a(href="#").button.button_style-2.section__load-button Загрузить еще
+
+
+  -var formTitle = 'Станьте нашим партнёром'
+  include blocks/form
+
+  section.section
+    .container
+      .row.justify-content-center
+        .col-xl-10
+          h2 Почему мы лучше продаем стройматериалы
+          p Инвестируем в заводы, производящие листовые строительные материалы (ДСП ЦСП ФАНЕРА, ОСБ и т.д.) заключаем договора, выкупаем партии продукции, везем вагонами или фурами на склад и после поставляют постоянным клиентам типа “Красной цены”, “Сатурна”, “Центр строя” и т.д. Если есть товар в наличии и их цена ниже, то мы продаем, если нет — то продают конкуренты.

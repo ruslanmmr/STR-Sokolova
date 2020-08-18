@@ -25,7 +25,8 @@ $(document).ready(function () {
   diagram();
   rating();
   calculator();
-  stagesToggle(); //обработать изображения после инициализации слайдеров
+  stagesToggle();
+  jsRange(); //обработать изображения после инициализации слайдеров
 
   setTimeout(function () {
     lazy();
@@ -338,9 +339,8 @@ function inputs() {
       event.preventDefault();
 
       if (validateForm()) {
-        /* console.log('submit!');
-        $inputs.val('').trigger('change');
-        popup.open($('#succes')); */
+        /* $inputs.val('').trigger('change');
+        popup.open($('#succes'));  */
       }
     });
   });
@@ -368,8 +368,6 @@ function search() {
       }
     });
     $input.on('blur focus input', function (event) {
-      console.log('++');
-
       if (event.type == 'blur') {
         focus = false;
 
@@ -429,7 +427,6 @@ function customScroll() {
     function gradientCheck() {
       var scrollHeight = $content.outerHeight() - $container.outerHeight(),
           scroll = $container.offset().top - $content.offset().top;
-      console.log($content.outerHeight());
 
       if (scroll > 0) {
         $this.removeClass('scrollbar_start');
@@ -536,8 +533,14 @@ var slider = {
         slideCountXs = 1;
         initSlider($(this));
       } else if ($(this).is('.product-slider')) {
-        slideCount = 5;
-        slideCountLg = 4;
+        if ($(this).is('.product-slider_style-2')) {
+          slideCount = 4;
+          slideCountLg = 3;
+        } else {
+          slideCount = 5;
+          slideCountLg = 4;
+        }
+
         slideCountMd = 3;
         slideCountSm = 2;
         slideCountXs = 1;
@@ -969,4 +972,67 @@ function diagram() {
       'transform': "translate(".concat(x2, "px, ").concat(-y2, "px)")
     });
   }
+}
+
+function jsRange() {
+  var $range = $('.filter-range');
+  $range.each(function () {
+    var $this = $(this),
+        $rangeItem = $this.find('.js-range'),
+        $inputFrom = $this.find(".filter-range__input-from"),
+        $inputTo = $this.find(".filter-range__input-to"),
+        instance,
+        min = +$rangeItem.attr('data-min'),
+        max = +$rangeItem.attr('data-max'),
+        from,
+        to;
+    $rangeItem.ionRangeSlider({
+      skin: "round",
+      type: "double",
+      min: min,
+      max: max,
+      from: min,
+      to: max,
+      onStart: updateInputs,
+      onChange: updateInputs,
+      onFinish: updateInputs
+    });
+    instance = $rangeItem.data("ionRangeSlider");
+
+    function updateInputs(data) {
+      from = data.from;
+      to = data.to;
+      $inputFrom.prop("value", from);
+      $inputTo.prop("value", to);
+    }
+
+    $inputFrom.on("change", function () {
+      var val = $(this).prop("value"); // validate
+
+      if (val < min) {
+        val = min;
+      } else if (val > to) {
+        val = to;
+      }
+
+      instance.update({
+        from: val
+      });
+      $(this).prop("value", val);
+    });
+    $inputTo.on("change", function () {
+      var val = $(this).prop("value"); // validate
+
+      if (val < from) {
+        val = from;
+      } else if (val > max) {
+        val = max;
+      }
+
+      instance.update({
+        to: val
+      });
+      $(this).prop("value", val);
+    });
+  });
 }

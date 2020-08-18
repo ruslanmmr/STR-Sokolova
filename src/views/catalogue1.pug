@@ -1,0 +1,97 @@
+extends layout/layout
+  
+block title
+  title Каталог (тип 1)
+block breadcrumbs 
+  -var title = 'Каталог'
+  include blocks/breadcrumbs
+
+block content
+  section.section.container
+    h1 Каталог
+    .row
+      aside.aside.col-xl-20pc.col-lg-3
+        .aside-categories.aside-categories_desktop-visible.toggle-section(data-out-hide data-class-only)
+          a(href="javascript:void(0);").button.aside-categories__button.toggle-section__head
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#burger")
+            span Каталог продукции
+          .aside-categories__content.toggle-section__content
+            ul.aside-categories__list
+              li.aside-categories__item
+                a(href="#").aside-categories__link Листовые материалы
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link ФК
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link ФСФ хвойная
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link ФСФ лиственная
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link ДВП
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link ДСП
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link Изоплат
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link ЦСП
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link ОгнеБиоЗащита
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+              li.aside-categories__item
+                a(href="#").aside-categories__link Декор
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+
+          
+        .d-none.d-lg-block
+          include blocks/advertising
+      .col-xl.col-lg-9
+        section.section
+          .row.grid
+            include blocks/cards
+            -var grid = 'grid__block col-xl-3 col-md-4 col-sm-6 col-12'
+            +card2('Утепление', 'img/image 26.png', grid)
+            +card2('Листовые строительные материалы', 'img/image 26.png', grid)
+            +card2('Древесина', 'img/no_img_categories.png', grid)
+            +card2('Кровря', 'img/image 26.png', grid)
+            +card2('ABC', 'img/image 26.png', grid)
+            +card2('Водосток', 'img/image 26.png', grid)
+            +card2('Пропитки', 'img/image 26.png', grid)
+            +card2('Кровря', 'img/image 26.png', grid)
+        section.section
+          h2 Где лучше покупать Фанеру ФСФ 
+          p Инвестируем в заводы, производящие листовые строительные материалы (ДСП ЦСП ФАНЕРА, ОСБ и т.д.) заключаем договора, выкупаем партии продукции, везем вагонами или фурами на склад и после поставляют постоянным клиентам типа “Красной цены”, “Сатурна”, “Центр строя” и т.д. Если есть товар в наличии и их цена ниже, то мы продаем, если нет — то продают конкуренты.
+
+        section.section
+          h2.section__title Хиты продаж
+          .slider.slider_grid.slider_arrows.row.product-slider.product-slider_style-2
+            include blocks/cards
+            +card4(true, 'col', 4, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+            +card4(false, 'col', 2, 'Фанера ФК')
+            +card4(true, 'col', 3, 'Фанера ФК')
+            +card4(false, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+            +card4(true, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+            +card4(true, 'col', 3, 'Фанера ФК')
+            +card4(false, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+            +card4(true, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+
+
+  -var formTitle = 'Станьте нашим партнёром'
+  include blocks/form

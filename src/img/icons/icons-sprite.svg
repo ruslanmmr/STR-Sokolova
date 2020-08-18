@@ -205,4 +205,23 @@
         c-0.5-0.5-1.2-1.2-2.2-2c-1.4-1.2-4.4-3.2-7.7-3.2c-3.3,0-6.2,2-7.7,3.2C14.5,22.2,13.8,22.9,13.3,23.4z"/>
       <ellipse cx="23.2" cy="23.4" rx="3.9" ry="3.9"/>
     </symbol>
+    <symbol stroke='none' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" xml:space="preserve" id='ico-grid'>
+      <path d="M14,14h4v4h-4V14z"/>
+      <path d="M7,14h4v4H7V14z"/>
+      <path d="M0,14h4v4H0V14z"/>
+      <path d="M14,7h4v4h-4V7z"/>
+      <path d="M7,7h4v4H7V7z"/>
+      <path d="M0,7h4v4H0V7z"/>
+      <path d="M14,0h4v4h-4V0z"/>
+      <path d="M7,0h4v4H7V0z"/>
+      <path d="M0,0h4v4H0V0z"/>
+    </symbol>
+    <symbol viewBox="0 0 18 18" stroke="none" xmlns="http://www.w3.org/2000/svg" id='ico-row'>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M18 10H8V8H18V10Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M18 3H8V1H18V3Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M18 17H8V15H18V17Z"/>
+      <path d="M0 14H4V18H0V14Z"/>
+      <path d="M0 7H4V11H0V7Z"/>
+      <path d="M0 0H4V4H0V0Z"/>
+    </symbol>
   </svg>

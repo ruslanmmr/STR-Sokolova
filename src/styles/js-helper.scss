@@ -1,3 +1,5 @@
+//variables
+@import "./components/variables";
 .js-helper-module {
   position: fixed;
   left: 0;
@@ -9,7 +11,9 @@
     display: block;
     position: absolute;
     left: calc(100% - 1px);
+    top: 50%;
     width: 40px;
+    margin-top: -20px;
     height: 40px;
     border-radius: 0 2px 2px 0;
     border-width: 1px 1px 1px 0;

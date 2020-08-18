@@ -40,6 +40,13 @@
     display: flex;
     justify-content: center;
   }
+  &__load {
+    margin-top: 32px;
+    justify-content: center;
+    &-button {
+      width: 100%;
+    }
+  }
   @include media-breakpoint-up(sm) {
     margin-bottom: 60px;
     &_no-margin {
@@ -71,6 +78,10 @@
       margin-top: 32px;
     }
   }
+}
+
+h1.section__title {
+  margin: 0 0 32px 0;
 }
 
 .page-title {

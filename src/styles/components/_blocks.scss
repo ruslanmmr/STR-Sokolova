@@ -46,6 +46,7 @@
 
 .category-card {
   font-size: 0.875rem;
+  line-height: 1.25rem;
   &__container {
     min-height: 140px;
     color: #fff;
@@ -101,12 +102,13 @@
     color: inherit;
     position: relative;
     font-size: inherit;
+    line-height: inherit;
     .icon {
       position: absolute;
       right: 15px;
       width: 16px;
       height: 16px;
-      bottom: 23px;
+      bottom: 22px;
       transition: fill $trs1;
       fill: #fff;
     }
@@ -323,6 +325,9 @@
 .card-price {
   &__title {
     display: none;
+    color: var(--color-text-light,#bdbdbd);
+    font-size: .75rem;
+    line-height: 1rem;
   }
   &__label {
     display: block;
@@ -361,6 +366,7 @@
     line-height: 1.5rem;
     height: 1.5rem;
     margin-right: 8px;
+    flex-shrink: 0;
     span {
       font-size: 0.8em;
     }
@@ -370,6 +376,8 @@
     line-height: 1rem;
     color: var(--color-text-muted, #767676);
     position: relative;
+    white-space: nowrap;
+    flex-shrink: 0;
     &::after {
       content: '';
       display: block;
@@ -876,18 +884,74 @@
 
 .sorting-heading {
   margin-bottom: 24px;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  &__download-button {
+    margin-right: 34px;
+  }
+  &__items {
+    display: flex;
+    align-items: center;
+    order: 2;
+  }
   &__title {
     color: var(--color-text-muted, #767676);
     opacity: 0.75;
   }
+  @include media-breakpoint-down(lg) {
+    flex-direction: row;
+    &__items {
+      order: 0;
+      margin-bottom: 15px;
+    }
+    &__download-button {
+      order: 2;
+      margin: 0 0 0 30px;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    &__items {
+      margin-bottom: 0;
+      align-items: flex-end;
+      flex: 0 0 auto;
+      padding-left: 20px;
+      order: 2;
+    }
+    &__download-button {
+      margin: 0 0 0 20px;
+      flex: 1 1 100%;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    &__container {
+      display: block;
+    }
+    &__items {
+      padding: 0;
+      margin-bottom: 20px;
+      order: 0;
+    }
+    &__download-button {
+      margin: 0;
+    }
+  }
 }
 
 .line-sorting {
+  flex: 0 0 auto;
   &__container {
     display: flex;
+    align-items: center;
   }
   &__title {
     margin-right: 20px;
+  }
+  &__buttons {
+    display: flex;
   }
   &__list {
     display: flex;
@@ -926,6 +990,32 @@
       pointer-events: none;
     }
   }
+  &__view-toggle {
+    width: 40px;
+    padding: 0;
+    min-width: 40px;
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+    &.active {
+      background-color: var(--color-button2-bg, #2363D1);
+      border-color: var(--color-button2-bg, #2363D1);
+      pointer-events: none;
+      .icon {
+        fill: var(--color-button2-icon, #fff);
+        stroke: var(--color-button2-icon, #fff);
+      }
+    }
+  }
+  @include media-breakpoint-down(md) {
+    &__container {
+      display: block;
+    }
+    &__title {
+      display: block;
+      margin: 0 0 8px 0;
+    }
+  }
 }
 
 .select-sorting {
@@ -935,6 +1025,9 @@
   &__title {
     display: block;
     margin: 0 0 8px 0;
+  }
+  @include media-breakpoint-down(md) {
+    flex: 1 1 50%;
   }
   @include media-breakpoint-down(xs) {
     &__button {
@@ -2672,9 +2765,6 @@
       }
       &__title {
         display: block;
-        color: var(--color-text-light, #BDBDBD);
-        font-size: 0.75rem;
-        line-height: 1rem;
         flex: 1 1 100%;
       }
       &__old {
@@ -2745,6 +2835,120 @@
     }
   }
 }
+@include media-breakpoint-up(md) {
+  .catalogue-blocks_row {
+    .product-card {
+      flex: 1 1 100%;
+      max-width: 100%;
+      &__status {
+        top: auto;
+        right: auto;
+        left: 16px;
+        bottom: 18px;
+      }
+      &__container {
+        flex-direction: row;
+        min-height: 150px;
+      }
+      &__image {
+        flex: 0 0 190px;
+      }
+      &__rating {
+        left: 70px;
+        right: auto;
+      }
+      .card-price__label {
+        position: absolute;
+        left: 30px;
+        bottom: 20px;
+        margin: 0;
+      }
+      .card-price__content {
+        flex-wrap: nowrap;
+        margin: 0;
+        justify-content: flex-end;
+        padding-top: 24px;
+        position: relative;
+      }
+      .card-price__title {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: var(--color-text-muted, #767676);
+      }
+      .card-price__current {
+        margin: 0 0 0 8px;
+        order: 2;
+        span {
+          display: none;
+        }
+      }
+      .card-price__smaller-price-unit {
+        display: inline-block!important;
+        font-size: .8em;
+      }
+      .card-price__old {
+        transform: translateY(2px);
+      }
+      &__buttons {
+        justify-content: flex-end;
+        margin: 0 -5px;
+      }
+      &__bottom-item {
+        margin: 0 5px;
+      }
+      &__get-price {
+        min-width: 130px;
+      }
+      &__content {
+        flex-direction: row;
+        padding: 20px 30px 20px 30px;
+        position: relative;
+        &-top {
+          flex: 1 1 100%;
+          padding-right: 40px;
+          margin-bottom: 0;
+          padding-bottom: 24px;
+        }
+        &-bottom {
+          flex: 0 0 auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .catalogue-blocks_row {
+    .product-card {
+      &__content {
+        padding: 20px 40px;
+      }
+      .card-price__label {
+        left: 40px;
+      }
+    }
+  }
+}
+@include media-breakpoint-up(xl) {
+  .catalogue-blocks_row {
+    .product-card {
+      &__content {
+        padding: 20px 40px 20px 48px;
+      }
+      .card-price__label {
+        left: 48px;
+      }
+    }
+  }
+}
+
+
+
 
 .small-wiki-card {
   &__container {

@@ -4,9 +4,9 @@
 @import "./components/bootstrap-4.0.0/bootstrap-grid";
 //fonts
 @import "./components/fonts";
-
 //variables
 @import "./components/variables";
+
 
 /*========== Basic ==========*/
 html {
@@ -128,12 +128,6 @@ table {
   stroke: #000;
 }
 
-
-/*========== JS HELPER ==========*/
-@import 'components/js-helper';
-
-
-
 /*========== Layout ==========*/
 @import "./components/layout";
 
@@ -147,6 +141,7 @@ table {
 @import 'components/buttons';
 
 /*========== Form ==========*/
+@import "./components/range";
 @import 'components/form';
 
 /*========== Slider ==========*/

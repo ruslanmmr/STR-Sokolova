@@ -1,7 +1,7 @@
 mixin card1(image, discount, grid)
   .project-preview-card(class=grid)
     .project-preview-card__container
-      a(href="#").project-preview-card__image 
+      a(href="portfolio-project.html").project-preview-card__image 
         span.project-preview-card__index 20464111
         if image==true
           .card-labels
@@ -20,11 +20,11 @@ mixin card1(image, discount, grid)
       .project-preview-card__content
         .project-preview-card__content-top
           img(src="img/icons/rating_3.5.svg", alt="image").project-preview-card__rating
-          a(href="#").project-preview-card__title Модель дома кд25 180 м2 с террасой три спальни гардероб и санузел
+          a(href="portfolio-project.html").project-preview-card__title Модель дома кд25 180 м2 с террасой три спальни гардероб и санузел
         .project-preview-card__content-bottom
           .project-preview-card__buttons  
             a(href="#").button.button_style-1 Узнать цену
-            a(href="#").button.button_style-1.button_icon
+            a(href="javascript:void(0);").button.button_style-1.button_icon
               svg.icon
                 use(xlink:href="img/icons/icons-sprite.svg#comparison")
           .card-price
@@ -38,7 +38,7 @@ mixin card1(image, discount, grid)
 
 mixin card2(title, image, grid)
   .category-card(class=grid)
-    a(href="#").category-card__container
+    a(href="service.html").category-card__container
       if image==false
         .image.image_contain
           img(data-src='img/icons/services.svg', alt="image").lazyload
@@ -51,7 +51,7 @@ mixin card2(title, image, grid)
 
 mixin card3(image, classes)     
   .model-block(class=classes)
-    a(href="#").model-block__container.image.image_cover
+    a(href="portfolio-project.html").model-block__container.image.image_cover
       img(src=image, alt="image").lazyload
       .model-block__content
         span.card-label.card-label_style-3.model-block__label Дом
@@ -64,13 +64,13 @@ mixin card4(image, classes, label, title)
   .product-card(class=classes)
     .product-card__container
       if image==true
-        a(href="#").product-card__image.image.image.image_contain
+        a(href="tovar.html").product-card__image.image.image.image_contain
           .card-labels
             span.card-label.card-label_style-1 New
           img(src="img/soppka.png", alt="image").lazyload
           span.product-card__status Премиум
       else 
-        a(href="#").product-card__image.image.image.image_contain.image_no-image
+        a(href="tovar.html").product-card__image.image.image.image_contain.image_no-image
           .card-labels
             span.card-label.card-label_style-3 Hit
             span.card-label.card-label_style-2 Sale
@@ -80,7 +80,7 @@ mixin card4(image, classes, label, title)
         .product-card__content-top
           .product-card__index 20464111
           img(src="img/icons/rating_3.5.svg", alt="image").product-card__rating
-          a(href="#").product-card__title=title
+          a(href="tovar.html").product-card__title=title
 
         .product-card__content-bottom
           .card-price.product-card__card-price
@@ -105,7 +105,7 @@ mixin card4(image, classes, label, title)
                   span.card-price__old 99 999,99
           .product-card__buttons  
             if label==1
-              a(href="#").button.button_style-1.product-card__get-price.product-card__bottom-item Узнать цену
+              a(href="").button.button_style-1.product-card__get-price.product-card__bottom-item Узнать цену
               if image==true
                 a(href="#").button.button_style-1.button_icon.product-card__bottom-item
                   svg.icon
@@ -124,15 +124,13 @@ mixin card4(image, classes, label, title)
               a(href="#").button.button_style-2.button_icon.product-card__bottom-item.product-card__add-to-cart
                 svg.icon
                   use(xlink:href="img/icons/icons-sprite.svg#cart")
-              if label==2
-              else
-                a(href="#").button.button_style-1.button_icon.product-card__bottom-item
-                  svg.icon
-                    use(xlink:href="img/icons/icons-sprite.svg#comparison")
+              a(href="#").button.button_style-1.button_icon.product-card__bottom-item
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#comparison")
 
 mixin card5(title, classes)
   .small-wiki-card(class=classes)
-    a(href="#").small-wiki-card__container
+    a(href="text.html").small-wiki-card__container
       span.small-wiki-card__label Статья
       .small-wiki-card__image.image.image_cover
         img(data-src="img/image 6.jpg", alt="image").lazyload
@@ -141,14 +139,14 @@ mixin card5(title, classes)
         .small-wiki-card__title=title
 mixin card6(title)
   .services-item-block.grid__block.col-lg-3.col-sm-6
-    a(href="#").services-item-block__container
+    a(href="service.html").services-item-block__container
       h3.services-item-block__title=title
         svg.icon
           use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
 
 mixin news-card(type, classes) 
   .news-preview-block(class=classes)
-    a(href="#").news-preview-block__container.image.image_cover
+    a(href="text.html").news-preview-block__container.image.image_cover
       if type==1
         img(src="img/Rectangle 197.jpg", alt="image").lazyload
       else
@@ -164,7 +162,7 @@ mixin news-card(type, classes)
 mixin news-card-large(type, classes)
   .news-large-block(class=classes)
     .news-large-block__container
-      a(href="#").image.image_cover.news-large-block__image
+      a(href="text.html").image.image_cover.news-large-block__image
         if type==1
           img(src="img/Rectangle 197.jpg", alt="image").lazyload
         else
@@ -176,28 +174,28 @@ mixin news-card-large(type, classes)
         else
           span.news-large-block__label.news-large-block__label_style-2 Новость
           h2.news-large-block__title С 1 сентября по 31 декабря совершая покупки товаров у вас есть шанс
-        a(href="#").button.button_xl.button_style-1.news-large-block__button Подробнее
+        a(href="text.html").button.button_xl.button_style-1.news-large-block__button Подробнее
 
 mixin wiki-large(title, classes)
   .large-wiki-card(class=classes)
     .large-wiki-card__container
-      a(href="#").large-wiki-card__link
+      a(href="text.html").large-wiki-card__link
       span.large-wiki-card__label Статья
-      a(href="#").large-wiki-card__image.image.image_cover
+      a(href="text.html").large-wiki-card__image.image.image_cover
         img(src="img/Rectangle 197.jpg", alt="image").lazyload
       .large-wiki-card__content
         span.large-wiki-card__date АПРЕЛЬ, 2019
         h3.large-wiki-card__title=title
-        a(href="#").button.button_xl.button_style-1.large-wiki-card__button Подробнее
+        a(href="text.html").button.button_xl.button_style-1.large-wiki-card__button Подробнее
 
 mixin progress-block(title, progress, image, classes)
   .project-progress-block(class=classes)
     .project-progress-block__container
       if image==true
-        a(href="#").image.image_cover.project-progress-block__image
+        a(href="portfolio-project.html").image.image_cover.project-progress-block__image
           img(src="img/image 28.jpg", alt="image").lazyload
       else
-        a(href="#").image.image_contain.project-progress-block__image
+        a(href="portfolio-project.html").image.image_contain.project-progress-block__image
           img(src="img/icons/project-placeholder.svg", alt="placeholder").lazyload
       .project-progress-block__content
         .project-progress-block__text
