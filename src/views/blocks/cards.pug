@@ -9,13 +9,13 @@ mixin card1(image, discount, grid)
             span.card-label.card-label_style-2 New
             span.card-label.card-label_style-3 Hit
           .image.image_cover
-            img(src="img/image 28.jpg", alt="image").lazyload
+            img(data-src="img/image 28.jpg", alt="image").lazyload
           span.project-preview-card__status Премиум
         else 
           .card-labels
             span.card-label.card-label_style-3 Hit
           .image.image_contain
-            img(src="img/icons/project-placeholder.svg", alt="placeholder").lazyload
+            img(data-src="img/icons/project-placeholder.svg", alt="placeholder").lazyload
           span.project-preview-card__status Эконом
       .project-preview-card__content
         .project-preview-card__content-top
@@ -52,7 +52,7 @@ mixin card2(title, image, grid)
 mixin card3(image, classes)     
   .model-block(class=classes)
     a(href="portfolio-project.html").model-block__container.image.image_cover
-      img(src=image, alt="image").lazyload
+      img(data-src=image, alt="image").lazyload
       .model-block__content
         span.card-label.card-label_style-3.model-block__label Дом
         h6.model-block__title Модель дома кд25 180 м2 с террасой три спальни гардероб и санузел
@@ -67,14 +67,14 @@ mixin card4(image, classes, label, title)
         a(href="tovar.html").product-card__image.image.image.image_contain
           .card-labels
             span.card-label.card-label_style-1 New
-          img(src="img/soppka.png", alt="image").lazyload
+          img(data-src="img/soppka.png", alt="image").lazyload
           span.product-card__status Премиум
       else 
         a(href="tovar.html").product-card__image.image.image.image_contain.image_no-image
           .card-labels
             span.card-label.card-label_style-3 Hit
             span.card-label.card-label_style-2 Sale
-          img(src="img/icons/product-placeholder.svg", alt="placeholder").lazyload
+          img(data-src="img/icons/product-placeholder.svg", alt="placeholder").lazyload
           span.product-card__status Эконом
       .product-card__content
         .product-card__content-top
@@ -148,9 +148,9 @@ mixin news-card(type, classes)
   .news-preview-block(class=classes)
     a(href="text.html").news-preview-block__container.image.image_cover
       if type==1
-        img(src="img/Rectangle 197.jpg", alt="image").lazyload
+        img(data-src="img/Rectangle 197.jpg", alt="image").lazyload
       else
-        img(src="img/no_img_news.jpg", alt="image").lazyload
+        img(data-src="img/no_img_news.jpg", alt="image").lazyload
       .news-preview-block__content
         if type==1
           span.news-preview-block__label.news-preview-block__label_style-1 Акция
@@ -164,9 +164,9 @@ mixin news-card-large(type, classes)
     .news-large-block__container
       a(href="text.html").image.image_cover.news-large-block__image
         if type==1
-          img(src="img/Rectangle 197.jpg", alt="image").lazyload
+          img(data-src="img/Rectangle 197.jpg", alt="image").lazyload
         else
-          img(src="img/no_img_news.jpg", alt="image").lazyload
+          img(data-src="img/no_img_news.jpg", alt="image").lazyload
       .news-large-block__content
         if type==1
           span.news-large-block__label.news-large-block__label_style-1 Акция
@@ -182,7 +182,7 @@ mixin wiki-large(title, classes)
       a(href="text.html").large-wiki-card__link
       span.large-wiki-card__label Статья
       a(href="text.html").large-wiki-card__image.image.image_cover
-        img(src="img/Rectangle 197.jpg", alt="image").lazyload
+        img(data-src="img/Rectangle 197.jpg", alt="image").lazyload
       .large-wiki-card__content
         span.large-wiki-card__date АПРЕЛЬ, 2019
         h3.large-wiki-card__title=title
@@ -193,10 +193,10 @@ mixin progress-block(title, progress, image, classes)
     .project-progress-block__container
       if image==true
         a(href="portfolio-project.html").image.image_cover.project-progress-block__image
-          img(src="img/image 28.jpg", alt="image").lazyload
+          img(data-src="img/image 28.jpg", alt="image").lazyload
       else
         a(href="portfolio-project.html").image.image_contain.project-progress-block__image
-          img(src="img/icons/project-placeholder.svg", alt="placeholder").lazyload
+          img(data-src="img/icons/project-placeholder.svg", alt="placeholder").lazyload
       .project-progress-block__content
         .project-progress-block__text
           h5.project-progress-block__title=title
