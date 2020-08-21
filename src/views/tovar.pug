@@ -1,0 +1,520 @@
+extends layout/layout
+block title
+  title Товар
+block breadcrumbs 
+  -var title = 'Товар'
+  include blocks/breadcrumbs
+block variables
+  -var content = 'main_muted'
+block scripts
+  script(src="js/libs/Chart.js")
+  script(src="js/libs/utils.js")
+  script.
+    var MONTHS = ['Январь','Февраль',	'Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+    var config = {
+    type: 'line',
+    data: {
+    labels: ['Январь','Февраль',	'Март','Апрель','Май','Июнь','Июль'],
+    datasets: [{
+    label: 'Цена',
+    backgroundColor: window.chartColors.blue,
+    borderColor: window.chartColors.blue,
+    data: [
+    randomScalingFactor(),
+    randomScalingFactor(),
+    randomScalingFactor(),
+    randomScalingFactor(),
+    randomScalingFactor(),
+    randomScalingFactor(),
+    randomScalingFactor()
+    ],
+    fill: false,
+    }, {
+    label: 'Цена по карте',
+    fill: false,
+    backgroundColor: window.chartColors.red,
+    borderColor: window.chartColors.red,
+    data: [
+    randomScalingFactor(),
+    randomScalingFactor(),
+    randomScalingFactor(),
+    randomScalingFactor(),
+    randomScalingFactor(),
+    randomScalingFactor(),
+    randomScalingFactor()
+    ],
+    }]
+    },
+    options: {
+    responsive: true,
+    tooltips: {
+    mode: 'index',
+    intersect: false,
+    },
+    hover: {
+    mode: 'nearest',
+    intersect: true
+    },
+    scales: {
+    x: {
+    display: true,
+    scaleLabel: {
+    display: true,
+    labelString: 'Month'
+    }
+    },
+    y: {
+    display: true,
+    scaleLabel: {
+    display: true,
+    labelString: 'Value'
+    }
+    }
+    }
+    }
+    };
+    window.onload = function() {
+    var ctx = document.getElementById('canvas').getContext('2d');
+    window.myLine = new Chart(ctx, config);
+    };
+
+
+
+
+block content
+  section.section.section_small-margin
+    .container
+      .product-section
+        .product-section__nav
+          a(href="#").product-section__nav-link.product-section__nav-prev
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#arrow-left")
+            span Предыдущий товар
+            span Пред.
+          a(href="#").product-section__nav-link.product-section__nav-next
+            svg.icon
+              use(xlink:href="img/icons/icons-sprite.svg#arrow-right")
+            span Следующий товар
+            span След.
+        .product-section__head
+          h1.product-section__title.section__title Фанера ФК 18х1525х1525 мм сорт 4/4
+          span.product-section__index 20464111
+        .product-section__content.display-container
+          .product-section__images
+            .product-section__slider
+              .card-labels
+                span.card-label.card-label_style-1 Sale
+                span.card-label.card-label_style-2 New
+                span.card-label.card-label_style-3 Hit
+              .product-section__product-category Эконом
+              //главный слайдер
+              .slider.item-slider
+                mixin slide(href)
+                  //slide
+                  a(href="img/Layer 348.png" data-fancybox='gallery').item-slider__slide.image.image_cover
+                    img(data-src=href alt="image").lazyload
+                +slide('img/image 22.jpg')
+                +slide('img/image 35.jpg')
+                +slide('img/image 22.jpg')
+                +slide('img/image 35.jpg')
+            //навигационный слайдер
+            .slider.nav-slider
+              mixin slide2(href)
+                //slide
+                .nav-slider__slide
+                  .image.image_cover
+                    img(data-src=href alt="image").lazyload
+              +slide2('img/image 22.jpg')
+              +slide2('img/image 35.jpg')
+              +slide2('img/image 22.jpg')
+              +slide2('img/image 35.jpg')
+          
+          
+          .product-section__center
+            .product-section__personal-pricing-text Персональная цена за шт.:
+            .product-section__price 1143 ₽
+            .product-section__sub-price Цена за лист: 1143 ₽  
+              span.product-section__old-price 1143 ₽
+            .product-section__order-block
+              .calc-count-block.calc-count-block_style-2
+                a(href="javascript:void(0);").button.button_style-1.calc-count-block__button.js-minus 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#minus")
+                .input.calc-count-block__input
+                  input(type="number" name='ddd' value='1').input__element
+                a(href="javascript:void(0);").button.button_style-1.calc-count-block__button.js-plus 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#plus")
+              a(href="#").button.button_xl.button_style-5.product-section__button.d-none
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#check")
+                span Оформить
+              a(href="#").button.button_xl.button_style-2.product-section__button
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#cart")
+                span Купить
+            .product-section__chart
+              .product-section__chart-dates
+                span июль
+                span авг.
+                span сен.
+              img(src="img/icons/chart.svg", alt="image").product-section__chart-icon
+              a(href="#chart" data-go-tab).button.button_style-1 
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#chart")
+                span Открыть график
+
+            .product-links.product-section__product-links
+              a(href="#").button.button_style-3.product-links__item.product-section__comparison
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#comparison")
+                span Сравнить
+              .product-links__item.product-links__share.toggle-section(data-out-hide data-class-only)
+                a(href="javascript:void(0);").button.button_style-3.toggle-section__head 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#share")
+                  span Поделиться
+                .small-popup.share-popup.toggle-section__content.product-links__share-popup
+                  .share-popup__text Чтобы поделиться ссылкой, нажмите на иконку вашей соцсети
+                  .socials
+                    ul.socials__list
+                      li.socials__item
+                        a(href="#").socials__link
+                          svg.icon
+                            use(xlink:href="img/icons/socials-sprite.svg#vk")
+                      li.socials__item
+                        a(href="#").socials__link
+                          svg.icon
+                            use(xlink:href="img/icons/socials-sprite.svg#twitter")
+                      li.socials__item
+                        a(href="#").socials__link
+                          svg.icon
+                            use(xlink:href="img/icons/socials-sprite.svg#telegram")
+                      li.socials__item
+                        a(href="#").socials__link
+                          svg.icon
+                            use(xlink:href="img/icons/socials-sprite.svg#facebook")
+                      li.socials__item
+                        a(href="#").socials__link
+                          svg.icon
+                            use(xlink:href="img/icons/socials-sprite.svg#whatsapp")
+                      li.socials__item
+                        a(href="#").socials__link
+                          svg.icon
+                            use(xlink:href="img/icons/socials-sprite.svg#skype")
+                      li.socials__item
+                        a(href="#").socials__link
+                          svg.icon
+                            use(xlink:href="img/icons/socials-sprite.svg#viber")
+
+            .review-line.product-section__review-line
+              img(src="img/icons/rating_3.5.svg", alt="image").review-line__rating
+              a(href="#reviews" data-go-tab).link.review-line__link Отзывы (6)
+
+          .product-info-block
+            .product-info-block__section
+              .product-info-block__title 
+                strong Наличие:
+              span.color-text-2 Много: 
+              | 1125 л
+            .product-info-block__section
+              .product-info-block__title
+                strong Оплата:
+              ul.product-info-block__list
+                li Картой / наличными при получении
+                li Онлайн на сайте
+                li Оплата в кредит
+                li Безналом по счёту
+              a(href="#").button.button_style-1.product-info-block__button
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#document")
+                span Получить счёт
+            .product-info-block__section
+              .product-info-block__title 
+                strong Доставка: 
+                | точно и в срок
+              a(href="#").button.button_style-1.product-info-block__button
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#box")
+                span Рассчитать
+
+  section.section.item-info
+    .container
+      .row
+        .col-xl-80pc.col-lg-9
+          .item-info__container.tabs
+            .item-info__tab-head
+              a(href="javascript:void(0);").item-info__tab-link.tabs__toggle Описание
+              a(href="javascript:void(0);").item-info__tab-link.tabs__toggle Характеристики
+              a(href="javascript:void(0);").item-info__tab-link.tabs__toggle Отзывы
+              a(href="javascript:void(0);").item-info__tab-link.tabs__toggle График цен
+              a(href="javascript:void(0);").item-info__tab-link.tabs__toggle Документы
+            .item-info__content.page-container
+              //tab
+              .item-info__block.tabs__block.toggle-section
+                a(href="javascript:void(0);").toggle-section__head.item-info__block-head 
+                  span Описание 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+                .item-info__block-content.page-container.toggle-section__content
+                  .item-info__block-container
+                    section.section
+                      h2 Описание
+                      p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
+                      p В зависимости от внешнего вида <a href="service.html">наружных слоев</a> на сорта: Е (элита), I, II, III, IV
+                      h3 Заголовок группы
+                      p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве. 
+                      p В зависимости от внешнего вида наружных слоев на сорта: 
+                      ul  
+                        li Сорт Е (элита)
+                        li Сорт I
+                        li Сорт II
+                        li Сорт III
+                        li Сорт IV
+                      p В зависимости от внешнего вида наружных слоев на сорта: 
+                      ol
+                        li Сорт Е (элита)
+                        li Сорт I, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
+                        li Сорт III
+                        li Сорт IV
+                      h3 Таблица №1. Технические характеристики
+                      .table
+                        table
+                          tr
+                            th Номер заказа
+                            th Получение
+                            th Сумма
+                            th Оплачено
+                          tr
+                            td 28.03.2019
+                            td Самовывоз
+                            td 3&nbsp;256,00&nbsp;₽
+                            td Да
+                          tr
+                            td 28.03.2019
+                            td Самовывоз
+                            td 50 136,00&nbsp;₽
+                            td Нет
+                          tr
+                            td 28.03.2019
+                            td Доставка
+                            td 36,00&nbsp;₽
+                            td Да
+                          tr
+                            td 28.03.2019
+                            td Самовывоз
+                            td 50&nbsp;136,00&nbsp;₽
+                            td Нет
+                          tr
+                            td 28.03.2019
+                            td Доставка
+                            td 36,00&nbsp;₽
+                            td Да
+              
+              //tab
+              .item-info__block.tabs__block.item-info__specifications.toggle-section.active
+                a(href="javascript:void(0);").toggle-section__head.item-info__block-head 
+                  span Характеристики 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+                .item-info__block-content.page-container.toggle-section__content
+                  .item-info__block-container
+                    .specifications
+                      h2.specifications__title Основные Характеристики
+                      table.specifications__table 
+                        tr
+                          td 
+                            span Поверхность
+                          td 
+                            span не шлифованная
+                        tr
+                          td 
+                            span Количество в пачке
+                          td 
+                            span 22 листа
+                        tr
+                          td 
+                            span Количество в 1 м³
+                          td 
+                            span 24
+                        tr
+                          td 
+                            span Габариты
+                          td 
+                            span 18х1525х1525 мм
+                        tr
+                          td 
+                            span Маркировка
+                          td 
+                            span Маркировка
+                    .specifications
+                      h2.specifications__title Заголовок группы
+                      table.specifications__table 
+                        tr
+                          td 
+                            span Поверхность
+                          td 
+                            span не шлифованная, пример длинной записи на несколько строчек
+                        tr
+                          td 
+                            span Количество в пачке
+                          td 
+                            span 22 листа
+                        tr
+                          td 
+                            span Количество в 1 м³ 
+                              a(href="javascript:void(0);" data-tippy-content='Чтобы поделиться ссылкой, нажмите на иконку вашей соцсети Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки.').tooltip-btn ?
+                          td 
+                            span 24
+                        tr
+                          td 
+                            span Габариты
+                          td 
+                            span 18х1525х1525 мм
+                        tr
+                          td 
+                            span Маркировка
+                          td 
+                            span Маркировка
+
+                    p Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.
+                    p В зависимости от внешнего вида наружных слоев на сорта: Е (элита), I, II, III, IV
+
+              //tab
+              #reviews.item-info__block.tabs__block.toggle-section
+                a(href="javascript:void(0);").toggle-section__head.item-info__block-head  
+                  span Отзывы 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+                .item-info__block-content.page-container.toggle-section__content
+                  .item-info__block-container
+                    include blocks/reviews
+              
+              //tab
+              #chart.item-info__block.tabs__block.toggle-section
+                a(href="javascript:void(0);").toggle-section__head.item-info__block-head  
+                  span График цен 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+                .item-info__block-content.page-container.toggle-section__content
+                  .item-info__block-container
+                    section.section.price-chart
+                      h2.section__title График цен
+                      .price-chart__head.row
+                        .col-lg-4.col-sm-6
+                          select.select.select_style-1#randomizeData
+                            option(value="1" selected) За пол года
+                            option(value="2") За год
+                            option(value="3") За месяц
+                      .price-chart__content
+                        <canvas id="canvas"></canvas>
+
+              //tab
+              .item-info__block.tabs__block.toggle-section
+                a(href="javascript:void(0);").item-info__block-head.toggle-section__head 
+                  span Техническая документация 
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#arrow-down-bold")
+                .item-info__block-content.page-container.toggle-section__content
+                  .item-info__block-container
+                    section.section
+                      .documents
+                        h2.documents__title Сертификаты
+                        table.documents__table
+                          tr.documents__item
+                            td.documents__item-title 
+                              a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                            td.documents__item-icon
+                              .documents__item-icon-item
+                                svg.icon
+                                  use(xlink:href="img/icons/icons-sprite.svg#doc")
+                                span doc
+                            td.documents__item-size 7.30 mb
+                            td.documents__item-button
+                              a(href="#" download).button.button_style-1.documents__button 
+                                svg.icon
+                                  use(xlink:href="img/icons/icons-sprite.svg#download")
+                                span Скачать
+                          tr.documents__item
+                              td.documents__item-title 
+                                a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                              td.documents__item-icon
+                                .documents__item-icon-item
+                                  svg.icon
+                                    use(xlink:href="img/icons/icons-sprite.svg#doc")
+                                  span txt
+                              td.documents__item-size 7.30 mb
+                              td.documents__item-button
+                                a(href="#" download).button.button_style-1.documents__button 
+                                  svg.icon
+                                    use(xlink:href="img/icons/icons-sprite.svg#download")
+                                  span Скачать
+                          tr.documents__item
+                              td.documents__item-title 
+                                a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                              td.documents__item-icon
+                                .documents__item-icon-item
+                                  svg.icon
+                                    use(xlink:href="img/icons/icons-sprite.svg#doc")
+                                  span pdf
+                              td.documents__item-size 7.30 mb
+                              td.documents__item-button
+                                a(href="#" download).button.button_style-1.documents__button 
+                                  svg.icon
+                                    use(xlink:href="img/icons/icons-sprite.svg#download")
+                                  span Скачать
+                          tr.documents__item
+                              td.documents__item-title 
+                                a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                              td.documents__item-icon
+                                .documents__item-icon-item
+                                  svg.icon
+                                    use(xlink:href="img/icons/icons-sprite.svg#doc")
+                                  span doc
+                              td.documents__item-size 7.30 mb
+                              td.documents__item-button
+                                a(href="#" download).button.button_style-1.documents__button 
+                                  svg.icon
+                                    use(xlink:href="img/icons/icons-sprite.svg#download")
+                                  span Скачать
+                      .documents
+                        h2.documents__title Инструкции
+                        table.documents__table
+                          tr.documents__item
+                            td.documents__item-title 
+                              a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года
+                            td.documents__item-size 7.30 mb
+                            td.documents__item-button
+                              a(href="#" download).button.button_style-1.documents__button 
+                                svg.icon
+                                  use(xlink:href="img/icons/icons-sprite.svg#download")
+                                span Скачать
+                          tr.documents__item
+                              td.documents__item-title 
+                                a(href="#").documents__item-link.link.link_without-border Сертификат и технические условия на Фанеру Хвойную Сорт 1 от 20 мая 2001 года        
+                              td.documents__item-size 7.30 mb
+                              td.documents__item-button
+                                a(href="#" download).button.button_style-1.documents__button 
+                                  svg.icon
+                                    use(xlink:href="img/icons/icons-sprite.svg#download")
+                                  span Скачать
+        .col-xl-20pc.col-lg-3.d-none.d-lg-block.item-info__advertising
+          include blocks/advertising
+          include blocks/advertising
+  
+  section.section.section_no-margin.section_padding.section_background-white
+    .container
+      h2.section__title С этим товаром обычно покупают
+      .slider.slider_grid.slider_arrows.row.product-slider
+        include blocks/cards
+        +card4(true, 'col', 4, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+        +card4(false, 'col', 2, 'Фанера ФК')
+        +card4(true, 'col', 3, 'Фанера ФК')
+        +card4(false, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+        +card4(true, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+        +card4(true, 'col', 3, 'Фанера ФК')
+        +card4(false, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+        +card4(true, 'col', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4')
+
+  -var formTitle = 'Станьте нашим партнером'
+  include blocks/form

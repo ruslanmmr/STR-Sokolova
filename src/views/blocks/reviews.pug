@@ -1,46 +1,45 @@
 section.section.reviews
   .reviews-head
-    //rating
-    .js-rating.reviews-head__rating 
-      h4.js-rating__title Пожалуйста, оцените:
-      ul.js-rating__list
-        mixin star(idx)
-          li.js-rating__item
-            a(href="javascript:void(0);" data-index=idx).js-rating__star
-              svg.icon
-                use(xlink:href="img/icons/icons-sprite.svg#star")
-        +star('1')
-        +star('2')
-        +star('3')
-        +star('4')
-        +star('5')
-      input(type='text', name='RATING' hidden)
-      ul.js-rating__description-list
-        span.js-rating__description-item Очень плохой товар
-        span.js-rating__description-item Плохой товар
-        span.js-rating__description-item Средний товар
-        span.js-rating__description-item Хороший товар
-        span.js-rating__description-item Отличный товар
 
-    form(action="#").reviews__form.js-validation.row
-      .col-12.reviews__form-group
-        .input.form__input
-          textarea(name='review' placeholder="Комментарий").input__element.input__element_textarea.required
-          span.input__label Ваш отзыв
-      .col-sm-6
-        .row
-          .reviews__form-group.col-sm-12
-            .input.form__input
-              input(type="text" name='name' placeholder="Имя*").input__element.required
-              span.input__label Имя
-          .reviews__form-group.col-xl-6
-            .input.input_code
-          .reviews__form-group.col-xl-6
-            .input.form__input
-              input(type="text" name='code' placeholder="Проверочный код*").input__element
-              span.input__label Проверочный код
-          .col-12
-            button(type='submit').button.button_style-2.reviews__form-submit Отправить
+    form(action="#").reviews__form.js-validation
+      //rating
+      .js-rating.reviews-head__rating 
+        h4.js-rating__title Пожалуйста, оцените:
+        ul.js-rating__list
+          mixin star(idx)
+            li.js-rating__item
+              a(href="javascript:void(0);" data-index=idx).js-rating__star
+                svg.icon
+                  use(xlink:href="img/icons/icons-sprite.svg#star")
+          +star('1')
+          +star('2')
+          +star('3')
+          +star('4')
+          +star('5')
+        input(type='text', name='RATING' hidden)
+        ul.js-rating__description-list
+          span.js-rating__description-item Очень плохой товар
+          span.js-rating__description-item Плохой товар
+          span.js-rating__description-item Средний товар
+          span.js-rating__description-item Хороший товар
+          span.js-rating__description-item Отличный товар
+      .input.form__input
+        textarea(name='review' placeholder="Комментарий").input__element.input__element_textarea.required
+        span.input__label Ваш отзыв
+      .row
+        .col-sm-6
+          .input.form__input
+            input(type="text" name='name' placeholder="Имя*").input__element.required
+            span.input__label Имя
+          .row
+            .col-xl-6
+              .input.input_code.form__input
+            .col-xl-6
+              .input.form__input
+                input(type="text" name='code' placeholder="Проверочный код*").input__element
+                span.input__label Проверочный код
+            .col-12
+              button(type='submit').button.button_style-2.reviews__form-submit Отправить
   .reviews__content 
     h2.reviews__title Отзывы на товар
     .reviews__items

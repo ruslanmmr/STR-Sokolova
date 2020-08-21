@@ -4,10 +4,12 @@ block title
 block breadcrumbs 
   -var title = 'Личный кабинет'
   include blocks/breadcrumbs
+block style
+  link(rel="stylesheet" href="styles/kabinet.min.css")
 block content
   section.section.kabinet
     .container
-      h1.kabinet__title 
+      h1.kabinet__title.section__title 
         | Личный кабинет
         a(href="index.html").button.button_style-1.kabinet__exit-button.d-inline-flex.d-sm-none
           svg.icon

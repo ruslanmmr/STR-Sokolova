@@ -52,18 +52,11 @@ block content
         .select-sorting.d-block.d-lg-none
           .select-sorting__container
             span.sorting-heading__title.select-sorting__title Сортировка:
-            .row
-              .col-sm-6.col
-                select.select.select_style-1
-                  option(value="1") Цена (по возрастанию)
-                  option(value="2") Цена (по убыванию)
-                  option(value="3" selected) Наличие
-                  option(value="4") Популярность
-              .col-sm-6.col-auto
-                a(href="#filter" data-fixed-toggle).button.button_style-2.select-sorting__button
-                  svg.icon
-                    use(xlink:href="img/icons/icons-sprite.svg#filter")
-                  span Фильтр
+            select.select.select_style-1
+              option(value="1") Цена (по возрастанию)
+              option(value="2") Цена (по убыванию)
+              option(value="3" selected) Наличие
+              option(value="4") Популярность
     .row.grid.catalogue-blocks
       include blocks/cards
       -var grid = 'grid__block col-xl-20pc col-lg-3 col-md-4 col-sm-6'

@@ -156,7 +156,7 @@
   margin-top: 10px;
   transform: translateY(10px);
   transition: opacity $trs1, visibility $trs1, transform $trs1;
-  width: 100vw;
+  width: calc(100vw - 10px);
   max-width: 380px;
   opacity: 0;
   visibility: hidden;

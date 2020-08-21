@@ -18,9 +18,10 @@ $(document).ready(function () {
   scrollTo();
   popup.init();
   slider.init();
+  tooltips.init();
   fixedBlocks();
   tabs();
-  scrollToReviews();
+  scrollToTab();
   header();
   diagram();
   rating();
@@ -446,6 +447,8 @@ function customScroll() {
 
 var slider = {
   el: $('.slider'),
+  arrowPrev: '<svg class="icon" viewBox="0 0 10.5 18.1"><path stroke="none" d="M9,0l1.4,1.4L2.8,9l7.6,7.6L9,18.1L0,9C0,9,9.1,0,9,0z"></path></svg>',
+  arrowNext: '<svg class="icon" viewBox="0 0 10.5 18.1"><path stroke="none" d="M1.4,18.1L0,16.7l7.6-7.6L0,1.5L1.4,0l9,9.1C10.4,9.1,1.3,18.1,1.4,18.1z"></path></svg>',
   init: function init() {
     slider.el.each(function () {
       var _this4 = this;
@@ -459,8 +462,8 @@ var slider = {
           dots = false,
           centerMode = false,
           autoplay = false,
-          nextArrow = '<button type="button" class="button button_style-1 slider__next"><svg class="icon" viewBox="0 0 12 20"><path d="M2.18 19.05L.77 17.64 8.4 10 .77 2.36 2.18.95 11.23 10l-9.05 9.05z"></path></svg></button>',
-          prevArrow = '<button type="button" class="button button_style-1 slider__prev"><svg class="icon" viewBox="0 0 12 20"><path d="M2.18 19.05L.77 17.64 8.4 10 .77 2.36 2.18.95 11.23 10l-9.05 9.05z"></path></svg></button>';
+          nextArrow = "<button type=\"button\" class=\"button button_style-1 slider__next\">".concat(slider.arrowNext, "</button>"),
+          prevArrow = "<button type=\"button\" class=\"button button_style-1 slider__prev\">".concat(slider.arrowPrev, "</button>");
 
       if ($(this).is('.slider_dots')) {
         dots = true;
@@ -506,8 +509,8 @@ var slider = {
         }
       } else if ($(this).is('.home-banner')) {
         autoplay = true;
-        nextArrow = '<button class="home-banner__arrow home-banner__next" aria-label="Next" type="button"><svg viewBox="0 0 15 26"><path d="M1.99869 0.292969L0.584473 1.70718L11.8774 13.0001L0.584472 24.293L1.99869 25.7072L14.7058 13.0001L1.99869 0.292969Z"/></svg></button>';
-        prevArrow = '<button class="home-banner__arrow home-banner__prev" aria-label="Previous" type="button"><svg viewBox="0 0 15 26"><path d="M13.286 0.292969L14.7002 1.70718L3.4073 13.0001L14.7002 24.293L13.286 25.7072L0.578877 13.0001L13.286 0.292969Z"/></svg></button>';
+        nextArrow = "<button class=\"home-banner__arrow home-banner__next\" aria-label=\"Next\" type=\"button\">".concat(slider.arrowNext, "</button>");
+        prevArrow = "<button class=\"home-banner__arrow home-banner__prev\" aria-label=\"Previous\" type=\"button\">".concat(slider.arrowPrev, "</button>");
         initSlider($(this));
       } else if ($(this).is('.photo-slider')) {
         initSlider($(this));
@@ -594,6 +597,37 @@ var slider = {
               slidesToScroll: slideCountXs
             }
           }]
+        });
+      }
+
+      if ($(this).is('.item-slider')) {
+        $(this).slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          rows: 0,
+          asNavFor: '.nav-slider',
+          responsive: [{
+            breakpoint: brakepoints.sm,
+            settings: {
+              dots: true
+            }
+          }]
+        });
+      }
+
+      if ($(this).is('.nav-slider')) {
+        $(this).slick({
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          asNavFor: '.item-slider',
+          dots: false,
+          rows: 0,
+          centerMode: true,
+          centerPadding: 0,
+          focusOnSelect: true,
+          prevArrow: "<button type=\"button\" class=\"nav-slider__arrow nav-slider__arrow-prev\">".concat(slider.arrowPrev, "</button>"),
+          nextArrow: "<button type=\"button\" class=\"nav-slider__arrow nav-slider__arrow-next\">".concat(slider.arrowNext, "</button>")
         });
       }
     });
@@ -731,6 +765,7 @@ function tabs() {
     var $triggers = $(this).find('.tabs__toggle'),
         $tabs = $(this).find('.tabs__block'),
         index = $(this).find('.tabs__block.active').length > 0 ? $tabs.index($(this).find('.tabs__block.active')) : 0;
+    console.log($(this).find('.tabs__block.active'));
     changeTab();
     $triggers.on('click', function () {
       index = $triggers.index($(this));
@@ -763,23 +798,26 @@ function scrollTo() {
 } //scroll to reviews
 
 
-function scrollToReviews() {
-  var $link = $('[data-reviews]'),
+function scrollToTab() {
+  var $link = $('[data-go-tab]'),
       speed = 500; //ms
 
   $link.on('click', function (event) {
     event.preventDefault();
-    $('.item-info__reviews-toggle:visible').not('.active').trigger('click');
-    var $target = $('.reviews__content'),
+    var $tab = $($(this).attr('href')),
+        index = $tab.index('.tabs__block'),
         y;
 
     if ($(window).width() < brakepoints.md) {
-      y = $target.offset().top - 50;
+      $('.item-info .toggle-section__head').eq(index).not('.active').trigger('click');
+      console.log($('.toggle-section__head').eq(index));
+      y = $tab.offset().top - 50;
     } else {
-      y = $target.offset().top;
+      $('.item-info .tabs__toggle').eq(index).not('.active').trigger('click');
+      y = $tab.offset().top - 40;
     }
 
-    if ($target.length) {
+    if ($tab.length) {
       $('html, body').animate({
         scrollTop: y
       }, speed);
@@ -1064,3 +1102,17 @@ function gridToggle() {
 
   check();
 }
+
+var tooltips = {
+  el: '[data-tippy-content]',
+  init: function init() {
+    tippy(tooltips.el, {
+      duration: 300,
+      trigger: 'click',
+      placement: 'auto',
+      zIndex: 99,
+      offset: [0, 15],
+      maxWidth: 380
+    });
+  }
+};

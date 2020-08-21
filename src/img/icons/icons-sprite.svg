@@ -224,4 +224,7 @@
       <path d="M0 7H4V11H0V7Z"/>
       <path d="M0 0H4V4H0V0Z"/>
     </symbol>
+    <symbol viewBox="0 0 21 14" stroke="none" xmlns="http://www.w3.org/2000/svg" id='chart'>
+      <path d="M21.0001 0H13.9301L16.7601 2.83L11.6301 7.96L8.42008 4.75L0.580078 12.58L2.00008 14L8.42008 7.58L11.6301 10.79L18.1701 4.24L21.0001 7.07V0Z"/>
+    </symbol>
   </svg>

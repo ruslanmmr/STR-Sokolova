@@ -6,10 +6,12 @@ block breadcrumbs
   include blocks/breadcrumbs
 block variables
   -var content = 'main_muted'
+block style
+  link(rel="stylesheet" href="styles/kabinet.min.css")
 block content
   section.section.kabinet
     .container
-      h1.kabinet__title 
+      h1.kabinet__title.section__title
         | Личный кабинет
         a(href="index.html").button.button_style-1.kabinet__exit-button
           svg.icon

@@ -1,10 +1,14 @@
+@import "./components/bootstrap-4.0.0/functions";
+@import "./components/bootstrap-4.0.0/variables";
+@import "./components/bootstrap-4.0.0/mixins/breakpoints";
+@import "./components/variables";
+
 .kabinet {
   &__exit-button {
     min-width: 110px;
   }
   &__title {
     display: inline-block;
-    margin: 0 0 35px 0;
     position: relative;
     padding-right: 165px;
     .button {

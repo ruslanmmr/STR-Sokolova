@@ -57,6 +57,20 @@
       border-color: var(--color-button2-hover-bg, #1C52AC);
     }
   }
+  &_style-5 {
+    border: 1px solid var(--color-button4, #3EC28F);
+    color: #fff;
+    background-color: var(--color-button4, #3EC28F);
+    .icon {
+      fill: #fff;
+      stroke: #fff;
+    }
+    &.touch,
+    &.hover {
+      background-color: var(--color-hover-button4, #2ea879);
+      border-color: var(--color-hover-button4, #2ea879);
+    }
+  }
   &_style-3 {
     padding: 0;
     min-width: 0px;
@@ -150,5 +164,25 @@
       width: 10px;
       height: 10px;
     }
+  }
+}
+
+.tooltip-btn {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 18px;
+  color: var(--color-accent-darker, #1C52AC);
+  border: 1px solid var(--color-border-1, #D9D9DE);
+  transition: border-color $trs1, color $trs1, background-color $trs1;
+  text-decoration: none;
+  margin-left: 4px;
+  &.touch,
+  &.hover {
+    border-color: var(--color-accent-darker, #1C52AC);
+    color: #fff;
+    background-color: var(--color-accent-darker, #1C52AC);
   }
 }

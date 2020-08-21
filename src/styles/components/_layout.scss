@@ -29,7 +29,8 @@
     padding: 40px 0;
   }
   &__title {
-    margin: 0 0 32px 0;
+    margin-top: 0;
+    margin-bottom: 28px;
     display: block;
     span {
       color: var(--color-accent, #2363D1);
@@ -55,9 +56,6 @@
     &_small-margin {
       margin-bottom: 40px;
     }
-    &__title {
-      margin: 0 0 25px 0;
-    }
     &_padding {
       padding: 72px 0;
     }
@@ -78,10 +76,22 @@
       margin-top: 32px;
     }
   }
+  @include media-breakpoint-down(xs) {
+    &__more-button {
+      width: 100%;
+    }
+    &__title {
+      margin-bottom: 24px;
+    }
+  }
 }
 
 h1.section__title {
-  margin: 0 0 32px 0;
+  margin-top: 0;
+  margin-bottom: 32px;
+  @include media-breakpoint-down(xs) {
+    margin-bottom: 28px;
+  }
 }
 
 .page-title {
@@ -166,18 +176,9 @@ h1.section__title {
   .wrapper {
     padding-top: 130px;
   }
-  .col-aside {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
 }
 
 @include media-breakpoint-down(xs) {
-  .section {
-    &__more-button {
-      width: 100%;
-    }
-  }
   .grid {
     margin-bottom: -24px;
     &__block {
