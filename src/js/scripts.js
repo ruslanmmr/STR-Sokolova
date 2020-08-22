@@ -22,6 +22,7 @@ $(document).ready(function(){
   stagesToggle();
   jsRange();
   gridToggle();
+  comparison();
   //обработать изображения после инициализации слайдеров
   setTimeout(()=>{
     lazy();
@@ -47,12 +48,10 @@ function touchHoverEvents() {
   document.addEventListener('mouseup', event);
   document.addEventListener('contextmenu', event)
 
-  let targets = 'a[class], button, label, input, textarea, tr, .js-touch-hover, .selectric-items li, .selectric .label, .button',
+  let targets = 'a[class], button, label, input, textarea, tr, .js-touch-hover, .selectric-items li, .selectric .label, .button, .comparison-property',
       touchEndDelay = 250, //ms    
       touch, 
       timeout;
-
-  //$target = event.target.closest(targets)==event.target?event.target:false;
 
   function event(event) {
     let $target = event.target!==document?event.target.closest(targets):false;
@@ -65,15 +64,18 @@ function touchHoverEvents() {
         }
         clearTimeout(timeout)
         $target.classList.add('touch');
+        $($target).trigger('customTouchstart');
       } else if(event.type=='touchend') {
         setTimeout(()=>{
           $target.classList.remove('touch');
+          $($target).trigger('customTouchend');
         }, touchEndDelay)
         timeout = setTimeout(()=>{
           touch = false;
         }, 1000)
       } else if(event.type=='contextmenu') {
         $target.classList.remove('touch');
+        $($target).trigger('customTouchend');
         timeout = setTimeout(()=>{
           touch = false;
         }, 1000)
@@ -81,9 +83,11 @@ function touchHoverEvents() {
 
       if(event.type=='mouseenter' && !touch && $target==event.target) {
         $target.classList.add('hover');
+        $($target).trigger('customMouseenter');
       } else if(event.type=='mouseleave' && !touch && $target==event.target) {
         $target.classList.remove('hover');
         $target.classList.remove('focus');
+        $($target).trigger('customMouseleave');
       }
       
       if(event.type=='mousedown') {
@@ -626,6 +630,53 @@ let slider = {
           nextArrow: `<button type="button" class="nav-slider__arrow nav-slider__arrow-next">${slider.arrowNext}</button>`
         });
       }
+
+
+      //comparison slider
+      if($(this).is('.comparison-slider')) {
+        let $slider = $('.comparison-slider'),
+            $slideCount = $('.comparison__counter span:last-child'),
+            $slideCurrent = $('.comparison__counter span:first-child');
+
+        let check = function(count) {
+          let $active = $slider.find('.slick-active');
+          $slideCount.text(count);
+          $slideCurrent.text(`${$active.first().index()+1}–${$active.last().index()+1} `);
+        }
+        $slider.on('init', function(event, slick){
+          check(slick.slideCount)
+        });
+        $slider.on('afterChange', function(event, slick, currentSlide, nextSlide){
+          check(slick.slideCount)
+        });
+
+        $slider.slick({
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          arrows: true,
+          dots: false,
+          infinite: false,
+          nextArrow: `<button type="button" class="button button_style-1 slider__next"><span>След.</span>${slider.arrowNext}</button>`,
+          prevArrow: `<button type="button" class="button button_style-1 slider__prev">${slider.arrowPrev}<span>Пред.</span></button>`,
+          rows: 0,
+          responsive: [
+            {
+              breakpoint: brakepoints.lg,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3
+              }
+            },
+            {
+              breakpoint: brakepoints.md,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+              }
+            }
+          ]
+        });
+      }
     
     });
 
@@ -762,7 +813,6 @@ function tabs() {
     let $triggers = $(this).find('.tabs__toggle'),
         $tabs = $(this).find('.tabs__block'),
         index = $(this).find('.tabs__block.active').length>0 ? $tabs.index($(this).find('.tabs__block.active')) : 0;
-    console.log($(this).find('.tabs__block.active'))
     changeTab();
 
     $triggers.on('click', function() {
@@ -809,7 +859,6 @@ function scrollToTab() {
 
     if($(window).width()<brakepoints.md) {
       $('.item-info .toggle-section__head').eq(index).not('.active').trigger('click');
-      console.log($('.toggle-section__head').eq(index))
       y = $tab.offset().top - 50;
     } else {
       $('.item-info .tabs__toggle').eq(index).not('.active').trigger('click');
@@ -1106,7 +1155,6 @@ function gridToggle() {
   $btn.on('click', function() {
     if($(this).hasClass('line-sorting__view-toggle_row')) {
       $container.addClass('catalogue-blocks_row');
-      console.log('+')
     } else {
       $container.removeClass('catalogue-blocks_row');
     }
@@ -1137,4 +1185,107 @@ let tooltips = {
       maxWidth: 380
     });
   }
+}
+
+function comparison() {
+  let $property = $('.comparison-property'),
+      $list = $('.comparison-properties'),
+      count = $list.eq(0).find('.comparison-property').length,
+      $toggle = $('.comparison-toggle__button');
+
+  function checkSize() {
+    let $card = $('.comparison-slide .product-card'), cardHeight = [], cardMaxHeight;
+        
+
+    for(let i=0; i<count; i++) {
+      let values = [],
+          elements = [],
+          max;
+
+      $list.each(function(list) {
+        let $properties = $(this).find('.comparison-property');
+        $properties.each(function(item) {
+          if(item==i) {
+            $(this).css('height', 'auto');
+            elements[list] = this;
+            values[list] = $(this).height();
+          }
+        })
+      })
+      max = Math.max.apply(null, values);
+      $(elements).height(max);
+    }
+
+    $card.each(function(index) {
+      $(this).css('height', 'auto');
+      cardHeight[index] = $(this).height();
+    })
+    cardMaxHeight = Math.max.apply(null, cardHeight);
+    $card.height(cardMaxHeight);
+
+  }
+
+  $property.on('customTouchstart customMouseenter', function(event) {
+    let index = $(this).index();
+    $list.each(function() {
+      let $properties = $(this).find('.comparison-property');
+      if(event.type=='customTouchstart') {
+        $properties.eq(index).addClass('touch');
+      } else {
+        $properties.eq(index).addClass('hover');
+      }
+    })
+  })
+  $property.on('customTouchend customMouseleave', function() {
+    let index = $(this).index();
+    $list.each(function() {
+      let $properties = $(this).find('.comparison-property');
+      $properties.eq(index).removeClass('touch').removeClass('hover');
+    })
+  })
+
+  if($property.length) {
+    checkSize();
+    $(window).on('resize', function(event) {
+      setTimeout(() => {
+        checkSize();
+      }, 500);
+    })
+  }
+
+  //найти отличающиееся поля
+  for(let i=0; i<count-1; i++) {
+    let values = [],
+        elements = [],
+        flag;
+    $('.comparison-slider .comparison-properties').each(function(list) {
+      let $properties = $(this).find('.comparison-property');
+      $properties.each(function(item) {
+        if(item==i) {
+          elements[list] = this;
+          values[list] = $(this).text();
+        }
+      })
+    })
+    values.forEach((el) => {
+      if(el!==values[0]) {
+        flag=false;
+      }
+    })
+    if(flag==false) {
+      $(elements).addClass('comparison-property_difference');
+      $('.comparison__aside').find('.comparison-property').eq(i).addClass('comparison-property_difference');
+    }
+  }
+
+  $toggle.on('click', function() {
+    $toggle.removeClass('active');
+    $(this).addClass('active');
+    if($(this).hasClass('comparison-toggle__button-all')) {
+      $property.show();
+    } else {
+      $property.hide();
+      $('.comparison-property_difference').show();
+    }
+  })
 }

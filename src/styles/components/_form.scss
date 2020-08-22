@@ -260,6 +260,7 @@
       cursor: pointer;
       font-size: inherit;
       font-size: 0.875rem;
+      line-height: 1.25rem;
       &:before {
         display: none;
       }
@@ -307,7 +308,7 @@
         top: 0;
         left: 0;
         li {
-          padding: 10px 15px;
+          padding: 9px 15px;
           &.selected {
             background-color: var(--color-accent, #2363D1);
             color: #fff;

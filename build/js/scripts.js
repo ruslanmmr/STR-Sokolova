@@ -28,7 +28,8 @@ $(document).ready(function () {
   calculator();
   stagesToggle();
   jsRange();
-  gridToggle(); //обработать изображения после инициализации слайдеров
+  gridToggle();
+  comparison(); //обработать изображения после инициализации слайдеров
 
   setTimeout(function () {
     lazy();
@@ -49,11 +50,11 @@ function touchHoverEvents() {
   document.addEventListener('mousedown', event);
   document.addEventListener('mouseup', event);
   document.addEventListener('contextmenu', event);
-  var targets = 'a[class], button, label, input, textarea, tr, .js-touch-hover, .selectric-items li, .selectric .label, .button',
+  var targets = 'a[class], button, label, input, textarea, tr, .js-touch-hover, .selectric-items li, .selectric .label, .button, .comparison-property',
       touchEndDelay = 250,
       //ms    
   touch,
-      timeout; //$target = event.target.closest(targets)==event.target?event.target:false;
+      timeout;
 
   function event(event) {
     var $target = event.target !== document ? event.target.closest(targets) : false;
@@ -78,15 +79,18 @@ function touchHoverEvents() {
 
         clearTimeout(timeout);
         $target.classList.add('touch');
+        $($target).trigger('customTouchstart');
       } else if (event.type == 'touchend') {
         setTimeout(function () {
           $target.classList.remove('touch');
+          $($target).trigger('customTouchend');
         }, touchEndDelay);
         timeout = setTimeout(function () {
           touch = false;
         }, 1000);
       } else if (event.type == 'contextmenu') {
         $target.classList.remove('touch');
+        $($target).trigger('customTouchend');
         timeout = setTimeout(function () {
           touch = false;
         }, 1000);
@@ -94,9 +98,11 @@ function touchHoverEvents() {
 
       if (event.type == 'mouseenter' && !touch && $target == event.target) {
         $target.classList.add('hover');
+        $($target).trigger('customMouseenter');
       } else if (event.type == 'mouseleave' && !touch && $target == event.target) {
         $target.classList.remove('hover');
         $target.classList.remove('focus');
+        $($target).trigger('customMouseleave');
       }
 
       if (event.type == 'mousedown') {
@@ -629,6 +635,49 @@ var slider = {
           prevArrow: "<button type=\"button\" class=\"nav-slider__arrow nav-slider__arrow-prev\">".concat(slider.arrowPrev, "</button>"),
           nextArrow: "<button type=\"button\" class=\"nav-slider__arrow nav-slider__arrow-next\">".concat(slider.arrowNext, "</button>")
         });
+      } //comparison slider
+
+
+      if ($(this).is('.comparison-slider')) {
+        var $slider = $('.comparison-slider'),
+            $slideCount = $('.comparison__counter span:last-child'),
+            $slideCurrent = $('.comparison__counter span:first-child');
+
+        var _check = function _check(count) {
+          var $active = $slider.find('.slick-active');
+          $slideCount.text(count);
+          $slideCurrent.text("".concat($active.first().index() + 1, "\u2013").concat($active.last().index() + 1, " "));
+        };
+
+        $slider.on('init', function (event, slick) {
+          _check(slick.slideCount);
+        });
+        $slider.on('afterChange', function (event, slick, currentSlide, nextSlide) {
+          _check(slick.slideCount);
+        });
+        $slider.slick({
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          arrows: true,
+          dots: false,
+          infinite: false,
+          nextArrow: "<button type=\"button\" class=\"button button_style-1 slider__next\"><span>\u0421\u043B\u0435\u0434.</span>".concat(slider.arrowNext, "</button>"),
+          prevArrow: "<button type=\"button\" class=\"button button_style-1 slider__prev\">".concat(slider.arrowPrev, "<span>\u041F\u0440\u0435\u0434.</span></button>"),
+          rows: 0,
+          responsive: [{
+            breakpoint: brakepoints.lg,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3
+            }
+          }, {
+            breakpoint: brakepoints.md,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          }]
+        });
       }
     });
   }
@@ -765,7 +814,6 @@ function tabs() {
     var $triggers = $(this).find('.tabs__toggle'),
         $tabs = $(this).find('.tabs__block'),
         index = $(this).find('.tabs__block.active').length > 0 ? $tabs.index($(this).find('.tabs__block.active')) : 0;
-    console.log($(this).find('.tabs__block.active'));
     changeTab();
     $triggers.on('click', function () {
       index = $triggers.index($(this));
@@ -810,7 +858,6 @@ function scrollToTab() {
 
     if ($(window).width() < brakepoints.md) {
       $('.item-info .toggle-section__head').eq(index).not('.active').trigger('click');
-      console.log($('.toggle-section__head').eq(index));
       y = $tab.offset().top - 50;
     } else {
       $('.item-info .tabs__toggle').eq(index).not('.active').trigger('click');
@@ -1082,7 +1129,6 @@ function gridToggle() {
   $btn.on('click', function () {
     if ($(this).hasClass('line-sorting__view-toggle_row')) {
       $container.addClass('catalogue-blocks_row');
-      console.log('+');
     } else {
       $container.removeClass('catalogue-blocks_row');
     }
@@ -1116,3 +1162,116 @@ var tooltips = {
     });
   }
 };
+
+function comparison() {
+  var $property = $('.comparison-property'),
+      $list = $('.comparison-properties'),
+      count = $list.eq(0).find('.comparison-property').length,
+      $toggle = $('.comparison-toggle__button');
+
+  function checkSize() {
+    var $card = $('.comparison-slide .product-card'),
+        cardHeight = [],
+        cardMaxHeight;
+
+    var _loop2 = function _loop2(i) {
+      var values = [],
+          elements = [],
+          max = void 0;
+      $list.each(function (list) {
+        var $properties = $(this).find('.comparison-property');
+        $properties.each(function (item) {
+          if (item == i) {
+            $(this).css('height', 'auto');
+            elements[list] = this;
+            values[list] = $(this).height();
+          }
+        });
+      });
+      max = Math.max.apply(null, values);
+      $(elements).height(max);
+    };
+
+    for (var i = 0; i < count; i++) {
+      _loop2(i);
+    }
+
+    $card.each(function (index) {
+      $(this).css('height', 'auto');
+      cardHeight[index] = $(this).height();
+    });
+    cardMaxHeight = Math.max.apply(null, cardHeight);
+    $card.height(cardMaxHeight);
+  }
+
+  $property.on('customTouchstart customMouseenter', function (event) {
+    var index = $(this).index();
+    $list.each(function () {
+      var $properties = $(this).find('.comparison-property');
+
+      if (event.type == 'customTouchstart') {
+        $properties.eq(index).addClass('touch');
+      } else {
+        $properties.eq(index).addClass('hover');
+      }
+    });
+  });
+  $property.on('customTouchend customMouseleave', function () {
+    var index = $(this).index();
+    $list.each(function () {
+      var $properties = $(this).find('.comparison-property');
+      $properties.eq(index).removeClass('touch').removeClass('hover');
+    });
+  });
+
+  if ($property.length) {
+    checkSize();
+    $(window).on('resize', function (event) {
+      setTimeout(function () {
+        checkSize();
+      }, 500);
+    });
+  } //найти отличающиееся поля
+
+
+  var _loop3 = function _loop3(i) {
+    var values = [],
+        elements = [],
+        flag = void 0;
+    $('.comparison-slider .comparison-properties').each(function (list) {
+      var $properties = $(this).find('.comparison-property');
+      $properties.each(function (item) {
+        if (item == i) {
+          elements[list] = this;
+          values[list] = $(this).text();
+        }
+      });
+    });
+    values.forEach(function (el) {
+      if (el !== values[0]) {
+        flag = false;
+      }
+    });
+
+    if (flag == false) {
+      $(elements).addClass('comparison-property_difference');
+      $('.comparison__aside').find('.comparison-property').eq(i).addClass('comparison-property_difference');
+    }
+  };
+
+  for (var i = 0; i < count - 1; i++) {
+    _loop3(i);
+  }
+
+  $toggle.on('click', function () {
+    $toggle.removeClass('active');
+    $(this).addClass('active');
+
+    if ($(this).hasClass('comparison-toggle__button-all')) {
+      $property.show();
+    } else {
+      $property.hide();
+      $('.comparison-property_difference').show();
+    }
+  });
+}

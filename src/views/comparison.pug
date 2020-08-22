@@ -9,11 +9,73 @@ block style
   link(rel="stylesheet" href="styles/comparison.min.css")
 
 block content
-  section.section.container
+  section.section.container.comparison
     h1.section__title Сравнение товаров
+    .row
+      .col-xl-20pc.col-lg-3.col-md-4.comparison__aside
+        .sorting-heading
+          .select-sorting
+            .select-sorting__container
+              span.sorting-heading__title.select-sorting__title Сортировка:
+              select.select.select_style-1
+                option(value="1") Цена (по возрастанию)
+                option(value="2") Цена (по убыванию)
+                option(value="3" selected) Наличие
+                option(value="4") Популярность
+          .comparison-toggle
+            span.sorting-heading__title.comparison-toggle__title Показать параметры:
+            a(href="javascript:void(0);").button.button_style-4.comparison-toggle__button.comparison-toggle__button-all.active Все
+              span
+            a(href="javascript:void(0);").button.button_style-4.comparison-toggle__button.comparison-toggle__button-difference Различающиеся
+              span
+        ul.comparison-properties
+          li.comparison-property.comparison-property_style-2 Бренд
+          li.comparison-property.comparison-property_style-2 Сорт
+          li.comparison-property.comparison-property_style-2 Текстовое поле
+          li.comparison-property.comparison-property_style-2 Класс 
+          li.comparison-property.comparison-property_style-2 Коэффициент
+          li.comparison-property.comparison-property_style-2 Материал
+      .col-xl-80pc.col-lg-9.col-md-8
+        .comparison__content
+          .slider.comparison-slider
+            include blocks/cards
+            mixin slide(image, classes, label, title, text)
+              .comparison-slide
+                +card4(image, classes, label, title)
+                .comparison-slide__delete
+                  a(href="#").button.button_style-1.comparison-slide__delete-button 
+                    svg.icon
+                      use(xlink:href="img/icons/icons-sprite.svg#close-light")
+                    span Удалить
+                ul.comparison-properties
+                  li.comparison-property 
+                    strong Бренд
+                    span Kronospan
+                  li.comparison-property 
+                    strong Сорт
+                    span II
+                  li.comparison-property
+                    strong Текстовое поле
+                    span=text
+                  li.comparison-property 
+                    strong Класс
+                    span —
+                  li.comparison-property 
+                    strong Коэффициент
+                    span 1,5
+                  li.comparison-property 
+                    strong Материал
+                    span Береза
 
-
-
+            +slide(false, '', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4', 'Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.')
+            +slide(true, '', 5, 'Фанера ФК 18х1525х1525 мм сорт 4/4', 'Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки.')
+            +slide(true, '', 5, 'Фанера', 'Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.')
+            +slide(false, '', 1, 'Фанера ФК 18х1525х1525 мм сорт 4/4', 'Предназначена для обшивки стен.')
+            +slide(true, '', 5, 'Фанера ФК 18х1525х1525 мм сорт 4/4', 'Предназначена для обшивки стен, потолков, перегородок, в качестве настила под напольные покрытия, для опалубки, для изготовления тары и упаковки, а также в мебельном производстве.')
+          .comparison__counter
+            span
+            | / 
+            span
 
   -var formTitle = 'Станьте нашим партнёром'
   include blocks/form

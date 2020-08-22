@@ -90,8 +90,10 @@ mixin card4(image, classes, label, title)
               span.card-price__label.card-price__label_style-2 Много
             else if label==3
               span.card-price__label.card-price__label_style-3 Мало
-            else if label==4
+            else
               span.card-price__label.card-price__label_style-4 Кол-во ограничено
+
+
             if label==1
               .card-price__content.card-price__no-price
             else
@@ -124,9 +126,10 @@ mixin card4(image, classes, label, title)
               a(href="#").button.button_style-2.button_icon.product-card__bottom-item.product-card__add-to-cart
                 svg.icon
                   use(xlink:href="img/icons/icons-sprite.svg#cart")
-              a(href="#").button.button_style-1.button_icon.product-card__bottom-item
-                svg.icon
-                  use(xlink:href="img/icons/icons-sprite.svg#comparison")
+              if label!==5
+                a(href="#").button.button_style-1.button_icon.product-card__bottom-item
+                  svg.icon
+                    use(xlink:href="img/icons/icons-sprite.svg#comparison")
 
 mixin card5(title, classes)
   .small-wiki-card(class=classes)

@@ -104,10 +104,19 @@
     display: flex;
     border-radius: 40px;
     z-index: 2;
+    transition: opacity $trs1, border-color $trs1, background-color $trs1, color $trs1;
     .icon {
       margin: auto;
       width: 14px;
       height: 14px;
+    }
+    &.slick-disabled {
+      pointer-events: none;
+      border-color: var(--color-border-2, #BDBDBD);
+      background-color: #fff;
+      .icon {
+        fill: var(--color-border-2, #BDBDBD);
+      }
     }
   }
   &_grid {
